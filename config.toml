@@ -1,3 +1,4 @@
 baseURL = 'https://www.drk.com.ar/'
 languageCode = 'en-us'
 title = 'drkbugs'
+theme = "ananke"
