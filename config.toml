@@ -1,13 +1,14 @@
 baseURL = 'https://www.drk.com.ar/'
-languageCode = 'en-us'
+languageCode = 'es-ar'
 title = 'drkbugs'
+defaultContentLanguage = "es"
 
 # for smart copyright line, leave this blank and check [params.copyright]
 copyright = "drkbugs"
 
 theme = "minimo"
 
-disqusShortname = ""
+disqusShortname = "drk"
 googleAnalytics = ""
 
 Paginate = 5
@@ -19,9 +20,6 @@ enableRobotsTXT = true # generate robots.txt
 pygmentsCodefences = true
 
 enableEmoji = true
-
-# Missing translations will default to this content language
-defaultContentLanguage = "en"
 
 [params.info]
 description = "Software engineering"
@@ -58,7 +56,7 @@ enable = true
 [params.widgets]
 header = ["breadcrumbs"]
 homepage = ["recent_posts"]
-sidebar = ["about","search","sidebar_menu","taxonomy_cloud"]
+sidebar = ["search","sidebar_menu","taxonomy_cloud"]
 footer = ["social_menu"]
 
 [params.opengraph.facebook]
@@ -140,8 +138,46 @@ url = "https://github.com/drkbugs/minimo"
 hrefTargetBlank = true
 
 [languages]
-# edit this block for your own language
-[languages.en]
-lang = "en"
-languageName = "English"
-weight = 1
+  [languages.es]
+    languageName = "Español"
+    description = "Ingeniería de software"
+    weight = 1
+    [languages.es.menu]
+      [[languages.es.menu.main]]
+        name = "Principal"
+        url = "/"
+        weight = 1
+      [[languages.es.menu.main]]
+        name = "Artículos"
+        url = "/articles/"
+        weight = 2
+      [[languages.es.menu.main]]
+        name = "Proyectos"
+        url = "/projects/"
+        weight = 3
+      [[languages.es.menu.main]]
+        name = "Acerca de drkbugs"
+        url = "/about/"
+        weight = 4
+
+  [languages.en]
+    languageName = "English"
+    description = "Software engineering"
+    weight = 2
+    [languages.en.menu]
+      [[languages.en.menu.main]]
+        name = "Home"
+        url = "/en/"
+        weight = 1
+      [[languages.en.menu.main]]
+        name = "Articles"
+        url = "/en/articles/"
+        weight = 2
+      [[languages.en.menu.main]]
+        name = "Projects"
+        url = "/en/projects/"
+        weight = 3
+      [[languages.en.menu.main]]
+        name = "About"
+        url = "/en/about/"
+        weight = 4
