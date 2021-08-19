@@ -1,6 +1,7 @@
 ---
 title: TCP/IP Builder
 description: Windows Socket testing tool
+date: 2009-01-21
 slug: "tcp-ip-builder"
 weight: -210
 ---
@@ -41,6 +42,6 @@ Download and execute Builder_setup.exe
 
 ## Other stuff
 
-TCP/IP High-Level Protocol Debugging - Part 2 - TCP/IP Builder Related document - Jun 21, 2002
+[TCP/IP High-Level Protocol Debugging - Part 1](/en/legacy/tcp-ip-high-level-protocol-debugging-1) - TCP/IP Builder Related document.
 
-TCP/IP High-Level Protocol Debugging - Part 1 - TCP/IP Builder Related document - Jun 10, 2002
+[TCP/IP High-Level Protocol Debugging - Part 2](/en/legacy/tcp-ip-high-level-protocol-debugging-2) - TCP/IP Builder Related document.
