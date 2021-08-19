@@ -1,0 +1,13 @@
+{{ if .IsTranslated }}
+<section class='widget sep-after'>
+  <div>
+    <ul class='menu'>
+      {{ range .Translations }}
+      <li class="item">
+      <a href="{{ .Permalink }}">{{ .Lang }}: {{ .Title }}{{ if .IsPage }}{{ end }}</a>
+      </li>
+      {{ end }}
+    </ul>
+  </div>
+</section>
+{{ end }}
