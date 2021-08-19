@@ -1,4 +1,4 @@
-baseURL = 'https://drk.pages.dev//'
+baseURL = 'https://drk.pages.dev/'
 languageCode = 'es-ar'
 title = 'drkbugs'
 defaultContentLanguage = "es"

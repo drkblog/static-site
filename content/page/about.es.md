@@ -1,7 +1,7 @@
 ---
 title: Acerca de drkbugs
 description: Un poco de historia
-aliases: [about]
+slug: "about"
 weight: -210
 ---
 
