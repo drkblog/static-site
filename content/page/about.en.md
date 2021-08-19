@@ -5,7 +5,6 @@ aliases: [about]
 weight: -210
 ---
 
-
 DRK web site started in 2002, being at that time the home of a small group of applications (mostly Windows utilities).
 There was a Linux process controller for stopping programs out of control.
 A small windows application for cleaning up web browsers cache in the times such feature did not exist or wasn't accessible enough.

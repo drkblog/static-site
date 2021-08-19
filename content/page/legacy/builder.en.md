@@ -1,7 +1,6 @@
 ---
 title: TCP/IP Builder
 description: Windows Socket testing tool
-aliases: [/builder.php]
 weight: -210
 ---
 
