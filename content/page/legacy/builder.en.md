@@ -1,6 +1,7 @@
 ---
 title: TCP/IP Builder
 description: Windows Socket testing tool
+slug: "tcp-ip-builder"
 weight: -210
 ---
 
