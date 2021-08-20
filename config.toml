@@ -8,7 +8,7 @@ copyright = "drkbugs"
 theme = "minimo"
 
 disqusShortname = "drk"
-googleAnalytics = ""
+googleAnalytics = "UA-29993798-1"
 
 Paginate = 5
 preserveTaxonomyNames = true
@@ -74,7 +74,7 @@ titleSeparator = "•"
 codepen = "drkbugs"
 email = "webmaster@drk.com.ar"
 #facebook = "drkbugs"
-github = "drkbugs"
+github = "drkblog"
 #gitlab = "drkbugs"
 #instagram = "drkbugs"
 #linkedin = "muniftanjim"
@@ -93,7 +93,7 @@ scriptSrc = "" # "https://isso.example.com/js/embed.min.js"
 dataAttrs = "" # "data-isso='https://isso.example.com' data-isso-require-author='true'"
 
 [params.comments.staticman]
-enable = true
+enable = false
 apiEndpoint = "https://api.staticman.net/v2/entry"
 maxDepth = 2
 username = "drkbugs"
