@@ -1,5 +1,6 @@
 ---
 title: Escribir menos código y más legible
+description: Cómo escribir menos código y más legible en Java con Lombok
 author: Leandro Fernandez
 type: post
 date: 2020-09-13T03:34:09+00:00
@@ -13,23 +14,15 @@ tags:
   - lombok
 ---
 
-Claro que hay muchas cosas para hacer cuando hablamos de escribir código más legible en Java. Lo que vamos a ver a continuación es cómo utilizar la biblioteca Lombok para escribir menos código. Y como resultado tener un código fuente más legible.
+> Claro que hay muchas cosas para hacer cuando hablamos de escribir código más legible en Java. Lo que vamos a ver a continuación es cómo utilizar la biblioteca Lombok para escribir menos código. Y como resultado tener un código fuente más legible.
 
 ## Lombok
 
 Es una biblioteca extensa y no vamos a cubrir todas sus características en este artículo. Vamos a hacer un recorrido en el que, yo creo, es el orden de utilidad. Empezando por aquellas que más frecuentemente usaremos en un proyecto típicamente. Y ya que hablamos de opiniones personales. Vale remarcar que las bibliotecas que generan código, como lo hace **Lombok**, suelen ser criticadas justamente por utilizar ese mecanismo de funcionamiento. En lo personal no soy amante del código generado. Pero como **Lombok** no genera el código en su formato de texto sino que agrega _Java bytecode_ mientras se construyen los binarios, no tenemos el típico problema: decidir si el código generado tiene que ser agregado al control de versiones o no. Y la mayoría de los casos para los que **Lombok** ofrece una solución son los que requieren **código repetitivo** (_boilerplate code_). Código que no se ve afectado por cambios de las reglas del negocio y que escribirlo no tiene ningún valor para el desarrollador. Y que, de ser necesario, igual podremos escribir para los casos que sí lo requieran sin dejar de aprovechar **Lombok** para el resto. Y el sistema de uso además es poco invasivo ya que para utilizarla sólo es necesario agregar una **_annotation_**.
 
-
-
-<div class="wp-block-media-text alignwide is-stacked-on-mobile">
   <figure class="wp-block-media-text__media"><img loading="lazy" width="800" height="400" src="http://blog.drk.com.ar/wp-content/uploads/2020/09/lombok.png" alt="lombok" class="wp-image-2662" srcset="https://blog.drk.com.ar/wp-content/uploads/2020/09/lombok.png 800w, https://blog.drk.com.ar/wp-content/uploads/2020/09/lombok-300x150.png 300w, https://blog.drk.com.ar/wp-content/uploads/2020/09/lombok-768x384.png 768w" sizes="(max-width: 800px) 100vw, 800px" /></figure>
   
-  <div class="wp-block-media-text__content">
-    <p class="has-normal-font-size">
-      Al utilizar <strong>Lombok </strong>el desarrollador puede dedicarse a escribir el código que construirá las reglas de negocio sin perder tiempo en formalismos.
-    </p>
-  </div>
-</div>
+> Al utilizar **Lombok** el desarrollador puede dedicarse a escribir el código que construirá las reglas de negocio sin perder tiempo en formalismos.
 
 <!--more-->
 
@@ -89,7 +82,7 @@ class Customer {
 }
 {{< / highlight >}}
 
-Una clase con cinco atributos termina ocupando 47 líneas al escribir las versiones más simples de sus getters y setters. Pero podemos usar estas dos anotaciones (`@Getter` y **`@Setter`**) sobre la clase y ahorrarnos todo eso.
+Una clase con cinco atributos termina ocupando 47 líneas al escribir las versiones más simples de sus getters y setters. Pero podemos usar estas dos anotaciones (`@Getter` y `@Setter`) sobre la clase y ahorrarnos todo eso.
 
 {{< highlight java >}}
 @Getter
@@ -303,7 +296,9 @@ public static void main(String[] args) {
 
 En adelante sólo presentaré la versión del código sin **Lombok** sólo en los casos donde agregue valor. En el fuente anterior podemos ver la clase que ya habíamos utilizando en la sección Constructores, pero ahora con la anotación `@ToString` y un ejemplo de uso de la clase. Que muestra en pantalla lo siguiente: 
 
-<pre class="wp-block-preformatted">Customer(fullName=Leandro Fernandez, username=leandro, mail=fakeAddress@drk.com.ar, birthDate=1976-07-23T00:00Z, active=true, password=null, lastLogin=null)</pre>
+```
+Customer(fullName=Leandro Fernandez, username=leandro, mail=fakeAddress@drk.com.ar, birthDate=1976-07-23T00:00Z, active=true, password=null, lastLogin=null)
+```
 
 La cadena que arma en forma automática tiene el nombre de la clase seguido por la lista de atributos con nombre y valor. En caso de que esto resulte muy extenso podemos evitar el nombre de los atributos y también excluir algunos de la cadena. Por ejemplo.
 
@@ -326,7 +321,9 @@ class Customer {
 
 Que ahora genera esta cadena.
 
-<pre class="wp-block-preformatted">Customer(Leandro Fernandez, leandro, fakeAddress@drk.com.ar, 1976-07-23T00:00Z, true)</pre>
+```
+Customer(Leandro Fernandez, leandro, fakeAddress@drk.com.ar, 1976-07-23T00:00Z, true)
+```
 
 Al igual que en las anotaciones que expliqué anteriormente vale aclarar que no estoy detallando el total de parámetros de cada una. Recomiendo consultar la documentación de **Lombok** al utilizar una anotación para conocer todo lo que implica su uso y cómo configurarla para que se adapte a las necesidades del caso. También quiero resaltar un detalle. Si se comparan los últimos ejemplos se nota que cambié el orden de las anotaciones de la clase `Customer` para poner siempre la más corta en primer lugar y luego las que le siguen en largo. Esto es intencional, creo que resulta más legible de esa forma. Pero definitivamente no es necesario.
 
@@ -365,9 +362,11 @@ public static void main(String[] args) {
 
 La lógica de funcionamiento es igual que la anterior. Lombok usará todos los atributos excepto aquellos que excluí explícitamente. Por lo que la salida será:
 
-<pre class="wp-block-preformatted">customer_v1.equals(customer_v2) = true
+```
+customer_v1.equals(customer_v2) = true
 customer_v1.hashCode() = 1427935039
-customer_v2.hashCode() = 1427935039</pre>
+customer_v2.hashCode() = 1427935039
+```
 
 Ambos objetos de tipo `Customer` tienen los mismos valores para sus atributos excepto `active` que es **verdadero** en un caso y **falso** en el otro. Sin embargo la comparación usando el método `equals()` retorna que son iguales porque el código generado está comparando `fullName`, `username`, `mail` y `birthDate`. Lo mismo pasará con `hashCode()` para respetar el contrato.
 

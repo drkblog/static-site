@@ -8,10 +8,11 @@ categories:
 tags:
   - estándar
   - linux
-  - móviles
-
 ---
-<a href="http://www.ubuntu.com/" rel="nofollow"><img loading="lazy" class="alignleft size-full wp-image-332" title="Ubuntu" src="http://blog.drk.com.ar/wp-content/uploads/2011/10/ubuntu.png" alt="" width="250" height="195" /></a>El fundador de Canonical, la empresa que soporta la distribución de Linux Ubuntu, anunciará en el encuentro de **Desarrolladores Ubuntu** en Orlando, Florida, que migrarán la distribución para Smartphones y Tablets PC. El sistema operativo de código libre más famoso del mundo estará disponible para estos dispositivos en un futuro cercano.
+
+![ubuntu](/2011/10/ubuntu.png)
+
+El fundador de Canonical, la empresa que soporta la distribución de Linux Ubuntu, anunciará en el encuentro de **Desarrolladores Ubuntu** en Orlando, Florida, que migrarán la distribución para Smartphones y Tablets PC. El sistema operativo de código libre más famoso del mundo estará disponible para estos dispositivos en un futuro cercano.
 
 <!--more-->
 
@@ -25,6 +26,6 @@ Linux es un sistema operativo creado completamente con código libre (es decir q
 
 ## Fuente
 
-[Noticia completa en inglés][1]
+[Enlace original, ya no está disponible][1]
 
  [1]: http://m.zdnet.com/blog/open-source/ubuntu-linux-heads-to-smartphones-tablets-and-smart-tvs/9834

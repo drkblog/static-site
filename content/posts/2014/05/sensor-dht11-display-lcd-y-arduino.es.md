@@ -110,7 +110,7 @@ delay(1000);
 
 La biblioteca de lectura del sensor DHT11 funciona declarando un objeto global del tipo **dht** (en el ejemplo la variable se llama DHT). El método **read11()** recibe como argumento el número de pin (terminal) de Arduino donde se encuentra conectado el sensor (en nuestro caso el 22). Devuelve el resultado de la operación en forma de un entero. Si fue exitosa, las propiedades &#8220;**humidity**&#8221; y &#8220;**temperature**&#8221; contendrán los valores medidos de humedad y temperatura respectivamente.
 
-La biblioteca de LCD se utiliza declarando un objeto del tipo **LiquidCrystal** pasando en el constructor los pines donde se conectaron los terminales RW<span style="color: #4f4e4e;">, Enable, D4, D5, D6, y D7. El método <strong>begin()</strong> configura la cantidad de columnas y filas. Luego los métodos </span>**setCursor()** y **print()** permiten escribir texto en la pantalla.
+La biblioteca de LCD se utiliza declarando un objeto del tipo **LiquidCrystal** pasando en el constructor los pines donde se conectaron los terminales RW<span style="color: #4f4e4e;">, Enable, D4, D5, D6, y D7. El método**begin()**configura la cantidad de columnas y filas. Luego los métodos </span>**setCursor()** y **print()** permiten escribir texto en la pantalla.
 
 Este ejemplo realiza una lectura y luego una pausa de un segundo. Al estar implementado en la función **loop()** esto se repite constantemente. La información también se envía al puerto serie de Arduino.
 

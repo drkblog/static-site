@@ -19,22 +19,21 @@ tags:
 ---
 **UTF-8** es una codificación de texto muy versátil y difundida. En particular para casos donde se necesita soportar cualquier caracter **Unicode** pero no se quiere pagar un costo alto de almacenamiento. Ya que **Unicode** es enorme no hay manera de codificar todas las posibilidades en un sólo _byte_. Al mismo tiempo, utilizar dos o cuatro _bytes_ para cada caracter puede ser un desperdicio si la mayoría de los caracteres que usamos entrarán en uno o dos _bytes_. Ahí es donde UTF-8, que es una codificación con caracter de ancho variable, entra en juego. Ya que nos permite utilizar uno o dos bytes para los caracteres más comunes como **ASCII** y **Latin-1.** Pero al mismo tiempo utilizará más bytes si aparecen caracteres de codificaciones menos frecuentes.
 
-<div class="wp-block-media-text alignwide is-stacked-on-mobile">
   <figure class="wp-block-media-text__media"><img loading="lazy" width="310" height="162" src="https://blog.drk.com.ar/wp-content/uploads/2021/08/utf8-cpp.png" alt="" class="wp-image-2778 size-full" srcset="https://blog.drk.com.ar/wp-content/uploads/2021/08/utf8-cpp.png 310w, https://blog.drk.com.ar/wp-content/uploads/2021/08/utf8-cpp-300x157.png 300w" sizes="(max-width: 310px) 100vw, 310px" /></figure>
   
-  <div class="wp-block-media-text__content">
-    <p class="has-normal-font-size">
-      La dificultad extra que nos agrega es que no podemos saber de antemano cuántos caracteres hay en una cadena de texto codificada en <strong>UTF-8 </strong>sólo contando cuantos <em>bytes </em>ocupa. Tenemos que recorrerla y procesarla para poder contar los caracteres.
-    </p>
-  </div>
-</div>
+> La dificultad extra que nos agrega es que no podemos saber de antemano cuántos caracteres hay en una cadena de texto codificada en**UTF-8** sólo contando cuantos ***bytes*** ocupa. Tenemos que recorrerla y procesarla para poder contar los caracteres.
 
 <!--more-->
 
 Una forma simple de contar los caracteres es recorrer la cadena hasta encontrar un byte en cero (que señalará el final en el caso de C/C++) y contar los caracteres cuyos dos primeros bits no son 10. Y esto es porque en cada caracter posible en este representación sólo habrá un byte que no empiece con 10.
 
 La posibles configuraciones de bytes son:  
-`0xxxxxxx<br>110xxxxx 10xxxxxx<br>1110xxxx 10xxxxxx 10xxxxxx<br>11110xxx 10xxxxxx 10xxxxxx 10xxxxxx`
+```
+0xxxxxxx
+110xxxxx 10xxxxxx
+1110xxxx 10xxxxxx 10xxxxxx
+11110xxx 10xxxxxx 10xxxxxx 10xxxxxx
+```
 
 Aquí un pequeño programa en C++ que resuelve el problema y también realiza una prueba de performance entre la función `strlen()` de la biblioteca estándar de C y la función que presentamos para contar caracteres en **UTF-8**:
 

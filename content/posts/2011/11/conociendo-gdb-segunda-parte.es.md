@@ -11,9 +11,8 @@ tags:
   - gnu
 
 ---
-### [<img loading="lazy" class="alignleft size-full wp-image-217" title="GNU" src="http://blog.drk.com.ar/wp-content/uploads/2011/10/gnu.jpg" alt="" width="240" height="232" />][1]GNU Debugger
 
-**Objetivo**
+## Objetivo
 
 Continuar con la exploración de las diferentes posibilidades de GDB, tal como se adelantó en el [artículo inicial de esta serie][2].
 
@@ -198,11 +197,11 @@ Program exited normally.</pre>
 Hasta aquí hemos cubierto la gran mayoría de los comandos más utilizados en GDB para depurar aplicaciones de un sólo hilo de ejecución (_monothread_). En la tercera parte veremos cómo inspeccionar la cantidad de hilos existente y cómo pasar de un hilo a otro para inspeccionar sus respectivos _stacks_.
 
 <div style="text-align: center;">
-  <strong>Leandro Fernandez</strong>
+ **Leandro Fernandez**
 </div>
 
 <div style="text-align: center;">
-  <strong></strong><a href="http://creativecommons.org/licenses/by-sa/2.5/ar/" rel="license"><img src="http://creativecommons.org/images/public/somerights20.png" alt="Creative Commons License" /></a>
+  <a href="http://creativecommons.org/licenses/by-sa/2.5/ar/" rel="license"><img src="http://creativecommons.org/images/public/somerights20.png" alt="Creative Commons License" /></a>
 </div>
 
 <div style="text-align: center;">

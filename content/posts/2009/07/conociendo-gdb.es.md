@@ -370,11 +370,11 @@ Breakpoint 2 at 0x80483e5: file gdbt.c, line 10.</pre>
         El archivo con [los fuentes][1] para este artículo.
         
         <div style="text-align: center;">
-          <strong>Leandro H. Fernández</strong>
+         **Leandro Fernandez**
         </div>
         
         <div style="text-align: center;">
-          <strong></strong><a href="http://creativecommons.org/licenses/by-sa/2.5/ar/" rel="license"><img src="http://creativecommons.org/images/public/somerights20.png" alt="Creative Commons License" /></a>
+          <a href="http://creativecommons.org/licenses/by-sa/2.5/ar/" rel="license"><img src="http://creativecommons.org/images/public/somerights20.png" alt="Creative Commons License" /></a>
         </div>
         
         <div style="text-align: center;">

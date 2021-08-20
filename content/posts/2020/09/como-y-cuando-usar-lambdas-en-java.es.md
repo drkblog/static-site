@@ -28,7 +28,7 @@ tags:
   
   <div class="wp-block-media-text__content">
     <p class="has-normal-font-size">
-      Una expresión lambda (<em>lambda expression</em>) es una función anónima. Es decir que es un bloque de código que puede recibir parámetros y devolver un valor. Pero no tiene nombre, por lo que no puede declararse y luego llamarse desde alguna parte del código. Para utilizarlas, en cambio, tenemos que definir la expresión lambda e inmediatamente pasarla al código que la utilizará.
+      Una expresión lambda (***lambda expression***) es una función anónima. Es decir que es un bloque de código que puede recibir parámetros y devolver un valor. Pero no tiene nombre, por lo que no puede declararse y luego llamarse desde alguna parte del código. Para utilizarlas, en cambio, tenemos que definir la expresión lambda e inmediatamente pasarla al código que la utilizará.
     </p>
   </div>
 </div>

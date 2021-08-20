@@ -17,7 +17,7 @@ tags:
 <div class="wp-block-columns">
   <div class="wp-block-column" style="flex-basis:66.66%">
     <p>
-      Una buena noticia de C++11 es que se incorporó la biblioteca <strong>pthreads</strong> al nuevo estándar. Esto quiere decir que ya no es necesario implementar un encapsulamiento propio como hacíamos algunos años atrás. Este artículo (breve) ilustra el uso de la nueva clase <strong>threads</strong> y permite jugar un poco con el comportamiento del multitasking para comprender algunas particularidades que debemos tener en cuenta a la hora de crear aplicaciones concurrentes.
+      Una buena noticia de C++11 es que se incorporó la biblioteca**pthreads**al nuevo estándar. Esto quiere decir que ya no es necesario implementar un encapsulamiento propio como hacíamos algunos años atrás. Este artículo (breve) ilustra el uso de la nueva clase**threads**y permite jugar un poco con el comportamiento del multitasking para comprender algunas particularidades que debemos tener en cuenta a la hora de crear aplicaciones concurrentes.
     </p>
   </div>
   
