@@ -25,7 +25,7 @@ description = "Software engineering"
 title404 = "404 - Not found"
 
 [params.assets]
-favicon = "favorite.ico"
+favicon = "images/favorite.ico"
 customCSS = ["css/custom.css"]
 customJS = ["js/custom.js"]
 gopher = "" # used in 404 template ( Generator: https://gopherize.me )
