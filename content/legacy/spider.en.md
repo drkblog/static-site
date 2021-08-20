@@ -4,6 +4,7 @@ description: Website crawler stand-alone tool
 date: 2015-03-07
 slug: "website-crawler-stand-alone-tool"
 weight: -210
+type: page
 ---
 
 ## Description

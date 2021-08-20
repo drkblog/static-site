@@ -4,6 +4,7 @@ description: Windows Socket testing tool
 date: 2009-01-21
 slug: "tcp-ip-builder"
 weight: -210
+type: page
 ---
 
 ## Description
