@@ -1,9 +1,8 @@
 ---
 title: Punteros a función y structs con Arduino
-author: Leandro Fernández
+author: Leandro Fernandez
 type: post
 date: 2016-01-18T01:01:53+00:00
-url: /2016/punteros-a-funcion-y-structs-con-arduino
 categories:
   - Electrónica
 tags:

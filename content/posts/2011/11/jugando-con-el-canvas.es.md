@@ -1,9 +1,8 @@
 ---
 title: Jugando con el Canvas
-author: Leandro Fernández
+author: Leandro Fernandez
 type: post
 date: 2011-11-21T03:44:26+00:00
-url: /2011/jugando-con-el-canvas
 categories:
   - Programación
 tags:

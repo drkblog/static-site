@@ -1,9 +1,8 @@
 ---
 title: Amplificador operacional LM358
-author: Leandro Fernández
+author: Leandro Fernandez
 type: post
 date: 2012-09-19T00:12:22+00:00
-url: /2012/amplificador-operacional-lm358
 featured_image: http://blog.drk.com.ar/wp-content/uploads/2012/09/lm358.jpg
 categories:
   - Electrónica

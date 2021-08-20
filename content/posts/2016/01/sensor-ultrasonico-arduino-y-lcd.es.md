@@ -1,9 +1,8 @@
 ---
 title: Sensor ultrasónico, Arduino y LCD
-author: Leandro Fernández
+author: Leandro Fernandez
 type: post
 date: 2016-01-22T01:54:33+00:00
-url: /2016/sensor-ultrasonico-arduino-y-lcd
 featured_image: http://blog.drk.com.ar/wp-content/uploads/2016/01/sensor-ultrasonico-arduin-lcd-672x372.jpg
 categories:
   - Electrónica

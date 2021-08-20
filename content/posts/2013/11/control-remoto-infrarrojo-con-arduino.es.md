@@ -1,9 +1,8 @@
 ---
 title: Control remoto infrarrojo con Arduino
-author: Leandro Fernández
+author: Leandro Fernandez
 type: post
 date: 2013-11-24T21:53:51+00:00
-url: /2013/control-remoto-infrarrojo-con-arduino
 categories:
   - Electrónica
 tags:

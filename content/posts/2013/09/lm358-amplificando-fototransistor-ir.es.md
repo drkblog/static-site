@@ -1,9 +1,8 @@
 ---
 title: LM358 amplificando fototransistor IR
-author: Leandro Fernández
+author: Leandro Fernandez
 type: post
 date: 2013-09-15T00:48:14+00:00
-url: /2013/lm358-amplificando-fototransistor-ir
 categories:
   - Electrónica
 tags:

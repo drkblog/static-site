@@ -1,9 +1,8 @@
 ---
 title: Sensor DHT11, display LCD y Arduino
-author: Leandro Fernández
+author: Leandro Fernandez
 type: post
 date: 2014-05-23T12:17:41+00:00
-url: /2014/sensor-dht11-display-lcd-y-arduino
 categories:
   - Electrónica
 tags:

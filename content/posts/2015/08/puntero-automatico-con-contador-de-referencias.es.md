@@ -1,9 +1,8 @@
 ---
 title: Puntero automático con contador de referencias
-author: Leandro Fernández
+author: Leandro Fernandez
 type: post
 date: 2015-08-15T03:44:15+00:00
-url: /2015/puntero-automatico-con-contador-de-referencias
 categories:
   - Programación
 tags:

@@ -12,6 +12,7 @@ This code snippet shows how to get the local MAC (hardware) address in POSIX sys
 It should work in Windows too, using Cygwin or similar.
 
 {{< highlight cpp >}}
+
 #include <netdb.h>
 #include <unistd.h>
 #include <string.h>

@@ -1,9 +1,8 @@
 ---
 title: Operacional LM358 – Parte 2
-author: Leandro Fernández
+author: Leandro Fernandez
 type: post
 date: 2012-09-20T14:27:09+00:00
-url: /2012/operacional-lm358-parte-2
 categories:
   - Electrónica
 tags:

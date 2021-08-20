@@ -1,9 +1,8 @@
 ---
 title: Conociendo GDB segunda parte
-author: Leandro Fernández
+author: Leandro Fernandez
 type: post
 date: 2011-11-05T16:56:47+00:00
-url: /2011/conociendo-gdb-segunda-parte
 categories:
   - Programación
 tags:
@@ -199,7 +198,7 @@ Program exited normally.</pre>
 Hasta aquí hemos cubierto la gran mayoría de los comandos más utilizados en GDB para depurar aplicaciones de un sólo hilo de ejecución (_monothread_). En la tercera parte veremos cómo inspeccionar la cantidad de hilos existente y cómo pasar de un hilo a otro para inspeccionar sus respectivos _stacks_.
 
 <div style="text-align: center;">
-  <strong>Leandro Fernández</strong>
+  <strong>Leandro Fernandez</strong>
 </div>
 
 <div style="text-align: center;">

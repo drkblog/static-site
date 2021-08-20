@@ -1,9 +1,8 @@
 ---
 title: Control remoto infrarrojo + LCD + Arduino
-author: Leandro Fernández
+author: Leandro Fernandez
 type: post
 date: 2016-01-16T01:58:32+00:00
-url: /2016/control-remoto-infrarrojo-lcd-arduino
 categories:
   - Electrónica
 tags:

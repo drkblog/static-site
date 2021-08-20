@@ -1,9 +1,8 @@
 ---
 title: Linux Ubuntu para dispositivos móviles
-author: Leandro Fernández
+author: Leandro Fernandez
 type: post
 date: 2011-10-31T19:21:08+00:00
-url: /2011/linux-ubuntu-para-dispositivos-moviles
 categories:
   - Tecnología
 tags:

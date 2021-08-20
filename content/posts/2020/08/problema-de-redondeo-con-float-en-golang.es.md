@@ -1,9 +1,8 @@
 ---
 title: Problema de redondeo con float en Golang
-author: Leandro Fernández
+author: Leandro Fernandez
 type: post
 date: 2020-08-30T02:31:59+00:00
-url: /2020/problema-de-redondeo-con-float-en-golang
 categories:
   - Programación
 tags:
@@ -39,7 +38,8 @@ Para resolver el problema mencionado necesitaba comparar los valores absolutos d
 
 Más allá del uso que le dí <a href="https://blog.drk.com.ar/2020/como-optimizar-recorrido-de-arrays" data-type="post" data-id="2510">en el artículo</a> y en [el video][1], quería ver qué ocurría si utilizaba un reemplazo de la función de la biblioteca estándar. Así que escribí el siguiente programa para probar la performance de cada caso.
 
-<pre class="EnlighterJSRAW" data-enlighter-language="golang" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">package main
+{{< highlight golang >}}
+package main
 import (
 	"fmt"
 	"math"
@@ -68,7 +68,8 @@ func branchingAbs(value float64) float64 {
 		return value * -1
 	}
 	return value
-}</pre>
+}
+{{< / highlight >}}
 
 <div class="wp-block-group">
   <div class="wp-block-group__inner-container">
@@ -83,9 +84,11 @@ Total time branching: 2.8782882s</pre>
 
 Había leído en stackoverflow que usar la condición era más rápido que la función de la biblioteca. Pero sinceramente creí que había algo mal en la prueba que había hecho la persona que lo mencionó. Es decir, que esta prueba también la hice porque había visto eso, debo confesar. Pero volviendo a lo que nos ocupa es importante resaltar que la función con la condición es un 60% más rápida. Así que busqué cómo estaba <a href="https://github.com/golang/go/blob/master/src/math/abs.go#L12" data-type="URL" data-id="https://github.com/golang/go/blob/master/src/math/abs.go#L12">implementada la de la biblioteca</a>.
 
-<pre class="EnlighterJSRAW" data-enlighter-language="golang" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">func Abs(x float64) float64 {
+{{< highlight golang >}}
+func Abs(x float64) float64 {
 	return Float64frombits(Float64bits(x) &^ (1 &lt;&lt; 63))
-}</pre>
+}
+{{< / highlight >}}
 
 Lo que hace es transformar el `float64` en bits y poner en cero el más significativo (que es el usado para representar el signo, y un valor de 1 representa el negativo). Es lo más lógico y lo que esperaba ver. Aunque tenía dudas después del resultado de la medición. Pero esto me planteó otro interrogante. ¿Porqué es tanto más lento? 
 
@@ -98,15 +101,18 @@ Total time clone function: 3.5305924s</pre>
 
 El tiempo de la función con la condición y la copia de la biblioteca con todo el código inline terminaron siendo muy similares. Aunque todavía el branching es más rápido. Queda un interrogante abierto: qué hace Go con la multiplicación de un `float64` por menos uno. No pude encontrar eso en el código fuente. Asumo que no hace nada más que pasarle el cálculo al procesador. Y que este simplemente realiza el cálculo sin introducir errores porque no tiene que modificar los dígitos sino solamente el signo. Pero no estoy completamente seguro. Abajo el código de la función copiada como referencia.
 
-<pre class="EnlighterJSRAW" data-enlighter-language="golang" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">func absClone(x float64) float64 {
+{{< highlight golang >}}
+func absClone(x float64) float64 {
     const sign = 1 &lt;&lt; 63
     float64bits := ((*(*uint64)(unsafe.Pointer(&x))) &^ sign)
     return float64(float64bits)
-}</pre>
+}
+{{< / highlight >}}
 
 Mi recomendación para quien esté utilizando Go u otro lenguaje que no tiene una versión de la función de valor absoluto para tipos enteros se crear una función propia que utilice la lógica mostrada más arriba. Dejo dos alternativas para el caso de Go. Ambas funcionan y son casi idénticas en cuanto a performance aunque `absIntegerBitwise` es apenas un poco más rápida.
 
-<pre class="EnlighterJSRAW" data-enlighter-language="golang" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">func absIntegerBitwise(x int64) int64 {
+{{< highlight golang >}}
+func absIntegerBitwise(x int64) int64 {
 	if x &lt; 0 {
 		return ^x + 1
 	}
@@ -118,6 +124,7 @@ func absInteger(x int64) int64 {
 		return x * -1
 	}
 	return x
-}</pre>
+}
+{{< / highlight >}}
 
  [1]: https://www.youtube.com/watch?v=6mVvV6dnld4

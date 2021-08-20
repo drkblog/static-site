@@ -1,9 +1,8 @@
 ---
 title: Encontrar las direcciones MAC en una red
-author: Leandro Fernández
+author: Leandro Fernandez
 type: post
 date: 2014-06-01T00:59:09+00:00
-url: /2014/encontrar-las-direcciones-mac-en-una-red
 categories:
   - Programación
 tags:

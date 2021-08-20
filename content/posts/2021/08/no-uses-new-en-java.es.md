@@ -1,18 +1,16 @@
 ---
 title: ¡No uses new en Java!
-author: Leandro Fernández
+author: Leandro Fernandez
 type: post
 date: 2021-08-10T03:30:49+00:00
-url: /2021/no-uses-new-en-java
 categories:
   - Programación
 tags:
   - cache
   - static factory
   - static factory method
-
 ---
-<pre class="wp-block-verse">Siempre prefiere static factory methods al uso de constructores.</pre>
+_Siempre prefiere static factory methods al uso de constructores._
 
 Hay dos circunstancias distintas donde debemos seguir esta máxima: _cuando creamos una clase y definimos cómo se van a crear sus instancias, y cuando creamos instancias de otras clases que no hemos definido nosotros._
 
@@ -35,7 +33,8 @@ Es por eso que primero quiero enfocarme en ese caso. Debemos acostumbrarnos a bu
 
 ### String
 
-<pre class="EnlighterJSRAW" data-enlighter-language="java" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">String str1 = new String("Hola");
+{{< highlight java >}}
+String str1 = new String("Hola");
     String str2 = new String("Hola");
 
     System.out.println(str1 == str2);
@@ -43,12 +42,15 @@ Es por eso que primero quiero enfocarme en ese caso. Debemos acostumbrarnos a bu
     String str3 = String.valueOf("Hola");
     String str4 = String.valueOf("Hola");
 
-    System.out.println(str3 == str4);</pre>
+    System.out.println(str3 == str4);
+{{< / highlight >}}
 
 El bloque de código de arriba nos dar la siguiente salida:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="generic" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">false
-true</pre>
+{{< highlight generic >}}
+false
+true
+{{< / highlight >}}
 
 Nótese que estamos comparando las referencias y no estamos haciendo una comparación lógica con `equals()`. Esto se debe a que nos interesa saber si se trata de dos referencias a una misma instancia o dos instancias distintas. Y no queremos probar si el contenido de las cadenas es el mismo. Eso ya lo sabemos.
 
@@ -60,7 +62,8 @@ En aplicaciones que carguen muchos cadenas a memoria y donde la repetición de l
 
 De forma similar a lo que ocurre con String las clases numérica suelen tener algún cache para una cantidad limitada de valores:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="java" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">Integer val1 = new Integer(127);
+{{< highlight java >}}
+Integer val1 = new Integer(127);
     Integer val2 = new Integer(127);
 
     System.out.println(val1 == val2);
@@ -68,12 +71,15 @@ De forma similar a lo que ocurre con String las clases numérica suelen tener al
     Integer val3 = 127;
     Integer val4 = 127;
 
-    System.out.println(val3 == val4);</pre>
+    System.out.println(val3 == val4);
+{{< / highlight >}}
 
 El primer bloque nos dirá que se trata de instancias distintas tal como explicamos anteriormente, debido al uso de `new`. Sin embargo no ocurre lo mismo con las líneas seis y siete. Aunque aquí no estamos llamando al método estático. Y es que entra en juego otra característica de **Java** llamada _autoboxing_. Según la cual el lenguaje se toma el trabajo de llamar al método `valueOf()` de la clase ante la presencia de un literal. Por supuesto esto funciona con clases cuyos valores pueden escribirse como literales en **Java**. Es decir que a los fines prácticos estas líneas seis y siete son equivalentes a la del ejemplo de `String`. E incluso podríamos hacer lo mismo en ese caso.
 
-<pre class="EnlighterJSRAW" data-enlighter-language="java" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">Integer val3 = 128;
-    Integer val4 = 128;</pre>
+{{< highlight java >}}
+Integer val3 = 128;
+    Integer val4 = 128;
+{{< / highlight >}}
 
 La limitación en el caso de la clase `Integer` está en que el cache almacena 256 valores (desde -128 a +127) solamente. Por lo que según el ejemplo de arriba lo que obtendremos son dos instancias diferentes por el simple hecho de usar un valor por encima del 127.
 
@@ -95,9 +101,11 @@ Lo que dice es que este método tendrá en el _cache_ los valores más utilizado
 
 La clase `BigInteger` tiene un _cache_ para valores entre -16 y +16 pero su documentación no especifica el rango. Sólo dice que provee un _cache_. La clase `Double`, en la versión 1.8 al menos, es un caso interesante ya que la documentación dice que proveerá un cache y sin embargo este es el cuerpo del método:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="java" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">public static Double valueOf(double d) {
+{{< highlight java >}}
+public static Double valueOf(double d) {
         return new Double(d);
-    }</pre>
+    }
+{{< / highlight >}}
 
 Claramente no hay un cache y esto nos dará una nueva instancia de la clase. La lección aquí es que muchas veces no alcanza con ver la documentación, sino que es necesario ver el código fuente.
 
@@ -111,15 +119,19 @@ Si nuestra clase tiene una complejidad mediana o alta, o si cierto procesamiento
 
 Adicionalmente podemos usar este patrón para una jerarquía de clases donde queremos la libertad de poder modificar la instancia concreta que se fabricará en el futuro. Es decir, podemos declarar un método estático que tiene como tipo de retorno una interfaz. Y el cuerpo del método retorna un objeto de una clase que implementa esa interfaz. 
 
-<pre class="EnlighterJSRAW" data-enlighter-language="java" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">Impresora crearImpresora() {
+{{< highlight java >}}
+Impresora crearImpresora() {
   return new ImpresoraLaser();
-}</pre>
+}
+{{< / highlight >}}
 
 Luego será muy fácil modificar la clase concreta que se retorna sin que quienes llaman a este método sepan lo que está ocurriendo.
 
-<pre class="EnlighterJSRAW" data-enlighter-language="java" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">Impresora crearImpresora() {
+{{< highlight java >}}
+Impresora crearImpresora() {
   return new ImpresoraTermica();
-}</pre>
+}
+{{< / highlight >}}
 
 No importa en cuantos lugares estemos llamando al método. Sólo modificando una línea nuestro sistema empezará a utilizar una clase distinta.
 

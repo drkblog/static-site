@@ -1,9 +1,8 @@
 ---
 title: Arduino, control remoto infrarrojo y LCD
-author: Leandro Fernández
+author: Leandro Fernandez
 type: post
 date: 2014-06-05T14:23:01+00:00
-url: /2014/arduino-control-remoto-infrarrojo-y-lcd
 featured_image: http://blog.drk.com.ar/wp-content/uploads/2014/06/arduino.jpg
 categories:
   - Electrónica
@@ -13,8 +12,8 @@ tags:
   - display
   - electrónica digital
   - infrarrojo
-
 ---
+
 _El artículo sobre el uso de un VS1838 para recibir señales de un control remoto con Arduino que escribí el en noviembre de 2013 se hizo muy popular. Y recibí varias consultas sobre la posibilidad de adaptar el programa para hacer algo útil con la señal recibida. Así que preparé este ejemplo ilustrativo._
 
 <img loading="lazy" class="alignleft size-full wp-image-2027" src="http://blog.drk.com.ar/wp-content/uploads/2014/06/cr_lcd.jpg" alt="Arduino, control remoto y LCD" width="300" height="210" /> Aquí se combina el programa que [decodifica las teclas presionadas en el control remoto][1], con la biblioteca que permite escribir en una pantalla de cristal líquido (que también utilicé en el [artículo sobre el sensor DHT11][2]). De forma que se muestra en la pantalla el número correspondiente a la tecla presionada.
@@ -33,7 +32,8 @@ Si bien el título es falso desde un punto de vista riguroso y de bajo nivel, en
 
 Hay dos cambios importantes en el programa. Por un lado se agregó el uso de la biblioteca para manejar el LCD. Pero sólo se trata de la inclusión de los encabezados de la biblioteca (línea 17), algunas líneas de configuración (líneas 68 y 87). La modificación sustancial está en la rutina que busca en el arreglo key, el código de la señal recibida para identificar la tecla. Que en este caso envía el número a la pantalla en lugar de usar el valor para hacer titilar el LED. Así como ésta, podría haber realizado cualquier otra modificación arbitraria. Podría usar el número de índice para poner una salida en 1. Por ejemplo si hubiese escrito **digitalWrite(i, HIGH);** en lugar de las líneas 105 y 106.
 
-<pre class="EnlighterJSRAW" data-enlighter-language="cpp">/**
+{{< highlight cpp >}}
+/**
 The circuit:
 * LCD RS pin to digital pin 12
 * LCD Enable pin to digital pin 11
@@ -141,7 +141,8 @@ void loop()
     has_value = false;
     pos = 0;
   }
-}</pre>
+}
+{{< / highlight >}}
 
 Tal vez lo más importante de este artículo es ver que el código puede construirse en bloques autónomos, que luego son integrados en una sólo programa para cumplir una tarea diferente. Y de hecho esta es una práctica muy recomendable a la hora de trabajar. Porque poner en funcionamiento en forma aislada, distintas partes de lo que sabemos que será un todo, permite detectar fácilmente problemas individuales. Y luego, durante la integración, se pueden descartar muchas fallas. Esto no sería posible si un circuito y software complejo se arma de una sola ves y luego se intenta ponerlo en funcionamiento.
 

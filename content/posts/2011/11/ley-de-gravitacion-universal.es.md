@@ -1,9 +1,8 @@
 ---
 title: Ley de gravitación universal
-author: Leandro Fernández
+author: Leandro Fernandez
 type: post
 date: 2011-11-26T01:19:58+00:00
-url: /2011/ley-de-gravitacion-universal
 categories:
   - Programación
 tags:

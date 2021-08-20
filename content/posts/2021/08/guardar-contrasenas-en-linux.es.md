@@ -1,9 +1,8 @@
 ---
 title: Guardar contraseñas en Linux
-author: Leandro Fernández
+author: Leandro Fernandez
 type: post
 date: 2021-08-17T02:20:56+00:00
-url: /2021/guardar-contrasenas-en-linux
 categories:
   - Programación
 tags:
@@ -13,8 +12,8 @@ tags:
   - linux
   - shell
   - ubuntu
-
 ---
+
 _Unos días atrás expliqué [cómo evitar que tu contraseña quede expuesta en la terminal a través del historial del shell, en Mac][1]. Hoy vamos a ver cómo guardar contraseñas en form segura en Linux._
 
 En el artículo enlazado más arriba mencionamos que es común exponer contraseñas al pasarlas como argumento en la línea de comandos. Y el compromiso de seguridad que ello implica. También puede ocurrir que tengamos que manejarnos con una cantidad decente de contraseñas y recordarlas y escribirlas todo el tiempo sea un problema. En ambas situaciones un _**keyring**_ o una _**keychain**_ es muy útil. Vamos a ver de qué se trata y cómo aprovecharlos.
@@ -29,7 +28,9 @@ Se trata de almacenar las contraseñas en una aplicación que luego nos permitir
 
 Una vez almacenada una contraseña podremos evitar escribirla aprovechando el operador de reemplazo de comando (command substitution) del _shell_. Si ejecutamos una aplicación ficticia que requiere la contraseña como argumento podríamos escribir:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="shell" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">$ app -u miUsuario -p $(secret-tool lookup user miUsuario context app)</pre>
+{{< highlight shell >}}
+$ app -u miUsuario -p $(secret-tool lookup user miUsuario context app)
+{{< / highlight >}}
 
 La substitución del _shell_ hará que `secret-tool lookup user miUsuario context app` sea reemplazado por la contraseña que retornará la aplicación **secret-tool**. Y de esta forma evitamos escribirla y que quede expuesta en el historial. Pero veamos cómo funciona exactamente **secret-tool**.
 
@@ -39,16 +40,22 @@ La aplicación **secret-tool** se utiliza en conjunto con **gnome-keyring**. En 
 
 Al momento de escribir esto pude confirmar que el paquete **gnome-keyring** viene instalado por defecto en un Ubuntu desktop. Si este no es el caso o si el equipo donde te encontrás no lo tiene. Simplemente hay que instalarlo:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="shell" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">$ sudo apt-get install gnome-keyring</pre>
+{{< highlight shell >}}
+$ sudo apt-get install gnome-keyring
+{{< / highlight >}}
 
 Luego hay que instalar **secret-tool**, que no viene por defecto:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="shell" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">$ sudo apt install libsecret-tools</pre>
+{{< highlight shell >}}
+$ sudo apt install libsecret-tools
+{{< / highlight >}}
 
 Ahora ya podremos almacenar nuestra primera contraseña en el keyring. Para esto será necesario que usemos atributos (con sus valores pertinentes) para poder identificar la contraseña y luego recuperarla. Estos atributos y valores son arbitrarios pero recomiendo utilizar algo que tenga sentido para organizar las contraseñas. Personalmente creo que es indispensable escribir el nombre de usuario al que pertenece la clave y el contexto en el que se usa. Es decir, si se trata de una clave para **GitHub** podría usar &#8220;github&#8221; como contexto. También tenemos que pasar una etiqueta que será usada para mostrar la contraseña en la lista. Pero ésta no nos sirve para recuperar el _password_ desde la línea de comandos.
 
-<pre class="EnlighterJSRAW" data-enlighter-language="generic" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">$ secret-tool store --label="Prueba" user leandro context artifactory
-Password:</pre>
+{{< highlight shell >}}
+$ secret-tool store --label="Prueba" user leandro context artifactory
+Password:
+{{< / highlight >}}
 
 Llamando a la aplicación **secret-tool** y usando el comando **store** vamos a guardar una clave. Para el ejemplo puse un atributo **user** y su valor &#8220;leandro&#8221; y otro **context** y como valor &#8220;artifactory&#8221;. Insisto en que los nombres de los atributos son arbitrarios. Yo lo puse en inglés pero podrían ser en español. El valor de los atributos puede ser cualquier cosa pero tiene sentido que pongamos valores correspondientes a lo que el atributo que elegimos representa.
 
@@ -58,20 +65,25 @@ Inmediatamente nos pedirá que ingresemos la contraseña que queremos guardar. Y
 
 Con esto ya habremos guardado nuestra primera clave en el keyring. Ahora confirmaremos que fue guardada correctamente utilizando el comando que también nos servirá para utilizarla, por ejemplo, en un _command substitution_ de **_bash_**.
 
-<pre class="EnlighterJSRAW" data-enlighter-language="shell" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">$ secret-tool lookup user leandro context artifactory
-miClave</pre>
+{{< highlight shell >}}
+$ secret-tool lookup user leandro context artifactory
+miClave
+{{< / highlight >}}
 
 Ejecutamos secret-tool con el comando lookup para buscar una contraseña en base a los atributos con los que la guardamos. Por supuesto paso los mismos atributos que antes pero no paso etiqueta. Y obtengo en la salida del programa lo que ingresé como clave cuando la guardé. Con esto ya sé que está lista para ser usada.
 
 Un ejemplo de uso de esta clave sería al ejecutar **Maven** con una configuración que espera la contraseña del servidor de **Artifactory** en una propiedad de **Maven** llamada **server.password**.
 
-<pre class="EnlighterJSRAW" data-enlighter-language="shell" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">$ mvn deploy -Dserver.id=miArtifactory -Dserver.username=leandro -Dserver.password=$(secret-tool lookup user leandro context artifactory)</pre>
+{{< highlight shell >}}
+$ mvn deploy -Dserver.id=miArtifactory -Dserver.username=leandro -Dserver.password=$(secret-tool lookup user leandro context artifactory)
+{{< / highlight >}}
 
 ## Extras
 
 La aplicación **secret-tool** tiene otros dos comandos que pueden ser útiles. Uno es para buscar todas las claves que tengan asociado cierto atributo. Si agrego otra contraseña para el mismo contexto del ejemplo anterior podría luego ejecutar el comando **search** y tener una salida de este tipo:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="shell" data-enlighter-theme="" data-enlighter-highlight="4,8,9" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">$ secret-tool search --all context artifactory
+{{< highlight shell "linenos=table,hl_lines=4 8 9" >}}
+$ secret-tool search --all context artifactory
 [/org/freedesktop/secrets/collection/Default_5fkeyring/2]
 label = Prueba2
 secret = otra
@@ -87,11 +99,13 @@ created = 2021-08-17 02:06:21
 modified = 2021-08-17 02:06:21
 schema = org.freedesktop.Secret.Generic
 attribute.context = artifactory
-attribute.user = leandro</pre>
+attribute.user = leandro
+{{< / highlight >}}
 
 Si quier eliminar una de las contraseñas puedo utilizar el comando clear:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="shell" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">$ secret-tool clear user hernan context artifactory
+{{< highlight shell >}}
+$ secret-tool clear user hernan context artifactory
 $ secret-tool search --all context artifactory
 [/org/freedesktop/secrets/collection/Default_5fkeyring/1]
 label = Prueba
@@ -100,7 +114,8 @@ created = 2021-08-17 02:06:21
 modified = 2021-08-17 02:06:21
 schema = org.freedesktop.Secret.Generic
 attribute.context = artifactory
-attribute.user = leandro</pre>
+attribute.user = leandro
+{{< / highlight >}}
 
 En este caso eliminé la contraseña asociada con el usuario **hernan** para el contexto **artifactory**. Y al volver a listar todas las claves de ese contexto podemos ver que ya no existe una para el usuario hernan.
 

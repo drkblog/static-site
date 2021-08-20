@@ -1,9 +1,8 @@
 ---
 title: Interfaz lógica bidireccional entre 5V y 3.3V
-author: Leandro Fernández
+author: Leandro Fernandez
 type: post
 date: 2013-05-25T01:19:53+00:00
-url: /2013/interfaz-logica-bidireccional-entre-5v-y-3-3v
 categories:
   - Electrónica
 tags:

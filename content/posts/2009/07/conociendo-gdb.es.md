@@ -1,9 +1,8 @@
 ---
 title: Conociendo GDB
-author: Leandro Fernández
+author: Leandro Fernandez
 type: post
 date: 2009-07-23T23:00:56+00:00
-url: /2009/conociendo-gdb
 categories:
   - Programación
 tags:

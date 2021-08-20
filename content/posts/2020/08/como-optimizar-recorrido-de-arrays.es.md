@@ -1,9 +1,8 @@
 ---
 title: Cómo optimizar recorrido de arrays
-author: Leandro Fernández
+author: Leandro Fernandez
 type: post
 date: 2020-08-28T04:07:43+00:00
-url: /2020/como-optimizar-recorrido-de-arrays
 featured_image: http://blog.drk.com.ar/wp-content/uploads/2020/08/funnyStrings-672x372.png
 categories:
   - Programación
@@ -32,7 +31,8 @@ Si recibe la cadena &#8220;_lmnop_&#8221; su cadena invertida será &#8220;_ponm
 
 La solución más obvia consiste en hacer exactamente lo que plantea el enunciado. Recibir la cadena y crear una copia invertida. Luego recorrer la primera calculando la diferencia entre cada caracter y el que le sigue y guardando el valor absoluta de dicha resta en un nuevo array. Repitiendo la operación con la cadena invertida. Finalmente recorrer ambos arrays con los resultados de las diferencias absolutas comparando los valores entre sí. Y retornando el resultado en función de que haya aparecido un resultado distinto para alguna posición de los arrays de diferencias.
 
-<pre class="EnlighterJSRAW" data-enlighter-language="golang" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">func funnyString(s string) string {
+{{< highlight golang >}}
+func funnyString(s string) string {
 
 	// Convertimos a tipo rune (Sólo necesario por Golang)
 	original := []rune(s)
@@ -69,7 +69,8 @@ La solución más obvia consiste en hacer exactamente lo que plantea el enunciad
 		return "Not Funny"
 	}
 	return "Funny"
-}</pre>
+}
+{{< / highlight >}}
 
 El programa anterior está implementado en Go pero lo importante es el algoritmo que podría implementarse igual en Java o C/C++, por ejemplo. Con las mismas consecuencias en cuanto a la velocidad y el espacio de memoria. En este sentido analicemos la complejidad temporal y espacial brevemente. Convengamos que n es la cantidad de caracteres de la cadena recibida. Tengamos que cuenta que en Go los strings se convierten a un array de tipo rune para asegurar que los símbolos de Unicode que ocupan varios bytes son tratados como un elemento único. De todas formas también podemos asumir que sólo recibiremos cadenas de caracteres ASCII.
 
@@ -85,7 +86,8 @@ Veamos desde el final hacia el principio qué optimizaciones son posibles. Por e
 
 Ahora si miramos el código de las línea 18 a la 23 tenemos dos bucles calculando las diferencias y guardándolas en memoria para luego compararlas. Pero no hay necesidad de esta sobrecarga de tiempo y memoria. Dado que la variable de control de ambos bucles es idéntica podríamos usar uno solo. Adicionalmente podemos comparar las diferencias obtenidas de ambas cadenas en el momento (en lugar de guardarlas). Esto elimina la necesidad del bucle de la línea 27. Y nos exime de crear dos arrays extra. Antes de continuar veamos cómo quedaría el código hasta aquí.
 
-<pre class="EnlighterJSRAW" data-enlighter-language="golang" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">func funnyString(s string) string {
+{{< highlight golang >}}
+func funnyString(s string) string {
 
 	// Convertimos a tipo rune (Sólo necesario por Golang)
 	original := []rune(s)
@@ -104,7 +106,8 @@ Ahora si miramos el código de las línea 18 a la 23 tenemos dos bucles calculan
 		}
 	}
 	return "Funny"
-}</pre>
+}
+{{< / highlight >}}
 
 No sólo ahorramos tiempo y espacio sino que el código queda reducido y mucho más claro. Pero todavía podemos seguir mejorándolo. Si recorremos la cadena de adelante hacia atrás, nada nos impide hacerlo también de atrás hacia adelante. Es decir, no necesitamos una copia con la cadena invertida. Podemos recorrer la cadena original de atrás hacia adelante restándole a cada ítem el ítem que aparece adelante. 
 
@@ -112,7 +115,8 @@ Si lo pensamos un segundo esto también quiere decir que una vez que llegamos a 
 
 Pensemos en las diferencias como elementos de un array, tal como estaban en el primer código. Usemos por ejemplo un array A = [a, b, c, d, e, f]. Si comparo a &#8211; f, b &#8211; e, c &#8211; d ya llegué al centro. Y si continúa tengo d &#8211; c, e &#8211; b, f &#8211; a. Pero como me importa el valor absoluto de la resta, está garantizado que abs(a &#8211; f) = abs(f &#8211; a). Es decir que no tiene sentido seguir. Eso nos ahorraría toda memoria extra ya que no vamos a crear arrays en función del tamaño de la entrada. Y sólo recorremos el array **n/2**. Es decir que aunque la complejidad temporal en notación Big O no cambió y sigue siendo **O(n)**, la complejidad espacial es ahora constante **O(1)**. Veamos el código final.
 
-<pre class="EnlighterJSRAW" data-enlighter-language="golang" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">func funnyString(s string) string {
+{{< highlight golang >}}
+func funnyString(s string) string {
 	runes := []rune(s)
 	for i, j := 0, len(runes)-1; i &lt; len(runes)/2; i, j = i+1, j-1 {
 		if math.Abs(float64(runes[i]-runes[i+1])) != math.Abs(float64(runes[j]-runes[j-1])) {
@@ -120,6 +124,7 @@ Pensemos en las diferencias como elementos de un array, tal como estaban en el p
 		}
 	}
 	return "Funny"
-}</pre>
+}
+{{< / highlight >}}
 
 No estoy contabilizando la memoria extra consumida por el array runes debido a que estoy obligado a esta conversión por el lenguaje. Y si usara Java o C/C++ no pasaría esto.

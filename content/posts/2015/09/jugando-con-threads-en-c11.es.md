@@ -1,9 +1,8 @@
 ---
 title: Jugando con threads en C++11
-author: Leandro Fernández
+author: Leandro Fernandez
 type: post
 date: 2015-09-13T19:44:24+00:00
-url: /2015/jugando-con-threads-en-c11
 featured_image: http://blog.drk.com.ar/wp-content/uploads/2015/09/threads.png
 categories:
   - Programación
@@ -35,7 +34,8 @@ El siguiente programa crea dos hilos de ejecución, los objetos _t1_ y _t2_ del 
 
 <!--more-->
 
-<pre class="EnlighterJSRAW" data-enlighter-language="cpp" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">#include&lt;iostream>
+{{< highlight cpp >}}
+#include&lt;iostream>
 #include&lt;vector>
 #include&lt;thread>
  
@@ -70,13 +70,15 @@ void f(std::vector&lt;int>& v) {
     std::cout &lt;&lt; *it &lt;&lt; std::endl;
     m.unlock();
   }
-}</pre>
+}
+{{< / highlight >}}
 
 IMPORTANTE: El código usa un objeto en una variable estática dentro de _f()_. Este objeto se inicializa en la primera llamada a la función, en tiempo de ejecución. En programas con concurrencia es un poco difícil determinar cuándo ocurrirá eso. Ambos hilos podría lanzarse a (casi) el mismo tiempo y la inicialización de m podría correr dos veces o un hilo podría usar _m_ cuando no está inicializado completamente. El compilador GCC por defecto agrega el código necesario para asegurara una inicialización thread-safe para estas variables. En otros compiladores podría ser necesario que el thread sea global o sea pasado a la función _f()_ para segurar que su inicialización no corre riesgos.
 
 Al compilar y ejecutar el programa _obtuve_ el siguiente resultado:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="generic" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">$ g++ -std=c++0x -pthread nosleep.cc -o nosleep
+{{< highlight generic >}}
+$ g++ -std=c++0x -pthread nosleep.cc -o nosleep
 $ ./nosleep
 0
 2
@@ -87,13 +89,15 @@ $ ./nosleep
 3
 5
 7
-9</pre>
+9
+{{< / highlight >}}
 
 Antes de ver qué ocurrió es necesario destacar que esta salida puede o no variar a lo largo de distintas ejecuciones en mi equipo. Y a lo largo de ejecuciones en otros equipos con distinto hardware y sistemas operativos. Por lo que si el lector ejecutó el programa y obtuvo una salida distinta no debe alarmarse.
 
 En este caso podemos ver que el hilo creado por t1 se ejecutó primero y finalizó antes del hilo creado por t2. Pero de ninguna manera podemos suponer o esperar que esto se repita si ejecutamos nuevamente el programa. O si lo hacemos en un equipo con un procesador distinto. Tras realizar varios intentos obtuve esta salida:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="shell" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">$ ./nosleep
+{{< highlight shell >}}
+$ ./nosleep
 0
 2
 1
@@ -103,13 +107,15 @@ En este caso podemos ver que el hilo creado por t1 se ejecutó primero y finaliz
 9
 4
 6
-8</pre>
+8
+{{< / highlight >}}
 
 Es posible que en un equipo determinado el comportamiento a lo largo de las ejecuciones del mismo binario se mantengan mucho más estable y sea muy difícil encontrar una variación como esta. El equipo que usé tiene un procesador **AMD A4-5300 APU dual core**. Tener más de una CPU o tener CPU multicore normalmente agrega diferencias sustanciales en el comportamiento del código que utiliza concurrencia. Además de factores fijos como el hardware y el sistema operativo, la carga de trabajo actual del equipo también puede afectar los el orden de los eventos en la línea de tiempo. El mejor consejo para quien va a programar aplicaciones con más de un hilo de ejecución es: **no asumir nada**. No asumir que un hilo se lanzará inmediatamente, por ejemplo es un error creer que cuando se comienza a ejecutar la línea 14, ya comenzó la ejecución del hilo _t1_. Es posible que no se haya iniciado, que sí se haya iniciado, o incluso que ya haya finalizado por completo. También podría ocurrir que ninguno de los dos hayan comenzado su ejecución cuando el hilo principal llega a la línea 17. En efecto, aunque resulte obvio, las llamadas a _join()_ de cada hilo está para asegurar que ambos hilos finalicen antes de que se termine la ejecución de la función _main()_. Sin esto, podría ocurrir que el proceso sea terminado por el sistema operativo antes de que termine uno o ambos hilos.
 
 Con una modificación al código presentado anteriormente podríamos intentar que la salida contenga en forma alternada los elementos impresos por cada hilo. No ahorraré en advertencias, esto puede o no funcionar por todo lo expuesto anteriormente. En un equipo multicore o multicpu es mucho más probable que funcione, en especial si no hay otras tareas que consuman mucha CPU ejecutándose.
 
-<pre class="EnlighterJSRAW" data-enlighter-language="cpp" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">#include&lt;iostream>
+{{< highlight cpp >}}
+#include&lt;iostream>
 #include&lt;vector>
 #include&lt;thread>
  
@@ -148,11 +154,13 @@ void f(std::vector&lt;int>& v) {
     m.unlock();
     sleep(1);
   }
-}</pre>
+}
+{{< / highlight >}}
 
 Se agregó una llamada a _usleep()_ para forzar una diferencia de (al menos) 500 milisegundos entre la creación de objeto **std::thread** con la esperanza de que el arranque de cada hilo ocurra cerca (en el tiempo) de la ejecución de las líneas 13 y 15. Y se agregó una pausa de al menos un segundo posterior a la impresión de cada elemento. En mi caso la salida es:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="generic" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">$ g++ -std=c++0x -pthread sleep.cc -o sleep
+{{< highlight generic >}}
+$ g++ -std=c++0x -pthread sleep.cc -o sleep
 $ ./sleep
 0
 1
@@ -163,7 +171,8 @@ $ ./sleep
 6
 7
 8
-9</pre>
+9
+{{< / highlight >}}
 
 Otro detalle imporante a tener en cuenta es que la aparición de los elementos en pantalla, que en este ejemplo ocurre a una velocidad perceptible por el ojo humano, no es necesariamente una indicación de la ocurrencia en el tiempo de la llamadas a **std::cout**. La salida tiene un _buffer_ por lo que varios envíos distintos pueden aparecer en lo que el humano interpreta como un evento atómico.
 

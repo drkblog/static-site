@@ -1,9 +1,8 @@
 ---
 title: Disparar cámara Canon con Arduino por Infrarrojo
-author: Leandro Fernández
+author: Leandro Fernandez
 type: post
 date: 2016-05-28T02:02:44+00:00
-url: /2016/disparar-camara-canon-con-arduino-por-infrarrojo
 categories:
   - Electrónica
 tags:

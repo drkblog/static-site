@@ -1,9 +1,8 @@
 ---
 title: Cuidado al borrar Windows manualmente
-author: Leandro Fernández
+author: Leandro Fernandez
 type: post
 date: 2021-08-01T22:16:09+00:00
-url: /2021/cuidado-al-borrar-windows-manualmente
 categories:
   - Tecnología
 tags:
@@ -27,9 +26,11 @@ Conectamos el segundo disco en el equipo y lo iniciamos desde el disco principal
 
 _**Advierto**: si llegaste acá buscando simplemente cómo borrar estos directorios te recomiendo terminar de leer el artículos antes de usarlos._
 
-<pre class="EnlighterJSRAW" data-enlighter-language="raw" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="false" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">takeown /F "Z:\Program Files" /A /R /D Y
+{{< highlight shell >}}
+takeown /F "Z:\Program Files" /A /R /D Y
 icacls "Z:\Program Files" /T /grant administrators:F
-rd /s /q "Z:\Program Files"</pre>
+rd /s /q "Z:\Program Files"
+{{< / highlight >}}
 
 Estos comandos tal cual se encuentran sirven para un **Windows** en inglés pero es muy fácil cambiarlos para uno en español. El primer comando cambia el propietario de todos los archivos y directorios dentro de **Program Files** (inclusive) a **Administrator**. El segundo le entrega todo tipo de permiso existente a Administrator para todo los archivos y directorios dentro de **Program Files** (inclusive). Y el último comando elimina **Program Files** y todo su contenido. Todos los comandos realizan la tarea son pedir confirmación al usuario.<figure class="wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio">
 

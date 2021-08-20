@@ -12,6 +12,7 @@ Este extracto de código muestra cómo obtener a dirección de hardware del adap
 Debería funcionar también en Windows, usando Cygwin o similar.
 
 {{< highlight cpp >}}
+
 #include <netdb.h>
 #include <unistd.h>
 #include <string.h>

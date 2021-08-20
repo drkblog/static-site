@@ -1,9 +1,8 @@
 ---
 title: Escribir menos código y más legible
-author: Leandro Fernández
+author: Leandro Fernandez
 type: post
 date: 2020-09-13T03:34:09+00:00
-url: /2020/escribir-menos-codigo-y-mas-legible
 categories:
   - Programación
 tags:
@@ -12,13 +11,9 @@ tags:
   - escribir menos código y más legible
   - java
   - lombok
-
 ---
-<blockquote class="wp-block-quote">
-  <p>
-    Claro que hay muchas cosas para hacer cuando hablamos de escribir código más legible en Java. Lo que vamos a ver a continuación es cómo utilizar la biblioteca Lombok para escribir menos código. Y como resultado tener un código fuente más legible.
-  </p>
-</blockquote>
+
+Claro que hay muchas cosas para hacer cuando hablamos de escribir código más legible en Java. Lo que vamos a ver a continuación es cómo utilizar la biblioteca Lombok para escribir menos código. Y como resultado tener un código fuente más legible.
 
 ## Lombok
 
@@ -44,7 +39,8 @@ Aunque luego quedará claro que estas no son las dos anotaciones que más seguid
 
 Cualquiera que se haya dedicado a escribir **código de Java** por al menos un par de años respetando las buenas prácticas de **OOP** (_Object-Oriented Programming_) tiene una reacción alérgica cuando piensa en tener que escribir getters y setters para los atributos de cada clase. En efecto, casi toda IDE de Java tiene la funcionalidad necesaria para escribirlos por nosotros. Sólo que en ese caso son escritos efectivamente en líneas de código que terminan siendo incorporadas al control de versiones. Y que podemos modificar (intencionalmente o por error) en cualquier momento. Y que ocupan espacio sin, como mencioné antes, sumar valor. Además al agregar nuevos atributos tenemos que generar el código correspondiente de nuevo. Cosa que por lo general no nos pasará con Lombok excepto que usemos la anotación sobre cada atributo en vez de hacerlo a nivel de clase. Este último comentario quedará claro más adelante.
 
-<pre class="EnlighterJSRAW" data-enlighter-language="java" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">class Customer {
+{{< highlight java >}}
+class Customer {
     private String fullName;
     private String username;
     private String mail;
@@ -90,11 +86,13 @@ Cualquiera que se haya dedicado a escribir **código de Java** por al menos un p
     public void setActive(boolean active) {
         this.active = active;
     }
-}</pre>
+}
+{{< / highlight >}}
 
 Una clase con cinco atributos termina ocupando 47 líneas al escribir las versiones más simples de sus getters y setters. Pero podemos usar estas dos anotaciones (`@Getter` y **`@Setter`**) sobre la clase y ahorrarnos todo eso.
 
-<pre class="EnlighterJSRAW" data-enlighter-language="java" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">@Getter
+{{< highlight java >}}
+@Getter
 @Setter
 static class Customer {
     private String fullName;
@@ -102,11 +100,13 @@ static class Customer {
     private String mail;
     private ZonedDateTime birthDate;
     private boolean active;
-}</pre>
+}
+{{< / highlight >}}
 
 Sí, eso es todo. Esta versión del código tiene los mismos getters y setters que vimos anteriormente pero no podemos ver la implementación en nuestro código. De su generación se hará cargo Lombok. Incluso si agregamos un atributo automáticamente su getter y setter estarán disponibles al compilar porque las anotaciones puestas a nivel de clase valen para todos sus atributos. Pero esto no nos limita en la dirección opuesta. Si quisiéramos más granularidad podemos tenerla. Por ejemplo, podríamos querer getters para todos los atributos pero sólo setter para _active_.
 
-<pre class="EnlighterJSRAW" data-enlighter-language="java" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">@Getter
+{{< highlight java >}}
+@Getter
 static class Customer {
     private String fullName;
     private String username;
@@ -114,11 +114,13 @@ static class Customer {
     private ZonedDateTime birthDate;
     @Setter
     private boolean active;
-}</pre>
+}
+{{< / highlight >}}
 
 Podríamos tener un atributo con la contraseña y preferir que no tenga ni getter ni setter. No estaríamos obligados a cambiar mucho.
 
-<pre class="EnlighterJSRAW" data-enlighter-language="java" data-enlighter-theme="" data-enlighter-highlight="9,10" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">@Getter
+{{< highlight java "linenos=table,hl_lines=9 10" >}}
+@Getter
 static class Customer {
     private String fullName;
     private String username;
@@ -129,13 +131,15 @@ static class Customer {
     @Getter(AccessLevel.PRIVATE)
     @Setter(AccessLevel.PRIVATE)
     private byte[] password;
-}</pre>
+}
+{{< / highlight >}}
 
 Las anotaciones getter y setter sobre un atributo sobreescriben el comportamiento de las mismas a nivel clase. Entonces lo que hacemos aquí es decir que el atributo _password_ tendrá **getter y setter privados**. Además de la anotación Lombok nos habilita a ajustar ciertas características con atributos en las mismas. En este caso podemos especificar el nivel de acceso que deseamos para el getter o el setter.
 
 Quiero hacer una pausa antes de continuar para volver a resaltar las ventajas de Lombok. No ahorra mucho código que, aún si no tuviésemos que escribir, eventualmente tendríamos que mantener. Es poco invasivo. Y no nos limita si necesitamos mayor granularidad o casos especiales. Podríamos incluso escribir un getter.
 
-<pre class="EnlighterJSRAW" data-enlighter-language="java" data-enlighter-theme="" data-enlighter-highlight="4, 14-16" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">@Getter
+{{< highlight java "linenos=table,hl_lines=4 14-16" >}}
+@Getter
 static class Customer {
     private String fullName;
     @Getter(AccessLevel.NONE)
@@ -151,13 +155,15 @@ static class Customer {
     public String getUsername() {
         return "[" + username + "]";
     }
-}</pre>
+}
+{{< / highlight >}}
 
 ## Constructores
 
 Otra parte del código que resulta tediosa por lo repetitivo es el código de constructores. En especial cuando reciben varios argumentos y hay que pasarlos a los atributos con el sólo fin de inicializarlos. Y esto, si el código que escribimos respeta las buenas prácticas más básicas, debería ser el caso de la enorme mayoría de los constructores de nuestras clases. Líneas de código cuya escritura manual o mantenimiento no agregan ningún tipo de valor.
 
-<pre class="EnlighterJSRAW" data-enlighter-language="java" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">class Customer {
+{{< highlight java >}}
+class Customer {
     private final String fullName;
     private final String username;
     private final String mail;
@@ -178,11 +184,13 @@ Otra parte del código que resulta tediosa por lo repetitivo es el código de co
         this.active = active;
         this.password = password;
     }
-}</pre>
+}
+{{< / highlight >}}
 
 Aunque no acumulan una cantidad de líneas extra descomunal como los getters y setters, de todas formas se trata de un mecanismo que bien podría automatizarse. Este tipo de código repetitivo es una fuente común de errores. **Lombok** nos permite simplificar esto, por empezar, con una anotación que generará el constructor por nosotros.
 
-<pre class="EnlighterJSRAW" data-enlighter-language="java" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">@AllArgsConstructor
+{{< highlight java >}}
+@AllArgsConstructor
 class Customer {
     private final String fullName;
     private final String username;
@@ -190,11 +198,13 @@ class Customer {
     private final ZonedDateTime birthDate;
     private final boolean active;
     private final byte[] password;
-}</pre>
+}
+{{< / highlight >}}
 
 Tal como la vemos esta clase tendrá un constructor con todos los atributos, en el orden de aparición, con argumentos nombrados igual que los atributos. Pero podríamos no querer inicializar todos los atributos de una clase eventualmente. Entonces podríamos escribir esto.
 
-<pre class="EnlighterJSRAW" data-enlighter-language="java" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">@RequiredArgsConstructor
+{{< highlight java >}}
+@RequiredArgsConstructor
 class Customer {
     private final String fullName;
     private final String username;
@@ -203,11 +213,13 @@ class Customer {
     private final boolean active;
     private byte[] password;
     private ZonedDateTime lastLogin;
-}</pre>
+}
+{{< / highlight >}}
 
 La anotación `@RequiredArgsConstructor` sólo incluirá argumentos para inicializar los atributos declarados como `final`. Es decir que no se incluirán `password` ni `lastLogin`. A diferencia de `@AllArgsConstructor` que incluirá a todos los atributos independientemente de que sean `final` o no. Podríamos usar las dos anotaciones sobre la clase del ejemplo de arriba para generar dos constructores: uno con todos lo argumentos y otro con los `final` solamente. Y si nuestra clase no tiene argumentos `final` podemos crear un constructor sin argumentos ya que no estamos obligados a inicializarlos en el constructor.
 
-<pre class="EnlighterJSRAW" data-enlighter-language="java" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">@NoArgsConstructor
+{{< highlight java >}}
+@NoArgsConstructor
 class Customer {
     private String fullName;
     private String username;
@@ -216,11 +228,13 @@ class Customer {
     private boolean active;
     private byte[] password;
     private ZonedDateTime lastLogin;
-}</pre>
+}
+{{< / highlight >}}
 
 A decir verdad podríamos usar esta anotación con atributos `final` si lo quisiéramos y **Lombok** los inicializaría en `0, null` ó `false`, de esta forma.
 
-<pre class="EnlighterJSRAW" data-enlighter-language="java" data-enlighter-theme="" data-enlighter-highlight="1, 3-7" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">@NoArgsConstructor(force = true)
+{{< highlight java "linenos=table,hl_lines=1 3-7" >}}
+@NoArgsConstructor(force = true)
 class Customer {
     private final String fullName;
     private final String username;
@@ -229,11 +243,13 @@ class Customer {
     private final boolean active;
     private byte[] password;
     private ZonedDateTime lastLogin;
-}</pre>
+}
+{{< / highlight >}}
 
 Más allá de si esta es una buena idea o no, quería volver a hacer foco en los atributos que podemos manejar sobre las anotaciones de **Lombok**. Una cosa que suele aparecer es la necesidad de agregar alguna anotación propia o de un `framework` sobre nuestro constructor. Pero ya no tenemos en nuestro fuente una línea de código donde hacer eso. Entonces Lombok nos provee un mecanismo para solucionarlo. En el siguiente ejemplo nuestro constructor tendrá la anotación `@Autowire` (de Spring) en él.
 
-<pre class="EnlighterJSRAW" data-enlighter-language="java" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">@RequiredArgsConstructor(onConstructor = @__(@Autowired))
+{{< highlight java >}}
+@RequiredArgsConstructor(onConstructor = @__(@Autowired))
 class Customer {
     private final String fullName;
     private final String username;
@@ -242,7 +258,8 @@ class Customer {
     private final boolean active;
     private byte[] password;
     private ZonedDateTime lastLogin;
-}</pre>
+}
+{{< / highlight >}}
 
 ## @EqualsAndHashCode y @ToString
 
@@ -260,7 +277,8 @@ Adicionalmente tenemos los métodos `hashCode()` e `equals()` que deben sobreesc
 
 Adicionalmente es recomendable utilizar amplia e uniformemente el dominio de salida de la función hash para nuestro objeto basándonos (idealmente) en sus atributos. De las misma forma que lo hacemos para determinar la igualdad. Sin entrar demasiado en detalles, queremos utilizar los atributos que representan la identidad de nuestro objeto tanto para resolver la salida de `equals()` como para generar un hash en `hashCode()`.
 
-<pre class="EnlighterJSRAW" data-enlighter-language="java" data-enlighter-theme="" data-enlighter-highlight="1" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">@ToString
+{{< highlight java "linenos=table,hl_lines=1" >}}
+@ToString
 @RequiredArgsConstructor
 class Customer {
     private final String fullName;
@@ -280,7 +298,8 @@ public static void main(String[] args) {
                     ZonedDateTime.parse("1976-07-23T00:00:00Z"),
                     true).toString()
     );
-}</pre>
+}
+{{< / highlight >}}
 
 En adelante sólo presentaré la versión del código sin **Lombok** sólo en los casos donde agregue valor. En el fuente anterior podemos ver la clase que ya habíamos utilizando en la sección Constructores, pero ahora con la anotación `@ToString` y un ejemplo de uso de la clase. Que muestra en pantalla lo siguiente: 
 
@@ -288,7 +307,8 @@ En adelante sólo presentaré la versión del código sin **Lombok** sólo en lo
 
 La cadena que arma en forma automática tiene el nombre de la clase seguido por la lista de atributos con nombre y valor. En caso de que esto resulte muy extenso podemos evitar el nombre de los atributos y también excluir algunos de la cadena. Por ejemplo.
 
-<pre class="EnlighterJSRAW" data-enlighter-language="java" data-enlighter-theme="" data-enlighter-highlight="2, 9, 11" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">@RequiredArgsConstructor
+{{< highlight java "linenos=table,hl_lines=2 9 11" >}}
+@RequiredArgsConstructor
 @ToString(includeFieldNames = false)
 class Customer {
     private final String fullName;
@@ -301,7 +321,8 @@ class Customer {
     @ToString.Exclude
     private ZonedDateTime lastLogin;
 }
-</pre>
+
+{{< / highlight >}}
 
 Que ahora genera esta cadena.
 
@@ -309,7 +330,8 @@ Que ahora genera esta cadena.
 
 Al igual que en las anotaciones que expliqué anteriormente vale aclarar que no estoy detallando el total de parámetros de cada una. Recomiendo consultar la documentación de **Lombok** al utilizar una anotación para conocer todo lo que implica su uso y cómo configurarla para que se adapte a las necesidades del caso. También quiero resaltar un detalle. Si se comparan los últimos ejemplos se nota que cambié el orden de las anotaciones de la clase `Customer` para poner siempre la más corta en primer lugar y luego las que le siguen en largo. Esto es intencional, creo que resulta más legible de esa forma. Pero definitivamente no es necesario.
 
-<pre class="EnlighterJSRAW" data-enlighter-language="java" data-enlighter-theme="" data-enlighter-highlight="1, 8, 10, 12, 21, 26" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">@EqualsAndHashCode
+{{< highlight java "linenos=table,hl_lines=1 8 10 12 21 26" >}}
+@EqualsAndHashCode
 @RequiredArgsConstructor
 class Customer {
     private final String fullName;
@@ -338,7 +360,8 @@ public static void main(String[] args) {
     System.out.println("customer_v1.equals(customer_v2) = " + customer_v1.equals(customer_v2));
     System.out.println("customer_v1.hashCode() = " + customer_v1.hashCode());
     System.out.println("customer_v2.hashCode() = " + customer_v2.hashCode());
-}</pre>
+}
+{{< / highlight >}}
 
 La lógica de funcionamiento es igual que la anterior. Lombok usará todos los atributos excepto aquellos que excluí explícitamente. Por lo que la salida será:
 

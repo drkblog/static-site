@@ -1,9 +1,8 @@
 ---
 title: Medir el ancho de banda de un amplificador
-author: Leandro Fernández
+author: Leandro Fernandez
 type: post
 date: 2012-10-23T03:46:05+00:00
-url: /2012/medir-el-ancho-de-banda-de-un-amplificador
 categories:
   - Electrónica
 tags:

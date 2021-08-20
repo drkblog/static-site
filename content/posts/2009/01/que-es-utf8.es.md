@@ -1,9 +1,8 @@
 ---
 title: UTF-8
-author: Leandro Fernández
+author: Leandro Fernandez
 type: post
 date: 2009-01-27T19:00:41+00:00
-url: /2009/utf-8
 categories:
   - Tecnología
 tags:

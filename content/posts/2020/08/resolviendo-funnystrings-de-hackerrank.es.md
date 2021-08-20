@@ -1,9 +1,8 @@
 ---
 title: Resolviendo FunnyStrings de HackerRank
-author: Leandro Fernández
+author: Leandro Fernandez
 type: post
 date: 2020-08-29T05:07:04+00:00
-url: /2020/resolviendo-funnystrings-de-hackerrank
 categories:
   - Programación
 tags:

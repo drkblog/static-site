@@ -1,9 +1,8 @@
 ---
 title: Script de control de equipos encendidos
-author: Leandro Fernández
+author: Leandro Fernandez
 type: post
 date: 2011-11-21T21:52:58+00:00
-url: /2011/script-de-control-de-equipos-encendidos
 categories:
   - Tecnología
 tags:

@@ -1,10 +1,9 @@
 ---
 title: 2 comandos para proteger tu contraseña
-author: Leandro Fernández
+author: Leandro Fernandez
 type: post
 date: 2021-08-13T19:31:06+00:00
 excerpt: 'Cómo evitar exponer la contraseña en  la terminal a través del historial de comandos del shell en MacOS.'
-url: /2021/2-comandos-para-proteger-tu-contrasena
 categories:
   - Programación
 tags:
@@ -35,7 +34,9 @@ Tal cómo lo menciona el título esta técnica consta de dos comandos:
 
 La aplicación a utilizar en ambos casos se llama security y está disponible en nuestra **Mac** sin necesidad de hacer instalaciones o configuraciones adicionales. Para guardar una contraseña deberemos proporcionar además del password en sí, un nombre de usuario y un dominio o contexto. Este último nos permitirá saber en qué lugar tiene sentido utilizar esa contraseñas y también servirá para agrupar las que pertenezcan al mismo servicio.
 
-<pre class="EnlighterJSRAW" data-enlighter-language="shell" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">$ security add-generic-password -a &lt;USUARIO> -s &lt;CONTEXTO> -w</pre>
+{{< highlight shell >}}
+$ security add-generic-password -a &lt;USUARIO> -s &lt;CONTEXTO> -w
+{{< / highlight >}}
 
 Reemplazando `<USUARIO>` con nuestro nombre de usuario (o el usuario al que corresponde el _password_) y `<CONTEXTO>` con una palabra que identifique el servicio al que pertenece la contraseña este comando nos pedirá que ingresemos la clave y al almacenará en la **Llaveros** de **MacOS**.
 
@@ -51,7 +52,9 @@ Reemplazando `<USUARIO>` con nuestro nombre de usuario (o el usuario al que corr
 
 Este comando deberíamos correrlo al menos una vez luego de agregar una contraseña para verificar que el alta fue correcta.
 
-<pre class="EnlighterJSRAW" data-enlighter-language="shell" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">$ security find-generic-password -a &lt;USUARIO> -s &lt;CONTEXTO> -w</pre>
+{{< highlight shell >}}
+$ security find-generic-password -a &lt;USUARIO> -s &lt;CONTEXTO> -w
+{{< / highlight >}}
 
 Reemplazando 
 
@@ -67,32 +70,40 @@ Reemplazando
 
 Como situación hipotética digamos que hay un servidor de **Artifactory** donde tenemos que subir _artifacts_ de un proyecto manejado con **Maven**. No vamos a entrar en los detalles de configuración del proyecto. Sólo vamos a mencionar que en nuestro archivo ~/.m2/settings.xml tenemos una sección como la siguiente para configurar el servidor al cual subiremos los _artifacts_:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="xml" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">&lt;servers>
+{{< highlight xml >}}
+&lt;servers>
       &lt;server>
         &lt;id>${server.id}&lt;/id>
         &lt;username>${server.username}&lt;/username>
         &lt;password>${server.password}&lt;/password>
       &lt;/server>
-  &lt;/servers></pre>
+  &lt;/servers>
+{{< / highlight >}}
 
 Y que normalmente deberíamos ejecutar la siguiente línea de comandos para hacer un _deploy_ a ese servidor:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="shell" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">$ mvn deploy -Dserver.id=miArtifactory -Dserver.username=miUsuario -Dserver.password=miPassword</pre>
+{{< highlight shell >}}
+$ mvn deploy -Dserver.id=miArtifactory -Dserver.username=miUsuario -Dserver.password=miPassword
+{{< / highlight >}}
 
 Y desde luego **miArtifactory**, **miUsuario** y **miPassword** son valores imaginarios donde escribimos, en la vida real, valores reales. Entonces en nuestro historial de _shell_ quedaría expuesta la clave:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="shell" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">$ history
+{{< highlight shell >}}
+$ history
 ...
 ...
 236 cd proyecto
 237 mvn deploy -Dserver.id=miArtifactory -Dserver.username=miUsuario -Dserver.password=miPassword
 238 ls target
 ...
-...</pre>
+...
+{{< / highlight >}}
 
 Para evitar este problema cambiaremos el comando que ejecutamos normalmente de esta forma:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="shell" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">$ mvn deploy -Dserver.id=miArtifactory -Dserver.username=miUsuario -Dserver.password=$(security find-generic-password -a miUsuario -s artifactory -w)</pre>
+{{< highlight shell >}}
+$ mvn deploy -Dserver.id=miArtifactory -Dserver.username=miUsuario -Dserver.password=$(security find-generic-password -a miUsuario -s artifactory -w)
+{{< / highlight >}}
 
 Desde luego, para que esto funcione debimos haber agregado una contraseña al **Keychain** (Llaveros) previamente para el usuario **miUsuario** y contexto **artifactory**. Al ejecutar esto, primero se ejecutará el reemplazo de _shell_, es decir, todo lo encerrado en `$(...)`. Y luego se ejecutará el comando con el resultado de la llamada a security como reemplazo justo después del igual. Con lo que el comando es idéntico al anterior a los fines prácticos para **Maven**.
 

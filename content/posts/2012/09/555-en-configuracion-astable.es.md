@@ -1,9 +1,8 @@
 ---
 title: 555 en configuración astable
-author: Leandro Fernández
+author: Leandro Fernandez
 type: post
 date: 2012-09-24T00:12:16+00:00
-url: /2012/555-en-configuracion-astable
 categories:
   - Electrónica
 tags:

@@ -1,9 +1,8 @@
 ---
 title: Cómo contar caracteres en UTF-8 en C++
-author: Leandro Fernández
+author: Leandro Fernandez
 type: post
 date: 2021-08-15T12:41:05+00:00
-url: /2021/como-contar-caracteres-en-utf-8-en-c
 categories:
   - Programación
 tags:
@@ -39,7 +38,8 @@ La posibles configuraciones de bytes son:
 
 Aquí un pequeño programa en C++ que resuelve el problema y también realiza una prueba de performance entre la función `strlen()` de la biblioteca estándar de C y la función que presentamos para contar caracteres en **UTF-8**:
 
-<pre class="EnlighterJSRAW" data-enlighter-language="cpp" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">#include &lt;stdio.h>
+{{< highlight cpp >}}
+#include &lt;stdio.h>
 #include &lt;string.h>
 #include &lt;time.h>
  
@@ -91,11 +91,13 @@ size_t utf8len(const char *s)
 void print_diff(const char *func, int times, struct timespec *s, struct timespec *e)
 {
   printf("Average %s time was: %6.3f nanoseconds\n", func, ((double)((e->tv_sec-s->tv_sec)*1000000000 ) + (e->tv_nsec-s->tv_nsec)) / times);
-}</pre>
+}
+{{< / highlight >}}
 
 Si ejecuto el programa en mi laptop obtengo los siguientes valores. Desde luego los tiempos que vemos a continuación van a variar si se ejecuta el programa en una computadora más o menos potente.
 
-<pre class="EnlighterJSRAW" data-enlighter-language="generic" data-enlighter-theme="" data-enlighter-highlight="" data-enlighter-linenumbers="" data-enlighter-lineoffset="" data-enlighter-title="" data-enlighter-group="">english
+{{< highlight generic >}}
+english
 strlen(): 7      utf8len(): 7
 español
 strlen(): 8      utf8len(): 7
@@ -112,6 +114,7 @@ strlen(): 14     utf8len(): 5
 日本語
 strlen(): 9      utf8len(): 3
 Average strlen time was:  1.654 nanoseconds
-Average utf8len time was: 22.784 nanoseconds</pre>
+Average utf8len time was: 22.784 nanoseconds
+{{< / highlight >}}
 
 Desde luego, la función `strlen()` de la biblioteca estándar es más rápida pero también es inútil para contar la cantidad de caracteres en una cadena codificada en **UTF-8**.

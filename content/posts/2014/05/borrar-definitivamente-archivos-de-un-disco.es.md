@@ -1,9 +1,8 @@
 ---
 title: Borrar definitivamente archivos de un disco
-author: Leandro Fernández
+author: Leandro Fernandez
 type: post
 date: 2014-05-18T22:41:33+00:00
-url: /2014/borrar-definitivamente-archivos-de-un-disco
 categories:
   - Tecnología
 tags:

@@ -1,9 +1,8 @@
 ---
 title: Ascensor electromecánico
-author: Leandro Fernández
+author: Leandro Fernandez
 type: post
 date: 2011-12-08T17:49:33+00:00
-url: /2011/ascensor-electromecanico
 categories:
   - Tecnología
 tags:
