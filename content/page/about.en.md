@@ -1,7 +1,7 @@
 ---
 title: About drkbugs
 description: Ancient history
-aliases: [about]
+slug: "about"
 weight: -210
 ---
 
