@@ -1,4 +1,3 @@
-baseURL = 'https://drk.pages.dev/'
 languageCode = 'es-ar'
 title = 'drkbugs'
 defaultContentLanguage = "es"
@@ -149,11 +148,11 @@ hrefTargetBlank = true
         weight = 1
       [[languages.es.menu.main]]
         name = "Artículos"
-        url = "/articles/"
+        url = "/posts/"
         weight = 2
       [[languages.es.menu.main]]
-        name = "Proyectos"
-        url = "/projects/"
+        name = "Legacy"
+        url = "/legacy/"
         weight = 3
       [[languages.es.menu.main]]
         name = "Acerca de drkbugs"
@@ -170,12 +169,12 @@ hrefTargetBlank = true
         url = "/en/"
         weight = 1
       [[languages.en.menu.main]]
-        name = "Articles"
-        url = "/en/articles/"
+        name = "Posts"
+        url = "/en/posts/"
         weight = 2
       [[languages.en.menu.main]]
-        name = "Projects"
-        url = "/en/projects/"
+        name = "Legacy"
+        url = "/en/legacy/"
         weight = 3
       [[languages.en.menu.main]]
         name = "About"
