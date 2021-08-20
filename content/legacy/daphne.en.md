@@ -135,7 +135,7 @@ Source code distribution:
   * Set process affinity mask
   * Keep window position and size
 * Kill menu: User-defined menu items. Every item has a process list and kill them when activated.
-* Four user-defined command lines to be executed if Ctrl-Shift-F1 to F4 combination is pressed. Work globally.
+* Four user-defined command lines to be executed if Ctrl-Shift-F1 to F4 combination is pressed. Works globally.
 * Windows explorer contextual menu integration for files and folders
   * Copy name of full path to clipboard
   * Copy folder file listing to clipboard
@@ -143,10 +143,10 @@ Source code distribution:
   * Check which process has a file opened
   * Google folder or file name
   * Compute MD5 or SHA1 hash, validate and create hash file
-* Optional global and customizable activation shortcut for showing Daphne main window
-* Tool for creating log file of every started and stopped process and applied traps
+* Optional global and customizable activation shortcut for showing Daphne main window.
+* Tool for creating log file of every started and stopped process and applied traps.
 * You can make configuration portable using INI file instead of registry base configuration.
 * Take care: process names may be eclipsed by malicious software.
-* Command line tool for accessing process list, and kill process by name, kill menu item, or computing MD5 and SHA1 hashes
+* Command line tool for accessing process list and killing processes by name, a kill menu item, or computing MD5 and SHA1 hashes.
 * Internationalization: Spanish, Italian, German, French, Chinese, Swedish, Valencian, Polish, Russian, Portuguese, Japanese, Arabic and Greek support.
 * Enhanced (experimental) multidesktop feature: use up to four windows desktops using WindowsKey + F5 to F8.
