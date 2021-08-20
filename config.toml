@@ -144,7 +144,7 @@ hrefTargetBlank = true
     weight = 1
     [languages.es.menu]
       [[languages.es.menu.main]]
-        name = "Home"
+        name = "Inicio"
         url = "/"
         weight = 1
       [[languages.es.menu.main]]
