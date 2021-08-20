@@ -3,6 +3,8 @@ title: "UTF-8 string character count in C/C++"
 description: "How to hanlde UTF-8 in C/C++ which lacks of native support"
 date: 2015-07-23
 slug: "count-characters-in-utf8-string-cpp"
+tags:
+- cpp
 ---
 
 The following code defines, tests and illustrates the use of **utf8len()** function.
