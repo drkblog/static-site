@@ -3,48 +3,37 @@ title: Jugando con threads en C++11
 author: Leandro Fernandez
 type: post
 date: 2015-09-13T19:44:24+00:00
-featured_image: http://blog.drk.com.ar/wp-content/uploads/2015/09/threads.png
+featured_image: /2015/09/threads.png
 categories:
   - Programación
 tags:
   - C/C++
   - concurrencia
-  - featured
   - mutex
   - thread
-
 ---
-<div class="wp-block-columns">
-  <div class="wp-block-column" style="flex-basis:66.66%">
-    <p>
-      Una buena noticia de C++11 es que se incorporó la biblioteca**pthreads**al nuevo estándar. Esto quiere decir que ya no es necesario implementar un encapsulamiento propio como hacíamos algunos años atrás. Este artículo (breve) ilustra el uso de la nueva clase**threads**y permite jugar un poco con el comportamiento del multitasking para comprender algunas particularidades que debemos tener en cuenta a la hora de crear aplicaciones concurrentes.
-    </p>
-  </div>
-  
-  <div class="wp-block-column" style="flex-basis:33.33%">
-    <blockquote class="wp-block-quote">
-      <p>
-        Si te interesa este artículo te recomiendo leer también <a href="https://blog.drk.com.ar/2020/problema-de-redondeo-con-float-en-golang" data-type="post" data-id="2553">esta nota sobre problemas con float en Golang</a>. Cuyos conceptos también aplican a C++.
-      </p>
-    </blockquote>
-  </div>
-</div>
 
-El siguiente programa crea dos hilos de ejecución, los objetos _t1_ y _t2_ del tipo **std::thread,** y pasa un puntero a función con argumentos utilizando la función **std::bind**. Cada llamada a función se ejecutará en un hilo de ejecución separado. Aunque la función es la misma, cada llamada recibe uno de los dos vectores _even_ y _odd_. Dentro de _f()_ hay un **std::mutex** declado&nbsp;_static_, por lo que todas las llamadas a _f()_ comparten el mismo objeto _m_ y esto permite sincronizar la escritura a salida estándar a través de las distintas llamadas. Luego de crear los objetos, la función _main()_ espera la finalización de cada hilo llamando al método _join()_. El constructor de la clase **std::thread** lanza el hilo sin necesidad de más interacción desde la función que lo crea. &nbsp;Finalmente la función _f()_ itera el vector e imprime un elemento por línea, a salida estándar.
+Una buena noticia de C++11 es que se incorporó la biblioteca **pthreads** al nuevo estándar. Esto quiere decir que ya no es necesario implementar un encapsulamiento propio como hacíamos algunos años atrás. Este artículo (breve) ilustra el uso de la nueva clase **threads** y permite jugar un poco con el comportamiento del multitasking para comprender algunas particularidades que debemos tener en cuenta a la hora de crear aplicaciones concurrentes.
+
+![threads](/2015/09/threads.png)
+
+> Si te interesa este artículo te recomiendo leer también [esta nota sobre problemas con float en Golang](/problema-de-redondeo-con-float-en-golang). Cuyos conceptos también aplican a C++.
+
+El siguiente programa crea dos hilos de ejecución, los objetos _t1_ y _t2_ del tipo **std::thread,** y pasa un puntero a función con argumentos utilizando la función **std::bind**. Cada llamada a función se ejecutará en un hilo de ejecución separado. Aunque la función es la misma, cada llamada recibe uno de los dos vectores _even_ y _odd_. Dentro de _f()_ hay un **std::mutex** declarado _static_, por lo que todas las llamadas a _f()_ comparten el mismo objeto _m_ y esto permite sincronizar la escritura a salida estándar a través de las distintas llamadas. Luego de crear los objetos, la función _main()_ espera la finalización de cada hilo llamando al método _join()_. El constructor de la clase **std::thread** lanza el hilo sin necesidad de más interacción desde la función que lo crea. Finalmente la función _f()_ itera el vector e imprime un elemento por línea, a salida estándar.
 
 <!--more-->
 
 {{< highlight cpp >}}
-#include&lt;iostream>
-#include&lt;vector>
-#include&lt;thread>
+#include<iostream>
+#include<vector>
+#include<thread>
  
-void f(std::vector&lt;int>& v);
+void f(std::vector<int>& v);
  
 int main()
 {
-  std::vector&lt;int> even = {0, 2, 4, 6, 8};
-  std::vector&lt;int> odd = {1, 3, 5, 7, 9};
+  std::vector<int> even = {0, 2, 4, 6, 8};
+  std::vector<int> odd = {1, 3, 5, 7, 9};
  
   /* Lanza dos threads */
   std::thread t1{std::bind(f, even)};
@@ -56,18 +45,18 @@ int main()
 }
  
  
-void f(std::vector&lt;int>& v) {
+void f(std::vector<int>& v) {
   /* Este mutex será compartido por todas las llamadas
    * a f() y servirá para atomizar la salida a stdout
    */
   static std::mutex m;
  
   /* Imprime cada elemento */
-  for (std::vector&lt;int>::iterator it = v.begin();
+  for (std::vector<int>::iterator it = v.begin();
         it != v.end();
         ++it) {
     m.lock();
-    std::cout &lt;&lt; *it &lt;&lt; std::endl;
+    std::cout << *it << std::endl;
     m.unlock();
   }
 }
@@ -115,16 +104,16 @@ Es posible que en un equipo determinado el comportamiento a lo largo de las ejec
 Con una modificación al código presentado anteriormente podríamos intentar que la salida contenga en forma alternada los elementos impresos por cada hilo. No ahorraré en advertencias, esto puede o no funcionar por todo lo expuesto anteriormente. En un equipo multicore o multicpu es mucho más probable que funcione, en especial si no hay otras tareas que consuman mucha CPU ejecutándose.
 
 {{< highlight cpp >}}
-#include&lt;iostream>
-#include&lt;vector>
-#include&lt;thread>
+#include<iostream>
+#include<vector>
+#include<thread>
  
-void f(std::vector&lt;int>& v);
+void f(std::vector<int>& v);
  
 int main()
 {
-  std::vector&lt;int> even = {0, 2, 4, 6, 8};
-  std::vector&lt;int> odd = {1, 3, 5, 7, 9};
+  std::vector<int> even = {0, 2, 4, 6, 8};
+  std::vector<int> odd = {1, 3, 5, 7, 9};
  
   /* Lanza dos threads con diferencia de 500ms */
   std::thread t1{std::bind(f, even)};
@@ -137,7 +126,7 @@ int main()
 }
  
  
-void f(std::vector&lt;int>& v) {
+void f(std::vector<int>& v) {
   /* Este mutex será compartido por todas las llamadas
    * a f() y servirá para atomizar la salida a stdout
    */
@@ -146,11 +135,11 @@ void f(std::vector&lt;int>& v) {
   /* Imprime cada elemento y espera un segundo después
    * de liberar el mutex
    */
-  for (std::vector&lt;int>::iterator it = v.begin();
+  for (std::vector<int>::iterator it = v.begin();
         it != v.end();
         ++it) {
     m.lock();
-    std::cout &lt;&lt; *it &lt;&lt; std::endl;
+    std::cout << *it << std::endl;
     m.unlock();
     sleep(1);
   }
