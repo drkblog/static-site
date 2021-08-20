@@ -126,6 +126,7 @@ tag = "tags"
 
 [permalinks]
 page = "/:slug/"
+posts = "/:slug"
 
 [[menu.main]]
 name = "Repo"
@@ -143,7 +144,7 @@ hrefTargetBlank = true
     weight = 1
     [languages.es.menu]
       [[languages.es.menu.main]]
-        name = "Principal"
+        name = "Home"
         url = "/"
         weight = 1
       [[languages.es.menu.main]]
