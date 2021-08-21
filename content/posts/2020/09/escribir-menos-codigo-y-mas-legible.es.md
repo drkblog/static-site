@@ -7,9 +7,6 @@ date: 2020-09-13T03:34:09+00:00
 categories:
   - Programación
 tags:
-  - buenas prácticas
-  - escribir código más prolijo
-  - escribir menos código y más legible
   - java
   - lombok
 ---
@@ -20,7 +17,7 @@ tags:
 
 Es una biblioteca extensa y no vamos a cubrir todas sus características en este artículo. Vamos a hacer un recorrido en el que, yo creo, es el orden de utilidad. Empezando por aquellas que más frecuentemente usaremos en un proyecto típicamente. Y ya que hablamos de opiniones personales. Vale remarcar que las bibliotecas que generan código, como lo hace **Lombok**, suelen ser criticadas justamente por utilizar ese mecanismo de funcionamiento. En lo personal no soy amante del código generado. Pero como **Lombok** no genera el código en su formato de texto sino que agrega _Java bytecode_ mientras se construyen los binarios, no tenemos el típico problema: decidir si el código generado tiene que ser agregado al control de versiones o no. Y la mayoría de los casos para los que **Lombok** ofrece una solución son los que requieren **código repetitivo** (_boilerplate code_). Código que no se ve afectado por cambios de las reglas del negocio y que escribirlo no tiene ningún valor para el desarrollador. Y que, de ser necesario, igual podremos escribir para los casos que sí lo requieran sin dejar de aprovechar **Lombok** para el resto. Y el sistema de uso además es poco invasivo ya que para utilizarla sólo es necesario agregar una **_annotation_**.
 
-  <figure class="wp-block-media-text__media"><img loading="lazy" width="800" height="400" src="http://blog.drk.com.ar/wp-content/uploads/2020/09/lombok.png" alt="lombok" class="wp-image-2662" srcset="https://blog.drk.com.ar/wp-content/uploads/2020/09/lombok.png 800w, https://blog.drk.com.ar/wp-content/uploads/2020/09/lombok-300x150.png 300w, https://blog.drk.com.ar/wp-content/uploads/2020/09/lombok-768x384.png 768w" sizes="(max-width: 800px) 100vw, 800px" /></figure>
+![lombok](/2020/09/lombok.png)
   
 > Al utilizar **Lombok** el desarrollador puede dedicarse a escribir el código que construirá las reglas de negocio sin perder tiempo en formalismos.
 
@@ -262,11 +259,7 @@ Por lo general reescribimos `toString()` para obtener una descripción legible p
 
 Adicionalmente tenemos los métodos `hashCode()` e `equals()` que deben sobreescribirse para cualquier clase que sea utilizada dentro de una Collection. O cualquier otra clase propia o de terceros que contemple el debido uso del contrato de esta interfaz.
 
-<blockquote class="wp-block-quote">
-  <p>
-    Si dos objetos son iguales deben tener el mismo hash-code. Si dos objetos tienen el mismo hash-code pueden o no ser iguales.
-  </p>
-</blockquote>
+> Si dos objetos son iguales deben tener el mismo hash-code. Si dos objetos tienen el mismo hash-code pueden o no ser iguales.
 
 Adicionalmente es recomendable utilizar amplia e uniformemente el dominio de salida de la función hash para nuestro objeto basándonos (idealmente) en sus atributos. De las misma forma que lo hacemos para determinar la igualdad. Sin entrar demasiado en detalles, queremos utilizar los atributos que representan la identidad de nuestro objeto tanto para resolver la salida de `equals()` como para generar un hash en `hashCode()`.
 

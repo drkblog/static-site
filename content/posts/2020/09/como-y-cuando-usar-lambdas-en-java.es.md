@@ -6,12 +6,9 @@ date: 2020-09-08T15:33:44+00:00
 categories:
   - Programación
 tags:
-  - expresiones lambda
-  - functional interfaces
-  - interfaces funcionales
+  - lambda
+  - interfaz funcional
   - java
-  - operaciones terminales
-  - referencia a métodos
   - streams
 ---
 
@@ -42,9 +39,9 @@ public static void main(String[] args) {
 }
 {{< / highlight >}}
 
-> En a línea 13 podemos ver que se llama al método <code>applyAndSum()</code> pasando un bloque de código que aplica una multiplicación por diez al valor que reciba. Las expresiones lambda pueden recibir cero, uno o más parámetros al ser invocadas, y pueden retornar un valor o no. Internamente el método recorre sus elementos aplicando este cálculo (ejecutando la lambda pasando el elemento como argumento) y sumando el resultado obtenido. El código de la función <code>main()</code> no conoce cómo se recorren los elementos. El código del método <code>applyAndSum()</code> no sabe qué operación se realizará. Sólo la aplica y suma el resultado para retornar finalmente la sumatoria. El código del cuerpo del método <code>applyAndSum()</code> utiliza internamente. Con fines didácticos les pediré que ignoremos los detalles de su implementación y simplemente conservemos la idea conceptual de su tarea.
+En a línea 13 podemos ver que se llama al método `applyAndSum()` pasando un bloque de código que aplica una multiplicación por diez al valor que reciba. Las expresiones lambda pueden recibir cero, uno o más parámetros al ser invocadas, y pueden retornar un valor o no. Internamente el método recorre sus elementos aplicando este cálculo (ejecutando la lambda pasando el elemento como argumento) y sumando el resultado obtenido. El código de la función `main()` no conoce cómo se recorren los elementos. El código del método `applyAndSum()` no sabe qué operación se realizará. Sólo la aplica y suma el resultado para retornar finalmente la sumatoria. El código del cuerpo del método `applyAndSum()` utiliza internamente. Con fines didácticos les pediré que ignoremos los detalles de su implementación y simplemente conservemos la idea conceptual de su tarea.
 
-Está claro que existen otros mecanismos en Java anteriores a las lambdas que también servirían en estos casos. Como por ejemplo recibir un objeto que implemente una interfaz con un método específico. Y que la clase cliente construya ese objeto y lo pase a la contenedora. O mejor aún, que en el código cliente se construya una clase interna anónima (_anonymous inner class_) con el bloque de código que necesitamos pasar. La principal ventaja de una expresión lambda contra esta alternativa es que requiere escribir mucho menos y el código resulta mucho más legible. Además, usualmente no es necesario declarar una interfaz específica ya que existe un conjunto de interfaces funcionales (_functional interfaces_) que se pueden aprovechar en casi todos los casos. Tal como ocurre en el ejemplo anterior en la línea 4. Donde se declara el método recibiendo un parámetro de tipo `Function<T, R>`.
+> Está claro que existen otros mecanismos en Java anteriores a las lambdas que también servirían en estos casos. Como por ejemplo recibir un objeto que implemente una interfaz con un método específico. Y que la clase cliente construya ese objeto y lo pase a la contenedora. O mejor aún, que en el código cliente se construya una clase interna anónima (_anonymous inner class_) con el bloque de código que necesitamos pasar. La principal ventaja de una expresión lambda contra esta alternativa es que requiere escribir mucho menos y el código resulta mucho más legible. Además, usualmente no es necesario declarar una interfaz específica ya que existe un conjunto de interfaces funcionales (_functional interfaces_) que se pueden aprovechar en casi todos los casos. Tal como ocurre en el ejemplo anterior en la línea 4. Donde se declara el método recibiendo un parámetro de tipo `Function<T, R>`.
 
 ## Como utilizarlas
 
@@ -61,7 +58,7 @@ En el uso de _streams_, que también aparecieron en Java 8, se utilizan expresio
       .reduce(BigDecimal.ZERO, BigDecimal::add);
 {{< / highlight >}}
 
-Dada una colección de items sobre la cual abrimos un _stream_, queremos seleccionar sólo aquellos cuyo nombre comienza con **&#8220;A&#8221;** y luego calcular la suma de sus valores. Para seleccionar elementos específicos del _stream_ utilizamos la operación no-terminal `filter()`. Esta operación sólo &#8220;dejará pasar&#8221; aquellos elementos para los cuales el resultado devuelto por la expresión lambda sea verdadero. La línea 2 muestra la construcción de la expresión que recibe un sólo parámetro del tipo de objeto que contiene el stream. Y devuelve el resultado del método `startsWith()` de la cadena con el nombre del item. Esta es la lógica que el código cliente contribuye al _stream_. Por su parte éste ejecutará este bloque con cada elemento que pase por esa sección. Que por ser la primera recibirá todos los elementos de la colección.
+Dada una colección de items sobre la cual abrimos un _stream_, queremos seleccionar sólo aquellos cuyo nombre comienza con **A** y luego calcular la suma de sus valores. Para seleccionar elementos específicos del _stream_ utilizamos la operación no-terminal `filter()`. Esta operación sólo "dejará pasar" aquellos elementos para los cuales el resultado devuelto por la expresión lambda sea verdadero. La línea 2 muestra la construcción de la expresión que recibe un sólo parámetro del tipo de objeto que contiene el stream. Y devuelve el resultado del método `startsWith()` de la cadena con el nombre del item. Esta es la lógica que el código cliente contribuye al _stream_. Por su parte éste ejecutará este bloque con cada elemento que pase por esa sección. Que por ser la primera recibirá todos los elementos de la colección.
 
 Luego la línea 3 realizará una conversión de cada elemento recibido a lo que sea que retorne la expresión lambda que pasamos. En este caso la expresión devuelve sólo el valor del ítem. Es decir que después de este paso el tipo de dato del _stream_ será **BigDecimal**. Pero el paso de la línea 3 sólo recibirá los elementos que cumplan la condición de la línea 2. Finalmente la operación termina `reduce()` sumará todos los valores.
 
@@ -111,12 +108,12 @@ Esto explica por qué podemos utilizar el constructor de la clase **Thread** que
 @FunctionalInterface
 public interface Runnable {
   /**
-   * When an object implementing interface <code>Runnable</code> is used
+   * When an object implementing interface `Runnable` is used
    * to create a thread, starting the thread causes the object's
-   * <code>run</code> method to be called in that separately executing
+   * `run` method to be called in that separately executing
    * thread.
    * <p>
-   * The general contract of the method <code>run</code> is that it may
+   * The general contract of the method `run` is that it may
    * take any action whatsoever.
    *
    * @see     java.lang.Thread#run()
@@ -190,7 +187,7 @@ private BigDecimal extractValue(final Item item) {
 }
 {{< / highlight >}}
 
-Las líneas 4 y 5 de este ejemplo (en contraposición al presentado anteriormente más arriba) pasan una referencia a métodos de la propia clase en lugar de una expresión lambda. Los métodos tienen nombres descriptivos que hacen legible la configuración del _stream_. Aún sin mirar las implementaciones de las líneas 10 y 14 tenemos una idea de lo que va a ocurrir ya que, si traducimos la 4 y 5 al español se leería algo como &#8220;filtrar-esItemProcesable&#8221; y luego &#8220;mapear-extraerValor&#8221;. Y esta es otra ganancia que tenemos al utilizar referencia a métodos. Pero si el código necesario para saber qué ítem es procesable fuese mas complicado (varias líneas de código) no estaría interfiriendo con la lectura de la configuración del _stream_. Y también podré utilizarlo en otro lugares si fuese necesario.
+Las líneas 4 y 5 de este ejemplo (en contraposición al presentado anteriormente más arriba) pasan una referencia a métodos de la propia clase en lugar de una expresión lambda. Los métodos tienen nombres descriptivos que hacen legible la configuración del _stream_. Aún sin mirar las implementaciones de las líneas 10 y 14 tenemos una idea de lo que va a ocurrir ya que, si traducimos la 4 y 5 al español se leería algo como "filtrar-esItemProcesable" y luego "mapear-extraerValor". Y esta es otra ganancia que tenemos al utilizar referencia a métodos. Pero si el código necesario para saber qué ítem es procesable fuese mas complicado (varias líneas de código) no estaría interfiriendo con la lectura de la configuración del _stream_. Y también podré utilizarlo en otro lugares si fuese necesario.
 
 ## Conclusión
 
