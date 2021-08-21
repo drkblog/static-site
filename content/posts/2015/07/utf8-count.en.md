@@ -5,6 +5,7 @@ date: 2015-07-23
 slug: "count-characters-in-utf8-string-cpp"
 tags:
 - cpp
+- utf8
 ---
 
 The following code defines, tests and illustrates the use of **utf8len()** function.
