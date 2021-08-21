@@ -21,8 +21,6 @@ Para resolver el problema mencionado necesitaba comparar los valores absolutos d
 
 Estos errores no son nada nuevo ni mucho menos exclusivos de Go. Se desprenden del estándar IEEE 754-1985 (o la revisión 2008) que es utilizado para la representación de números reales en las computadoras. Y que por limitaciones intrínsecas del formato introducen errores de redondeo que pueden ser muy significativos al acumularse o en sustracciones de números muy aproximados entre sí.
 
-<!--more-->
-
 Más allá del uso que le dí [en el artículo](/como-optimizar-recorrido-de-arrays) y en [el video][1], quería ver qué ocurría si utilizaba un reemplazo de la función de la biblioteca estándar. Así que escribí el siguiente programa para probar la performance de cada caso.
 
 {{< highlight golang >}}

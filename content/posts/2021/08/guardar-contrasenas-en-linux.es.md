@@ -18,8 +18,6 @@ _Unos días atrás expliqué [cómo evitar que tu contraseña quede expuesta en 
 
 En el artículo enlazado más arriba mencionamos que es común exponer contraseñas al pasarlas como argumento en la línea de comandos. Y el compromiso de seguridad que ello implica. También puede ocurrir que tengamos que manejarnos con una cantidad decente de contraseñas y recordarlas y escribirlas todo el tiempo sea un problema. En ambas situaciones un _**keyring**_ o una _**keychain**_ es muy útil. Vamos a ver de qué se trata y cómo aprovecharlos.
 
-<!--more-->
-
 Un **_keyring_** (o _keychain_) es una aplicación (usualmente nativa del sistema operativo) que nos permite almacenar contraseñas, claves PGP y certificados en forma segura. En este artículo vamos a concentrarnos sólo en las contraseñas pero esta introducción facilitará el aprender el resto de los usos más tarde.
 
 ## La idea

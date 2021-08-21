@@ -16,8 +16,6 @@ El circuito integrado 555 (o el 556 que tiene dos 555 en un mismo encapsulado) n
 
 [<img loading="lazy" class="alignnone size-full wp-image-1187" title="555 astable" src="http://blog.drk.com.ar/wp-content/uploads/2012/09/555_astable.png" alt="" width="596" height="366" srcset="https://blog.drk.com.ar/wp-content/uploads/2012/09/555_astable.png 596w, https://blog.drk.com.ar/wp-content/uploads/2012/09/555_astable-300x184.png 300w, https://blog.drk.com.ar/wp-content/uploads/2012/09/555_astable-488x300.png 488w" sizes="(max-width: 596px) 100vw, 596px" />][1]
 
-<!--more-->
-
 Según los cálculos para los valores de R1, R2 y C (C1+C2) elegidos en el siguiente circuito, deberíamos obtener una señal 193kHz y un ciclo activo del 52% aproximadamente:
 
 [<img loading="lazy" class="alignnone size-full wp-image-1190" title="Circuito NE556C 164kHz" src="http://blog.drk.com.ar/wp-content/uploads/2012/09/circuito_556_164k.png" alt="" width="669" height="306" srcset="https://blog.drk.com.ar/wp-content/uploads/2012/09/circuito_556_164k.png 669w, https://blog.drk.com.ar/wp-content/uploads/2012/09/circuito_556_164k-300x137.png 300w, https://blog.drk.com.ar/wp-content/uploads/2012/09/circuito_556_164k-500x228.png 500w" sizes="(max-width: 669px) 100vw, 669px" />][2]

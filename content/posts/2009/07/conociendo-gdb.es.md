@@ -22,8 +22,6 @@ Introducir al lector en el uso de GDB como herramienta para inspeccionar la ejec
 A medida que la complejidad de un programa crece se hace más difícil predecir todos los posibles escenarios para una línea de código determinada. Los valores de cada variable en tiempo de ejecución pueden hacer que una porción del programa, que parece estar bien programada, produzca la finalización del proceso por &#8220;violación de segmento&#8221;. Basta con utilizar un entero con un valor mal calculado como índice de un array o como puntero a un objeto (si trabajamos con C++) para que la violación se produzca. O lo que es peor: que no se produzca pero que la aplicación continúe corriendo con valores que definitivamente impactarán en el resultado erróneo de una operación posterior.  
 Como programadores estamos limitados en nuestra capacidad de reconstruir cada una de las posibles situaciones en nuestra mente. Es por ello que necesitamos una herramienta que nos ayude a ver qué ocurre durante la ejecución. Son herramientas que existen y se llaman _debuggers_ en inglés algo así como eliminadores de insectos, ya que se utiliza la palabra bug para denominar a los insectos y también a los errores que se encuentran en un programa. Herramientas que debemos aprender a utilizar para facilitar nuestro trabajo.
 
-<!--more-->
-
 **¿Por qué GDB?**
 
 Porque es software de código abierto —es decir que podemos ver cómo está programado—, porque es gratis, porque nos permite realizar una serie de inspecciones y modificaciones en tiempo de ejecución que superan la capacidad de herramientas similares y porque es ampliamente utilizado —hecho que asegura su actualización constante—.  

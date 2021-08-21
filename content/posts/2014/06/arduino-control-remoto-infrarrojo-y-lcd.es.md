@@ -18,8 +18,6 @@ _El artículo sobre el uso de un VS1838 para recibir señales de un control remo
 
 <img loading="lazy" class="alignleft size-full wp-image-2027" src="http://blog.drk.com.ar/wp-content/uploads/2014/06/cr_lcd.jpg" alt="Arduino, control remoto y LCD" width="300" height="210" /> Aquí se combina el programa que [decodifica las teclas presionadas en el control remoto][1], con la biblioteca que permite escribir en una pantalla de cristal líquido (que también utilicé en el [artículo sobre el sensor DHT11][2]). De forma que se muestra en la pantalla el número correspondiente a la tecla presionada.
 
-<!--more-->
-
 Omitiré lo detalles de funcionamiento del control remoto y el VS1838 ya que todo se explicó en detalle en artículo inicial. En este caso el enfoque será sobre el código. Ya que noté, en algunas consultas recibidas, una idea distorsionada de lo que es un programa. Por supuesto que muchos de ustedes podrá saltar la lectura del párrafo siguiente si les resulta demasiado básica la explicación. Pero está claro que algunos lectores se verá beneficiados con ella.
 
 <span class="embed-youtube" style="text-align:center; display: block;"></span>

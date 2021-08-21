@@ -14,8 +14,6 @@ _En ocasiones la suma de eventos desafortunados puede complicarnos el día._
 
 <img loading="lazy" class="alignright size-full wp-image-1491" alt="Arduino" src="http://blog.drk.com.ar/wp-content/uploads/2013/05/arduino_uno_small.jpg" width="280" height="224" /> Cuando me ocurrió lo que voy a relatar a continuación, decidí publicar este artículo en solidaridad con aquellos aficionados a la electrónica que sufren día a día las complicaciones típicas de la materia. Veremos una solución para conectar en forma bidireccional, una entrada/salida digital de 5 volts a una de 3.3 volts.
 
-<!--more-->
-
 ## La historia
 
 Compré un módulo para Arduino que utiliza 3.3V de alimentación, y por consiguiente un nivel de tensión de 3.3V para representar el uno en sus entradas y salidas. Al recibirlo y leer las especificaciones pensé que era demasiado amplio, por parte del proveedor, decir que es compatible con Arduino. Ya que la plataforma utiliza 5V de alimentación. Y si bien tiene un regulador incluido que provee un nivel de 3.3V, todas las entradas/salidas del micro utilizan 5V.

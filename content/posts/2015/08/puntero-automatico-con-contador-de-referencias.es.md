@@ -15,8 +15,6 @@ tags:
 
 La semana pasada estaba pensando en un ejercicio muy simple que requiriese conocimiento de varios aspectos del lenguaje en una cantidad de líneas reducida. Y se me ocurrió que programar un puntero automático podría cumplir con la premisa. Este es el resultado.
 
-<!--more-->
-
 La definición de puntero automático en el lenguaje es &#8220;_Un **auto_ptr** es un objecto que actúa igual que un puntero, excepto que automáticamente destruye el objeto apuntado cuanto el **auto_ptr** es destruido_&#8220;. A pesar de la simpleza de la definición conceptual, llevar esta idea a la práctica le costó mucho trabajo a quienes definen el estándar. A través del tiempo encontraron muchas dificultades en las implementaciones y las fueron corrigiendo para que el objeto se comporte normalmente en distintos escenarios complejos. Ya que el usuario del objeto necesita que éste se comporte como un puntero al objeto destino, pero en realidad es un objeto que simula serlo aprovechando la posibilidad del lenguaje de sobre escribir operadores.
 
 El código que presento a continuación **no pretende equipararse** con las distintas implementaciones del **auto_ptr** del estándar. No cubre la cantidad de situaciones que éste prevé. Y no está probado como para ser utilizado, tal como está, en aplicaciones que pretendan realizar trabajo crítico. Aunque los lectores tienen la libertad de hacer con este código lo que deseen, bajo su propia responsabilidad.

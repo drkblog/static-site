@@ -21,8 +21,6 @@ Es una biblioteca extensa y no vamos a cubrir todas sus características en este
   
 > Al utilizar **Lombok** el desarrollador puede dedicarse a escribir el código que construirá las reglas de negocio sin perder tiempo en formalismos.
 
-<!--more-->
-
 ## Getters y Setters
 
 Aunque luego quedará claro que estas no son las dos anotaciones que más seguido escribiremos, definitivamente dejaremos el 99% de los **getters** y **setters** de un proyecto en manos de Lombok. Y esto se debe a que hay otras anotaciones que también los escriben por nosotros.

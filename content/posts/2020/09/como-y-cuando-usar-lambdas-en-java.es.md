@@ -20,8 +20,6 @@ Una expresión lambda (***lambda expression***) es una función anónima. Es dec
 
 Normalmente lo hacemos pasando la expresión como un argumento más de un método que la ejecutará oportunamente pasándole los valores correspondientes y tomando el resultado (si es que tiene un valor de retorno). No es imposible definir una expresión lambda y guardar la referencia en una variable. Pero ese y otros detalles los vamos a dejar para el final para enfocarnos en la forma de uso recomendada.
 
-<!--more-->
-
 Las expresiones lambda nos permiten escribir un método que delegue parte del procesamiento que va a realizar en el código que lo llama. Un ejemplo típico donde esto es útil es una clase que contiene un conjunto de elementos y se necesita aplicar una operación sobre estos. La clase contenedora no conoce las posibles operaciones a realizar y la clase cliente (la que usa a la contenedora) no conoce los detalles sobre cómo iterar sobre el conjunto. Este mutuo desconocimiento es el desacoplamiento deseado entre dos partes del código. La parte del código cliente puede pasar una bloque de código para que la clase contenedora lo aplique sobre los elementos utilizando una expresión lambda.
 
 {{< highlight java "linenos=table,hl_lines=13" >}}

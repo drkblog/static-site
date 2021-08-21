@@ -8,7 +8,7 @@ categories:
   - Programación
 tags:
   - algoritmo
-  - arrays
+  - array
   - complejidad temporal
   - ascii
 ---
@@ -21,8 +21,6 @@ Este es un ejemplo práctico paso a paso que parte de la solución más obvia ha
 El enunciado dice que nuestro programa recibirá **una cadena de texto** y deberá determinar si es Funny creando una copia invertida, restando a cada caracter el caracter siguiente (en la cadena original y en la invertida) usando sus valores ASCII y tomando el resultado en valor absoluto. Si la secuencia de resultados de restas es la misma en ambos casos es "Funny" y si no es "Not Funny".
 
 Si recibe la cadena "_lmnop_" su cadena invertida será "_ponml_" y los **valores ASCII** de la original serán [108, 109, 110, 111, 112] y de la invertida [112, 111, 110, 109, 108]. La resta en valores absolutos para la primera será [1, 1, 1, 1] y para la segunda [1, 1, 1, 1]. Por lo tanto el algoritmo deberá retornar Funny. En cambio si la cadena de entrada es "_bcxz_" (la invertida será "_zxcb_") los valores ASCII de la primera [98, 99, 120, 122] y de la invertida [122, 120, 99, 98]. Y las respectivas restas darán [1, 21, 2] y [2, 21, 1]. Por ser distintas esta cadena resultará en "Not Funny".
-
-<!--more-->
 
 La solución más obvia consiste en hacer exactamente lo que plantea el enunciado. Recibir la cadena y crear una copia invertida. Luego recorrer la primera calculando la diferencia entre cada caracter y el que le sigue y guardando el valor absoluta de dicha resta en un nuevo array. Repitiendo la operación con la cadena invertida. Finalmente recorrer ambos arrays con los resultados de las diferencias absolutas comparando los valores entre sí. Y retornando el resultado en función de que haya aparecido un resultado distinto para alguna posición de los arrays de diferencias.
 

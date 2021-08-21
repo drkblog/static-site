@@ -22,8 +22,6 @@ Como desarrolladores estamos ejecutando comandos en el _shell_ de nuestro equipo
 
 Si bien muchas aplicaciones de línea de comando evitan recibir un _password_ como argumento con el fin de evitar el problema mencionado anteriormente. Puede que necesitemos escribir un _shell_ script para ejecutar muchos comandos y algunos requieran la contraseña por entrada estándar. Pero al mismo tiempo, esta no se encuentre disponible cuando ejecutamos el script. En este caso la técnica que describo a continuación también puede ser útil.
 
-<!--more-->
-
 Tal cómo lo menciona el título esta técnica consta de dos comandos:
 
   * Guardar nuestra contraseña en el **Llaveros** (**Keychain**, repositorio de claves)

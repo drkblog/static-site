@@ -15,8 +15,6 @@ _Los sensores de temperatura y humedad DHTxx son de muy bajo costo y de una prec
 
 <img loading="lazy" class="alignnone size-full wp-image-1986" src="http://blog.drk.com.ar/wp-content/uploads/2014/05/dht11-arduino-LCD-sketch.png" alt="DHT11, Arduino y LCD" width="744" height="652" srcset="https://blog.drk.com.ar/wp-content/uploads/2014/05/dht11-arduino-LCD-sketch.png 744w, https://blog.drk.com.ar/wp-content/uploads/2014/05/dht11-arduino-LCD-sketch-300x262.png 300w, https://blog.drk.com.ar/wp-content/uploads/2014/05/dht11-arduino-LCD-sketch-342x300.png 342w" sizes="(max-width: 744px) 100vw, 744px" /> 
 
-<!--more-->
-
 Para este experimento utilicé un [sensor DHT11][1], un Arduino MEGA2560, un display LCD [modelo 1602A][2], un potenciómetro lineal de 50K., una resistencia de 220Ω, cables y protoboard.  
 <span class="embed-youtube" style="text-align:center; display: block;"></span>
 

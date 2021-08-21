@@ -20,8 +20,6 @@ Cuando compramos un disco más grande para nuestra PC de escritorio o reemplazam
 
 Por supuesto que un usuario con conocimientos básicos no intentaría hacer esto. Pero con cierta experiencia y conocimiento, y sin ser expertos, es completamente esperable que intentemos esto. Y aquí es donde la cosa se pone peligrosa.
 
-<!--more-->
-
 Conectamos el segundo disco en el equipo y lo iniciamos desde el disco principal (posiblemente el disco nuevo que reemplazó al otro). O bien se trata de un disco cualquiera que conectamos a nuestro equipo por primera vez. Como sea, vamos a borrar los directorios **Windows**, Archivos de programa, `Program Files` si es la versión en inglés. Si intentamos hacer esto con el explorador de **Windows** nos vamos a encontrar con que no es posible debido a los permisos de los archivos. Aunque el explorador nos permite intentar cambiar el propietario de los archivos en forma recursiva, esto no es suficiente. Personalmente no profundicé como saber si es posible lograrlo desde el **Windows Explorer** a través de más cambios en los permisos. Pero creo que la mayoría de los usuarios intentando esto, en este punto, buscarán cómo hacer esto desde la terminal (`CMD`). Y en seguida se encontrarán con una receta muy simple.
 
 _**Advierto**: si llegaste acá buscando simplemente cómo borrar estos directorios te recomiendo terminar de leer el artículos antes de usarlos._

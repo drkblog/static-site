@@ -12,8 +12,6 @@ tags:
 
 ---
 Este es un pequeño ejemplo de lo que se puede hacer con HTML 5. Más específicamente con el objeto _Canvas_ (lienzo en inglés) y Javascript. Una simulación de física básica, bidimensional. Arrastrando las figuras con el mouse se pueden lanzar unas contra otras.  
-<!--more-->
-
   
 <canvas id="screen" style="border: thin solid black;" width="600" height="420"></canvas>
 

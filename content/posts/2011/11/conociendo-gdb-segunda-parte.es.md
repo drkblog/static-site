@@ -16,8 +16,6 @@ tags:
 
 Continuar con la exploración de las diferentes posibilidades de GDB, tal como se adelantó en el [artículo inicial de esta serie][2].
 
-<!--more-->
-
 ## Breakpoints condicionales
 
 En el artículo anterior vimos cómo colocar un _breakpoint_ en una línea de código arbitraria. Experimentamos la ejecución del programa con GDB y la consecuente detención en el punto indicado. La diferencia entre un _breakpoint_ regular y uno condicional es que la herramienta de depuración no se detiene en él a menos que se cumpla la condición asociada. De hecho en GDB la aplicación de la condición al breakpoint regular es lo que hace un breakpoint condicional. Tomemos el código del programa rand.c:

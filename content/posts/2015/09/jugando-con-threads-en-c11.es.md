@@ -21,8 +21,6 @@ Una buena noticia de C++11 es que se incorporó la biblioteca **pthreads** al nu
 
 El siguiente programa crea dos hilos de ejecución, los objetos _t1_ y _t2_ del tipo **std::thread,** y pasa un puntero a función con argumentos utilizando la función **std::bind**. Cada llamada a función se ejecutará en un hilo de ejecución separado. Aunque la función es la misma, cada llamada recibe uno de los dos vectores _even_ y _odd_. Dentro de _f()_ hay un **std::mutex** declarado _static_, por lo que todas las llamadas a _f()_ comparten el mismo objeto _m_ y esto permite sincronizar la escritura a salida estándar a través de las distintas llamadas. Luego de crear los objetos, la función _main()_ espera la finalización de cada hilo llamando al método _join()_. El constructor de la clase **std::thread** lanza el hilo sin necesidad de más interacción desde la función que lo crea. Finalmente la función _f()_ itera el vector e imprime un elemento por línea, a salida estándar.
 
-<!--more-->
-
 {{< highlight cpp >}}
 #include<iostream>
 #include<vector>

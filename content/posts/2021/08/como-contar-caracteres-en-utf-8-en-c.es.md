@@ -18,8 +18,6 @@ tags:
   
 > La dificultad extra que nos agrega es que no podemos saber de antemano cuántos caracteres hay en una cadena de texto codificada en**UTF-8** sólo contando cuantos ***bytes*** ocupa. Tenemos que recorrerla y procesarla para poder contar los caracteres.
 
-<!--more-->
-
 Una forma simple de contar los caracteres es recorrer la cadena hasta encontrar un byte en cero (que señalará el final en el caso de C/C++) y contar los caracteres cuyos dos primeros bits no son 10. Y esto es porque en cada caracter posible en este representación sólo habrá un byte que no empiece con 10.
 
 La posibles configuraciones de bytes son:  

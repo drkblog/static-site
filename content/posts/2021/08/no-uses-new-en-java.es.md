@@ -18,8 +18,6 @@ Hay dos circunstancias distintas donde debemos seguir esta máxima: _cuando crea
   
 Creo que la mayor parte del tiempo tenemos esto presente cuando estamos definiendo nuestra clase. Y no tanto cuando creamos objetos de otras. En especial si esa clase tiene constructores públicos.
 
-<!--more-->
-
 ## Clases no propias
 
 Es por eso que primero quiero enfocarme en ese caso. Debemos acostumbrarnos a buscar siempre métodos estáticos que pueda proveernos la clase para crear sus instancias. Porque no sólo nos quitara cierta responsabilidad o nos evitará cierto esfuerzo de mantenimiento en el futuro. Sino porque algunas clases implementan internamente un mecanismo de _cache_. Y nos perderíamos de ese beneficio si creamos instancias con constructores. Veamos algunos ejemplos:
