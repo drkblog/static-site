@@ -7,23 +7,16 @@ categories:
   - Programación
 tags:
   - cache
-  - static factory
   - static factory method
 ---
-_Siempre prefiere static factory methods al uso de constructores._
+
+> Siempre prefiere static factory methods al uso de constructores.
 
 Hay dos circunstancias distintas donde debemos seguir esta máxima: _cuando creamos una clase y definimos cómo se van a crear sus instancias, y cuando creamos instancias de otras clases que no hemos definido nosotros._
 
-<div class="wp-block-media-text alignwide is-stacked-on-mobile">
-  <figure class="wp-block-media-text__media"><img loading="lazy" width="512" height="512" src="http://blog.drk.com.ar/wp-content/uploads/2021/08/forbidden-new.png" alt="No uses new" class="wp-image-2728 size-full" srcset="https://blog.drk.com.ar/wp-content/uploads/2021/08/forbidden-new.png 512w, https://blog.drk.com.ar/wp-content/uploads/2021/08/forbidden-new-300x300.png 300w, https://blog.drk.com.ar/wp-content/uploads/2021/08/forbidden-new-150x150.png 150w" sizes="(max-width: 512px) 100vw, 512px" /></figure>
+![forbidden-new](/2021/08/forbidden-new.png)
   
-  <div class="wp-block-media-text__content">
-    <p class="has-normal-font-size">
-      <meta charset="utf-8" />
-      Creo que la mayor parte del tiempo tenemos esto presente cuando estamos definiendo nuestra clase. Y no tanto cuando creamos objetos de otras. En especial si esa clase tiene constructores públicos.
-    </p>
-  </div>
-</div>
+Creo que la mayor parte del tiempo tenemos esto presente cuando estamos definiendo nuestra clase. Y no tanto cuando creamos objetos de otras. En especial si esa clase tiene constructores públicos.
 
 <!--more-->
 
@@ -35,14 +28,14 @@ Es por eso que primero quiero enfocarme en ese caso. Debemos acostumbrarnos a bu
 
 {{< highlight java >}}
 String str1 = new String("Hola");
-    String str2 = new String("Hola");
+String str2 = new String("Hola");
 
-    System.out.println(str1 == str2);
+System.out.println(str1 == str2);
 
-    String str3 = String.valueOf("Hola");
-    String str4 = String.valueOf("Hola");
+String str3 = String.valueOf("Hola");
+String str4 = String.valueOf("Hola");
 
-    System.out.println(str3 == str4);
+System.out.println(str3 == str4);
 {{< / highlight >}}
 
 El bloque de código de arriba nos dar la siguiente salida:
@@ -64,21 +57,18 @@ De forma similar a lo que ocurre con String las clases numérica suelen tener al
 
 {{< highlight java >}}
 Integer val1 = new Integer(127);
-    Integer val2 = new Integer(127);
-
-    System.out.println(val1 == val2);
-
-    Integer val3 = 127;
-    Integer val4 = 127;
-
-    System.out.println(val3 == val4);
+Integer val2 = new Integer(127);
+System.out.println(val1 == val2);
+Integer val3 = 127;
+Integer val4 = 127;
+System.out.println(val3 == val4);
 {{< / highlight >}}
 
 El primer bloque nos dirá que se trata de instancias distintas tal como explicamos anteriormente, debido al uso de `new`. Sin embargo no ocurre lo mismo con las líneas seis y siete. Aunque aquí no estamos llamando al método estático. Y es que entra en juego otra característica de **Java** llamada _autoboxing_. Según la cual el lenguaje se toma el trabajo de llamar al método `valueOf()` de la clase ante la presencia de un literal. Por supuesto esto funciona con clases cuyos valores pueden escribirse como literales en **Java**. Es decir que a los fines prácticos estas líneas seis y siete son equivalentes a la del ejemplo de `String`. E incluso podríamos hacer lo mismo en ese caso.
 
 {{< highlight java >}}
 Integer val3 = 128;
-    Integer val4 = 128;
+Integer val4 = 128;
 {{< / highlight >}}
 
 La limitación en el caso de la clase `Integer` está en que el cache almacena 256 valores (desde -128 a +127) solamente. Por lo que según el ejemplo de arriba lo que obtendremos son dos instancias diferentes por el simple hecho de usar un valor por encima del 127.
@@ -103,8 +93,8 @@ La clase `BigInteger` tiene un _cache_ para valores entre -16 y +16 pero su docu
 
 {{< highlight java >}}
 public static Double valueOf(double d) {
-        return new Double(d);
-    }
+    return new Double(d);
+}
 {{< / highlight >}}
 
 Claramente no hay un cache y esto nos dará una nueva instancia de la clase. La lección aquí es que muchas veces no alcanza con ver la documentación, sino que es necesario ver el código fuente.

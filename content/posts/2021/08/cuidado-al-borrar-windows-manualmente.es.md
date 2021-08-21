@@ -12,8 +12,8 @@ tags:
   - formatear
   - programdata
   - windows
-
 ---
+
 Destruir la instalación de **Windows** de nuestro equipo es sorprendentemente fácil mientras intentamos eliminar **Windows** de un disco viejo.
 
 Cuando compramos un disco más grande para nuestra PC de escritorio o reemplazamos el de nuestra notebook muchas veces nos quedamos con el anterior para guardar datos. En esta circunstancia es altamente probable que en lugar de formatear ese disco decidamos eliminar los archivos que no nos interesan manualmente. Y así ahorrarnos el trabajo de mover los datos temporalmente a otro lado mientras formateamos. Y luego volver a pasar los datos al disco. Los directorios de sistema de **Windows** (esos donde están los archivos binarios y de datos que el sistema operativo maneja) ocupan mucho espacio. Así que es una de las primeras cosas que vamos a remover.
@@ -32,11 +32,9 @@ icacls "Z:\Program Files" /T /grant administrators:F
 rd /s /q "Z:\Program Files"
 {{< / highlight >}}
 
-Estos comandos tal cual se encuentran sirven para un **Windows** en inglés pero es muy fácil cambiarlos para uno en español. El primer comando cambia el propietario de todos los archivos y directorios dentro de **Program Files** (inclusive) a **Administrator**. El segundo le entrega todo tipo de permiso existente a Administrator para todo los archivos y directorios dentro de **Program Files** (inclusive). Y el último comando elimina **Program Files** y todo su contenido. Todos los comandos realizan la tarea son pedir confirmación al usuario.<figure class="wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio">
+Estos comandos tal cual se encuentran sirven para un **Windows** en inglés pero es muy fácil cambiarlos para uno en español. El primer comando cambia el propietario de todos los archivos y directorios dentro de **Program Files** (inclusive) a **Administrator**. El segundo le entrega todo tipo de permiso existente a Administrator para todo los archivos y directorios dentro de **Program Files** (inclusive). Y el último comando elimina **Program Files** y todo su contenido. Todos los comandos realizan la tarea son pedir confirmación al usuario.
 
-<div class="wp-block-embed__wrapper">
-  <span class="embed-youtube" style="text-align:center; display: block;"></span>
-</div></figure> 
+{{< youtube 4XmFoqkVOTk >}}
 
 Hasta aquí, siempre que estemos posicionados en la unidad correcta y nunca en el C: no hay mayores peligros dado que nuestra intención es efectivamente eliminar este directorio. Pero en seguida vamos a generalizar esta receta y la aplicaremos a los otros directorios que queremos eliminar, como por ejemplo **Windows**. Y cuando hayamos terminado nos daremos cuenta de que aun hay mucho espacio ocupado en el disco. Así que buscaremos si hay archivos o directorios ocultos por sus atributos o por ser de sistema. Y no tardaremos en dar con el infame directorio llamado `Users\All Users\` en el raíz si se trata de un disco que tenía instalado Window 7. Pero podemos llegar a encontrarnos con una situación similar en otros directorios aunque se trate de una instalación de otra versión de Windows. Así que recomiendo no abandonar la lectura aquí.
 

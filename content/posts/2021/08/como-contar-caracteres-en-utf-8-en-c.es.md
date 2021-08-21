@@ -6,20 +6,15 @@ date: 2021-08-15T12:41:05+00:00
 categories:
   - Programación
 tags:
-  - ancho variable
   - ascii
-  - byte
   - C/C++
-  - caracter
   - char
-  - codificación
-  - latin-1
   - utf-8
-
 ---
+
 **UTF-8** es una codificación de texto muy versátil y difundida. En particular para casos donde se necesita soportar cualquier caracter **Unicode** pero no se quiere pagar un costo alto de almacenamiento. Ya que **Unicode** es enorme no hay manera de codificar todas las posibilidades en un sólo _byte_. Al mismo tiempo, utilizar dos o cuatro _bytes_ para cada caracter puede ser un desperdicio si la mayoría de los caracteres que usamos entrarán en uno o dos _bytes_. Ahí es donde UTF-8, que es una codificación con caracter de ancho variable, entra en juego. Ya que nos permite utilizar uno o dos bytes para los caracteres más comunes como **ASCII** y **Latin-1.** Pero al mismo tiempo utilizará más bytes si aparecen caracteres de codificaciones menos frecuentes.
 
-  <figure class="wp-block-media-text__media"><img loading="lazy" width="310" height="162" src="https://blog.drk.com.ar/wp-content/uploads/2021/08/utf8-cpp.png" alt="" class="wp-image-2778 size-full" srcset="https://blog.drk.com.ar/wp-content/uploads/2021/08/utf8-cpp.png 310w, https://blog.drk.com.ar/wp-content/uploads/2021/08/utf8-cpp-300x157.png 300w" sizes="(max-width: 310px) 100vw, 310px" /></figure>
+  ![utf-8](/2021/08/utf8-cpp.png)
   
 > La dificultad extra que nos agrega es que no podemos saber de antemano cuántos caracteres hay en una cadena de texto codificada en**UTF-8** sólo contando cuantos ***bytes*** ocupa. Tenemos que recorrerla y procesarla para poder contar los caracteres.
 
@@ -38,9 +33,9 @@ La posibles configuraciones de bytes son:
 Aquí un pequeño programa en C++ que resuelve el problema y también realiza una prueba de performance entre la función `strlen()` de la biblioteca estándar de C y la función que presentamos para contar caracteres en **UTF-8**:
 
 {{< highlight cpp >}}
-#include &lt;stdio.h>
-#include &lt;string.h>
-#include &lt;time.h>
+#include <stdio.h>
+#include <string.h>
+#include <time.h>
  
 #define STRINGS 8
 #define TIMES 1000000
@@ -57,18 +52,18 @@ int main(int argc, char ** argv)
   int i;
   struct timespec start, end;
  
-  for(i=0; i &lt; STRINGS; ++i)
+  for(i=0; i < STRINGS; ++i)
     printf("%s\nstrlen(): %zu \t utf8len(): %zu\n", list[i], strlen(list[i]), utf8len(list[i]));
  
  
   clock_gettime(CLOCK_REALTIME, &start);
-  for(i=0; i&lt;TIMES; ++i)
+  for(i=0; i<TIMES; ++i)
     strlen(list[i%STRINGS]);
   clock_gettime(CLOCK_REALTIME, &end);
   print_diff("strlen", TIMES, &start, &end);
  
   clock_gettime(CLOCK_REALTIME, &start);
-  for(i=0; i&lt;TIMES; ++i)
+  for(i=0; i<TIMES; ++i)
     utf8len(list[i%STRINGS]);
   clock_gettime(CLOCK_REALTIME, &end);
   print_diff("utf8len", TIMES, &start, &end);

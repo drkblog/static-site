@@ -59,9 +59,9 @@ Password:
 
 Llamando a la aplicación **secret-tool** y usando el comando **store** vamos a guardar una clave. Para el ejemplo puse un atributo **user** y su valor &#8220;leandro&#8221; y otro **context** y como valor &#8220;artifactory&#8221;. Insisto en que los nombres de los atributos son arbitrarios. Yo lo puse en inglés pero podrían ser en español. El valor de los atributos puede ser cualquier cosa pero tiene sentido que pongamos valores correspondientes a lo que el atributo que elegimos representa.
 
-Inmediatamente nos pedirá que ingresemos la contraseña que queremos guardar. Yo ingresé &#8220;miClave&#8221; en este caso. Si es la primera vez que guardamos una contraseña **gnome-keyring** creará un **_keyring_** por defecto y nos pedirá que lo protejamos con una contraseña maestra. La cual deberemos ingresar para recuperar las claves. Es posible que en una instalación con una configuración distinta a la mía esto no sea solicitado y que la propia clave del usuario del sistema operativo sirva para acceder al **_keyring_**.<figure class="wp-block-image size-large">
+Inmediatamente nos pedirá que ingresemos la contraseña que queremos guardar. Yo ingresé &#8220;miClave&#8221; en este caso. Si es la primera vez que guardamos una contraseña **gnome-keyring** creará un **_keyring_** por defecto y nos pedirá que lo protejamos con una contraseña maestra. La cual deberemos ingresar para recuperar las claves. Es posible que en una instalación con una configuración distinta a la mía esto no sea solicitado y que la propia clave del usuario del sistema operativo sirva para acceder al **_keyring_**.
 
-[<img loading="lazy" width="1024" height="280" src="https://blog.drk.com.ar/wp-content/uploads/2021/08/gnome-keyring-creation-1024x280.png" alt="" class="wp-image-2788" srcset="https://blog.drk.com.ar/wp-content/uploads/2021/08/gnome-keyring-creation-1024x280.png 1024w, https://blog.drk.com.ar/wp-content/uploads/2021/08/gnome-keyring-creation-300x82.png 300w, https://blog.drk.com.ar/wp-content/uploads/2021/08/gnome-keyring-creation-768x210.png 768w, https://blog.drk.com.ar/wp-content/uploads/2021/08/gnome-keyring-creation.png 1030w" sizes="(max-width: 1024px) 100vw, 1024px" />][2]</figure> 
+![gnome-keyring](/2021/08/gnome-keyring-creation.png)
 
 Con esto ya habremos guardado nuestra primera clave en el keyring. Ahora confirmaremos que fue guardada correctamente utilizando el comando que también nos servirá para utilizarla, por ejemplo, en un _command substitution_ de **_bash_**.
 
@@ -120,4 +120,3 @@ attribute.user = leandro
 En este caso eliminé la contraseña asociada con el usuario **hernan** para el contexto **artifactory**. Y al volver a listar todas las claves de ese contexto podemos ver que ya no existe una para el usuario hernan.
 
  [1]: /2021/2-comandos-para-proteger-tu-contrasena
- [2]: https://blog.drk.com.ar/wp-content/uploads/2021/08/gnome-keyring-creation.png
