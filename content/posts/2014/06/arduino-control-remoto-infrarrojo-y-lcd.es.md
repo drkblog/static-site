@@ -9,18 +9,18 @@ categories:
 tags:
   - arduino
   - circuito
-  - display
-  - electrónica digital
   - infrarrojo
 ---
 
 _El artículo sobre el uso de un VS1838 para recibir señales de un control remoto con Arduino que escribí el en noviembre de 2013 se hizo muy popular. Y recibí varias consultas sobre la posibilidad de adaptar el programa para hacer algo útil con la señal recibida. Así que preparé este ejemplo ilustrativo._
 
-<img loading="lazy" class="alignleft size-full wp-image-2027" src="http://blog.drk.com.ar/wp-content/uploads/2014/06/cr_lcd.jpg" alt="Arduino, control remoto y LCD" width="300" height="210" /> Aquí se combina el programa que [decodifica las teclas presionadas en el control remoto][1], con la biblioteca que permite escribir en una pantalla de cristal líquido (que también utilicé en el [artículo sobre el sensor DHT11][2]). De forma que se muestra en la pantalla el número correspondiente a la tecla presionada.
+![lcd](/2014/06/cr_lcd.jpg)
+
+Aquí se combina el programa que [decodifica las teclas presionadas en el control remoto][1], con la biblioteca que permite escribir en una pantalla de cristal líquido (que también utilicé en el [artículo sobre el sensor DHT11][2]). De forma que se muestra en la pantalla el número correspondiente a la tecla presionada.
 
 Omitiré lo detalles de funcionamiento del control remoto y el VS1838 ya que todo se explicó en detalle en artículo inicial. En este caso el enfoque será sobre el código. Ya que noté, en algunas consultas recibidas, una idea distorsionada de lo que es un programa. Por supuesto que muchos de ustedes podrá saltar la lectura del párrafo siguiente si les resulta demasiado básica la explicación. Pero está claro que algunos lectores se verá beneficiados con ella.
 
-<span class="embed-youtube" style="text-align:center; display: block;"></span>
+{{< youtube OyA3M-BMuSg >}}
 
 ## Programar no es configurar
 
@@ -46,7 +46,7 @@ The circuit:
 * IR data pin 19
 */
 
-#include &lt;LiquidCrystal.h&gt;
+#include <LiquidCrystal.h>
 
 ///// Control Remoto //////
 // Cantidad de pulsos
@@ -73,16 +73,16 @@ void inputPin() {
   }
   else {
     delta = micros() - start;
-    if (delta &lt; LOW_LIMIT) {
-      value &lt;&lt;= 1;
+    if (delta < LOW_LIMIT) {
+      value <<= 1;
       value |= 1;
       ++pos;
     }
-    else if (delta &lt; HIGH_LIMIT) {
-      value &lt;&lt;= 1;
+    else if (delta < HIGH_LIMIT) {
+      value <<= 1;
       value |= 0;
       ++pos;
-    } else if (delta &gt; INIT_LIMIT) {
+    } else if (delta > INIT_LIMIT) {
       value = 0;
       pos = 0;
     }
@@ -128,7 +128,7 @@ void loop()
     Serial.print("V: ");
     Serial.println(value & 0x0000FFFF, HEX);
     i = 0;
-    while(i&lt;10 && (key[i] != (value & 0x0000FFFF))) ++i;
+    while(i<10 && (key[i] != (value & 0x0000FFFF))) ++i;
     Serial.print("I: ");
     Serial.println(i);
 
@@ -144,5 +144,5 @@ void loop()
 
 Tal vez lo más importante de este artículo es ver que el código puede construirse en bloques autónomos, que luego son integrados en una sólo programa para cumplir una tarea diferente. Y de hecho esta es una práctica muy recomendable a la hora de trabajar. Porque poner en funcionamiento en forma aislada, distintas partes de lo que sabemos que será un todo, permite detectar fácilmente problemas individuales. Y luego, durante la integración, se pueden descartar muchas fallas. Esto no sería posible si un circuito y software complejo se arma de una sola ves y luego se intenta ponerlo en funcionamiento.
 
- [1]: /2013/control-remoto-infrarrojo-con-arduino
- [2]: /2014/sensor-dht11-display-lcd-y-arduino
+ [1]: /control-remoto-infrarrojo-con-arduino
+ [2]: /sensor-dht11-display-lcd-y-arduino

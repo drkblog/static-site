@@ -9,14 +9,16 @@ tags:
   - arduino
   - display
   - sensor
-
+  - video
 ---
+
 _Los sensores de temperatura y humedad DHTxx son de muy bajo costo y de una precisión entre aceptable y buena; dependiendo de los requisitos de nuestra aplicación. Y del modelo que tengamos en nuestras manos. En este breve artículo utilizaremos un DHT11 para medir las variables del ambiente._
 
-<img loading="lazy" class="alignnone size-full wp-image-1986" src="http://blog.drk.com.ar/wp-content/uploads/2014/05/dht11-arduino-LCD-sketch.png" alt="DHT11, Arduino y LCD" width="744" height="652" srcset="https://blog.drk.com.ar/wp-content/uploads/2014/05/dht11-arduino-LCD-sketch.png 744w, https://blog.drk.com.ar/wp-content/uploads/2014/05/dht11-arduino-LCD-sketch-300x262.png 300w, https://blog.drk.com.ar/wp-content/uploads/2014/05/dht11-arduino-LCD-sketch-342x300.png 342w" sizes="(max-width: 744px) 100vw, 744px" /> 
+![dht11-arduino-LCD-sketch](/2014/05/dht11-arduino-LCD-sketch.png)
 
 Para este experimento utilicé un [sensor DHT11][1], un Arduino MEGA2560, un display LCD [modelo 1602A][2], un potenciómetro lineal de 50K., una resistencia de 220Ω, cables y protoboard.  
-<span class="embed-youtube" style="text-align:center; display: block;"></span>
+
+{{< youtube emHKumlRakc >}}
 
 Procedimiento de conexión:
 
@@ -46,7 +48,7 @@ Para compilar el código fuente se necesita la [biblioteca del sensor DTH][3]
 
 ### Código fuente
 
-[code language=&#8221;cpp&#8221;]  
+{{< highlight cpp "linenos=table" >}}
 #include <LiquidCrystal.h>  
 #include <dht.h>
 
@@ -56,59 +58,56 @@ dht DHT;
 
 LiquidCrystal lcd(12, 11, 5, 4, 3, 2);
 
-void setup()  
-{  
-Serial.begin(115200);  
-lcd.begin(16, 2);  
-Serial.println("Prueba de DHT");  
-Serial.print("Version de biblioteca: ");  
-Serial.println(DHT\_LIB\_VERSION);  
-Serial.println();  
-Serial.println("Sensor,\tEstado,\tHumedad (%),\tTemperatura (C)");  
+void setup() {  
+  Serial.begin(115200);  
+  lcd.begin(16, 2);  
+  Serial.println("Prueba de DHT");  
+  Serial.print("Version de biblioteca: ");  
+  Serial.println(DHT_LIB_VERSION);  
+  Serial.println();  
+  Serial.println("Sensor,\tEstado,\tHumedad (%),\tTemperatura (C)");  
 }
 
-void loop()  
-{  
-// Lectura  
-Serial.print("DHT11, \t");  
-int chk = DHT.read11(DHT11_PIN);  
-switch (chk)  
-{  
-case DHTLIB_OK:  
-Serial.print("OK,\t");  
-break;  
-case DHTLIB\_ERROR\_CHECKSUM:  
-Serial.print("Checksum error,\t");  
-break;  
-case DHTLIB\_ERROR\_TIMEOUT:  
-Serial.print("Time out error,\t");  
-break;  
-default:  
-Serial.print("Unknown error,\t");  
-break;  
+void loop() {  
+  // Lectura  
+  Serial.print("DHT11, \t");  
+  int chk = DHT.read11(DHT11_PIN);  
+  switch (chk) {  
+    case DHTLIB_OK:  
+      Serial.print("OK,\t");  
+      break;  
+    case DHTLIB_ERROR_CHECKSUM:  
+      Serial.print("Checksum error,\t");  
+      break;  
+    case DHTLIB_ERROR_TIMEOUT:  
+      Serial.print("Time out error,\t");  
+      break;  
+    default:  
+      Serial.print("Unknown error,\t");  
+      break;  
+  }  
+  // Envio a puerto serie  
+  Serial.print(DHT.humidity,1);  
+  Serial.print(",\t");  
+  Serial.println(DHT.temperature,1);  
+  // Envio a LCD  
+  lcd.setCursor(0, 0);  
+  lcd.print("Temp.: ");  
+  lcd.print(DHT.temperature);  
+  lcd.print((char)223);  
+  lcd.print("C");  
+  lcd.setCursor(0, 1);  
+  lcd.print("Humedad: ");  
+  lcd.print(DHT.humidity);  
+  lcd.print("%");
+  
+  delay(1000);  
 }  
-// Envio a puerto serie  
-Serial.print(DHT.humidity,1);  
-Serial.print(",\t");  
-Serial.println(DHT.temperature,1);  
-// Envio a LCD  
-lcd.setCursor(0, 0);  
-lcd.print("Temp.: ");  
-lcd.print(DHT.temperature);  
-lcd.print((char)223);  
-lcd.print("C");  
-lcd.setCursor(0, 1);  
-lcd.print("Humedad: ");  
-lcd.print(DHT.humidity);  
-lcd.print("%");
+{{< /highlight >}}
 
-delay(1000);  
-}  
-[/code]
+La biblioteca de lectura del sensor DHT11 funciona declarando un objeto global del tipo **dht** (en el ejemplo la variable se llama DHT). El método **read11()** recibe como argumento el número de pin (terminal) de Arduino donde se encuentra conectado el sensor (en nuestro caso el 22). Devuelve el resultado de la operación en forma de un entero. Si fue exitosa, las propiedades ***humidity*** y ***temperature*** contendrán los valores medidos de humedad y temperatura respectivamente.
 
-La biblioteca de lectura del sensor DHT11 funciona declarando un objeto global del tipo **dht** (en el ejemplo la variable se llama DHT). El método **read11()** recibe como argumento el número de pin (terminal) de Arduino donde se encuentra conectado el sensor (en nuestro caso el 22). Devuelve el resultado de la operación en forma de un entero. Si fue exitosa, las propiedades &#8220;**humidity**&#8221; y &#8220;**temperature**&#8221; contendrán los valores medidos de humedad y temperatura respectivamente.
-
-La biblioteca de LCD se utiliza declarando un objeto del tipo **LiquidCrystal** pasando en el constructor los pines donde se conectaron los terminales RW<span style="color: #4f4e4e;">, Enable, D4, D5, D6, y D7. El método**begin()**configura la cantidad de columnas y filas. Luego los métodos </span>**setCursor()** y **print()** permiten escribir texto en la pantalla.
+La biblioteca de LCD se utiliza declarando un objeto del tipo **LiquidCrystal** pasando en el constructor los pines donde se conectaron los terminales RW, Enable, D4, D5, D6, y D7. El método **begin()** configura la cantidad de columnas y filas. Luego los métodos **setCursor()** y **print()** permiten escribir texto en la pantalla.
 
 Este ejemplo realiza una lectura y luego una pausa de un segundo. Al estar implementado en la función **loop()** esto se repite constantemente. La información también se envía al puerto serie de Arduino.
 
