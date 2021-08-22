@@ -20,6 +20,16 @@ pygmentsCodefences = true
 
 enableEmoji = true
 
+[taxonomies]
+author = "authors"
+category = "categories"
+series = "series"
+tag = "tags"
+
+[permalinks]
+page = "/:slug/"
+posts = "/:slug"
+
 [params.info]
 description = "Software engineering"
 title404 = "404 - Not found"
@@ -117,16 +127,6 @@ client = "fuse" # algolia / fuse / lunr
 appId = ""
 indexName = ""
 searchApiKey = ""
-
-[taxonomies]
-author = "authors"
-category = "categories"
-series = "series"
-tag = "tags"
-
-[permalinks]
-page = "/:slug/"
-posts = "/:slug"
 
 [[menu.main]]
 name = "Repo"
