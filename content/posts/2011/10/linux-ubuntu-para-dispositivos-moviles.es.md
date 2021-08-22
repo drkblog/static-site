@@ -14,7 +14,7 @@ tags:
 
 El fundador de Canonical, la empresa que soporta la distribución de Linux Ubuntu, anunciará en el encuentro de **Desarrolladores Ubuntu** en Orlando, Florida, que migrarán la distribución para Smartphones y Tablets PC. El sistema operativo de código libre más famoso del mundo estará disponible para estos dispositivos en un futuro cercano.
 
-Mark Shuttleworth comentó en una entrevista que, a corto plazo se planea hacer la versión 12.04 de Ubuntu de soporte prolongado y aprovechar para pulir los detalles del escritorio Unity. Luego de eso se expandirá la distribución para que pueda instalarse en dispositivos móviles. &#8220;_Esta es una expansión natural de nuestra idea que es hacer Linux utilizable por seres humanos. Dado que los usuarios han ido cambiando de las máquinas de escritorio a los smartphones y tablets. Así que asumiremos el desafío de convertir Ubuntu a la nueva plataforma_.&#8221;
+Mark Shuttleworth comentó en una entrevista que, a corto plazo se planea hacer la versión 12.04 de Ubuntu de soporte prolongado y aprovechar para pulir los detalles del escritorio Unity. Luego de eso se expandirá la distribución para que pueda instalarse en dispositivos móviles. "_Esta es una expansión natural de nuestra idea que es hacer Linux utilizable por seres humanos. Dado que los usuarios han ido cambiando de las máquinas de escritorio a los smartphones y tablets. Así que asumiremos el desafío de convertir Ubuntu a la nueva plataforma_."
 
 Más información en la fuente, al final.
 

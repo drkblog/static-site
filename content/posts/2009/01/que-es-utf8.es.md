@@ -15,20 +15,19 @@ Hoy saco dos conclusiones: esto no es algo que todo el mundo sepa, y en efecto e
 Y como lo segundo no tiene remedio voy a tratar de echar un poco de luz sobre el primer asunto desde mi humilde lugar.
 
 Partamos por darle un significado al acrónimo.
-Al contrario de lo que algunos ***gamers*** fanáticos de los FPS podrían suponer no se trata del &#8220;Unreal Tournamet Fiercest 8&#8221;.
 UTF-8 significa ***8-bit Unicode Transformation Format*** (Formato de codificación de 8 bits para Unicode).
-Claro que ahora tengo que explicar qué es**Unicode**y qué es un formato de codificación de ocho bits.
+Claro que ahora tengo que explicar qué es **Unicode** y qué es un formato de codificación de ocho bits.
 Voy a tratar de mantener todo esto lo más sencillo posible.
 
 Unicode es un estándar de computación que permite unificar la forma en que las computadoras manejan el texto.
 Tiene su origen en el intento de solucionar un problema histórico: a lo largo de los años de desarrollo informático cada compañía de hardware y software estableció su propio conjunto de caracteres de texto y los ordenó de la forma que mejor le pareció.
 Con el catastrófico resultado que muchos conocen.
-Así que un buen día un grupo de entusiastas del orden se juntó y dijo &#8220;vamos a hacer una lista de todos los caracteres existentes de todos los idiomas que hay o hubo sobre la tierra.
-Y por las dudas dejemos lugar para los que puedan surgir en el futuro o venir desde otros planetas&#8221;.
+Así que un buen día un grupo de entusiastas del orden se juntó y dijo "vamos a hacer una lista de todos los caracteres existentes de todos los idiomas que hay o hubo sobre la tierra.
+Y por las dudas dejemos lugar para los que puedan surgir en el futuro o venir desde otros planetas."
 Y así fue que nació el Unicode como una lista en la cual cada símbolo de texto conocido tiene un número de orden único.
 Y esta lista no tiene una limitación en cuanto al total de caracteres ya que todo el tiempo se pueden ir agregando nuevos símbolos al final, cada uno con su identificador.
 
-Ya era hora, pero cómo podemos representar los**100.713**símbolos que actualmente forman Unicode.
+Ya era hora, pero cómo podemos representar los **100.713** símbolos que actualmente forman Unicode.
 Los archivos de texto que manejan el 80% de las computadoras utilizan caracteres de 8 bits.
 Esto nos deja con 256 símbolos representables (sin contar que necesitamos algunas combinaciones para propósitos especiales).
 
@@ -36,7 +35,7 @@ Aquí se presenta la otra cara del problema cuya solución adelanté, al menos e
 Para representar miles de caracteres necesitamos más de un byte por símbolo.
 Esto se soluciona estableciendo que nuestros archivos de texto utilicen dos o más bytes por cada símbolo visible.
 Y naturalmente esta solución fue propuesta e implementada oportunamente.
-Dando origen a las codificaciones**UTF-16**y**UTF-32**entre otras.
+Dando origen a las codificaciones**UTF-16** y **UTF-32**entre otras.
 Las mencionadas utilizan dos y cuatro bytes por símbolo respectivamente.
 
 Hagamos una pausa para aclarar algo que puede ser confuso.
