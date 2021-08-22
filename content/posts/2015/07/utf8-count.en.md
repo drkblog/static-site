@@ -5,6 +5,7 @@ date: 2015-07-23
 slug: "count-characters-in-utf8-string-cpp"
 tags:
 - cpp
+- utf8
 ---
 
 The following code defines, tests and illustrates the use of **utf8len()** function.
@@ -18,6 +19,7 @@ This test source code has UTF-8 characters, you have to check the source file do
 Average time for functions have a small overhead from the for loop. But the overhead is the same for both tests.
 
 {{< highlight cpp >}}
+
 #include <stdio.h>
 #include <string.h>
 #include <time.h>
