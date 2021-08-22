@@ -3,7 +3,7 @@ title: Arduino, control remoto infrarrojo y LCD
 author: Leandro Fernandez
 type: post
 date: 2014-06-05T14:23:01+00:00
-featured_image: http://blog.drk.com.ar/wp-content/uploads/2014/06/arduino.jpg
+featured_image: /2014/06/arduino.jpg
 categories:
   - Electrónica
 tags:
@@ -116,7 +116,7 @@ void setup()
   pinMode(PIN, INPUT);
   attachInterrupt(PIN_INT, inputPin, CHANGE);
   lcd.begin(16, 2);
-  Serial.println("http://blog.drk.com.ar");
+  Serial.println("http://www.drk.com.ar");
   Serial.println();
 }
 

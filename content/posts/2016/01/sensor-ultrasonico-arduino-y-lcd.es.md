@@ -3,7 +3,7 @@ title: Sensor ultrasónico, Arduino y LCD
 author: Leandro Fernandez
 type: post
 date: 2016-01-22T01:54:33+00:00
-featured_image: http://blog.drk.com.ar/wp-content/uploads/2016/01/sensor-ultrasonico-arduin-lcd-672x372.jpg
+featured_image: /2016/01/sensor-ultrasonico-arduin-lcd-672x372.jpg
 categories:
   - Electrónica
 tags:
@@ -110,7 +110,7 @@ void setup() {
   // Set up the LCD  
   // initialize the library with the numbers of the interface pins  
   lcd.begin(16, 2);  
-  lcd.printf(0, "blog.drk.com.ar");  
+  lcd.printf(0, "www.drk.com.ar");  
   lcd.cursor();  
 }
   

@@ -89,4 +89,4 @@ Claramente, al llegar a los 4MHz la señal original ya no conserva la forma de o
 Escribí este artículo justo luego de finalizadas las pruebas descriptas. Claramente el circuito cumple su función. Pero en la práctica existirá un límite de frecuencia a partir del cual el tiempo de respuesta será un obstáculo. En todo caso, sería necesario investigar los transistores disponibles que cumplan los requisitos mencionados en la nota de aplicación, que tenga mejores tiempos de respuesta que este.
 
  [1]: http://ics.nxp.com/support/documents/interface/pdf/an97055.pdf
- [2]: http://blog.drk.com.ar/wp-content/uploads/2013/05/4mhz_test.png
+ 

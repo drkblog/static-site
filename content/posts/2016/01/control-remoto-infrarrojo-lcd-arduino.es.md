@@ -159,4 +159,4 @@ La función **cmd_show** lee el valor del campo _value_ a través del puntero _r
 
 En el siguiente artículo extendermos las capacidades de este programa para que realice funciones más complejas agregando funciones y una variable compleja que contenga el contexto.
 
- [1]: http://blog.drk.com.ar/2013/control-remoto-infrarrojo-con-arduino
+ [1]: /control-remoto-infrarrojo-con-arduino

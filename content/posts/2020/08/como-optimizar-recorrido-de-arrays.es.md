@@ -3,7 +3,7 @@ title: Cómo optimizar recorrido de arrays
 author: Leandro Fernandez
 type: post
 date: 2020-08-28T04:07:43+00:00
-featured_image: http://blog.drk.com.ar/wp-content/uploads/2020/08/funnyStrings-672x372.png
+featured_image: /2020/08/funnyStrings-672x372.png
 categories:
   - Programación
 tags:

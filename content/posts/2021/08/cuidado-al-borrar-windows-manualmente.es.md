@@ -42,10 +42,8 @@ Como ya se pueden imaginar esto es una receta para el desastre. Porque si estamo
 
 Para evitar este error o uno similar, ya que hay otros enlaces simbólicos que incluyen la unidad `C:`, podemos utilizar el comando `dir /aL` en la ubicación actual para obtener una lista de los enlaces simbólicos. Aquí vemos un ejemplo de **Windows 10** donde `Documents and Settings` apunta a `C:\Users`. Por lo tanto si conectara este disco en otro equipo y recibiera una letra de unidad distinta de `C` de todas formas al entrar en este directorio llegaría la unidad `C` de esa computadora (siempre que exista un directorio `Users` en la misma).<figure class="wp-block-image size-full">
 
-[<img loading="lazy" width="676" height="197" src="https://blog.drk.com.ar/wp-content/uploads/2021/08/dir-al.png" alt="" class="wp-image-2706" srcset="https://blog.drk.com.ar/wp-content/uploads/2021/08/dir-al.png 676w, https://blog.drk.com.ar/wp-content/uploads/2021/08/dir-al-300x87.png 300w, https://blog.drk.com.ar/wp-content/uploads/2021/08/dir-al-672x197.png 672w" sizes="(max-width: 676px) 100vw, 676px" />][1]</figure> 
+![dir-al](/2021/08/dir-al.png) 
 
 Podemos ver este directorio sólo si incluimos el argumento `/a` en el comando `dir`. Si omitimos `/L` vamos a verlo junto con el resto de archivos y directorio en la raíz de `C:`. El indicador `<JUNCTION>` nos muestra que se trata de un enlace simbólico y el texto entre corchetes indica a dónde apunta.
 
 Por supuesto que estoy escribiendo este artículo desde la experiencia. Y les puedo decir que no es difícil cometer este error. De hecho, cuando me ocurrió encontré rápidamente muchas personas que habían pasado por lo mismo. En mi caso sólo llegué a cambiar el propietario de `C:\ProgramData` de mi **Windows 10**. Y el sistema operativo comenzó a funcionar mal. Sólo eso fue suficiente para tener que instalar **Windows** de nuevo. Porque el contenido de esa carpeta tiene distintos propietarios y reconstruir esa configuración fue imposible.
-
- [1]: https://blog.drk.com.ar/wp-content/uploads/2021/08/dir-al.png
