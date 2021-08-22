@@ -6,12 +6,10 @@ date: 2011-11-26T21:01:08+00:00
 categories:
   - Programación
 tags:
-  - 3D
-  - canvas
   - html5
   - javascript
-
 ---
+
 Segunda versión de esta simulación de la **ley de gravitación universal**. Implementada en 3D con la biblioteca [Three.js][1], para Javascript. Con fines didácticos se posicionó una partícula con masa mucho mayor al resto y se fijó en el escenario para que cumpla el rol de sol. Está disponible el [código fuente][2] con licencia GPL.  
 
 {{< rawhtml >}}
