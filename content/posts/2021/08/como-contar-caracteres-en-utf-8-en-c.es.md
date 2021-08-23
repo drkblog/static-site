@@ -6,9 +6,7 @@ date: 2021-08-15T12:41:05+00:00
 categories:
   - Programación
 tags:
-  - ascii
   - C/C++
-  - char
   - utf-8
 ---
 

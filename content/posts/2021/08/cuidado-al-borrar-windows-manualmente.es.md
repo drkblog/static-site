@@ -6,11 +6,6 @@ date: 2021-08-01T22:16:09+00:00
 categories:
   - Tecnología
 tags:
-  - borrar archivos de programa
-  - borrar windows
-  - cmd
-  - formatear
-  - programdata
   - windows
 ---
 

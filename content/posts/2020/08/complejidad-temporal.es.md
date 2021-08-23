@@ -10,7 +10,6 @@ tags:
   - algoritmo
   - big o
   - complejidad temporal
-  - video
 ---
 
 {{< youtube gH4tfaZaLZk >}}

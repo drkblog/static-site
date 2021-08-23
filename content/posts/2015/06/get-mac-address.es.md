@@ -5,7 +5,7 @@ date: 2015-06-23
 slug: "obtener-direccion-adaptador-red-mac-cpp"
 tags:
 - linux
-- cpp
+- C/C++
 ---
 
 Este extracto de código muestra cómo obtener a dirección de hardware del adaptador de red en C/C++ en sistemas POSIX.

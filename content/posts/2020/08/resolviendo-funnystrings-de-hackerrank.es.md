@@ -8,9 +8,8 @@ categories:
 tags:
   - big o
   - complejidad temporal
-  - golang
+  - go
   - array
-  - video
 format: video
 ---
 

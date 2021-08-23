@@ -6,10 +6,8 @@ date: 2020-08-30T02:31:59+00:00
 categories:
   - Programación
 tags:
-  - punto flotante
   - float
   - go
-  - redondeo
 ---
  
 

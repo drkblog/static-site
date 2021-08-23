@@ -5,7 +5,7 @@ date: 2015-06-23
 slug: "get-mac-address-using-cpp"
 tags:
 - linux
-- cpp
+- C/C++
 ---
 
 This code snippet shows how to get the local MAC (hardware) address in POSIX systems.

@@ -10,7 +10,6 @@ tags:
   - algoritmo
   - array
   - complejidad temporal
-  - ascii
 ---
  
 

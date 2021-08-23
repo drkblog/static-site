@@ -7,11 +7,8 @@ categories:
   - Programación
 tags:
   - contraseña
-  - keychain
   - keyring
   - linux
-  - shell
-  - ubuntu
 ---
 
 _Unos días atrás expliqué [cómo evitar que tu contraseña quede expuesta en la terminal a través del historial del shell, en Mac][1]. Hoy vamos a ver cómo guardar contraseñas en form segura en Linux._

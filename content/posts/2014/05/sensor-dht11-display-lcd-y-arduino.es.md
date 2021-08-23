@@ -9,7 +9,6 @@ tags:
   - arduino
   - display
   - sensor
-  - video
 ---
 
 _Los sensores de temperatura y humedad DHTxx son de muy bajo costo y de una precisión entre aceptable y buena; dependiendo de los requisitos de nuestra aplicación. Y del modelo que tengamos en nuestras manos. En este breve artículo utilizaremos un DHT11 para medir las variables del ambiente._
