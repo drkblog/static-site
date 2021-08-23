@@ -3,6 +3,7 @@ title: Cómo contar caracteres en UTF-8 en C++
 author: Leandro Fernandez
 type: post
 date: 2021-08-15T12:41:05+00:00
+cover: "/2021/08/utf8-cpp.png"
 categories:
   - Programación
 tags:
@@ -11,8 +12,6 @@ tags:
 ---
 
 **UTF-8** es una codificación de texto muy versátil y difundida. En particular para casos donde se necesita soportar cualquier caracter **Unicode** pero no se quiere pagar un costo alto de almacenamiento. Ya que **Unicode** es enorme no hay manera de codificar todas las posibilidades en un sólo _byte_. Al mismo tiempo, utilizar dos o cuatro _bytes_ para cada caracter puede ser un desperdicio si la mayoría de los caracteres que usamos entrarán en uno o dos _bytes_. Ahí es donde UTF-8, que es una codificación con caracter de ancho variable, entra en juego. Ya que nos permite utilizar uno o dos bytes para los caracteres más comunes como **ASCII** y **Latin-1.** Pero al mismo tiempo utilizará más bytes si aparecen caracteres de codificaciones menos frecuentes.
-
-  ![utf-8](/2021/08/utf8-cpp.png)
   
 > La dificultad extra que nos agrega es que no podemos saber de antemano cuántos caracteres hay en una cadena de texto codificada en**UTF-8** sólo contando cuantos ***bytes*** ocupa. Tenemos que recorrerla y procesarla para poder contar los caracteres.
 

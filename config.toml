@@ -20,10 +20,6 @@ pygmentsCodefences = true
 
 enableEmoji = true
 
-[params]
-description = 'Ingeniería de software'
-images = ["/images/drkbugs.png"]
-
 [taxonomies]
 author = "authors"
 category = "categories"
@@ -39,7 +35,7 @@ description = "Software engineering"
 title404 = "404 - Not found"
 
 [params.assets]
-favicon = "images/favorite.ico"
+favicon = "favicon.ico"
 customCSS = ["css/custom.css"]
 customJS = ["js/custom.js"]
 gopher = "" # used in 404 template ( Generator: https://gopherize.me )

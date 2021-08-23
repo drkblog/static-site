@@ -3,6 +3,7 @@ title: ¡No uses new en Java!
 author: Leandro Fernandez
 type: post
 date: 2021-08-10T03:30:49+00:00
+cover: "/2021/08/forbidden-new.png"
 categories:
   - Programación
 tags:
@@ -14,8 +15,6 @@ tags:
 
 Hay dos circunstancias distintas donde debemos seguir esta máxima: _cuando creamos una clase y definimos cómo se van a crear sus instancias, y cuando creamos instancias de otras clases que no hemos definido nosotros._
 
-![forbidden-new](/2021/08/forbidden-new.png)
-  
 Creo que la mayor parte del tiempo tenemos esto presente cuando estamos definiendo nuestra clase. Y no tanto cuando creamos objetos de otras. En especial si esa clase tiene constructores públicos.
 
 ## Clases no propias

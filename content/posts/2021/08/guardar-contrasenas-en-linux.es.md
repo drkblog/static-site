@@ -3,6 +3,7 @@ title: Guardar contraseñas en Linux
 author: Leandro Fernandez
 type: post
 date: 2021-08-17T02:20:56+00:00
+cover: "/2021/08/tux.png"
 categories:
   - Programación
 tags:
@@ -11,7 +12,7 @@ tags:
   - linux
 ---
 
-_Unos días atrás expliqué [cómo evitar que tu contraseña quede expuesta en la terminal a través del historial del shell, en Mac][1]. Hoy vamos a ver cómo guardar contraseñas en form segura en Linux._
+_Unos días atrás expliqué [cómo evitar que tu contraseña quede expuesta en la terminal a través del historial del shell, en Mac]({{< ref "/posts/2021/08/2-comandos-para-proteger-tu-contrasena.es.md" >}}). Hoy vamos a ver cómo guardar contraseñas en form segura en Linux._
 
 En el artículo enlazado más arriba mencionamos que es común exponer contraseñas al pasarlas como argumento en la línea de comandos. Y el compromiso de seguridad que ello implica. También puede ocurrir que tengamos que manejarnos con una cantidad decente de contraseñas y recordarlas y escribirlas todo el tiempo sea un problema. En ambas situaciones un _**keyring**_ o una _**keychain**_ es muy útil. Vamos a ver de qué se trata y cómo aprovecharlos.
 
@@ -113,5 +114,3 @@ attribute.user = leandro
 {{< / highlight >}}
 
 En este caso eliminé la contraseña asociada con el usuario **hernan** para el contexto **artifactory**. Y al volver a listar todas las claves de ese contexto podemos ver que ya no existe una para el usuario hernan.
-
- [1]: /2021/2-comandos-para-proteger-tu-contrasena

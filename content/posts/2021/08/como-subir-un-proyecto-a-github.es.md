@@ -3,14 +3,12 @@ title: Cómo subir un proyecto a GitHub
 author: Leandro Fernandez
 type: post
 date: 2021-08-22
+cover: "/2021/08/github.svg.png"
 categories:
   - Programación
 tags:
   - github
-cover: "/2021/08/github.svg.png"
 ---
-
-![github](/2021/08/github.svg.png)
 
 Quien necesita subir un proyecto a **GitHub** puede encontrase en distintas situaciones, y eso podría variar el procedimiento a seguir.
 A continuación describo la secuencia de pasos que más se adapta a las variantes típicas.
