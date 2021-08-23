@@ -1,5 +1,5 @@
 ---
-title: Cómo subir un proyecto a GitHUb
+title: Cómo subir un proyecto a GitHub
 author: Leandro Fernandez
 type: post
 date: 2021-08-22
@@ -9,11 +9,11 @@ tags:
   - github
 ---
 
-Quien necesita subir un proyecto a GitHub puede encontrase en distintas situaciones, y eso ppodría variar el procedimiento a seguir.
+![github](/2021/08/github.svg.png)
+
+Quien necesita subir un proyecto a **GitHub** puede encontrase en distintas situaciones, y eso podría variar el procedimiento a seguir.
 A continuación describo la secuencia de pasos que más se adapta a las variantes típicas.
 Por lo tanto algunos de los pasos enumerados pueden no ser necesarios. Por ejemplo, si ya tenemos instalado el cliente de **Git**, saltearemos el paso que explica cómo instalarlo. También hay variaciones dependiendo del sistema operativo. En los casos que es necesario muestro las diferencias para Windows, Linux y MacOS. En muchos pasos hay un sólo comando que sirve para los tres sin modificaciones o que requieren cambios muy obvios que no vale la pena marcar expresamente.
-
-![github](/2021/08/github.svg.png)
 
 ## Crear una clave SSH
 
