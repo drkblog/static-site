@@ -20,6 +20,10 @@ pygmentsCodefences = true
 
 enableEmoji = true
 
+[params]
+description = 'Ingeniería de software'
+images = ["/images/drkbugs.png"]
+
 [taxonomies]
 author = "authors"
 category = "categories"

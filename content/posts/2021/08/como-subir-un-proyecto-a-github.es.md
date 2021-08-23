@@ -7,6 +7,7 @@ categories:
   - Programación
 tags:
   - github
+cover: "/2021/08/github.svg.png"
 ---
 
 ![github](/2021/08/github.svg.png)
