@@ -3,6 +3,7 @@ title: Problema de redondeo con float en Golang
 author: Leandro Fernandez
 type: post
 date: 2020-08-30T02:31:59+00:00
+cover: "/2020/09/floating-point.png"
 categories:
   - Programación
 tags:
@@ -14,8 +15,6 @@ tags:
 _Mientras escribía el artículo sobre FunnyStrings necesité usar la función de valor absoluto de Go y me crucé nuevamente con el viejo y conocido problema de redondeo de la aritmética de punto flotante en computadoras._
 
 Para resolver el problema mencionado necesitaba comparar los valores absolutos de diferencias entre caracteres. Para esto usé la función `math.Abs()` de la biblioteca estándar. Y sólo hay una versión que recibe `float64` como tipo de entrada. Así que tuve que convertir las diferencias que tenía en ese tipo de punto flotante para utilizarla en una comparación. En ese caso pude hacerlo sin preocuparme demasiado porque estaba convirtiendo un `integer` en `float` sólo para obtener el valor absoluto. Sin hacer ningún tipo de cálculo con esos valores. Pero es cierto que no es una buena idea comparar valores de punto flotante. Porque si se trata de un valor calculado puede acumular errores de redondeo importantes.
-
-![floating-point](/2020/09/floating-point.png)
 
 Estos errores no son nada nuevo ni mucho menos exclusivos de Go. Se desprenden del estándar IEEE 754-1985 (o la revisión 2008) que es utilizado para la representación de números reales en las computadoras. Y que por limitaciones intrínsecas del formato introducen errores de redondeo que pueden ser muy significativos al acumularse o en sustracciones de números muy aproximados entre sí.
 
