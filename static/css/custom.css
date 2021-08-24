@@ -7,3 +7,12 @@
 .summary .post-meta {
   font-size: .875em;
 }
+.summary .excerpt {
+  font-size: .82em;
+  font-style: italic;
+}
+.summary footer {
+  font-size: .9em;
+  font-weight: bold;
+  font-style: italic;
+}
