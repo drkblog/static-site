@@ -1,0 +1,9 @@
+.container {
+  max-width: 900px
+}
+.summary {
+  margin-bottom: 1em;
+}
+.summary .post-meta {
+  font-size: .875em;
+}
