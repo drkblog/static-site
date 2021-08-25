@@ -3,22 +3,19 @@ title: 2 comandos para proteger tu contraseña
 author: Leandro Fernandez
 type: post
 date: 2021-08-13T19:31:06+00:00
-excerpt: 'Cómo evitar exponer la contraseña en  la terminal a través del historial de comandos del shell en MacOS.'
+cover: "/2021/08/keychain.png"
+excerpt: 'Cómo evitar exponer la contraseña en la terminal a través del historial de comandos del shell en MacOS.'
 categories:
   - Programación
 tags:
-  - artifactory
   - contraseña
   - keychain
   - macos
-  - password
 ---
 
 _En este artículo te explico cómo evitar que tu contraseña quede expuesta en la terminal a través del historial del shell, en Mac. Pero el concepto para otros sistemas operativos es el mismo._
 
 Como desarrolladores estamos ejecutando comandos en el _shell_ de nuestro equipo gran parte del tiempo. Algunas de las aplicaciones que ejecutamos pueden requerir que pasemos nuestra contraseña como argumento para validar el acceso a un servicio. Y si ese comando queda en el historial del _shell_, nuestra contraseña quedará expuesta.
-
-![keychain](/2021/08/keychain.png)
 
 Si bien muchas aplicaciones de línea de comando evitan recibir un _password_ como argumento con el fin de evitar el problema mencionado anteriormente. Puede que necesitemos escribir un _shell_ script para ejecutar muchos comandos y algunos requieran la contraseña por entrada estándar. Pero al mismo tiempo, esta no se encuentre disponible cuando ejecutamos el script. En este caso la técnica que describo a continuación también puede ser útil.
 
