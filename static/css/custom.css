@@ -1,6 +1,15 @@
 .container {
   max-width: 900px
 }
+h3 {
+  color: rgb(60, 60, 60);
+}
+h4 {
+  color: rgb(100, 100, 100);
+  font-weight: normal;
+  text-decoration: underline;
+  text-decoration-style: dotted;
+}
 .summary {
   margin-bottom: 1em;
 }
