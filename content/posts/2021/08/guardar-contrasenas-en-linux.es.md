@@ -8,7 +8,8 @@ categories:
   - Programación
 tags:
   - contraseña
-  - keyring
+  - shell
+  - terminal
   - linux
 ---
 

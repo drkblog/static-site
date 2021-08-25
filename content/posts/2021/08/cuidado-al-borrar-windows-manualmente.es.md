@@ -7,6 +7,8 @@ categories:
   - Tecnología
 tags:
   - windows
+  - shell
+  - terminal
 ---
 
 Destruir la instalación de **Windows** de nuestro equipo es sorprendentemente fácil mientras intentamos eliminar **Windows** de un disco viejo.

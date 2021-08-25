@@ -8,15 +8,16 @@ excerpt: 'Cómo renombrar varios archivos con un solo comando utilizando un patr
 categories:
   - Programación
 tags:
+  - shell
   - terminal
   - regex
 ---
 
-Cualquiera que haya estado trabajando un poco en el área de sistemas u otras tareas fuertemente asistidas por computadora ha tenido **la necesidad de renombrar muchos archivos con un criterio único**. Y sin una herramienta que facilite el trabajo, se trata de un proceso manual, monótono y aburrido.
+Cualquiera que haya estado trabajando un poco en el área de sistemas u otras tareas fuertemente asistidas por computadora ha tenido **la necesidad de renombrar muchos archivos con un criterio único**. Y sin una herramienta que facilite el trabajo se trata de un proceso manual, monótono y aburrido.
 
-Cuando tenemos un conjunto de archivos que tienen una parte en común, ya sea prefijo, sufijo o incluso una sección en medio del nombre, es posible que necesitemos hacer un cambio en esa parte común. Y en cuanto empezamos a realizar esa tarea manualmente entendemos que debería automatiazrse sin lugar a dudas. Ya que existe una lógica fija a aplicar a cada archivo. Pero los sistemas operativos más populares no nos ofrecen una herramienta que esté disponible por defecto o bien la tienen pero no son muy conocidas, o tiene alguna alternativa que no es muy flexible.
+Cuando tenemos un conjunto de archivos que tienen una parte en común, ya sea prefijo, sufijo o incluso una sección en medio del nombre, es posible que necesitemos cambiar esa parte común en todos ellos. Y en cuanto empezamos a realizar esa tarea manualmente entendemos que debería automatiazrse sin lugar a dudas. Ya que existe una lógica fija a aplicar a cada archivo. Pero los sistemas operativos más populares no nos ofrecen una herramienta que esté disponible por defecto o bien la tienen pero no son muy conocidas, o tiene alguna alternativa que no es muy flexible.
 
-A continuacón listo las formas que me parecen más potentes para este tipo de trabajo. El orden puede ser un poco arbitrario. En primer lugar está la que potencialmente es aplicable para Linux, MacOS y Windows.
+A continuacón explico la forma que me parecen más potente para realizar este tipo de trabajo.
 
 ## Utilitario Rename basado en Perl
 

@@ -8,6 +8,7 @@ categories:
   - Programación
 tags:
   - github
+  - git
 ---
 
 Quien necesita subir un proyecto a **GitHub** puede encontrase en distintas situaciones, y eso podría variar el procedimiento a seguir.
