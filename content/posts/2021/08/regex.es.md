@@ -1,39 +1,42 @@
 ---
-title: Stop fearing the regex
+title: ¡Basta de temerle a las regex!
 author: Leandro Fernandez
 type: post
 date: 2021-08-25
 cover: "/2021/08/stop-fearing-regex.png"
 categories:
-  - Programming
+  - Programación
 tags:
   - regex
+  - java
 ---
 
-> Not kidding! Developers fear the **regex**. And yeah, I get it. They look ugly. But they are powerful.
+> ¡No es chiste! Los desarrolladores le temen a las **expresiones regulares**. Y sí, lo entiendo. Se ven horrible. Pero son poderosas.
 
-And it is way more hard to read them than to write them. Which is not ideal. But at least you can benefit from writing a **regex** here and there. Probably document them in-code with a meaningful comment for your future self and you'll be fine. Learning to write some basic, simple yet powerful **regex** is not impossible and I'm writing this post to prove that.
+Y es mucho más difícil leerlas que escribirlas. Lo que no es ideal. Pero al menos te podés beneficiar escribiendo **regex** aquí y allá. Posiblemente sea buena idea documentarlas con un comentario significativo en el código para tu futuro yo. Aprender a escribir algunas regex simples y, aún así, poderosas no es imposible y estoy escribiendo este artículo para probarlo.
 
-## Foreword
+## Prefacio
 
-There are at least four standards in use for **regex**:
+Hay al menos cuatro estándares en uso para **regex**:
 
-- POSIX BRE (Basic Regular Expressions)
-- POSIX ERE (Extended Regular Expressions)
+- POSIX BRE (_Basic Regular Expressions_)
+- POSIX ERE (_Extended Regular Expressions_)
 - Perl
-- Perl Compatible Regular Expressions
+- _Perl Compatible Regular Expressions_
 
-As far as I know these all have differences but also similarities and based on my experience each language or tool out there uses a different one or even their own variation. I never tried to learn each of them. I've used **PCRE** (Perl Compatible Regular Expressions) for years and I've always managed to work out the other ones when needed by reading the reference. Because of that I won't go into more detail about standards and I'll use regex that work in **Java** for this article because a lot of content on my site refers to **Java**.
+Hasta donde sé todos estos tienen diferencias pero también son muy similares y basado en mi experiencia, cada lenguaje o herramienta utiliza uno de estos o una variante de los mismos. Nunca traté de aprender cada uno. Usé **PCRE** (Perl Compatible Regular Expressions) por años y siempre me las arreglé para hacer funcionar los otros cuando lo necesité, leyendo la documentación. Por eso no voy a entrar en detalles sobre los estándares y usaré para este articulo las que funcionan con **Java** ya que mucho del contenido del este sitio se refiere a **Java**.
 
-In order to follow this post I strongly recommend you to have a tool for testing the knowledge you acquire as you go. If you want to lear them for a specific tool you might want to use that. But you may find out the standard your tool supports is different than the one I use here. You can lookup "online regex" in Google and you will get a lot of options. Use the one you like the most.
+Para seguir este artículo ter recomiendo tener una herramienta para probar el conocimiento que adquirís mientras leés. Si querés aprender **regex** para una herramienta o lenguaje específicos tal vez quieras usar eso. Pero puede que el estándar que soporte no coincida con el usado aquí. Podés buscar "online regex" en _Google_ y obtendrás un montón de opciones. Usá la que más te guste.
 
-## Let's get started
+## Empecemos
 
-In Perl you have to write regex enclosed in slashes like `/[0-9]+/` which implies nothing before the first slash and after the last one is part of the regex. You may add up to seven flags after the last slash `/[0-9]+/gmisxuU` where, for example, `m` stands for multiline and will allow the regex to match more than one line (which is not the default). Some tools or languages make this slashes optional and let you pass the flags though another channel.
+En Perl tenes que escribir las regex encerradas entre barras como `/[0-9]+/`, lo que implica que nada antes de la primera barra o después de la última son parte de la regex. Podés escribir hasta siete indicadores después de la última barra `/[0-9]+/gmisxuU` donde, por ejemplo, `m` quiere decir multilínea y permitirá que la regex coincida más de una línea (lo que no es el comportamiento por defecto). Algunas herramientas o lenguajes hacen que estas barras sean opcionales y reciben los indicadores por otro lado.
 
-### Simplest regex
+### La regex más simple
 
-The simplest **regular expression** you can write is just a literal matcher. A regex will match literally if you write anything that is not meaningful for the regex engine. If you want to match the word example you can write `/example/` and it would match the word in a string like `"This is an example"` and also it will match in `"nospaceexamples"`.
+La **expresión regular** más simple que podé escribir es un literal. Una regex va a coincidir literalmente si escribís cualquier cosa que no sea significativa para el motor de expresiones regulares. Si querés encontrar la palabra ejemplo podés escribir `/ejemplo/` y esto coincidirá la palabra en una cadena como `"Esto es un ejemplo"` y también en `"unejemplosinespacios"`.
+
+
 
 You have just learnt your very first regular expression. And you may argue you don't need to learn regex in order to match a literal. You can easily write an algorithm that will find a word in a string in your programming language or you can use a tool that will let you look for a word. And that is correct. You will use a regex when your search logic is more complex. You don't want the overhead the regex engine will add if you are looking for something like a literal.
 
