@@ -80,3 +80,6 @@ And let's write some regex to match arbitrary parts.
 | All the words with three letters | `/\b\w\w\w\b/` |
 
 Later we'll see many of these regex can be expressed in a more concise and flexible manner. Stay tuned.
+
+---
+[Image from xkcd](https://xkcd.com/208/)
