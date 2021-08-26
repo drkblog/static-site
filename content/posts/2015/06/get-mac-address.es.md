@@ -3,9 +3,11 @@ title: "Obtener la dirección MAC local en C/C++"
 description: "Cómo obtener la dirección de hardware del adaptador de red en C/C++ (Linux)"
 date: 2015-06-23
 slug: "obtener-direccion-adaptador-red-mac-cpp"
+categories:
+  - Programación
 tags:
-- linux
-- C/C++
+  - linux
+  - C/C++
 ---
 
 Este extracto de código muestra cómo obtener a dirección de hardware del adaptador de red en C/C++ en sistemas POSIX.
