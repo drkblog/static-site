@@ -1,9 +1,9 @@
 ---
 title: TCP/IP High-Level Protocol Debugging (Part 1)
 description: Windows Socket testing tool
-date: 2002-06-21
+date: 2008-06-21
 slug: "tcp-ip-high-level-protocol-debugging-1"
-weight: -210
+type: post
 ---
 
 ## The idea

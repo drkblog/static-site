@@ -3,9 +3,11 @@ title: "Get the local MAC address in C/C++"
 description: "How to get the local AMC address using C/C++ (Linux)"
 date: 2015-06-23
 slug: "get-mac-address-using-cpp"
+categories:
+  - Programming
 tags:
-- linux
-- C/C++
+  - linux
+  - C/C++
 ---
 
 This code snippet shows how to get the local MAC (hardware) address in POSIX systems.

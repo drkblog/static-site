@@ -1,9 +1,9 @@
 ---
 title: TCP/IP High-Level Protocol Debugging (Part 2)
 description: Windows Socket testing tool
-date: 2002-06-25
+date: 2008-06-25
 slug: "tcp-ip-high-level-protocol-debugging-2"
-weight: -210
+type: post
 ---
 
 We have talked about high-level protocol debugging in the first part of this article.

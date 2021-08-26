@@ -3,7 +3,6 @@ title: Daphne v2.04
 description: Windows task manager replacement
 date: 2014-09-29
 slug: "daphne-windows-task-manager-replacement"
-weight: -210
 type: page
 ---
 

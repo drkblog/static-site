@@ -3,7 +3,6 @@ title: Daphne v2.04
 description: "Reemplazo del administrador de tareas de Windows"
 date: 2014-09-29
 slug: "daphne-administrador-tareas-windows-reemplazo"
-weight: -210
 type: page
 ---
 
