@@ -7,6 +7,7 @@ cover: "/2021/08/forbidden-new.png"
 categories:
   - Programación
 tags:
+  - java
   - cache
   - static factory method
 ---
