@@ -80,7 +80,7 @@ Y escribamos algunas regex para capturar partes arbitrarias del mismo.
 | Cualquier día de abril | `/\d\d\sApril/` |
 | Todas las palabras de tres letras | `/\b\w\w\w\b/` |
 
-Luego veremos que muchas de estas expresiones pueden reescribirse en forma más concisa y flexible.
+Luego veremos que muchas de [estas expresiones pueden reescribirse en forma más concisa y flexible]({{< relref path="/content/posts/2021/08/regex-p2.es.md" lang="es" >}}).
 
 ---
 [Imagen de xkcd](https://xkcd.com/208/)
