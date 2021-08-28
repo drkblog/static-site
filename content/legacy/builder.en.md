@@ -14,9 +14,8 @@ You may setup local IP and Port, TCP/UDP protocol, keep alive, out-of-band data,
 
 ![TCP/IP Builder](/images/legacy/builder.png)
 
-## New in 1.9
-* Broadcast and reuse address options.
-* Enhanced graphic user interface.
+## New in 1.9.1
+* Updated project to newer Windows versions.
 
 ## Features
 * Act as client or server.
@@ -34,11 +33,11 @@ You may setup local IP and Port, TCP/UDP protocol, keep alive, out-of-band data,
 * TCP/IP Builder is open source, under GNU General Public License.
 
 ## Downloads
-[Builder_setup.exe](/downloads/legacy/builder/Builder_setup.exe) - 1.1 MBytes - TCP/IP Builder 1.9
+[Builder.msi](/downloads/legacy/builder/Builder.msi) - TCP/IP Builder 1.9.1
 
-Download and execute Builder_setup.exe
+Download and execute Builder.msi
 
-[Get source code](/downloads/legacy/builder/Builder.7z) - 49.3 kBytes
+[Get source code](https://github.com/drkblog/tcp-ip-builder)
 
 ## Other stuff
 
