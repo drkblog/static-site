@@ -5,4 +5,5 @@ layout: search
 outputs:
   - html
   - json
+comments: false
 ---

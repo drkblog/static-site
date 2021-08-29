@@ -1,0 +1,4 @@
+<!--- Only enable cookies in PROD --->
+{{ if hugo.IsProduction }}
+{{ partial "cookies.html" }}
+{{ end }}

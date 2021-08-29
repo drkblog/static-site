@@ -88,7 +88,7 @@ Dado que el contexto es parte de la expresión, el reemplazo incluye esos caract
 
 ## Conclusión
 
-Aprendimos a expresar cantidades variable de caracteres para una posición en nuestras *regex*. Y experimentamos la evolución de una expresión regular que nos permitió capturar palabras dentro de un contexto (caracteres específicos delante y detrás de ella). Pero también sabemos que ese contexto es considerado parte de la coincidencia y puede que necesitamos evitar eso. Sabemos que es posible pero aprenderemos a hacer en la continuación de este artículo.
+Aprendimos a expresar cantidades variables de caracteres para una posición en nuestras *regex*. Y experimentamos la evolución de una expresión regular que nos permitió capturar palabras dentro de un contexto (caracteres específicos delante y detrás de ella). Pero también sabemos que ese contexto es considerado parte de la coincidencia y puede que necesitamos evitar eso. Sabemos que es posible pero aprenderemos a hacer en la continuación de este artículo.
 
 ---
 [Imagen de geek-and-poke.com](https://geek-and-poke.com/geekandpoke/2013/12/3/yesterdays-regex) bajo licencia [CC-BY3.0](https://creativecommons.org/licenses/by/3.0/) reformateada para este sitio.

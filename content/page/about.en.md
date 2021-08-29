@@ -3,6 +3,7 @@ title: About drkbugs
 description: Ancient history
 slug: "about"
 weight: -210
+comments: false
 ---
 
 DRK web site started in 2002, being at that time the home of a small group of applications (mostly Windows utilities).

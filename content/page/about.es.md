@@ -3,6 +3,7 @@ title: Acerca de drkbugs
 description: Un poco de historia
 slug: "about"
 weight: -210
+comments: false
 ---
 
 No sé por qué desde que tenía ocho años estaba interesando en poder programar una computadora.
