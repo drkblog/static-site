@@ -1,4 +1,4 @@
 <!--- Only enable cookies in PROD --->
 {{ if hugo.IsProduction }}
-{{ partial "cookies.html" }}
+  {{ partial (printf "cookies.%s.html" .Lang) . }}
 {{ end }}
