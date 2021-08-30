@@ -1,10 +1,14 @@
 ---
 title: About drkbugs
-description: Ancient history
+description: What is drkbugs?
 slug: "about"
 weight: -210
 comments: false
 ---
+
+A blog about software engineering.
+
+### Ancient history
 
 DRK web site started in 2002, being at that time the home of a small group of applications (mostly Windows utilities).
 There was a Linux process controller for stopping programs out of control.

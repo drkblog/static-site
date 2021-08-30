@@ -1,10 +1,14 @@
 ---
 title: Acerca de drkbugs
-description: Un poco de historia
+description: ¿Qué es drkbugs?
 slug: "about"
 weight: -210
 comments: false
 ---
+
+Un blog con artículos sobre ingeniería de software.
+
+### Un poco de historia
 
 No sé por qué desde que tenía ocho años estaba interesando en poder programar una computadora.
 A pesar de que no había tenido contacto con ninguna.
