@@ -68,7 +68,7 @@ Para que el ejemplo sea más interesante tomaremos una nueva función hash que s
 
 La utilidad de esta organización es poder verificar la presencia de los valores en la tabla rápidamente. Si queremos saber si el 39 está en la tabla, le aplicamos la función hash nos dará 9, iremos a la línea nueve y veremos que no está el 39. Si preguntásemos por el 23 aplicaríamos la función hash y nos daría 3, iríamos a la línea 3 y recorreríamos la lista de valores y efectivamente verificaríamos que está.
 
-Claro que con tan poco valores y una función hash que sólo nos permite tener 10 líneas en la tabla esto parece tener poco sentido. Pero si tuviésemos cientos de miles de valores y una función hash que nos permitiese 100 líneas (por poner un ejemplo), ganaríamos muchísima velocidad comparado con tener los cientos de miles de valores en una lista y tener que recorrerla para saber si un valor está o no. Lo que tendría una [complejidad temporal](https://www.youtube.com/watch?v=gH4tfaZaLZk) lineal O(n). Y en el otro extremo, si usáramos un array cuyo índice permita ubicar todos los posible valores (y marcáramos el array con unos y ceros para decir que un valor está presente), si bien la velocidad de acceso sería ideal ([complejidad temporal](https://www.youtube.com/watch?v=gH4tfaZaLZk) constante O(1)) el consumo de memoria sería enorme, muy poco eficiente o directamente imposible.
+Claro que con tan poco valores y una función hash que sólo nos permite tener 10 líneas en la tabla esto parece tener poco sentido. Pero si tuviésemos cientos de miles de valores y una función hash que nos permitiese 100 líneas (por poner un ejemplo), ganaríamos muchísima velocidad comparado con tener los cientos de miles de valores en una lista y tener que recorrerla para saber si un valor está o no. Lo que tendría una [complejidad temporal](https://www.youtube.com/watch?v=gH4tfaZaLZk) lineal **O(n)**. Y en el otro extremo, si usáramos un array cuyo índice permita ubicar todos los posible valores (y marcáramos el array con unos y ceros para decir que un valor está presente), si bien la velocidad de acceso sería ideal ([complejidad temporal](https://www.youtube.com/watch?v=gH4tfaZaLZk) constante **O(1)**) el consumo de memoria sería enorme, muy poco eficiente o directamente imposible.
 
 El **hash table** es una buena solución de compromiso entre esos dos extremos. Y es fundamental la elección de una función **hash** que tenga pocas colisiones y al mismo tiempo permita armar un índice de tamaño razonable. Los conceptos de hash table y función hash son mucho más profundos de lo que vimos brevemente en este artículo. Esto es sólo una introducción para poder comprender lo que sigue.
 
@@ -118,7 +118,7 @@ A los fines de la explicación vamos a pensar en una implementación de **HashSe
 | --- | --- |
 | 0 | |
 | 1 | |
-| 2 | Book(1004) |
+| 2 | Book(1004), Book(13242) |
 | 3 | Book(3047)|
 | 4 | Book(10) |
 | 5 | Book(31664) |
@@ -150,21 +150,63 @@ class Book {
 }
 {{< /highlight >}}
 
-Aunque esta no es la mejor función de _hash_ partiendo de un `long` en **Java**, sería funcionalmente correcta. Es decir, nos alcanzaría para cumplir el contrato. Al convertir el atributo **isbn** a entero y devolverlo como _hash_ garantizo que dos instancias con el mismo valor en este atributo devolverán el mismo valor de _hash_. A partir de este momento los objetos de **Book** podrán almacenarse en un **HashSet** o **HashMap**. Volviendo al ejemplo anterior:
+Aunque esta no es la mejor función de _hash_ partiendo de un `long` en **Java**, sería funcionalmente correcta. Es decir, nos alcanzaría para cumplir el contrato. Al convertir el atributo **isbn** a entero y devolverlo como _hash_ garantizo que dos instancias con el mismo valor en este atributo devolverán el mismo valor de _hash_. A partir de este momento los objetos de **Book** podrán almacenarse en un **HashSet** o **HashMap**. Volviendo al ejemplo anterior reescribamos la tabla utilizando como hash la función módulo de diez. Aunque no corresponde al código que sugerimos arriba esto nos simplifica el ejemplo en la tabla:
 
 | Índice | Valores |
 | --- | --- |
-| 0 | |
+| 0 | Book(10), Book(600) |
 | 1 | |
-| 2 | Book(1004) |
-| 3 | Book(3047)|
-| 4 | Book(10) |
-| 5 | Book(31664) |
-| 6 | Book(600)|
-| 7 | |
+| 2 | Book(13242) |
+| 3 | |
+| 4 | Book(1004), Book(31664) |
+| 5 | |
+| 6 | |
+| 7 | Book(3047) |
+| 8 | |
+| 9 | |
 
-Si ahora pasamos una instancia nueva de **Book** con **ISBN** `10` el contenedor recibirá `4` como _hash_ cuando se lo pida a esta nueva instancia. Y esto lo afirmamos porque si la instancia con **ISBN** `10` está en la línea `4` quiere decir que eso es lo que devolvió su `hashCode()`. El HashSet irá a esa línea, le preguntará a la instancia que encuentre si es equivalente llamando `instanciaEnSet.equals(instanciaNueva)` y recibirá verdadero. Finalmente nos dirá que sí, ya tiene un libro equivalente al que le pasamos.
+Si ahora pasamos una instancia nueva de **Book** con **ISBN** `10` el contenedor recibirá `0` como _hash_ cuando se lo pida a esta nueva instancia. Y esto lo afirmamos porque si la instancia con **ISBN** `10` está en la línea `0` quiere decir que eso es lo que devolvió su `hashCode()`. El **HashSet** irá a esa línea, le preguntará a cada instancia que encuentre si es equivalente llamando `instanciaEnSet.equals(instanciaNueva)` y recibirá verdadero en una de las dos que hay en esa línea. Finalmente nos dirá que sí, ya tiene un libro equivalente al que le pasamos.
+
+Antes mencionamos que el _cast_ de `long` a `int` no es lo ideal. Cuando creamos una función hash tenemos que tratar de minimizar las colisiones, evitar que sea frecuente que dos instancias que no son equivalentes me retornen el mismo hash. En un caso como este sabemos que al pasar del dominio de entrada long al de salida int inevitablemente vamos a tener colisiones porque el primer tipo puede almacenar muchísimos más valores que el segundo (32 contra 64 bits). El _cast_ corta los primeros 32 bits del `long`. La distribución que obtenemos no parece mal si fueramos a crear valores desde el cero. Pero al ignorar toda una porción de dato en la función hash corremos el riesgo de que si recibimos un conjunto de valores cuya diferencias entre sí están sólo en los bits de más alto orden, todos nos darían el mismo valor de hash. En la práctica la clase Long utiliza una función hash específica:
+
+{{< highlight java "linenos=table" >}}
+public static int hashCode(long value) {
+  return (int)(value ^ (value >>> 32));
+}
+{{< /highlight >}}
+
+Y de esta forma involucra todos los bits del valor de entrada en la generación del hash. Y es por lo tanto una mejor solución comparado con el _cast_. Así podríamos evolucionar nuestra clase **Book** con:
+
+{{< highlight java "linenos=table" >}}
+  @Override
+  public int hashCode() {
+      return Long.hashCode(isbn);
+  }
+{{< /highlight >}}
+
+Pero si nuestra función `equals()` no se basara sólo en el **ISBN** sino también en el nombre, tendríamos que atar el `hashCode()` a ambos atributos. Para casos como ese tenemos un método utilitario en la clase **Objects** de `java.util` al que le podemos pasar una cantidad arbitraria de objetos y nos dará un _hash_ combinado, resultante de todas las llamadas a los `hashCode()` de los objetos. De esa forma evitaremos tener que ponernos a pensar cómo combinar los _hash codes_ de las clases de los atributos que relevantes. Este método funcionará bastante bien en casos de pocos atributos y de tipos no complejos. Si pasamos un array no contemplará los _hash codes_ de los elementos sino los del array. Si la _performance_ es extremadamente importante recomiendo analizar el caso puntual y llegar a una función hash para con conjunto de atributos que se necesite. Dicho esto, nuestra clase podría quedar escrita:
+
+{{< highlight java >}}
+class Book {
+  private String title;
+  private String author;
+  private long isbn;
+
+  @Override
+  public boolean equals(final Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return fa
+    final Book book = (Book) o;
+    return isbn == book.isbn && title.equals(title);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(isbn, title);
+  }
+}
+{{< /highlight >}}
 
 ## Conclusión
 
-Hemos aprendido que existe un contrato entre los métodos `equals()` y `hashCode()` que debemos mantener. Siempre que sobreescribamos uno debemos sobreescribir el otro para garantizar que si dos instancias de nuestra clase son equivalente según la nueva lógica en `equals()`, el método `hashCode()` deberá retornar el mismo valor si lo llamo para dichas instancias. Y que si son distintas puede retornar el mismo valor o no. Entendimos como funciona un hash table y cómo lo usa un HashSet y un HashMap para reducir el espacio de memoria ocupada pero al mismo tiempo tener la posibilidad de acceder a los elementos en **O(1)**. Y cómo estos contenedores fallarían si no respetamos el contrato.
+Hemos aprendido que existe un contrato entre los métodos `equals()` y `hashCode()` que debemos mantener. Siempre que sobreescribamos uno debemos sobreescribir el otro para garantizar que si dos instancias de nuestra clase son equivalente según la nueva lógica en `equals()`, el método `hashCode()` deberá retornar el mismo valor si lo llamo para dichas instancias. Y que si son distintas puede retornar el mismo valor o no. Entendimos cómo funciona un **hash table** y cómo lo usa un **HashSet** y un **HashMap** para reducir el espacio de memoria ocupada pero al mismo tiempo tener la posibilidad de acceder a los elementos en **O(1)**. Y cómo estos contenedores fallarían si no respetamos el contrato.
