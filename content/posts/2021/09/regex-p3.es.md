@@ -2,14 +2,13 @@
 title: ¡Basta de temerle a las regex! - Parte 3
 author: Leandro Fernandez
 type: post
-date: 2021-08-31
+date: 2021-09-01
 cover: "/2021/09/xkcd-1171.png"
 categories:
   - Programación
 tags:
   - regex
   - java
-draft: true
 ---
 
 En la [nota anterior sobre expresiones regulares]({{< relref path="/content/posts/2021/08/regex-p2.es.md" lang="es" >}}) vimos cómo expresar cantidades variables de caracteres para una posición en nuestra *regex*. Y cómo escribir una regex que nos permita capturar palabras dentro de un contexto (caracteres específicos delante y detrás de ella). Pero también nos encontramos con que ese contexto es considerado parte de la coincidencia y que necesitamos evitar eso. Así que ahora aprenderemos cómo solucionarlo.
@@ -73,7 +72,48 @@ Si bien este reemplazo puede no tener sentido para el código de ejemplo, nos si
 
 > Si bien dijimos que los grupos de captura se numeran según el orden de aparición. La numeración se puede complicar si anidamos grupos de captura (lo que es completamente válido y puede ser muy útil). En el estándar que utilizo cada paréntesis que se abre recibe el siguiente número de grupo. Pero esto podría variar en otro estándares. También existen herramientas que utilizan una barra invertida seguida del índice de grupo en lugar del signo pesos, resultando en `/([a-z>]\s)\w+([\s;])/\1xyz\2/`.
 
+## Uso en búsquedas
 
+Este caso de uso tiene sentido si escribimos una expresión regular dentro de un programa. Y aquí podemos encontrarnos variaciones en el estándar soportado y en la forma en que accedemos a las capturas dependiendo del lenguaje. Vamos a limitarnos a un ejemplo con **Java**. En muchos casos lo que veremos aquí será similar a lo que nos encontremos en otros lenguajes. Continuando en el código de ejemplo anterior, escribamos un bloque de código **Java** que imprima los nombres de las variables encontradas en la salida estándar.
+
+{{< highlight java "linenos=table" >}}
+final String input = "int value = 1;\n" +
+    "String text;\n" +
+    "\n" +
+    "if (condition.equals(\"value\")) {\n" +
+    "  HashMap<Integer, String> map = new HashMap();\n" +
+    "}";
+String[] lines = input.split("\\R");
+
+Pattern pattern = Pattern.compile(".*?[a-z>]\\s(\\w+)[\\s;].*?");
+Matcher matcher = pattern.matcher("");
+for (String line : lines) {
+  matcher.reset(line);
+  if (matcher.matches()) {
+    System.out.println(matcher.group(1));
+  }
+}
+{{< /highlight >}}
+
+Definimos un _string_ `input` con nuestro código de ejemplo y lo dividimos por línea en la variable `lines`. Para eso usamos el método `split()` de la clase **String** que soporta también **regex** como entrada. Y a partir de **Java 8** el símbolo `\R` coincide con un fin de línea sin importar si es `\r` o `\n` o ambos.
+
+Creamos el objeto patrón con nuestra expresión regular con algunas adaptaciones para Java. En primer lugar tenemos que escapar la barra invertida con una barra extra en el código fuente. Y además tenemos que poner dos secuencias para coincidir todo lo que esté antes y después de lo que captura eventualmente nuestra **regex**. Porque Java nos obliga a coincidir el total de la entrada. Existen otras formas de manejar esto pero creo que es la más simple. Utilizamos una expresión de captura _non-greedy_ `.*?` que coincidirá cualquier cosa pero dará prioridad a las otras secuencias dentro de la regex. Si usáramos la secuencia _greedy_ que es más conocida `.*` esta aceptaría todo incluyendo aquello que potencialmente coincidiría con lo que buscamos.
+
+Luego creamos un `matcher` que es el objeto al cual le pasaremos cada línea de entrada (esto ocurre en la línea 12) y preguntaremos si hubo coincidencia en la línea 13. Si esto pasó la línea 14 le pedirá al `matcher` el contenido del grupo de captura 1. Vale aclarar que si a ese método le pasamos 0 nos dará la captura total de la **regex**.
+
+Este programa nos dará la salida:
+
+```
+value
+text
+map
+
+Process finished with exit code 0
+```
+
+## Conclusión
+
+En esta ocasión aprendimos cómo definir grupos de captura en nuestra expresión regular para enfocarnos en una o más partes de nuestra regex y al mismo tiempo poder ignorar otras que estamos forzados a indicar para asegurarnos de encontrar lo que buscamos. Vimos que esto lo hacemos agrupando entre paréntesis las partes que nos interesan. Y que luego las podemos usar en la sección de reemplazo de una regex o a través de los métodos o funciones de una biblioteca si estamos programando.
 
 ---
-[Imagen de xkcd.com](https://geek-and-poke.com/geekandpoke/2013/12/3/yesterdays-regex) (https://xkcd.com/1171/) bajo licencia [CC-BY-NC2.5](https://creativecommons.org/licenses/by-nc/2.5/) reformateada para este sitio.
+[Imagen de xkcd.com](https://xkcd.com/1171/) bajo licencia [CC-BY-NC2.5](https://creativecommons.org/licenses/by-nc/2.5/) reformateada para este sitio.
