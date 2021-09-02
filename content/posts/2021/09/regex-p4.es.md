@@ -36,6 +36,8 @@ Sólo coincidiría en la primera y la tercera. Y el grupo de captura valdría `c
 
 Otro detalle que quedó fuera cuando expliqué el uso de corchetes para coincidir uno de varios caracteres o meta secuencias es la negación. En ocasiones es mucho más fácil describir los caracteres que queremos en una posición indicando los que no queremos. Por ejemplo podríamos necesitar encontrar números que no tengan ningún dígito en `5` en una entrada que tiene sólo números y con los conocimientos que tenemos hasta aquí lo expresaríamos como `/[0-46-9]+/` porque indicaríamos los dos rangos que sí aceptamos (del cero al 4 y del 6 al nueve) pero en cambio podemos expresarlo por el opuesto diciendo `/[^5]+/` que significa cualquier caracter excepto el `5`. Pero cuidado que esto sirve porque dijimos que la entrada son sólo números. Si en la entrada hubiese cualquier otro caracter que no sea un dígito decimal también coincidiría con la lógica "_cualquier caracter que no sea 5_".
 
+El circunflejo niega el total del contenido de los corchetes. Es decir que si escribimos `/[^aeiouAEIOU]{3}/` va a coincidir tres caracters que no sean vocales. Eso incluye consonantes y cualquier otro caracter. Y si escribimos `/[^a-zA-Z]+/` coincidirá uno o más caracteres que no sean letras.
+
 ## Conclusión
 
 
