@@ -29,7 +29,7 @@ Podemos armar una tabla para expresar este contrato con dos instancias imaginari
 
 ## Porqué existe el contrato
 
-La necesidad de este contrato viene dada por el uso de ***hash tables*** en los contenedores `HashMap` y `HashSet` del paquete de clases **Collections**. A continuación entraremos en muchos detalles interesantes para entender todo esto. Pero si sos una persona que prefiere ver un video en lugar de leer te recomiendo esta [explicación del contrato entre equals-hashCode](https://www.youtube.com/watch?v=k-YhxnFHYl8)
+La necesidad de este contrato viene dada por el uso de ***hash tables*** en los contenedores `HashMap` y `HashSet` del paquete de clases **Collections**. A continuación entraremos en muchos detalles interesantes para entender todo esto.
 
 ### Función hash
 
