@@ -17,7 +17,7 @@ En la [primera nota sobre expresiones regulares]({{< relref path="/content/posts
 
 ### Coincidir un número variable de caracteres
 
-Con lo que aprendimos en la primera parte estamos obligados a indicar qué queremos aceptar en cada posición de la subsecuencia de caracteres que buscamos. Pero si quier escribir una **regex** que encuentre declaraciones de variables en un código fuente de Java no hay forma de saber qué cantidad de caracteres va a tener el nombre de la variable. Tomemos el siguiente código:
+Con lo que aprendimos en la primera parte estamos obligados a indicar qué queremos aceptar en cada posición de la subsecuencia de caracteres que buscamos. Pero si queremos escribir una **regex** que encuentre declaraciones de variables en un código fuente de Java no hay forma de saber qué cantidad de caracteres va a tener el nombre de la variable. Tomemos el siguiente código:
 
 {{< highlight java >}}
 ...
@@ -30,9 +30,17 @@ if (condition.equals("value")) {
 ...
 {{< /highlight >}}
 
-Para pensar una regex debemos observar detenidamente en qué contexto aparece lo que buscamos. El nombre de una variable (en especial en el código de ejemplo) es una secuencia variable de letras minúsculas. Si simplemente esa condición fuese suficiente (no lo és, pero a los fines de aprender hagamos el ejercicio) se podría escribir `/\w+/`. Ya sabemos que `\w` representa cualquier caracter válido de palabra. Es decir las letras del abecedario. El signo más se interpreta como cuantificador (indicador de cantidad), y puntualmente éste indica que aceptaremos uno o más caracteres. Es decir que coincidirá `a` en `2a3`, `aa` en `2aa3`, `abcde` en `*abcde-`. No necesitamos escribir una, dos o cinco veces `\w`. Podemos usar el `+` para indicar que aceptamos cualquier cantidad de letras (pero al menos una). Y podemos aplicar el cuantificador a literales de manera que `/x+y+z+/` encontrará una secuencia de `x` seguida de una secuencia de `y` seguida de una de `z`. Por ejemplo `xyz`, `xxxyyzzzz`, pero no `xzz` porque no hay al menos una `y` entre la `x` y las `z`. Pero si utilizamos esta **regex** en el código de ejemplo coincidirá cualquier secuencia de letras. Además de `value`, `text` y `map` que son las que nos interesan, coincidirá `new`, `condition` y cualquier otra. Entonces nuestra regex es por el momento muy permisiva.
+Para pensar una regex debemos observar detenidamente en qué contexto aparece lo que buscamos. El nombre de una variable (en especial en el código de ejemplo) es una secuencia variable de letras minúsculas. Si simplemente esa condición fuese suficiente (no lo és, pero a los fines de aprender hagamos el ejercicio) se podría escribir `/\w+/`. Ya sabemos que `\w` representa cualquier caracter válido de palabra. Es decir las letras del abecedario. El signo más se interpreta como cuantificador (indicador de cantidad), y puntualmente éste indica que aceptaremos uno o más caracteres. Es decir que coincidirá:
 
-Para restringir lo que la regex pueda encontrar tendremos que especificar qué cosas pueden estar alrededor de la secuencia de palabras. Si observamos el código vemos que delante de los nombres de variables siempre hay un espacio. Pero también hay un espacio delante de `HashMap` y de `new`. Sin embargo si especificamos lo que puede haber a continuación tenemos que los caracteres posibles en los casos que nos interesa coincidir son un espacio o un punto y coma. Si cambiamos la regex original a `/\s\w+[\s;]/` vamos a obtener menos coincidencias pero todavía alguna que no deseamos. Ya que `new` y `String` aparecerán entre las coincidencias porque están rodeadas de caracteres considerados espacios en blanco. Antes de continuar la evolución de nuestra expresión regular tenemos que explicar qué función cumplen los corchetes. 
+- `a` en `2a3`
+- `aa` en `2aa3`
+- `abcde` en `*abcde-`
+
+No necesitamos escribir una, dos o cinco veces `\w`. Podemos usar el `+` para indicar que aceptamos cualquier cantidad de letras (pero al menos una). Y podemos aplicar el cuantificador a literales de manera que `/x+y+z+/` encontrará una secuencia de `x` seguida de una secuencia de `y` seguida de una de `z`. Por ejemplo `xyz`, `xxxyyzzzz`, pero no `xzz` porque no hay al menos una `y` entre la `x` y las `z`. 
+
+Volviendo al ejemplo, si utilizamos esta **regex** en el código de ejemplo coincidirá cualquier secuencia de letras. Además de `value`, `text` y `map` que son las que nos interesan, coincidirá `new`, `condition` y cualquier otra. Entonces nuestra regex es por el momento muy permisiva.
+
+Para restringir lo que la regex pueda encontrar tendremos que especificar qué cosas pueden estar alrededor de la secuencia de palabras (a estos los llamo _el contexto_). Si observamos el código vemos que delante de los nombres de variables siempre hay un espacio. Pero también hay un espacio delante de `HashMap` y de `new`. Sin embargo si especificamos lo que puede haber a continuación tenemos que los caracteres posibles en los casos que nos interesa coincidir son un espacio o un punto y coma. Si cambiamos la regex original a `/\s\w+[\s;]/` vamos a obtener menos coincidencias pero todavía alguna que no deseamos. Ya que `new` y `String` aparecerán entre las coincidencias porque están rodeadas de caracteres considerados espacios en blanco. Antes de continuar la evolución de nuestra expresión regular tenemos que explicar qué función cumplen los corchetes. 
 
 - Nuestra última versión de regex comienza con un `\s` sin cuantificador, lo que coincidirá un espacio en blanco exactamente.
 - Sigue con `\w+` lo que coincidirá una o más letras.
@@ -94,7 +102,7 @@ Dado que el contexto es parte de la expresión, el reemplazo incluye esos caract
 
 ## Conclusión
 
-Aprendimos a expresar cantidades variables de caracteres para una posición en nuestras *regex*. Y experimentamos la evolución de una expresión regular que nos permitió capturar palabras dentro de un contexto (caracteres específicos delante y detrás de ella). Pero también sabemos que ese contexto es considerado parte de la coincidencia y puede que necesitamos evitar eso. Sabemos que es posible pero aprenderemos a hacer en la continuación de este artículo.
+Aprendimos a expresar cantidades variables de caracteres para una posición en nuestras **regex**. Y experimentamos la evolución de una expresión regular que nos permitió capturar palabras dentro de un contexto (caracteres específicos delante y detrás de ella). Pero también sabemos que ese contexto es considerado parte de la coincidencia y puede que necesitamos evitar eso. Sabemos que es posible pero aprenderemos a hacer en la continuación de este artículo.
 
 ---
 [Imagen de geek-and-poke.com](https://geek-and-poke.com/geekandpoke/2013/12/3/yesterdays-regex) bajo licencia [CC-BY3.0](https://creativecommons.org/licenses/by/3.0/) reformateada para este sitio.

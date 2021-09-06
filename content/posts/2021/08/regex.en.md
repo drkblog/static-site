@@ -1,5 +1,5 @@
 ---
-title: Stop fearing the regex
+title: Stop fearing the regex!
 author: Leandro Fernandez
 type: post
 date: 2021-08-25
@@ -8,6 +8,7 @@ categories:
   - Programming
 tags:
   - regex
+  - java
 ---
 
 > Not kidding! Developers fear the **regex**. And yeah, I get it. They look ugly. But they are powerful.
