@@ -7,7 +7,6 @@ copyright = "drkbugs"
 
 theme = "minimo"
 
-disqusShortname = "drkbugs"
 googleAnalytics = "UA-29993798-1"
 
 Paginate = 5
@@ -94,7 +93,7 @@ twitter = "drkblog"
 youtube = "UClPU76FC8TBftSAGFlay36g"
 
 [params.comments]
-enable = true
+enable = false
 
 # Isso: https://posativ.org/isso/
 [params.comments.isso]
