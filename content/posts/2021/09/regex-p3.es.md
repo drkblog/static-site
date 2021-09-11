@@ -11,7 +11,7 @@ tags:
   - java
 ---
 
-En la [nota anterior sobre expresiones regulares]({{< relref path="/content/posts/2021/08/regex-p2.es.md" lang="es" >}}) vimos cómo expresar cantidades variables de caracteres para una posición en nuestra *regex*. Y cómo escribir una regex que nos permita capturar palabras dentro de un contexto (caracteres específicos delante y detrás de ella). Pero también nos encontramos con que ese contexto es considerado parte de la coincidencia y que necesitamos evitar eso. Así que ahora aprenderemos cómo solucionarlo.
+En la [nota anterior sobre expresiones regulares]({{< relref path="/content/posts/2021/08/regex-p2.es.md" lang="es" >}}) vimos cómo expresar cantidades variables de caracteres para una posición en nuestra **regex**. Y cómo escribir una regex que nos permita capturar palabras dentro de un contexto (caracteres específicos delante y detrás de ella). Pero también nos encontramos con que ese contexto es considerado parte de la coincidencia y que necesitamos evitar eso. Así que ahora aprenderemos cómo solucionarlo.
 
 ---
 
@@ -25,9 +25,9 @@ Pero hasta aquí, dependiendo de cómo utilizamos nuestra `regex`, es posible qu
 
 ### Uso en reemplazos
 
-Empiezo por este caso de uso debido a que es el más común si tomamos en cuenta el uso de expresiones regulares tanto en programación como en herramientas que las soportan. Un procesador de texto digno nos permitirá hacer búsquedas y reemplazos interpretando nuestra entrada como una expresión regular. Y en esta situación los grupos de captura sólo  tendrán sentido cuando hacemos reemplazos. En cambio en el caso de uso de una regex en un programa tenemos la posibilidad de aprovecharlos en ambos casos.
+Empezamos por este caso de uso debido a que es el más común si tomamos en cuenta el uso de expresiones regulares tanto en programación como en herramientas que las soportan. Un procesador de texto digno nos permitirá hacer búsquedas y reemplazos interpretando nuestra entrada como una expresión regular. Y en esta situación los grupos de captura sólo  tendrán sentido cuando hacemos reemplazos. En cambio en el caso de uso de una regex en un programa tenemos la posibilidad de aprovecharlos en ambos casos.
 
-En el primer artículo dije que una **regex** siempre está encerrada entre dos barras pero eso no es cierto. Cuando escribimos una regex de reemplazo utilizamos una barra más para separar la expresión regular de búsqueda de la parte que indica con qué vamos a reemplazar. Así que lo normal es escribir una expresión regular de reemplazo como `/regex/reemplazo/` donde la primera parte es una expresión tal como las que hemos aprendido hasta aquí. Y la segunda es (en principio) una cadena de texto literal con lo que reemplazamos lo encontrado por la primera parte. Cuando nos encontramos en un procesador de texto, la interfaz típica provee dos campos, uno para lo que buscamos y otro para lo que reemplazará lo que buscamos. Al activar el soporte de regex vamos a poner el reemplazo en el campo correspondiente y no usaremos esta sintáxis.
+[En el primer artículo]({{< relref path="/content/posts/2021/08/regex.es.md" lang="es" >}}) dije que una **regex** siempre está encerrada entre dos barras pero eso no es cierto. Cuando escribimos una regex de reemplazo utilizamos una barra más para separar la expresión regular de búsqueda de la parte que indica con qué vamos a reemplazar. Así que lo normal es escribir una expresión regular de reemplazo como `/regex/reemplazo/` donde la primera parte es una expresión tal como las que hemos aprendido hasta aquí. Y la segunda es (en principio) una cadena de texto literal con lo que reemplazamos lo encontrado por la primera parte. Cuando nos encontramos en un procesador de texto, la interfaz típica provee dos campos, uno para lo que buscamos y otro para lo que reemplazará lo que buscamos. Al activar el soporte de regex vamos a poner el reemplazo en el campo correspondiente y no usaremos esta sintáxis.
 
 Al final de la segunda parte de esta serie hicimos un reemplazo sin escribir la expresión con este formato que acabamos de explicar. Podemos decir que si aplicamos `/[a-z>]\s\w+[\s;]/xyz/` al código:
 
@@ -55,7 +55,7 @@ if (condition.equals("value")) {
 ...
 {{< /highlight >}}
 
-Pero si utilizamos grupos de captura para reproducir el contexto (los caracteres antes y después del nombre de variable) en la salida podemos reemplazar sólo la parte que nos interesa. Así que cambiamos la regex a `/([a-z>]\s)\w+([\s;])/$1xyz$2/` y el código reemplazado queda:
+Pero si utilizamos **grupos de captura **para reproducir el contexto (los caracteres antes y después del nombre de variable) en la salida podemos reemplazar sólo la parte que nos interesa. Así que cambiamos la regex a `/([a-z>]\s)\w+([\s;])/$1xyz$2/` y el código reemplazado queda:
 
 {{< highlight java >}}
 ...
@@ -74,7 +74,9 @@ Si bien este reemplazo puede no tener sentido para el código de ejemplo, nos si
 
 ## Uso en búsquedas
 
-Este caso de uso tiene sentido si escribimos una expresión regular dentro de un programa. Y aquí podemos encontrarnos variaciones en el estándar soportado y en la forma en que accedemos a las capturas dependiendo del lenguaje. Vamos a limitarnos a un ejemplo con **Java**. En muchos casos lo que veremos aquí será similar a lo que nos encontremos en otros lenguajes. Continuando en el código de ejemplo anterior, escribamos un bloque de código **Java** que imprima los nombres de las variables encontradas en la salida estándar.
+Este caso de uso tiene sentido si escribimos una expresión regular dentro de un programa. Y aquí podemos encontrarnos variaciones en el estándar soportado y en la forma en que accedemos a las capturas dependiendo del lenguaje. Vamos a limitarnos a un ejemplo con **Java**. En muchos casos lo que veremos aquí será similar a lo que nos encontremos en otros lenguajes. 
+
+Continuando en el código de ejemplo anterior, escribamos un bloque de código **Java** que imprima los nombres de las variables encontradas en la salida estándar.
 
 {{< highlight java "linenos=table" >}}
 final String input = "int value = 1;\n" +
