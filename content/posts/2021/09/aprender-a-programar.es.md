@@ -18,7 +18,7 @@ No podría empezar este artículo sin aclarar que mi recomendación personal es 
 
 ## La complejidad de decidir el camino para iniciarse en la programación
 
-Sé que lo que vamos a decir a continuación puede resultar un poco desalentador. Pero no puedo llegar a una conclusión sobre cómo introducirse en el mundo de la programación sin explicar la complejidad de esta tarea primero. Sin embargo mi intención es que al final de la lectura tengas algunas herramientas para hacerlo sin fracasar en el intento.
+Sé que lo que vamos a decir a continuación puede resultar un poco desalentador. Pero no puedo llegar a una conclusión sobre cómo introducirse en el mundo de la programación sin primero explicar la complejidad de esta tarea. Sin embargo mi intención es que al final de la lectura tengas algunas herramientas para hacerlo sin fracasar en el intento.
 
 > El universo de sistemas es vasto. El desarrollo de software es una de sus áreas pero no la única. La programación es una parte del desarrollo de software. Y aún así la programación en sí misma es vasta.
 
@@ -66,13 +66,19 @@ Creo que en este caso hay que elegir uno de los lenguajes **Java** o **Swift** q
 
 También llamadas _stand-alone_. Son aplicaciones que corren en Windows, Linux, Mac y otros sistemas operativos y usualmente tienen una interfaz gráfica o se interactúa con ellas desde la terminal o shell. Como mencionamos anteriormente son muy parecidas a las Móviles en cuanto al tipo de tareas que realizan. Aunque la infraestructura en al que se apoyan son muy distintas debido a la naturaleza del _hardware_ y el sistema operativo donde corren.
 
-El primer lenguaje que recomiendo aquí es **Java** debido a que éste también se usa en _backend_ y en _Android_. Por lo que las ventajas de aprenderlo son obvias. Las otras alternativas son .NET (donde preferiría C#) o C++. Pero realmente no creo que valga la pena empezar con esos lenguajes salvo que exista algún otro motivo para preferirlos por sobre Java.
+El primer lenguaje que recomiendo aquí es **Java** debido a que éste también se usa en _backend_ y en **Android**. Por lo que las ventajas de aprenderlo son obvias. Las otras alternativas son .NET (donde preferiría C#) o C++. Pero realmente no creo que valga la pena empezar con esos lenguajes salvo que exista algún otro motivo para preferirlos por sobre Java.
 
 ### DevOps
 
-En ésta área se programa mayormente para automatizar el desplegado de infraestructura para backend de aplicaciones web, cliente-servidor o cloud. Se utiliza código para asegurar un proceso automatizado y reproducible de ese despliegue. Son fundamentales los conocimientos de redes, sistemas operativos, cloud-computing y seguridad.
+En ésta área se programa mayormente para automatizar el desplegado de infraestructura para backend de aplicaciones web, cliente-servidor o _cloud_. Se utiliza código para asegurar un proceso automatizado y reproducible de ese despliegue. Son fundamentales los conocimientos de redes, sistemas operativos, _cloud-computing_ y seguridad.
 
-El lenguaje más utiliza aquí es Python. Aunque yo no lo elegí mucho en esta lista es un lenguaje muy popular y recomendado. Personalmente creo que es un buen lenguaje pero no tiene mucha aplicación en las áreas en las que yo me manejo.
+El lenguaje más utiliza aquí es **Python** seguido posiblemente por **Go**. Aunque yo no lo elegí mucho en esta lista es un lenguaje muy popular y recomendado. Personalmente creo que es un buen lenguaje pero no tiene mucha aplicación en las áreas en las que yo me manejo.
+
+### Embedded (microcontroladores)
+
+Aunque muchas veces lo olvidamos porque aquí llegan usualmente los ingenieros electrónicos (tal vez más en Argentina que en Estados Unidos) esta es una categoría del desarrollo de software muy importante. Dentro de la electrónica el campo que más emplea este tipo de desarrollo es el del Control Numérico. Y se trata de programar computadoras industriales y microcontroladores para automatizar procesos. Estableciendo interfaces con todo tipo de sensores físicos y controladoras de motores y otros actuadores.
+
+Creo que el lenguaje más utilizado es **C/C++** seguido por **Rust**.
 
 ### Full stack
 
