@@ -60,7 +60,7 @@ El lenguaje casi excluyente en esta área es **Javascript**.
 
 Aplicaciones que pueden ser autónomas (realizan todo el trabajo por sí solas) o cliente-servidor donde cumplen el rol de cliente mientras que en el servidor habrá programas desarrollados por especialistas en backend o cloud computing. Son muy parecidas a las _aplicaciones de escritorio_ que corren en Windows, Linux, Mac y otros sistemas operativos.
 
-Creo que en este caso hay que elegir uno de los lenguajes **Java** o **Swift** que son los nativos para **Android** y **iOS** respectivamente.
+Creo que en este caso hay que elegir uno de los lenguajes **Java**/**Kotlin** o **Swift** que son los nativos para **Android** y **iOS** respectivamente.
 
 ### Aplicaciones de escritorio
 
