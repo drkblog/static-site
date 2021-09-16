@@ -2,7 +2,6 @@
 title: Cookie Policy
 description: Our cookie policy
 slug: "cookies"
-weight: -210
 comments: false
 ---
 
@@ -28,7 +27,7 @@ Depending on their function and their intended purpose, cookies can be assigned 
 ## Strictly necessary cookies
 Strictly necessary cookies are required to navigate our websites and operate basic website functions. Examples for strictly necessary cookies are login cookies, shopping cart cookies or cookies to remember your cookie settings. Without these cookies certain basic functionalities cannot be offered. Strictly necessary cookies are always active and will be placed without your consent.
 
-To the extent that information processed in connection with strictly necessary cookies should qualify as personal data, the legal ground for that processing is Linde’s legitimate interest to operate the website (Art. 6 (1) lit. (f) GDPR).
+To the extent that information processed in connection with strictly necessary cookies should qualify as personal data, the legal ground for that processing is drkbug’s legitimate interest to operate the website (Art. 6 (1) lit. (f) GDPR).
 
 ## Performance cookies
 Performance cookies – aka analytics cookies - collect information on your usage of our websites. They identify e.g. your internet browser, operating system, visited websites, duration and number of website visits, previously visited website, most commonly visited websites and errors you experienced. The information collected is aggregated and anonymous. It does not allow a personal identification. It only serves the purpose of evaluating and enhancing the user experience of our websites.

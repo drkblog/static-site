@@ -2,11 +2,15 @@
 title: Acerca de drkbugs
 description: ¿Qué es drkbugs?
 slug: "about"
-weight: -210
 comments: false
 ---
 
+Para empezar ***drkbugs*** es mi sobrenombre autoelegido.
+Es el nombre ue uso en la mayoría de las cuentas de mis redes sociales públicas.
+Y también es mi sitio web.
 Un blog con artículos sobre ingeniería de software.
+
+_About [the media]({{< relref path="/content/page/media.en.md" lang="en" >}}) in my channels_.
 
 ### Un poco de historia
 

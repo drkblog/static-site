@@ -2,19 +2,24 @@
 title: About drkbugs
 description: What is drkbugs?
 slug: "about"
-weight: -210
 comments: false
 ---
 
-A blog about software engineering.
+It is my self-appointed nickname to begin with.
+It is the name I use for most of my public social network accounts.
+And it's this website name too.
+We can say **drkbugs** is a blog about software engineering.
+
+About [the media]({{< relref path="/content/page/media.en.md" lang="en" >}}) in my channels.
 
 ### Ancient history
 
-DRK web site started in 2002, being at that time the home of a small group of applications (mostly Windows utilities).
+This web site started in 2002 and was named **DRK Software**.
+It was the home of a small group of applications (mostly Windows utilities).
 There was a Linux process controller for stopping programs out of control.
 A small windows application for cleaning up web browsers cache in the times such feature did not exist or wasn't accessible enough.
 
-At some point DRK Software became Open Source software for Windows.
+At some point DRK Software became **Open Source software for Windows**.
 With three outstanding Open Source Software projects: DRKSpider which is a web site link checker for Windows®; TCP/IP Builder, a Windows Socket testing tool, and  Daphne which is a small application able to kill windows process, controlling windows visibility and much more.
 Even when this tools started as normal users needs, they have become development tools.
 Beside these utilities, other items like C++ source code, technology videos, technical articles, and even photos were added.

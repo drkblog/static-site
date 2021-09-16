@@ -2,7 +2,6 @@
 title: Privacy Policy
 description: Our privacy policy
 slug: "privacy"
-weight: -210
 comments: false
 ---
 
