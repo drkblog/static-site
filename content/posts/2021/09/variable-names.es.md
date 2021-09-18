@@ -15,13 +15,13 @@ tags:
 
 Cuando escribimos código debemos contemplar que vamos a leerlo muchas veces después. Y seguramente no seamos las únicas personas que leerán ese código. Por lo que asegurarnos de que sea fácil de leer y comprender es de suma importancia. Nos ahorrará muchísimo tiempo en el futuro. Y reducirá las probabilidades de que se introduzcan errores.
 
-Los atributos y variables que utilizamos en nuestro código están destinados a guardar algún valor que tiene sentido dentro de la lógica del método, función o clase en la que se encuentran. Su nombre tiene que describir el valor que guardarán. No tiene que describir otras cosas, como el tipo de dato (en especial en lenguajes fuertemente tipados), ni el alcance o el use que le damos a la variable o atributo. Mucho menos debe tener un nombre críptico que no nos da ningún tipo de información.
+Los atributos y variables que utilizamos en nuestro código están destinados a guardar algún valor que tiene sentido dentro de la lógica del método, función o clase en la que se encuentran. Su nombre tiene que describir el valor que guardarán. No tiene que describir otras cosas, como el tipo de dato (en especial en lenguajes fuertemente tipados), ni el alcance o el uso que le damos a la variable o atributo. Mucho menos debe tener un nombre críptico que no nos da ningún tipo de información.
 
 Respetar esta simple guía nos permite escribir código mucho más limpio, claro y legible. Porque estamos hablando de la diferencia entre `foo` y `precioPromedio`.
 
 > Si bien cada lenguaje tiene su propio estilo recomendado. Todos nos permiten de alguna manera escribir nombres descriptivos. En **Java** es _lower camel case_, pero también se puede utilizar _snake case_ como en **C** y otros lenguajes, lo que quedaría `precio_promedio`.
 
-Tomemos el siguiente segmento de código en **Java**. Para quienes conozcan el lenguaje aclaro que la anotación `@Value` es de [Lombok]( {{< relref path="/content/posts/2020/09/escribir-menos-codigo-y-mas-legible.es.md" lang="es" >}}) y nos provee constructores y getters. Para los que no conoce Java pero sí algún lenguaje con sintaxis similar será posible tener una idea de lo que se intenta hacer ya que el código no es muy complicado. Y aclararé luego las partes menos intuitivas. Lo importante es que nos tomemos unos minutos para leerlo y tratar de entender qué ocurre ahí:
+Tomemos el siguiente segmento de código en **Java**. Para quienes conozcan el lenguaje aclaro que la anotación `@Value` es de [Lombok]( {{< relref path="/content/posts/2020/09/escribir-menos-codigo-y-mas-legible.es.md" lang="es" >}}) y nos provee constructores y getters. Para los que no conocen Java pero sí algún lenguaje con sintaxis similar será posible tener una idea de lo que se intenta hacer ya que el código no es muy complicado. Y aclararé luego las partes menos intuitivas. Lo importante es que nos tomemos unos minutos para leerlo y tratar de entender qué ocurre ahí:
 
 {{< highlight java "linenos=table" >}}
     @Value
@@ -41,7 +41,7 @@ Tomemos el siguiente segmento de código en **Java**. Para quienes conozcan el l
     }
 {{< /highlight >}}
 
-Quienes puedan entender el código de arriba pueden saltear este párrafo. El código declara una clase `User` con dos atributos, uno de tipo cadena de text y el otro entero llamados `n` y `a` respectivamente. Este clase tiene getters para acceder a los atributos definidos por la anotación de la línea 1. Y podemos ver que se utiliza el _getter_ par obtener el atributo `a` en la línea 11. Luego tenemos un método llamado `ca` que recibe una lista de objetos de tipo `User` llamada `us` y luego define dos variables enteras `a` y `c` respectivamente. En la línea 10 hay un bucle que iterará todos los elementos de la lista. Por cada elemento se suma el valor retornado por el _getter_ del atributo `a` en la variable `a`. Y se incrementa la variable `c` en uno. Finalmente se retorna la división entera de `a` en `c`.
+Quienes puedan entender el código de arriba pueden saltear este párrafo. El código declara una clase `User` con dos atributos, uno de tipo cadena de text y el otro entero llamados `n` y `a` respectivamente. Este clase tiene getters para acceder a los atributos definidos por la anotación de la línea 1. Y podemos ver que se utiliza el _getter_ para obtener el atributo `a` en la línea 11. Luego tenemos un método llamado `ca` que recibe una lista de objetos de tipo `User` llamada `us` y luego define dos variables enteras `a` y `c` respectivamente. En la línea 10 hay un bucle que iterará todos los elementos de la lista. Por cada elemento se suma el valor retornado por el _getter_ del atributo `a` en la variable `a`. Y se incrementa la variable `c` en uno. Finalmente se retorna la división entera de `a` en `c`.
 
 Seguramente tendremos distintas opiniones pero en general este código se puede entender después de analizarlo un poco. No es imposible. Sin embargo nunca será más claro que la versión del mismo código que pondremos a continuación donde se hizo un renombrado de atributos, argumentos y variables:
 
@@ -52,7 +52,7 @@ Seguramente tendremos distintas opiniones pero en general este código se puede 
         final int age;
     }
 
-    public int calculateAgeAverage(final List<User> userList) {
+    public int calculateAverageAge(final List<User> userList) {
         int accumulatedAge = 0;
         int userCount = 0;
         for (User user : userList) {
@@ -73,10 +73,10 @@ Es imposible negar cuanto más rápido se puede entender el código sólo por ha
 
 {{< highlight java "linenos=table" >}}
 ...
-// Calculate user age average
+// Calculate average user age
 obj.ca(ul);
 ...
-obj.calculateAgeAverage(users);
+obj.calculateAverageAge(users);
 ...
 {{< /highlight >}}
 
