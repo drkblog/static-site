@@ -6,7 +6,7 @@ comments: false
 ---
 
 Para empezar ***drkbugs*** es mi sobrenombre autoelegido.
-Es el nombre ue uso en la mayoría de las cuentas de mis redes sociales públicas.
+Es el nombre que uso en la mayoría de las cuentas de mis redes sociales públicas.
 Y también es mi sitio web.
 Un blog con artículos sobre ingeniería de software.
 
