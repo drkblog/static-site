@@ -36,19 +36,19 @@ fetch("https://www.drk.com.ar/verification", { signal: controller.signal }).then
 Este código será más legible si utilizamos constantes para esos literales de la siguiente manera:
 
 {{< highlight javascript "linenos=table" >}}
-const five_seconds = 5000
+const request_timeout_ms = 5000
 const verification_url = "https://www.drk.com.ar/verification"
 
 const controller = new AbortController()
 
-const timeoutId = setTimeout(() => controller.abort(), five_seconds)
+const timeoutId = setTimeout(() => controller.abort(), request_timeout_ms)
 
 fetch(verification_url, { signal: controller.signal }).then(response => {
 ...
 })
 {{< /highlight >}}
 
-Ahora pudimos deshacernos del comentario ya que está claro que el tercer argumento representa cinco segundos. Al poner una constante para la URL hacemos que la línea 8 quede más corta. Y las URLs suelen ser utilizadas en más de un lugar de una aplicación así que prevenimos que se duplique el literals. Por supuesto, todas las secciones que lo quiera usar deberán tener acceso a la constante.
+Ahora pudimos deshacernos del comentario ya que está claro que el tercer argumento representa el tiempo límite de la conexión. Al poner una constante para la URL hacemos que la línea 8 quede más corta. Y las URLs suelen ser utilizadas en más de un lugar de una aplicación así que prevenimos que se duplique el literals. Por supuesto, todas las secciones que lo quiera usar deberán tener acceso a la constante.
 
 Algo similar se puede hacer utilizando tipos especiales en algunos lenguajes que nos permiten ser más verborrágicos a la hora de especificar un valor para ellos. En Java podemos usar el tipo `Period` para guardar un período de tiempo (usualmente de días o unidades mayores). Y se prefiere ese tipo a guardar un entero del que implícitamente sabemos la unidad.
 
