@@ -4,13 +4,12 @@ description: Una explicación simple sobre la complejidad temporal
 author: Leandro Fernandez
 type: post
 date: 2021-09-21
-cover: "/2021/09/literals.png"
+cover: "/2021/09/time-complexity.png"
 categories:
   - Programación
 tags:
   - algoritmos
   - java
-draft: true
 ---
 
 En _ciencias de la computación_ se estudian las propiedades de los algoritmos. La **complejidad temporal** es una de estas propiedades y se utiliza mucho en la práctica porque la eficiencia de los algoritmos que creamos es un factor muy importante. Ya que se traduce en un costo directo en la operación de un sistema o aplicación. Si un algoritmo puede realizar el mismo trabajo que otro pero utilizando menos recursos vamos a usarlo para reemplazar al menos eficiente.
@@ -35,4 +34,30 @@ Supongamos que se cambia el algoritmo y se vuelven a ejecutar los tres casos ant
 
 ![figura-3](/2021/09/time-complexity-3.png)
 
-Si graficamos la respuesta en tiempo en función de la cantidad de datos de entrada tendremos una líneas recta. La **complejidad temporal** en este caso es lineal. Ya que el tiempo de ejecución varía linealmente con las variaciones en la cantidad de datos de entrada. En notación Big O se representa como `O(n)`. Y este complejidad es la ideal de las que son esperables encontrarnos. Ya que no es muy común que un algoritmo no varíe el tiempo de ejecución a pesar de la variación de la cantidad de datos de entrada. Por lo general eso significa que no está utilizando esos datos.
+Si graficamos la _respuesta en tiempo_ en función de la cantidad de datos de entrada tendremos una línea recta. La **complejidad temporal** en este caso es lineal. Ya que el tiempo de ejecución varía linealmente con las variaciones en la cantidad de datos de entrada. En notación **Big O** se representa como `O(n)`. Y esta complejidad es la ideal entre las que son esperables encontrarnos. Ya que no es muy común que un algoritmo no varíe el tiempo de ejecución a pesar de la variación de la cantidad de datos de entrada. Por lo general eso significa que no está utilizando esos datos.
+
+Si nuestro algoritmo presenta una variación en el tiempo de ejecución como la descripta en la siguiente tabla:
+
+```
+ Datos | Tiempo
+=======|========
+   1   |    x
+   2   |   4x
+   4   |  16x
+  10   | 100x
+```
+
+Estamos ante una **complejidad temporal cuadrática**. Que nuestro algoritmo presente esta complejidad temporal es bastante preocupante. Excepto que sepamos que no existe una mejor forma de resolver el problema. Desde luego existen problemas que se resuelven con esta complejidad en el mejor de los casos. Y también otros que se resuelven con peor complejidad como `O(n^2)` u `O(n!)` sólo por nombrar dos ejemplos.
+
+![figura-4](/2021/09/time-complexity-4.png)
+
+> Insisto en usar una `x` para representar el tiempo correspondiente a la ejecución de un elemento para luego expresar el resto en función de éste. Porque de esa forma queda más claro que estamos evaluando la variación relativa entre ejecuciones y no el tiempo concreto.
+
+## Conclusión
+
+Hasta aquí pudimos entender conceptualmente la **complejidad temporal**. Hemos dejado muchas cosas fuera de la explicación para mantenerla simple y accesible. No profundizamos en todas las complejidad típicas, no explicamos cómo podemos estudiar un algoritmo (incluso en pseudocódigo) para determinar su complejidad sin necesidad de ejecutarlo realmente. No explicamos qué es exactamente la notación **Big O**. Estas cuestiones las trataremos por separado en otros artículos.
+
+---
+
+[Imagen de xkcd.com](https://xkcd.com/1445/) bajo licencia [CC-BY-NC2.5](https://creativecommons.org/licenses/by-nc/2.5/) reformateada para este sitio.
+
