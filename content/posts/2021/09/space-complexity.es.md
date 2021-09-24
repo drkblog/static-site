@@ -16,7 +16,7 @@ Ya dijimos cuando explicamos [qué es la complejidad temporal]({{< relref path="
 
 La **complejidad espacial** no es una medida de cuánta memoria utiliza un algoritmo al ejecutarse sino de cómo varía dicho consumo cuando existe una variación en la cantidad de datos de entrada. Es decir, no nos importa si el algoritmo realiza su trabajo utilizando 10KB o 3GB, sino cuánto más consume cuando hay diez datos en la entrada comparado con cuánto consume con dos datos en la entrada. Desde luego que los número que acabamos de utilizar son arbitrarios e irrelevantes. Lo importante es el concepto. La **complejidad espacial** no tiene unidad, es una medida relativa.
 
-Imaginemos un algoritmo del cual no nos importan sus detalles internos por el momento. Lo consideraremos una caja negra de la cual sabemos la cantidad de datos de entrada que recibe y el tiempo que tarda en finalizar su ejecución. Con esto podemos perfectamente estudiar la **complejidad espacial** realizando una serie de ejecuciones y sacando una conclusión. Esta no es la forma típica en la que se calcula la complejidad de un algoritmo. Pero es ideal para poder explicar el concepto sin tener que entrar ahora mismo en los detalles engorrosos.
+Imaginemos un algoritmo del cual no nos importan sus detalles internos por el momento. Lo consideraremos una caja negra de la cual sabemos la cantidad de datos de entrada que recibe y la cantidad de memoria que utiliza para su ejecución. Con esto podemos perfectamente estudiar la **complejidad espacial** realizando una serie de ejecuciones y sacando una conclusión. Esta no es la forma típica en la que se calcula la complejidad de un algoritmo. Pero es ideal para poder explicar el concepto sin tener que entrar ahora mismo en los detalles engorrosos.
 
 Empecemos por ejecutar el algoritmo para un dato de entrada. Aquí vamos a hablar de una cantidad de datos de entrada asumiendo que estos son equivalentes entre sí. Por ejemplo en un algoritmo que elige el mayor entre un conjunto de números enteros la cantidad de datos de entrada sería la cantidad de números enteros que pasamos al algoritmo. En general a esta cantidad la llamamos `n`. Si el algoritmo puede recibir un número variables de dos tipos de datos distintos, a uno lo llamaremos `n` y al otro `m`. Y así a medida que existan más tipos de entradas relevantes. No nos interesan otras entradas que no vaya a afectar el consumo de memoria. Si el algoritmo recibe un nombre de archivo para escribir la salida, ese dato no es relevante. Además no se consider parte del consumo de memoria el espacio necesario para almacenar los datos de entrada. Sólo contamos la memoria que el algoritmo necesite en forma adicional.
 
@@ -37,12 +37,12 @@ Si graficamos el _consumo de memoria_ en función de la cantidad de datos de ent
 Si nuestro algoritmo presenta una variación en el consumo de memoria como la descripta en la siguiente tabla:
 
 ```
- Datos | Tiempo
-=======|========
-   1   |    x
-   2   |   4x
-   4   |  16x
-  10   | 100x
+ Datos | Memoria
+=======|=========
+   1   |     x
+   2   |    4x
+   4   |   16x
+  10   |  100x
 ```
 
 Estamos ante una **complejidad espacial cuadrática**. Que nuestro algoritmo presente esta complejidad temporal es bastante preocupante. Excepto que sepamos que no existe una mejor forma de resolver el problema. Desde luego existen problemas que se resuelven con esta complejidad en el mejor de los casos. Y también otros que se resuelven con peor complejidad como `O(n^2)` u `O(n!)` sólo por nombrar dos ejemplos.
@@ -54,5 +54,3 @@ Estamos ante una **complejidad espacial cuadrática**. Que nuestro algoritmo pre
 ## Conclusión
 
 Hasta aquí pudimos entender conceptualmente la **complejidad espacial**. Hemos dejado muchas cosas fuera de la explicación para mantenerla simple y accesible. No profundizamos en todas las complejidad típicas, no explicamos cómo podemos estudiar un algoritmo (incluso en pseudocódigo) para determinar su complejidad sin necesidad de ejecutarlo realmente. No explicamos qué es exactamente la notación **Big O**. Estas cuestiones las trataremos por separado en otros artículos.
-
-
