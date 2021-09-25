@@ -9,7 +9,6 @@ categories:
   - Programación
 tags:
   - javascript
-draft: true
 ---
 
 Este artículo no es una guía para aprender **Javascript**. Es una lista breve de consejos útiles para programadores que utilizan **Javascript**. Incluso aquellos que recién comienzan.
@@ -46,9 +45,9 @@ En esta misma página hemos incluido las líneas de **Javascript** que mostramos
 
 {{< rawhtml >}}
 <div>
-<button id="test" type="button">Probar console.log()</button>
+<button id="testLog" type="button">Probar console.log(...)</button>
 <script type="text/javascript">
-const testButton = document.querySelector("#test")
+var testButton = document.querySelector("#testLog")
 testButton.onclick = async (event) => {
   console.log({ event })
 }
@@ -59,3 +58,44 @@ testButton.onclick = async (event) => {
 En la consola aparecerá un ítem que podremos expandir y que se verá similar a esto:
 
 ![js-chrome-debugger](/2021/09/js-chrome-console.png)
+
+Podemos utilizar este método para mostrar el valor de una variable también o un literal:
+
+{{< highlight javascript "linenos=table" >}}
+let value = 1
+console.log(value)
+console.log("Ejemplo")
+{{< /highlight >}}
+
+Como podemos ver no utilicé llaves para encerrar el valor que le paso a `console.log(...)` en este caso. Esta es la forma convencional de utilizar el método. Pero siempre que estemos imprimiendo el valor de una variable que tiene un objeto, o que no sabemos qué tiene, conviene encerrar el nombre de la variable entre llaves porque eso hace que la consola muestre al objeto de una forma muchos más rica. Y no sólo su valor como una cadena.
+
+Otro método muy práctico es `console.table(...)` al cual podemos utilizar en reemplazo de `console.log(...)` cuando tenga sentido para el tipo de dato que estamos inspeccionando. Por ejemplo:
+
+{{< highlight javascript "linenos=table" >}}
+const testButton = document.querySelector("#test")
+testButton.onclick = async (event) => {
+  var eventViewCore = event.view.core
+  console.table({ eventViewCore })
+}
+{{< /highlight >}}
+
+{{< rawhtml >}}
+<div>
+<button id="testTable" type="button">Probar console.table(...)</button>
+<script type="text/javascript">
+var testButton = document.querySelector("#testTable")
+testButton.onclick = async (event) => {
+  var eventViewCore = event.view.core
+  console.table({ eventViewCore })
+}
+</script>
+</div>
+{{< /rawhtml >}}
+
+Aquí elegimos un objeto que tiene pocos atributos para que la tabla no tenga demasiadas columnas y sea práctico el uso del método.
+
+## Tipos de dato y constantes
+
+Claro que **Javascript** no es un lenguaje tipado. Y por eso mismo mi consejo es tener la disciplina para no utilizar la misma variable para almacenar distintos tipos de dato a lo largo de un bloque de código. Es algo que técnicamente es posible hacer pero si acostumbramos a realizar esta práctica el código se torna más difícil de seguir.
+
+Otra recomendación es utilizar `const` siempre que sea posible para evitar reasignaciones en variables. Declarar constantes siempre que sepamos que no hay motivo para reasignar la variable que estamos creando.
