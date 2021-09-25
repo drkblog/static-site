@@ -43,8 +43,7 @@ testButton.onclick = async (event) => {
 
 En esta misma página hemos incluido las líneas de **Javascript** que mostramos arriba. La línea 1 obtiene el botón que que sigue a este párrafo del modelo DOM del documento HTML. La línea 2 configura un `_listener_` del evento _click_ del botón para que ejecute la función anónima cuyo cuerpo está en la línea 3. Y que simplemente utiliza el método `log()` del objeto `console` para imprimir el objeto `event` que recibió. Es decir que cuando presionamos el botón se ejecuta la línea 3.
 
-{{< rawhtml >}}
-<div>
+{{< rawhtml-content >}}
 <button id="testLog" type="button">Probar console.log(...)</button>
 <script type="text/javascript">
 var testButton = document.querySelector("#testLog")
@@ -52,8 +51,7 @@ testButton.onclick = async (event) => {
   console.log({ event })
 }
 </script>
-</div>
-{{< /rawhtml >}}
+{{< /rawhtml-content >}}
 
 En la consola aparecerá un ítem que podremos expandir y que se verá similar a esto:
 
@@ -79,7 +77,7 @@ testButton.onclick = async (event) => {
 }
 {{< /highlight >}}
 
-{{< rawhtml >}}
+{{< rawhtml-content >}}
 <div>
 <button id="testTable" type="button">Probar console.table(...)</button>
 <script type="text/javascript">
@@ -90,7 +88,7 @@ testButton.onclick = async (event) => {
 }
 </script>
 </div>
-{{< /rawhtml >}}
+{{< /rawhtml-content >}}
 
 Aquí elegimos un objeto que tiene pocos atributos para que la tabla no tenga demasiadas columnas y sea práctico el uso del método.
 
