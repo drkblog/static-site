@@ -33,4 +33,29 @@ Como no es la intención de este artículo explicar cómo depurar, escribiré un
 
 ### Logging
 
-El _logging_ es una práctica independiente de la depuración que consiste en escribir mensajes con información relevante cuando la aplicación pasa por una línea de código específica. Y sirve para analizar el comportamiento del programa durante su ejecución. Pero también podemos usar esto para ver el contenido de las variables y atributos en un punto en particular. 
+El _logging_ es una práctica independiente de la depuración que consiste en escribir mensajes con información relevante cuando la aplicación pasa por una línea de código específica. Y sirve para analizar el comportamiento del programa durante su ejecución. Pero también podemos usar esto para ver el contenido de las variables y atributos en un punto en particular. Para esto utilizamos `console.log(...)` y pasamos como argumento lo que sea que deseemos imprimir en la consola. Y por consola nos referimos a la del navegador web. En caso de estar usando **Chrome** podemos hacer visible esta consola presionando `Ctrl-Shift-I` en **Windows** (otros sistemas operativos u otros navegadores tendrán shortcuts diferentes). Si no hacemos visible la consola no podremos ver el efecto del botón de que describimos a continuación.
+
+{{< highlight javascript "linenos=table" >}}
+const testButton = document.querySelector("#test")
+testButton.onclick = async (event) => {
+  console.log({ event })
+}
+{{< /highlight >}}
+
+En esta misma página hemos incluido las líneas de **Javascript** que mostramos arriba. La línea 1 obtiene el botón que que sigue a este párrafo del modelo DOM del documento HTML. La línea 2 configura un `_listener_` del evento _click_ del botón para que ejecute la función anónima cuyo cuerpo está en la línea 3. Y que simplemente utiliza el método `log()` del objeto `console` para imprimir el objeto `event` que recibió. Es decir que cuando presionamos el botón se ejecuta la línea 3.
+
+{{< rawhtml >}}
+<div>
+<button id="test" type="button">Probar console.log()</button>
+<script type="text/javascript">
+const testButton = document.querySelector("#test")
+testButton.onclick = async (event) => {
+  console.log({ event })
+}
+</script>
+</div>
+{{< /rawhtml >}}
+
+En la consola aparecerá un ítem que podremos expandir y que se verá similar a esto:
+
+![js-chrome-debugger](/2021/09/js-chrome-console.png)

@@ -30,7 +30,7 @@ De donde obtendremos `m2` y `m10` también. Como ya explicamos no nos importa re
 
 Supongamos que se cambia el algoritmo y se vuelven a ejecutar los tres casos anteriores. Pero ahora `m1` dió una cantidad de espacio al que llamaremos `x`, `m2` dió `2x` y `m10` dió `10x`. Podemos observar que al duplicar la cantidad de datos de entrada se duplicó el consumo de memoria. Y al multiplicar por 10 la cantidad de datos de entrada el algoritmo usó diez veces más memoria que para uno.
 
-![figura-3](/2021/09/time-complexity-3.png)
+![figura-3](/2021/09/space-complexity-3.png)
 
 Si graficamos el _consumo de memoria_ en función de la cantidad de datos de entrada tendremos una línea recta. La **complejidad espacial** en este caso es lineal. Ya que el consumo de memoria varía linealmente con las variaciones en la cantidad de datos de entrada. En notación **Big O** se representa como `O(n)`.
 
@@ -47,7 +47,7 @@ Si nuestro algoritmo presenta una variación en el consumo de memoria como la de
 
 Estamos ante una **complejidad espacial cuadrática**. Que nuestro algoritmo presente esta complejidad temporal es bastante preocupante. Excepto que sepamos que no existe una mejor forma de resolver el problema. Desde luego existen problemas que se resuelven con esta complejidad en el mejor de los casos. Y también otros que se resuelven con peor complejidad como `O(n^2)` u `O(n!)` sólo por nombrar dos ejemplos.
 
-![figura-4](/2021/09/time-complexity-4.png)
+![figura-4](/2021/09/space-complexity-4.png)
 
 > Insisto en usar una `x` para representar el consumo de memoria correspondiente a la ejecución de un elemento para luego expresar el resto en función de éste. Porque de esa forma queda más claro que estamos evaluando la variación relativa entre ejecuciones y no el consumo concreto.
 
