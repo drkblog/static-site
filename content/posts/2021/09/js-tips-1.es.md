@@ -35,8 +35,8 @@ Como no es la intención de este artículo explicar cómo depurar, escribiré un
 El _logging_ es una práctica independiente de la depuración que consiste en escribir mensajes con información relevante cuando la aplicación pasa por una línea de código específica. Y sirve para analizar el comportamiento del programa durante su ejecución. Pero también podemos usar esto para ver el contenido de las variables y atributos en un punto en particular. Para esto utilizamos `console.log(...)` y pasamos como argumento lo que sea que deseemos imprimir en la consola. Y por consola nos referimos a la del navegador web. En caso de estar usando **Chrome** podemos hacer visible esta consola presionando `Ctrl-Shift-I` en **Windows** (otros sistemas operativos u otros navegadores tendrán shortcuts diferentes). Si no hacemos visible la consola no podremos ver el efecto del botón de que describimos a continuación.
 
 {{< highlight javascript "linenos=table" >}}
-const testButton = document.querySelector("#test")
-testButton.onclick = async (event) => {
+const testLog = document.querySelector("#test")
+testLog.onclick = async (event) => {
   console.log({ event })
 }
 {{< /highlight >}}
@@ -46,8 +46,8 @@ En esta misma página hemos incluido las líneas de **Javascript** que mostramos
 {{< rawhtml-content >}}
 <button id="testLog" type="button">Probar console.log(...)</button>
 <script type="text/javascript">
-var testButton = document.querySelector("#testLog")
-testButton.onclick = async (event) => {
+const testLog = document.querySelector("#testLog")
+testLog.onclick = async (event) => {
   console.log({ event })
 }
 </script>
@@ -72,7 +72,7 @@ Otro método muy práctico es `console.table(...)` al cual podemos utilizar en r
 {{< highlight javascript "linenos=table" >}}
 const testButton = document.querySelector("#test")
 testButton.onclick = async (event) => {
-  var eventViewCore = event.view.core
+  const eventViewCore = event.view.core
   console.table({ eventViewCore })
 }
 {{< /highlight >}}
@@ -81,9 +81,9 @@ testButton.onclick = async (event) => {
 <div>
 <button id="testTable" type="button">Probar console.table(...)</button>
 <script type="text/javascript">
-var testButton = document.querySelector("#testTable")
-testButton.onclick = async (event) => {
-  var eventViewCore = event.view.core
+const testTable = document.querySelector("#testTable")
+testTable.onclick = async (event) => {
+  const eventViewCore = event.view.core
   console.table({ eventViewCore })
 }
 </script>
@@ -92,8 +92,45 @@ testButton.onclick = async (event) => {
 
 Aquí elegimos un objeto que tiene pocos atributos para que la tabla no tenga demasiadas columnas y sea práctico el uso del método.
 
-## Tipos de dato y constantes
+## Tipos de dato, variables y constantes
 
 Claro que **Javascript** no es un lenguaje tipado. Y por eso mismo mi consejo es tener la disciplina para no utilizar la misma variable para almacenar distintos tipos de dato a lo largo de un bloque de código. Es algo que técnicamente es posible hacer pero si acostumbramos a realizar esta práctica el código se torna más difícil de seguir.
 
 Otra recomendación es utilizar `const` siempre que sea posible para evitar reasignaciones en variables. Declarar constantes siempre que sepamos que no hay motivo para reasignar la variable que estamos creando.
+
+Por último hay que evitar usar `var` en Javascript moderno porque define una variable con alcance global en lugar de restringirla al bloque donde se la declara. Hoy existe `let` que hace lo correcto.
+
+{{< highlight javascript "linenos=table" >}}
+const testVarLet = document.querySelector("#testVarLet")
+if (true) {
+  var siblingBlockVar = 123456;
+  let siblingBlockLet = 654321;
+}
+testVarLet.onclick = async (event) => {
+  console.log(siblingBlockVar)
+  console.log(siblingBlockLet)
+}
+{{< /highlight >}}
+
+{{< rawhtml-content >}}
+<div>
+<button id="testVarLet" type="button">Probar var y let</button>
+<script type="text/javascript">
+const testVarLet = document.querySelector("#testVarLet")
+if (true) {
+  var siblingBlockVar = 123456;
+  let siblingBlockLet = 654321;
+}
+testVarLet.onclick = async (event) => {
+  console.log(siblingBlockVar)
+  console.log(siblingBlockLet)
+}
+</script>
+</div>
+{{< /rawhtml-content >}}
+
+En la consola de tu navegador vas a ver dos mensajes como estos:
+
+![js-chrome-debugger-varlet](/2021/09/js-chrome-debugger-varlet.png)
+
+Porque la línea 7 imprime el valor de una variable declarada con `var`, podemos obtener su valor a pesar de que se declaró en otro bloque que no es siquiera el padre del bloque desde el cual la accedemos. Esto es porque `var` crea la variable en forma global. Esto provoca colisiones de nombres y nos impide usar el mismo nombre de variable dentro de dos bloques independientes. La línea 8 da un error porque la variable `siblingBlockLet` fue declarada con `let` que sólo crea la variable en el contexto del bloque donde se encuentra. Por lo tanto hay que dejar de utilizar `var` y reemplazarlos por `let` y `const` según corresponda.
