@@ -12,6 +12,13 @@ Un blog con artículos sobre ingeniería de software.
 
 _About [the media]({{< relref path="/content/page/media.en.md" lang="en" >}}) in my channels_.
 
+## Sobre mí
+
+Apretando teclas desde 1988 y todavía no me aburre programar.
+Me llamo **Leandro Fernandez**.
+Trabajo para Roche.
+Todas las opiniones expresadas aquí y en mis redes sociales son mías y no representan necesariamente la posición de mi empleador.
+
 ### Un poco de historia
 
 No sé por qué desde que tenía ocho años estaba interesando en poder programar una computadora.

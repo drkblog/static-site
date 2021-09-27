@@ -12,7 +12,14 @@ We can say **drkbugs** is a blog about software engineering.
 
 About [the media]({{< relref path="/content/page/media.en.md" lang="en" >}}) in my channels.
 
-### Ancient history
+## About me
+
+I've been programming since 1988 and I'm not bored yet.
+My name is **Leandro Fernandez**.
+I work for Roche.
+All opinions expressed here and in my social networking accounts are my own and do not necessarily represent the position of my employer.
+
+## Ancient history
 
 This web site started in 2002 and was named **DRK Software**.
 It was the home of a small group of applications (mostly Windows utilities).
