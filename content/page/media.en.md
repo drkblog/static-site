@@ -12,6 +12,9 @@ This page presents a list of authors whose royalty free media I have use to crea
 - [Anna Shvets](https://www.instagram.com/sh.vets/)
 - [Markus Spiske](https://freeforcommercialuse.net/)
 
+## Pixabay
+- [Gerd Altmann](https://pixabay.com/users/geralt-9301)
+
 ## Other
 - [xkcd](https://xkcd.com/)
 - [geek-and-poke](https://geek-and-poke.com/)
