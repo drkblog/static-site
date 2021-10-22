@@ -151,13 +151,17 @@ hrefTargetBlank = true
         url = "/posts/"
         weight = 2
       [[languages.es.menu.main]]
+        name = "TikTok"
+        url = "/drkmobtl/"
+        weight = 3
+      [[languages.es.menu.main]]
         name = "Legacy"
         url = "/legacy/"
-        weight = 3
+        weight = 4
       [[languages.es.menu.main]]
         name = "Acerca de drkbugs"
         url = "/about/"
-        weight = 4
+        weight = 5
 
   [languages.en]
     languageName = "English"
