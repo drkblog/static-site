@@ -14,6 +14,7 @@ This page presents a list of authors whose royalty free media I have use to crea
 
 ## Pixabay
 - [Gerd Altmann](https://pixabay.com/users/geralt-9301)
+- [Gordon Johnson](https://pixabay.com/users/gdj-1086657)
 
 ## Other
 - [xkcd](https://xkcd.com/)
