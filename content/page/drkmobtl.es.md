@@ -15,5 +15,9 @@ Serie de vides estilo vlog sobre los pasos a seguir para un desarrollo Android n
 1. [AVD Manager](https://www.tiktok.com/@drkbugs/video/7020943809609600262)
 1. [Nueva app desde plantilla](https://www.tiktok.com/@drkbugs/video/7022060131244313862)
 1. [Utilizar GitHub](https://www.tiktok.com/@drkbugs/video/7022323929079418117)
+1. [AVD Manager](https://www.tiktok.com/@drkbugs/video/7020943809609600262)
+1. [Proyecto paralelo](https://www.tiktok.com/@drkbugs/video/7027101001425358086)
+1. [Activities en Android](https://www.tiktok.com/@drkbugs/video/7029732863650139398)
+
 
 También podés buscarlos en TikTok con el hashtag [#drkmobtl](https://www.tiktok.com/tag/drkmobtl?lang=es)
