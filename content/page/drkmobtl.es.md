@@ -5,7 +5,7 @@ slug: "drkmobtl"
 comments: false
 ---
 
-Serie de vides estilo vlog sobre los pasos a seguir para un desarrollo Android nativo desde cero.
+Serie de videos estilo vlog sobre los pasos a seguir para un desarrollo Android nativo desde cero.
 
 ## Listado en orden
 1. [Propuesta](https://www.tiktok.com/@drkbugs/video/7018690225211723014)
