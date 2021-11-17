@@ -1,9 +1,18 @@
 ---
-title: Puzzle
-description: Puzzle
-slug: "puzzle"
+title: "#drkquest1 - Responder"
+description: "Formulario de envío de respuesta #drkquest1"
+slug: "drkquest1-answer-form"
 comments: false
+sitemapExclude: true
 ---
+
+A través de este formulario podés enviar la respuesta que creas correcta.
+Podés hacer el envío más de una vez si la respuesta que enviás es incorrecta.
+No hay un límite de intentos pero es importante no abusar de este servicio porque podría bloquearte.
+
+Luego de completar los datos vas a recibir un mail con un enlace para validar tu dirección de correo electrónico.
+Tu respuesta no será considerada válida hasta que hayas utilizado el enlace.
+Y es importante que lo hagas antes del plazo de vencimiento del mismo.
 
 {{< rawhtml >}}
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
