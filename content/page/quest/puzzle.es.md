@@ -10,7 +10,7 @@ A través de este formulario podés enviar la respuesta que creas correcta.
 Podés hacer el envío más de una vez si la respuesta que enviás es incorrecta.
 No hay un límite de intentos pero es importante no abusar de este servicio porque podría bloquearte.
 
-Luego de completar los datos vas a recibir un mail con un enlace para validar tu dirección de correo electrónico.
+Luego de completar los datos vas a recibir un correo con un enlace para validar tu dirección de correo electrónico.
 Tu respuesta no será considerada válida hasta que hayas utilizado el enlace.
 Y es importante que lo hagas antes del plazo de vencimiento del mismo.
 
@@ -22,7 +22,7 @@ Y es importante que lo hagas antes del plazo de vencimiento del mismo.
   <div id="recaptcha" class="g-recaptcha" data-sitekey="6LcG5f0SAAAAAPNN8gGEHzu07flHpuQqqkxaQM_W"></div>
   <button type="submit">Enviar</button>
 </form>
-<div id="response"></div>
+<pre id="response"></pre>
 <script type="text/javascript">
   function disable_form(form) {
     const elements = form.elements;
