@@ -1,6 +1,6 @@
 ---
-title: #drkmobtl
-description: Desarrollo mobile para Android desde cero
+title: "#drkmobtl"
+description: "Desarrollo mobile para Android desde cero"
 slug: "drkmobtl"
 comments: false
 ---
