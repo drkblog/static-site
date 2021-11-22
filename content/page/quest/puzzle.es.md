@@ -43,8 +43,7 @@ Y es importante que lo hagas antes del plazo de vencimiento del mismo.
       xhr.open('POST', event.target.action, true);
       xhr.setRequestHeader('Content-Type', 'application/json');
       xhr.onreadystatechange = function() {
-        if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
-          console.log('Request submitted ok');
+        if (this.readyState === XMLHttpRequest.DONE) {
           response.innerHTML = this.responseText;
           disable_form(form);
           recaptcha.remove();
