@@ -48,7 +48,7 @@ Please use MD5 or SHA1 hashes for validatin downloaded files.
 
 [Daphne-setup 32 bits](/downloads/legacy/daphne/Daphne_setup_x86.msi) - [MD5](/downloads/legacy/daphne/Daphne_setup_x86.msi.md5) - [SHA1](/downloads/legacy/daphne/Daphne_setup_x86.msi.sha1) - 6.4MB - September 26, 2014
 
-[Daphne-portable 32 bits](/downloads/legacy/daphne/Daphne_setup_x86.zip) - [MD5](/downloads/legacy/daphne/Daphne_setup_x86.zip.md5) - [SHA1](/downloads/legacy/daphne/Daphne_setup_x86.zip.sha1) - 6.0MB - September 26, 2014
+[Daphne-portable 32 bits](/downloads/legacy/daphne/Daphne_portable_x86.zip) - [MD5](/downloads/legacy/daphne/Daphne_portable_x86.zip.md5) - [SHA1](/downloads/legacy/daphne/Daphne_portable_x86.zip.sha1) - 6.0MB - September 26, 2014
 
 [Daphne_setup 64 bits](/downloads/legacy/daphne/Daphne_setup_x64.msi) - [MD5](/downloads/legacy/daphne/Daphne_setup_x64.msi.md5) - [SHA1](/downloads/legacy/daphne/Daphne_setup_x64.msi.sha1) - [MD5] - [SHA1] - 6.6MB - September 26, 2014
 
