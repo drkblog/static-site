@@ -45,9 +45,9 @@ h4 {
 .cookie-container a {
   color: #f5f6fa;
   border-bottom: .125em dashed #bdbdbd;
-    border-bottom-width: 0.125em;
-    border-bottom-style: dashed;
-    border-bottom-color: rgb(189, 189, 189);
+  border-bottom-width: 0.125em;
+  border-bottom-style: dashed;
+  border-bottom-color: rgb(189, 189, 189);
 }
 .cookie-btn {
   background: #d04a2b;
@@ -58,6 +58,13 @@ h4 {
   margin-bottom: 16px;
   border-radius: 8px;
   cursor: pointer;
+}
+
+.widget-session .greetings {
+  display: none;
+}
+.widget-session .login {
+  display: none;
 }
 
 .rawhtml-content {

@@ -5,13 +5,13 @@ slug: "privacy"
 comments: false
 ---
 
-Last updated: August 29, 2021
+Last updated: December 18, 2021
 
-drkbugs ("us", "we", or "our") operates https://www.drk.com.ar (the "Site"). This page informs you of our policies regarding the collection, use and disclosure of Personal Information we receive from users of the Site.
+drkbugs ("us", "we", or "our") operates https://drk.com.ar (the "Site"). This page informs you of our policies regarding the collection, use and disclosure of Personal Information we receive from users of the Site.
 
 We will not use or share your information with anyone except as described in this Privacy Policy.
 
-***We use your Personal Information for providing and improving the Service. By using the Service, you agree to the collection and use of information in accordance with this policy.*** Unless otherwise defined in this Privacy Policy, terms used in this Privacy Policy have the same meanings as in our Terms and Conditions, accessible at https://www.drk.com.ar/en/privacy/
+***We use your Personal Information for providing and improving the Service. By using the Service, you agree to the collection and use of information in accordance with this policy.*** Unless otherwise defined in this Privacy Policy, terms used in this Privacy Policy have the same meanings as in our Terms and Conditions, accessible at https://drk.com.ar/en/privacy/
 
 ## Information Collection And Use
 
