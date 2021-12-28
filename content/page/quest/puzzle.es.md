@@ -14,10 +14,16 @@ Luego de completar los datos vas a recibir un correo con un enlace para validar 
 Tu respuesta no será considerada válida hasta que hayas utilizado el enlace.
 Y es importante que lo hagas antes del plazo de vencimiento del mismo.
 
+Todos los datos provistos en el formulario junto con la respuesta deben ser correctos.
+Tanto la inexactitud de los datos como la falta de acceso a la cuenta de correo electrónico o la de TikTok al momento de recibir el premio será motivo suficiente de descalificación.
+
+> Importante: El nombre de usuario de Tiktok (con o sin @) tal como figura en el perfil, debajo del avatar.
+
 {{< rawhtml >}}
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 <form id="form" accept-charset="UTF-8" action="https://puzzle.drkbugs.workers.dev/post" method="POST">
   <input name="email" type="email" placeholder="name@example.com">
+  <input name="tiktok_username" type="text" placeholder="tiktok username">
   <input name="answer" type="text" placeholder="Respuesta...">
   <div id="recaptcha" class="g-recaptcha" data-sitekey="6LcG5f0SAAAAAPNN8gGEHzu07flHpuQqqkxaQM_W"></div>
   <button type="submit">Enviar</button>
