@@ -81,7 +81,7 @@ titleSeparator = "•"
 
 [params.social]
 codepen = "drkbugs"
-email = "webmaster@drk.com.ar"
+email = "drkbugs@gmail.com"
 #facebook = "drkbugs"
 github = "drkblog"
 #gitlab = "drkbugs"
@@ -151,8 +151,8 @@ hrefTargetBlank = true
         url = "/posts/"
         weight = 2
       [[languages.es.menu.main]]
-        name = "TikTok"
-        url = "/drkmobtl/"
+        name = "Contacto"
+        url = "/contact/"
         weight = 3
       [[languages.es.menu.main]]
         name = "Legacy"
@@ -177,10 +177,14 @@ hrefTargetBlank = true
         url = "/en/posts/"
         weight = 2
       [[languages.en.menu.main]]
+        name = "Contact"
+        url = "/en/contact/"
+        weight = 3
+      [[languages.en.menu.main]]
         name = "Legacy"
         url = "/en/legacy/"
-        weight = 3
+        weight = 4
       [[languages.en.menu.main]]
         name = "About"
         url = "/en/about/"
-        weight = 4
+        weight = 5
