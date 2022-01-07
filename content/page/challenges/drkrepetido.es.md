@@ -27,3 +27,11 @@ Y no serían válidas:
 - [1, 2, 3, 4, 5]
 - [1, 2, 3, -4, 5, **6**, **6**, 7, 8, 9]
 - [1, 2, 3, ..., 100.000.000]
+
+Explicación del enunciado y solución temporal `O(n²)`.
+
+https://www.youtube.com/watch?v=--QUAiYXClo
+
+Explicación de la solución con la fórmula de Gauss en temporal `O(n)` y espacial `O(1)`.
+
+https://www.youtube.com/watch?v=rv8C-xEhCgk
