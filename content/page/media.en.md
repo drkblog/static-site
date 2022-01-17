@@ -15,9 +15,18 @@ This page presents a list of authors whose royalty free media I have use to crea
 ## Pixabay
 - [Gerd Altmann](https://pixabay.com/users/geralt-9301)
 - [Gordon Johnson](https://pixabay.com/users/gdj-1086657)
+- [Michal Jarmoluk](https://pixabay.com/users/jarmoluk-143740)
+- [Mohamed Hassan](https://pixabay.com/users/mohamed_hassan-5229782)
+- [Jonathan Blackburn](https://pixabay.com/users/condorhauck-52175)
+- [TeeFarm](https://pixabay.com/users/teefarm-199315)
+- [Pixaline](https://pixabay.com/users/pixaline-1569622)
+- [Trang Le](https://pixabay.com/users/bytrangle-6596164)
 
 ## Other
 - [xkcd](https://xkcd.com/)
 - [geek-and-poke](https://geek-and-poke.com/)
+
+## Music
+- Rocky Mountains — Scandinavianz [Audio Library Release] - [Watch](https://youtu.be/_szFz5HwCiM) - [Free Download / Stream](https://alplus.io/rocky-mountains)
 
 If you see any uncredited media used in any of my channels please let me know.
