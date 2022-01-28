@@ -17,7 +17,7 @@ We will not use or share your information with anyone except as described in thi
 
 While using our Service, we may ask you to provide us with certain personally identifiable information that can be used to contact or identify you. Personally identifiable information may include, but is not limited to, your email address, name, phone number, postal address, other information ("Personal Information").
 
-We collect this information for the purpose of providing the Service, identifying and communicating with you, responding to your requests/inquiries, servicing your purchase orders, and improving our services.
+We collect this information for the purpose of providing the Service, identifying and communicating with you, responding to your requests/inquiries, personalizing your experience on our website, and improving our services. We also collect the information for the purpose of our legitimate interests in maintaining and managing our website and ensuring its security
 
 ## Log Data
 
@@ -80,6 +80,12 @@ This Privacy Policy is effective as of November 7, 2021 and will remain in effec
 We reserve the right to update or change our Privacy Policy at any time and you should check this Privacy Policy periodically. Your continued use of the Service after we post any modifications to the Privacy Policy on this page will constitute your acknowledgment of the modifications and your consent to abide and be bound by the modified Privacy Policy.
 
 If we make any material changes to this Privacy Policy, we will notify you either through the email address you have provided us, or by placing a prominent notice on our website.
+
+## User data deletion
+
+If you want your user information to be deleted from our database please send an email to drkbugs@gmail.com with your request.
+We will process your request once your identity is verified.
+Please provide enough information to speed up the process.
 
 ## Contact Us
 
