@@ -22,6 +22,7 @@ This page presents a list of authors whose royalty free media I have use to crea
 - [Pixaline](https://pixabay.com/users/pixaline-1569622)
 - [Trang Le](https://pixabay.com/users/bytrangle-6596164)
 - [Megan Rexazin](https://pixabay.com/users/megan_rexazin-6742250)
+- [Open clipart vectors](https://pixabay.com/users/openclipart-vectors-30363)
 
 ## Other
 - [xkcd](https://xkcd.com/)
