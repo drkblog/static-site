@@ -24,6 +24,9 @@ This page presents a list of authors whose royalty free media I have use to crea
 - [Megan Rexazin](https://pixabay.com/users/megan_rexazin-6742250)
 - [Open clipart vectors](https://pixabay.com/users/openclipart-vectors-30363)
 
+## Pixabay videos
+- [Joseph Redfield Nino](https://pixabay.com/users/josephredfield-8385382)
+
 ## Other
 - [xkcd](https://xkcd.com/)
 - [geek-and-poke](https://geek-and-poke.com/)
