@@ -75,10 +75,15 @@ h4 {
   margin-bottom: 1.5em;
 }
 
+/* Forms */
 .user-form input,div {
   margin-bottom: .3em;
   margin-right: .3em;
 }
 .user-form button {
   margin-top: .5em;
+}
+
+#response {
+  background-color: cornflowerblue;
 }
