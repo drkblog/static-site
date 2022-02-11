@@ -85,6 +85,29 @@ h4 {
 }
 
 #response {
+  border: rgb(60, 60, 60);
   margin-top: 1em;
-  background-color: cornflowerblue;
+  padding: .2em;
+}
+
+/* FIXES */
+
+.button:disabled,
+button:disabled,
+input[type=button]:disabled,
+input[type=reset]:disabled,
+input[type=submit]:disabled {
+  text-decoration: line-through;
+  opacity: 0.5;
+  cursor: not-allowed;  
+  cursor: -moz-not-allowed;
+  cursor: -webkit-not-allowed;
+}
+.button:disabled:hover,
+button:disabled:hover,
+input[type=button]:disabled:hover,
+input[type=reset]:disabled:hover,
+input[type=submit]:disabled:hover {
+  background:inherit;
+  color:inherit;
 }
