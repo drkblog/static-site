@@ -5,7 +5,7 @@ slug: "privacy"
 comments: false
 ---
 
-Last updated: December 18, 2021
+Last updated: February 20th, 2022
 
 drkbugs ("us", "we", or "our") operates https://drk.com.ar (the "Site"). This page informs you of our policies regarding the collection, use and disclosure of Personal Information we receive from users of the Site.
 
@@ -17,7 +17,7 @@ We will not use or share your information with anyone except as described in thi
 
 While using our Service, we may ask you to provide us with certain personally identifiable information that can be used to contact or identify you. Personally identifiable information may include, but is not limited to, your email address, name, phone number, postal address, other information ("Personal Information").
 
-We collect this information for the purpose of providing the Service, identifying and communicating with you, responding to your requests/inquiries, personalizing your experience on our website, and improving our services. We also collect the information for the purpose of our legitimate interests in maintaining and managing our website and ensuring its security
+We collect this information for the purpose of providing the Service, identifying and communicating with you, responding to your requests/inquiries, personalizing your experience on our website, and improving our services. We also collect the information for the purpose of our legitimate interests in maintaining and managing our website and ensuring its security.
 
 ## Log Data
 
@@ -41,7 +41,21 @@ These third parties have access to your Personal Information only to perform spe
 
 ## Communications
 
-We may use your Personal Information to contact you with newsletters, marketing or promotional materials and other information that may be of interest to you. You may opt out of receiving any, or all, of these communications from us by following the unsubscribe link or instructions provided in any email we send.
+We will only use your information as described in this Notice or as disclosed to you prior to such processing taking place.
+
+- **To Provide and Maintain our Services:** We will use your personal information to provide information or deliver Services that you request and to allow you to participate in interactive features of our Site and Services when you choose to do so. If the applicable information is to be provided or Service is to be performed by a third party, then we will disclose the applicable information to the third party providing the information or performing applicable Services.
+
+- **To Provide Customer Support or Respond to You:** We collect any information that you provide to us when you contact us, such as with questions, concerns, feedback, disputes or issues. Without your personal information, we cannot respond to you.
+
+- **To Send You Marketing and Promotional Emails:** We may use your personal information to contact you with newsletters, marketing or promotional materials and other information that may be of interest to you. You may opt-out of receiving any, or all, of these communications from us by following the unsubscribe link or the instructions provided in any email we send, or submitting your request to drkbugs@gmail.com.
+
+- **To Advise You of Other Services:** From time to time, subject to the applicable law, we may share your personal information with third parties or partners. You may opt out of having your personal information shared with third parties. If you choose to limit the use of your personal information, certain features or Services may not be available to you.
+
+- **To Personalize Your Experience:** We may also use your personal information to tailor your experience at our Site, to compile and display content and information that we think you might be interested in, and to provide you with content according to these preferences. One In Tech may also use this information to help us understand our members’ needs and interests, to better tailor our products and services to meet your needs.
+
+- **For Research and Development:** We will use your information to gather analysis or valuable information so that we can improve our Services and to detect, prevent and address technical issues. We may also use your information to monitor the usage of our Site including without limitation search terms entered, pages visited and documents viewed.
+
+- **To Enforce Compliance with Our Terms and Agreements or Policies:** When you access or use our Services, you are bound to our Terms and Conditions and this Notice. To ensure you comply with them, we process your personal information by actively monitoring, investigating, preventing and mitigating any alleged or actual prohibited, illicit or illegal activities on our Services. We also may process your personal information to: investigate, prevent or mitigate violations of our internal terms, agreements or policies; enforce our agreements with third parties and business partners; and, as applicable, collect fees based on your use of our Services. We also use your information to ensure that One In Tech will not violate any applicable U.S. sanctions in accepting your donation or by providing you access to One In Tech’s goods and services. We cannot perform our Services in accordance with our terms, agreements or policies without processing your personal information for such purposes.
 
 ## Compliance with Laws
 
@@ -57,7 +71,8 @@ However, please be aware that no method of transmission over the internet, or me
 
 Your information, including Personal Information, may be transferred to — and maintained on — computers located outside of your state, province, country or other governmental jurisdiction where the data protection laws may differ than those from your jurisdiction.
 
-If you are located outside United States and choose to provide information to us, please note that we transfer the information, including Personal Information, to United States and process it there.
+- If you are located outside United States and choose to provide information to us, please note that we transfer the information, including Personal Information, to United States and process it there.
+- If you are located outside Argentina and choose to provide information to us, please note that we transfer the information, including Personal Information, to Argentina and process it there.
 
 Your consent to this Privacy Policy followed by your submission of such information represents your agreement to that transfer.
 
@@ -75,7 +90,7 @@ We do not knowingly collect personally identifiable information from children un
 
 ## Changes To This Privacy Policy
 
-This Privacy Policy is effective as of November 7, 2021 and will remain in effect except with respect to any changes in its provisions in the future, which will be in effect immediately after being posted on this page.
+This Privacy Policy is effective as of February 20th, 2022 and will remain in effect except with respect to any changes in its provisions in the future, which will be in effect immediately after being posted on this page.
 
 We reserve the right to update or change our Privacy Policy at any time and you should check this Privacy Policy periodically. Your continued use of the Service after we post any modifications to the Privacy Policy on this page will constitute your acknowledgment of the modifications and your consent to abide and be bound by the modified Privacy Policy.
 

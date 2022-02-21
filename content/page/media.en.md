@@ -16,6 +16,7 @@ This page presents a list of authors whose royalty free media I have use to crea
 - [Aquib Azad ](https://pixabay.com/users/azadaquib-649144)
 - [Gerd Altmann](https://pixabay.com/users/geralt-9301)
 - [Gordon Johnson](https://pixabay.com/users/gdj-1086657)
+- [Jinsue Kim](https://pixabay.com/users/didigon-1065950)
 - [Jonathan Blackburn](https://pixabay.com/users/condorhauck-52175)
 - [Megan Rexazin](https://pixabay.com/users/megan_rexazin-6742250)
 - [Michal Jarmoluk](https://pixabay.com/users/jarmoluk-143740)
