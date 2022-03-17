@@ -14,6 +14,7 @@ This page presents a list of authors whose royalty free media I have use to crea
 
 ## Pixabay
 - [Aquib Azad ](https://pixabay.com/users/azadaquib-649144)
+- [Augusto Ordóñez](https://pixabay.com/es/users/paligraficas-6638487)
 - [Bethany Drouin](https://pixabay.com/users/bsdrouin-5016447)
 - [Gerd Altmann](https://pixabay.com/users/geralt-9301)
 - [Gordon Johnson](https://pixabay.com/users/gdj-1086657)
@@ -27,6 +28,7 @@ This page presents a list of authors whose royalty free media I have use to crea
 - [StartupStockPhotos](https://pixabay.com/users/startupstockphotos-690514)
 - [TeeFarm](https://pixabay.com/users/teefarm-199315)
 - [Trang Le](https://pixabay.com/users/bytrangle-6596164)
+- [Urhan TV](https://pixabay.com/es/users/17959117-17959117)
 
 ## Pixabay videos
 - [Joseph Redfield Nino](https://pixabay.com/users/josephredfield-8385382)
