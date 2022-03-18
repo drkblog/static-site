@@ -13,7 +13,7 @@ This page presents a list of authors whose royalty free media I have use to crea
 - [Markus Spiske](https://freeforcommercialuse.net/)
 
 ## Pixabay
-- [Aquib Azad ](https://pixabay.com/users/azadaquib-649144)
+- [Aquib Azad](https://pixabay.com/users/azadaquib-649144)
 - [Augusto Ordóñez](https://pixabay.com/es/users/paligraficas-6638487)
 - [Bethany Drouin](https://pixabay.com/users/bsdrouin-5016447)
 - [Gerd Altmann](https://pixabay.com/users/geralt-9301)
