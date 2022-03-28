@@ -22,6 +22,14 @@ _Dada una lista de personas con el año de su nacimiento y su muerte encontrar e
 - Si hay más de un año con el máximo número de personas vivas **devolver el primero (cronológicamente)**.
 - El arreglo de entrada tendrá como **mínimo un elemento** (un par de años) y como **máximo un millón** de pares (1.000.000)
 
+## Videos
+
+- [Enunciado](https://www.tiktok.com/@drkbugs/video/7059732226828815622)
+- [Enunciado detallado](https://www.youtube.com/watch?v=lyTVcglPq64)
+- [Solución](https://www.youtube.com/watch?v=-Jx4gGaegeY)
+- [Videos relacionados en TikTok](https://www.tiktok.com/search?lang=en&q=%23desafiodrk2)
+- [Videos relacionados en YouTube](https://www.youtube.com/results?search_query=%23desafiodrk2)
+
 ## Ejemplos
 
 ### Entrada
