@@ -1,7 +1,7 @@
 ---
 title: "#desafiodrk3"
-description: "Cómo implementar Fibonacci"
-date: 2022-03-14
+description: "Validar llaves, corchetes y paréntesis"
+date: 2022-03-01
 type: post
 slug: "desafiodrk3"
 comments: false
@@ -9,51 +9,42 @@ comments: false
 
 ## Enunciado
 
-_Dada la implementación de una función que retorna el valor de la secuencia de Fibonacci para la posición dada, utilizando recursividad. Salvar el problema del stack overflow o timeout que tengo para valores grandes de n como por ejemplo 200._
+_Dada una cadena con llaves, corchetes y paréntesis validar que todas las aperturas y cierres son correctas y que el anidamiento cumple con que sólo puede haber corchetes dentro de llaves y paréntesis dentro de corchetes. Y se puede anidar cualquiera dentro de sí mismo. Complejidad temporal y espacial lineal O(n)._
 
 ## Detalles
 
-- La secuencia de Fibonacci se construye sumando los dos últimos números de la secuencia para formar el siguiente.
-- Se puede comenzar en 0 o en 1: `0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, ...`
-- Consideramos `n` a la posición del número que queremos obtener.
-- La implementación con recursividad es impracticable para valores grandes como por ejemplo `n = 200`.
-- Hay varios tipo de solución y este desafío esta orientado a una de ellas pero cualquier tipo de solución es aceptable.
+- Se recibe una cadena que sólo tiene los símbolos de apertura y cierre de llaves, corchetes y paréntesis `{} [] ()`.
+- La cadena es de largo variable y podrá tener hasta 50.000 caracteres.
+- La cadena recibida puede o no ser válida y el algoritmo debe indicar esto.
+- No es necesario pero indicar la posición donde se detecta el error es un plus.
 
 ## Videos
 
-- [Enunciado](https://www.tiktok.com/@drkbugs/video/7075060302403898630)
+- [Enunciado](https://www.tiktok.com/@drkbugs/video/7070185300038929669)
 - [Solución](https://www.youtube.com/watch?v=tAczqCPwmGo)
+- [Análisis de solución propuesta por José Mohamed](https://www.youtube.com/watch?v=f-IQAj0kWfk)
 - [Videos relacionados en TikTok](https://www.tiktok.com/search?lang=en&q=%23desafiodrk3)
 - [Videos relacionados en YouTube](https://www.youtube.com/results?search_query=%23desafiodrk3)
 
-## Implementación recursiva de referencia
-
-{{< highlight javascript "linenos=table" >}}
-function fib(num) {
-    if (num < 2) {
-        return num;
-    }
-    return fib(num - 2) + fib(num - 1);
-}
-
-for(let i = 0; i < 200; i++) {
-    console.log(`${i}: ${fib(i)}`);
-}
-{{< /highlight >}}
-
 ## Ejemplos
 
-### Entrada
+### Cadenas válidas
 ```
-fib(10)
+"{()[]}"
+"{(()())}{[(()())][]}"
+"{[]}"
+"{{}{}}"
+"(())"
 ```
-> Resultado: **55**
 
-### Entrada
+### Cadenas inválidas
 ```
-fib(200)
+"{(()}"
+"{((()())}{[(()())][]}"
+"[{}]"
+"}"
+"{"
 ```
-> Resultado: **2.8057117299251016e+41**
 
 ## Cómo enviar respuestas
 
