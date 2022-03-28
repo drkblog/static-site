@@ -1,6 +1,8 @@
 ---
 title: "#desafiodrk2"
-description: "Desafío drk 2"
+description: "Desafío DRK 2"
+date: 2022-02-01
+type: post
 slug: "desafiodrk2"
 comments: false
 ---
