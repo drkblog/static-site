@@ -9,7 +9,7 @@ comments: false
 
 ## Enunciado
 
-_Dado un array con enteros que originalmente estaba ordenado y luego fue rotado circularmente una cantidad arbitraria y desconocida de veces. Diseñas un algoritmo capaz de encontrar el menor entero en complejidad temporal menor que O(n)._
+_Dado un array con enteros que originalmente estaba ordenado y luego fue rotado circularmente una cantidad arbitraria y desconocida de veces. Diseñar un algoritmo capaz de encontrar el menor entero en complejidad temporal menor que O(n)._
 
 ## Detalles
 
@@ -61,3 +61,8 @@ Para enviar respuestas largas o que contengan código (no sólo para este desaf�
 
 Luego pegar la URL en un comentario del video o enviar un mail.
 
+## Fuente
+
+Cracking the code interview - Gayle Laakmann McDowel
+
+> La fuente de referencia es donde recuerdo haber encontrado el enunciado. Pero estos ejercicios se repiten en forma masiva por lo que la fuente citada no necesariamente es el autor.
