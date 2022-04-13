@@ -23,6 +23,8 @@ _Dado un array con enteros que originalmente estaba ordenado y luego fue rotado 
 
 - [Enunciado](https://www.tiktok.com/@drkbugs/video/7079082221583207685)
 - [Follow up](https://www.tiktok.com/@drkbugs/video/7079131555947400453)
+- [Solución en TikTok](https://www.tiktok.com/@drkbugs/video/7085885847781838085)
+- [Solución en YouTube](https://www.youtube.com/watch?v=usikxzo8-0o)
 - [Videos relacionados en TikTok](https://www.tiktok.com/search?lang=en&q=%23desafiodrk4)
 - [Videos relacionados en YouTube](https://www.youtube.com/results?search_query=%23desafiodrk4)
 
