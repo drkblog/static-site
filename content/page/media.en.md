@@ -29,6 +29,7 @@ This page presents a list of authors whose royalty free media I have use to crea
 - [TeeFarm](https://pixabay.com/users/teefarm-199315)
 - [Trang Le](https://pixabay.com/users/bytrangle-6596164)
 - [Urhan TV](https://pixabay.com/es/users/17959117-17959117)
+- [Willi Heidelbach](https://pixabay.com/es/users/wilhei-883152)
 
 ## Pixabay videos
 - [Joseph Redfield Nino](https://pixabay.com/users/josephredfield-8385382)
