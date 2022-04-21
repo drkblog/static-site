@@ -27,6 +27,7 @@ This page presents a list of authors whose royalty free media I have use to crea
 - [Open clipart vectors](https://pixabay.com/users/openclipart-vectors-30363)
 - [Pixaline](https://pixabay.com/users/pixaline-1569622)
 - [StartupStockPhotos](https://pixabay.com/users/startupstockphotos-690514)
+- [Steve Buissinne](https://pixabay.com/users/stevepb-282134)
 - [TeeFarm](https://pixabay.com/users/teefarm-199315)
 - [Trang Le](https://pixabay.com/users/bytrangle-6596164)
 - [Urhan TV](https://pixabay.com/es/users/17959117-17959117)
