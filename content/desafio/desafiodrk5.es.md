@@ -44,7 +44,14 @@ _Dado un array con enteros positivos y negativos (incluyendo cero) encontrar el 
 ```
 [-1, 2, -3, 4, -4, 3, -2, 1]
 ```
+> Resultado: **[3, 4]**
+
+### Entrada
+```
+[-1, -2, -3, -4, 1, 2, 3, 4]
+```
 > Resultado: **[0, 7]**
+
 
 ## Cómo enviar respuestas
 
