@@ -3,7 +3,7 @@ title: "#desafiodrk1"
 description: "Desafío DRK 1"
 date: 2022-01-22
 type: post
-slug: "desafiodrk2"
+slug: "desafiodrk1"
 comments: false
 ---
 
