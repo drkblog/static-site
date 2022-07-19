@@ -10,7 +10,6 @@ categories:
 tags:
   - programación
   - educación
-draft: true
 ---
 
 Una de las preguntas más difíciles de responder, entre las muchas que se repiten en [cuenta de TikTok sobre programación](https://www.tiktok.com/@drkbugs), es **cómo aprender a programar desde cero**. La dificultad radica en que la respuesta es muy larga. Y en que no existe un forma de aprender que le sirva a todas las personas. Por lo que decidí escribir este artículo en forma de guía para quienes quieran iniciarse en el aprendizaje de la programación de computadoras. Desde luego, no debe interpretarse como el único camino o el mejor. Es tan solo una de muchas alternativas. Que se basa en lo que, personalmente creo, son los aspectos más importantes. Y tampoco es exhaustiva porque una vez que se adquiere cierto nivel de conocimientos se tienen ya las bases para seguir adelante sin necesidad de una guía.
@@ -29,6 +28,7 @@ Antes de siquiera leer los pasos para adentrarse en el fabuloso mundo de la prog
   - Variables
   - Estructuras de datos
   - Sintaxis
+  - Funciones
 
 Aprender estos conceptos sin intentar saltearse etapas es clave para convertirse es un programador robusto. El tiempo invertido aquí paga a futuro ahorrando sufrimiento. Muchas veces nos gana la ansiedad y queremos pasar a la parte más divertida. Al principio se hace difícil ver resultados concretos de lo que estamos aprendiendo. Lo ideal es buscar la forma de paliar esa situación encontrando herramientas que hagan más llevadero este proceso. Pero nunca dejar de lado la incorporación temprana de estos temas.
 
@@ -40,7 +40,7 @@ Aprender estos conceptos sin intentar saltearse etapas es clave para convertirse
 
 # Adquirir conocimientos sobre arquitectura de computadoras
 
-Muchos de los conocimientos enumerados a continuación no será completamente desconocidos al llegar aquí. Por que las prácticas que se hayan realizado en las secciones anteriores habrán aportado información indirecta sobre los mismos. Pero es necesario atacar formalmente estos ítems porque el detalle es importante. Y los conocimientos subyacentes aquí pueden, y usualmente lo hacen, ayudar a tomar mejores decisiones cuando se programa.
+Muchos de los conocimientos enumerados a continuación no serán completamente desconocidos al llegar aquí. Porque las prácticas que se hayan realizado en las secciones anteriores habrán aportado información indirecta sobre los mismos. Pero es necesario atacar formalmente estos ítems porque el detalle es importante. Y los conocimientos subyacentes aquí pueden, y usualmente lo hacen, ayudar a tomar mejores decisiones cuando se programa.
 
 - Computadora
   - CPU
@@ -61,7 +61,16 @@ A continuación listo en forma general las herramientas de trabajo que debemos c
 - Pseudocódigo
 - IDE (Integrated development environment)
 - Depurador (Debugger)
+- Control de versiones (Git)
 
+# Conceptos fundamentales más avanzados
+
+- Paradigmas de programación
+- Bibliotecas
+- Frameworks
+- Compilación versus interpretación
+- Sistemas operativos
+- Multitasking
 
 ---
 Imagen de [Gerd Altmann](https://pixabay.com/users/geralt-9301/)
