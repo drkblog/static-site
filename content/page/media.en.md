@@ -37,8 +37,10 @@ This page presents a list of authors whose royalty free media I have use to crea
 - [Willi Heidelbach](https://pixabay.com/es/users/wilhei-883152)
 
 ## Pixabay videos
-- [Joseph Redfield Nino](https://pixabay.com/users/josephredfield-8385382)
 - [Coverr-Free-Footage](https://pixabay.com/users/coverr-free-footage-1281706)
+- [Joseph Redfield Nino](https://pixabay.com/users/josephredfield-8385382)
+- [Markus Winkler](https://pixabay.com/users/viarami-13458823)
+- [Miguel Á. Padriñán](https://pixabay.com/users/padrinan-1694659)
 
 ## Other
 - [xkcd](https://xkcd.com/)
