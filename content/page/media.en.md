@@ -13,9 +13,11 @@ This page presents a list of authors whose royalty free media I have use to crea
 - [Markus Spiske](https://freeforcommercialuse.net/)
 
 ## Pixabay
+- [Ajel](https://pixabay.com/es/users/ajel-676477)
 - [Aquib Azad](https://pixabay.com/users/azadaquib-649144)
 - [Augusto Ordóñez](https://pixabay.com/es/users/paligraficas-6638487)
 - [Bethany Drouin](https://pixabay.com/users/bsdrouin-5016447)
+- [Cocoparisienne](https://pixabay.com/es/users/cocoparisienne-127419)
 - [Dirk Wouters](https://pixabay.com/users/pcb-tech-2044000)
 - [Foundry Co](https://pixabay.com/users/foundry-923783)
 - [Gerd Altmann](https://pixabay.com/users/geralt-9301)
@@ -29,6 +31,7 @@ This page presents a list of authors whose royalty free media I have use to crea
 - [Mote Oo Education](https://pixabay.com/es/users/moteoo-466065/)
 - [Open clipart vectors](https://pixabay.com/users/openclipart-vectors-30363)
 - [Pixaline](https://pixabay.com/users/pixaline-1569622)
+- [Schreibweise](https://pixabay.com/es/users/schreibweise-3373504)
 - [StartupStockPhotos](https://pixabay.com/users/startupstockphotos-690514)
 - [Steve Buissinne](https://pixabay.com/users/stevepb-282134)
 - [TeeFarm](https://pixabay.com/users/teefarm-199315)
