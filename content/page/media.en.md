@@ -27,6 +27,7 @@ This page presents a list of authors whose royalty free media I have use to crea
 - [Jonathan Blackburn](https://pixabay.com/users/condorhauck-52175)
 - [Megan Rexazin](https://pixabay.com/users/megan_rexazin-6742250)
 - [Michal Jarmoluk](https://pixabay.com/users/jarmoluk-143740)
+- [Michael Schwarzenberger](https://pixabay.com/es/users/blickpixel-52945)
 - [Mohamed Hassan](https://pixabay.com/users/mohamed_hassan-5229782)
 - [Mote Oo Education](https://pixabay.com/es/users/moteoo-466065/)
 - [Open clipart vectors](https://pixabay.com/users/openclipart-vectors-30363)
