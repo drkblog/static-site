@@ -44,8 +44,11 @@ This page presents a list of authors whose royalty free media I have use to crea
 - [Coverr-Free-Footage](https://pixabay.com/users/coverr-free-footage-1281706)
 - [Jeremy Kyejo](https://pixabay.com/es/users/jrydertr-13047018)
 - [Joseph Redfield Nino](https://pixabay.com/users/josephredfield-8385382)
+- [Mario](https://pixabay.com/users/rottonara-596655)
 - [Markus Winkler](https://pixabay.com/users/viarami-13458823)
 - [Miguel Á. Padriñán](https://pixabay.com/users/padrinan-1694659)
+- [Nicolas Rodriguez](https://pixabay.com/users/video89evenements-225429)
+- [Wolfgang Krzemien](https://pixabay.com/users/photoscene-15672896)
 
 ## Other
 - [xkcd](https://xkcd.com/)
