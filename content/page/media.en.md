@@ -42,6 +42,7 @@ This page presents a list of authors whose royalty free media I have use to crea
 
 ## Pixabay videos
 - [Coverr-Free-Footage](https://pixabay.com/users/coverr-free-footage-1281706)
+- [Jennifer Marque](https://pixabay.com/users/bestbiologygirl-11864216)
 - [Jeremy Kyejo](https://pixabay.com/es/users/jrydertr-13047018)
 - [Joseph Redfield Nino](https://pixabay.com/users/josephredfield-8385382)
 - [Mario](https://pixabay.com/users/rottonara-596655)
