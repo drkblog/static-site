@@ -49,6 +49,7 @@ This page presents a list of authors whose royalty free media I have use to crea
 - [Markus Winkler](https://pixabay.com/users/viarami-13458823)
 - [Miguel Á. Padriñán](https://pixabay.com/users/padrinan-1694659)
 - [Nicolas Rodriguez](https://pixabay.com/users/video89evenements-225429)
+- [Tomislav Jakupec](https://pixabay.com/users/tommyvideo-3092371)
 - [Wolfgang Krzemien](https://pixabay.com/users/photoscene-15672896)
 
 ## Other
