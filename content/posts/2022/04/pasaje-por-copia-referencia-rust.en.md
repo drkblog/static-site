@@ -5,7 +5,6 @@ author: Leandro Fernandez
 type: post
 date: 2022-04-16
 cover: "/2022/04/rust_programming_language_black_logo.png"
-slug: 
 categories:
   - Programación
 tags:

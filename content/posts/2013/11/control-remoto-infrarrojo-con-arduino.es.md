@@ -135,4 +135,4 @@ Esto significa que cada ver que hay un cambio de nivel de tensión en el pin 2, 
 
 La función principal **loop()** en Arduino es ejecutada constantemente. Cuando se detecta que el indicador **has_value** está marcado, se imprimen en el puerto serie los 16 bits menos significativos del dato recibido. Y se busca en la tabla de teclas un valor que coincida. La posición del valor en la tabla **key** no indica el número de la tecla presionada. Hice esto porque es una forma práctica de obtener el valor numérico. En un programa que recibe comandos seguramente se utilizará una estructura del tipo switch/case. Finalmente el programa prende y apaga el LED la cantidad de veces que indica el número presionado en el control. Y pone **has_value** en falso para recibir el próximo dato.
 
- [1]: /2013/lm358-amplificando-fototransistor-ir
+ [1]: /lm358-amplificando-fototransistor-ir
