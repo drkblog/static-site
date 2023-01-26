@@ -13,7 +13,11 @@ tags:
   - seniority
 ---
 
-## Cómo ser un Junior competitivo
+## Empecemos por las diferencias básicas
+
+La principal diferencia entre un desarrollador junior y un senior es la experiencia y habilidades. Un desarrollador junior es un principiante en el campo y todavía está aprendiendo las habilidades necesarias para ser un desarrollador eficaz. Por otro lado, un desarrollador senior tiene una gran cantidad de experiencia y habilidades en el campo, y se espera que pueda liderar proyectos y mentorear a otros desarrolladores.
+
+## Ideas
 
 🌟 La mayoría de los desarrolladores que buscan empleo son Junior.
 
