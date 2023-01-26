@@ -5,7 +5,7 @@ author: Leandro Fernandez
 type: post
 date: 2023-01-25
 slug: como-ser-un-junior-competitivo
-cover: "/2023/01/woman-programming.png"
+cover: "/2023/01/woman-programming.jpg"
 categories:
   - Programación
 tags:
