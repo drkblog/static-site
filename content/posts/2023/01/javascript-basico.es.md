@@ -61,12 +61,19 @@ Es recomendado utilizar `let` y `const` en lugar de `var` para evitar problemas 
 #### Los tipos de datos en JavaScript incluyen:
 
 ✅ `number`: para números, tanto enteros como de punto flotante.
+
 ✅ `string`: para cadenas de caracteres.
+
 ✅ `boolean`: para valores verdadero o falso.
+
 ✅ `object`: para objetos, que pueden tener propiedades y métodos.
+
 ✅ `function`: para funciones, que son bloques de código que se pueden ejecutar.
+
 ✅ `symbol`: Un tipo de datos reciente de javascript que representa un valor único e inmutable
+
 ✅ `undefined`: para valores que no han sido asignados o no existen.
+
 ✅ `null`: para valores que son explícitamente nulos.
 
 **JavaScript** también proporciona una función built-in llamada typeof para determinar el tipo de una variable.
@@ -83,14 +90,23 @@ Los operadores en JavaScript son símbolos especiales que se utilizan para asign
 Algunos ejemplos de operadores en **JavaScript** incluyen:
 
 ✅ Asignación: =, +=, -=, *=, /=, %=
+
 ✅ Comparación: ==, ===, !=, !==, >, <, >=, <=
+
 ✅ Matemáticos: +, -, *, /, %
+
 ✅ Lógicos: &&, ||, !
+
 ✅ Condicionales: ? :
+
 ✅ typeof
+
 ✅ instanceof
+
 ✅ in
+
 ✅ delete
+
 ✅ new
 
 Cada uno de estos operadores tiene una función específica en el lenguaje y se utilizan de manera diferente. Por ejemplo, el operador de asignación se utiliza para asignar un valor a una variable, mientras que el operador de comparación se utiliza para comparar dos valores y determinar si son iguales o no.
@@ -133,3 +149,76 @@ switch (x) {
 En ambos casos, la condición que se evalúa debe ser una expresión que devuelve un valor booleano (verdadero o falso).
 
 Es importante mencionar que cualquiera de estos condicionales puede ser combinado con operadores lógicos (`&&`, `||`, `!`) para hacer comparaciones mas complejas.
+
+### Bucles
+
+Los bucles en JavaScript permiten ejecutar un bloque de código varias veces, dependiendo de una determinada condición. Los bucles más comunes son `for`, `while` y `do-while`.
+
+El bucle `for` se utiliza para ejecutar un bloque de código un número determinado de veces. La sintaxis básica de un bucle `for` es la siguiente:
+
+{{< highlight javascript "linenos=table" >}}
+for (inicialización; condición; actualización) {
+  // código a ejecutar
+}
+{{< /highlight >}}
+
+Por ejemplo:
+
+{{< highlight javascript "linenos=table" >}}
+for (let i = 0; i < 5; i++) {
+  console.log(i);
+}
+{{< /highlight >}}
+
+El bucle `while` se utiliza para ejecutar un bloque de código mientras se cumpla una determinada condición. La sintaxis básica de un bucle `while` es la siguiente:
+
+{{< highlight javascript "linenos=table" >}}
+while (condición) {
+  // código a ejecutar
+}
+{{< /highlight >}}
+
+Por ejemplo:
+
+{{< highlight javascript "linenos=table" >}}
+let i = 0;
+while (i < 5) {
+  console.log(i);
+  i++;
+}
+{{< /highlight >}}
+
+El bucle `do-while` es similar al bucle `while`, pero con una pequeña diferencia: se ejecuta al menos una vez antes de comprobar la condición. La sintaxis básica de un bucle `do-while` es la siguiente:
+
+{{< highlight javascript "linenos=table" >}}
+do {
+  // código a ejecutar
+} while (condición);
+{{< /highlight >}}
+
+Por ejemplo:
+
+{{< highlight javascript "linenos=table" >}}
+let i = 0;
+do {
+  console.log(i);
+  i++;
+} while (i < 5);
+{{< /highlight >}}
+
+Es importante mencionar que en todos estos bucles, la condición que se evalúa debe ser una expresión que devuelve un valor booleano (verdadero o falso), y que también se pueden utilizar las sentencias `break` y `continue` para controlar el flujo del bucle.
+
+### Funciones
+
+Una función es un bloque de código que se puede reutilizar varias veces. Las funciones pueden tomar entrada (conocida como parámetros) y pueden devolver una salida (conocida como valor de retorno). Las funciones se definen utilizando la palabra clave `función`, seguida de un nombre para la función, una lista de parámetros entre paréntesis y un bloque de código entre llaves. El código dentro de la función se puede ejecutar llamando a la función y pasando la entrada necesaria.
+Ejemplo:
+
+{{< highlight javascript "linenos=table" >}}
+function sumar(a, b) {
+   return a + b;
+}
+{{< /highlight >}}
+
+let resultado = sumar(3, 4);
+console.log(resultado); // Salida: 7
+En este ejemplo, `sumar` es el nombre de la función, `a` y `b` son los parámetros, y el código dentro de las llaves se ejecuta cuando se llama a la función. La función toma dos valores de entrada (3 y 4), los suma y devuelve el resultado (7) que se almacena en la variable `resultado` y se imprime en la consola.
