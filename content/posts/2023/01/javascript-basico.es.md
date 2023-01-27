@@ -37,7 +37,7 @@ tags:
 
 ### Variables
 
-En JavaScript, una variable es un espacio en la memoria del ordenador donde se puede almacenar un valor. Las variables se pueden declarar utilizando la palabra clave "var", "let" o "const" y se pueden asignar un valor utilizando el operador de asignación "=".
+En **JavaScript**, una variable es un espacio en la memoria del ordenador donde se puede almacenar un valor. Las variables se pueden declarar utilizando la palabra clave `var`, `let` o `const` y se pueden asignar un valor utilizando el operador de asignación "=".
 
 Por ejemplo:
 
@@ -47,10 +47,10 @@ let y = 10;
 const z = 15;
 {{< /highlight >}}
 
-La diferencia entre "var", "let" y "const" es el alcance y la capacidad de reasignación.
+La diferencia entre `var`, `let` y `const` es el alcance y la capacidad de reasignación.
 
-"var" tiene un alcance global o de función y se puede reasignar.
-"let" tiene un alcance de bloque y se puede reasignar.
-"const" tiene un alcance de bloque y no se puede reasignar.
-Es recomendado utilizar "let" y "const" en lugar de "var" para evitar problemas con el alcance y la reasignación accidental.
+`var` tiene un alcance global o de función y se puede reasignar.
+`let` tiene un alcance de bloque y se puede reasignar.
+`const` tiene un alcance de bloque y no se puede reasignar.
+Es recomendado utilizar `let` y `const` en lugar de `var` para evitar problemas con el alcance y la reasignación accidental.
 
