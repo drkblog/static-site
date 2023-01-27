@@ -58,7 +58,7 @@ Es recomendado utilizar `let` y `const` en lugar de `var` para evitar problemas 
 
 **JavaScript** es un lenguaje de programación con tipado dinámico, lo que significa que las variables no tienen que ser declaradas con un tipo específico de datos y pueden cambiar a diferentes tipos de datos a lo largo del tiempo.
 
-#### Los tipos de datos en JavaScript incluyen:
+Los tipos de datos en JavaScript incluyen:
 
 ✅ `number`: para números, tanto enteros como de punto flotante.
 
@@ -217,8 +217,10 @@ Ejemplo:
 function sumar(a, b) {
    return a + b;
 }
-{{< /highlight >}}
 
 let resultado = sumar(3, 4);
 console.log(resultado); // Salida: 7
+{{< /highlight >}}
+
 En este ejemplo, `sumar` es el nombre de la función, `a` y `b` son los parámetros, y el código dentro de las llaves se ejecuta cuando se llama a la función. La función toma dos valores de entrada (3 y 4), los suma y devuelve el resultado (7) que se almacena en la variable `resultado` y se imprime en la consola.
+
