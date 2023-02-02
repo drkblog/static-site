@@ -47,6 +47,25 @@ nuevoObjeto.metodo2 = function() {
 
 De esta manera, se puede reutilizar código de un objeto a otro sin tener que copiar y pegar. Además, si se realiza un cambio en el objeto prototipo, se verá reflejado en todos los objetos que lo hayan heredado.
 
+### Un ejemplo más realista
+
+{{< highlight javascript "linenos=table" >}}
+const person = {
+  name: "",
+  birthdate: Date(),
+  age: function () {
+    const millisecondsPerYear = 365.25 * 24 * 60 * 60 * 1000;
+    return (Date.now() - this.birthdate) / millisecondsPerYear;
+  }
+};
+
+const p = Object.create(person);
+p.name = 'Leandro';
+p.birthdate = Date.parse('01 Jan 1970 00:00:00 GMT')
+
+console.log(p.age());
+{{< /highlight >}}
+
 ## OOP en Javascript
 
 En Javascript la orientación a objetos está implementada como una capa ficticia de sintaxis que permite describir clases y objetos. Pero el lenguaje internamente crea prototipos y objetos a partir de estos. En el lenguaje no existen realmente las clases.
