@@ -5,6 +5,7 @@ author: Leandro Fernandez
 type: post
 date: 2022-12-11
 cover: "/2022/12/spaghetti.jpg"
+slug: codigo-espagueti
 categories:
   - Programación
 tags:
