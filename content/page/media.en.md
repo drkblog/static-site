@@ -14,6 +14,7 @@ This page presents a list of authors whose royalty free media I have use to crea
 
 ## Pixabay
 - [Ajel](https://pixabay.com/es/users/ajel-676477)
+- [Aline Ponce](https://pixabay.com/users/ponce_photography-2473530)
 - [Aquib Azad](https://pixabay.com/users/azadaquib-649144)
 - [Augusto Ordóñez](https://pixabay.com/es/users/paligraficas-6638487)
 - [Bethany Drouin](https://pixabay.com/users/bsdrouin-5016447)
