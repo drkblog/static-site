@@ -4,7 +4,7 @@ description: Ejemplo práctico de mejora de código en Javascript
 author: Leandro Fernandez
 type: post
 date: 2023-02-04
-cover: "/2023/02/spaghetti.jpg"
+cover: "/2023/02/spaghetti-fork.jpg"
 slug: codigo-espagueti-vs-no-spagueti
 categories:
   - Programación
