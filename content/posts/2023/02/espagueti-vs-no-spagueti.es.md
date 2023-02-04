@@ -3,7 +3,7 @@ title: Código espagueti vs no espagueti
 description: Ejemplo práctico de mejora de código en Javascript
 author: Leandro Fernandez
 type: post
-date: 2023-2-4
+date: 2023-02-04
 cover: "/2023/02/spaghetti.jpg"
 slug: codigo-espagueti-vs-no-spagueti
 categories:
