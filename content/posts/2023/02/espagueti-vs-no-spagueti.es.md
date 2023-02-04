@@ -5,7 +5,7 @@ author: Leandro Fernandez
 type: post
 date: 2023-2-4
 cover: "/2023/02/spaghetti.jpg"
-slug: codigo-espagueti
+slug: codigo-espagueti-vs-no-spagueti
 categories:
   - Programación
 tags:
