@@ -79,21 +79,33 @@ public class Calculadora {
 
 ### Generics en Java
 
-Los **generics** en Java permiten que las clases, interfaces y métodos puedan ser parametrizados con un tipo de datos. Esto permite que el código sea más genérico y reutilizable. Aquí hay un ejemplo de cómo utilizar los generics en una clase en Java:
+ Los **generics** de Java son una característica del lenguaje que permiten la creación de clases, interfaces y métodos que pueden trabajar con diferentes tipos de datos de manera segura y eficiente. La idea detrás de los generics es proporcionar una forma de parametrizar clases, interfaces y métodos con tipos de datos reales, sin tener que crear una versión diferente de la clase o el método para cada tipo posible.
+
+En Java, los generics se implementan utilizando parámetros de tipo, que se definen entre corchetes angulares (< y >). Estos parámetros de tipo pueden ser cualquier identificador válido, como T, E, K o V, y se utilizan para especificar el tipo de dato que se utilizará en la clase, interfaz o método. Por ejemplo:
 
 {{< highlight java "linenos=table" >}}
-public class Lista<T> {
-    private List<T> elementos = new ArrayList<>();
+public class MiLista<T> {
+    private T[] elementos;
 
-    public void agregar(T elemento) {
-        elementos.add(elemento);
+    public MiLista(T[] elementos) {
+        this.elementos = elementos;
     }
 
-    public T obtener(int indice) {
-        return elementos.get(indice);
+    public T get(int indice) {
+        return elementos[indice];
+    }
+
+    public void set(int indice, T elemento) {
+        elementos[indice] = elemento;
     }
 }
 {{< /highlight >}}
+
+En este ejemplo, la clase **MiLista** utiliza un parámetro de tipo T para especificar el tipo de datos que se almacenarán en la lista. El constructor de la clase toma un arreglo de tipo T como parámetro y lo almacena en un campo de la clase. Los métodos `get` y `set` también utilizan el parámetro de tipo T para trabajar con elementos de la lista.
+
+Una de las ventajas de los generics es que proporcionan una forma segura de trabajar con diferentes tipos de datos, ya que el compilador de Java puede verificar que se utilice el tipo correcto en cada lugar donde se utiliza el parámetro de tipo. Además, los generics pueden mejorar la legibilidad del código y reducir la cantidad de código repetitivo, ya que no es necesario crear una versión separada de una clase o método para cada tipo posible.
+
+Los generics se utilizan ampliamente en las colecciones de Java, como `ArrayList`, `HashMap` y `LinkedList`, así como en muchas otras partes del lenguaje, como los tipos de retorno genéricos de los métodos, las interfaces genéricas y los límites de tipo. En general, los generics son una característica importante de Java que pueden mejorar la seguridad, la eficiencia y la legibilidad del código.
 
 ### Reflection en Java
 
