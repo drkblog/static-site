@@ -39,7 +39,7 @@ Funciona con otros tipos como boolean en la línea 6 y entre tipos distintos per
 
 Además de los tipos nativos para expresar booleanos, números enteros y flotantes, Java permite la declaración de variables de referencia. Son referencias a objetos en la memoria Heap. Aunque el lenguaje no expone este detalle, estas referencias son punteros. Contienen la posición de memoria del objeto. Es decir que no dejan de ser un número entero. Y como tales pueden ser comparadas con el operador `==`.
 
-> Ver todos los [tipos de dato de Java]({{< relref path="static-site\content\posts\2021\09\tipos-de-dato-de-java.es.md" >}})
+> Ver todos los [tipos de dato de Java]({{< relref path="/content/posts/2021/09/tipos-de-dato-de-java.es.md" >}})
 
 {{< highlight java "linenos=table" >}}
 String a = new String("a");
