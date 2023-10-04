@@ -29,7 +29,9 @@ rd /s /q "Z:\Program Files"
 
 Estos comandos tal cual se encuentran sirven para un **Windows** en inglés pero es muy fácil cambiarlos para uno en español. El primer comando cambia el propietario de todos los archivos y directorios dentro de **Program Files** (inclusive) a **Administrator**. El segundo le entrega todo tipo de permiso existente a Administrator para todo los archivos y directorios dentro de **Program Files** (inclusive). Y el último comando elimina **Program Files** y todo su contenido. Todos los comandos realizan la tarea son pedir confirmación al usuario.
 
+
 {{< youtube 4XmFoqkVOTk >}}
+
 
 Hasta aquí, siempre que estemos posicionados en la unidad correcta y nunca en el C: no hay mayores peligros dado que nuestra intención es efectivamente eliminar este directorio. Pero en seguida vamos a generalizar esta receta y la aplicaremos a los otros directorios que queremos eliminar, como por ejemplo **Windows**. Y cuando hayamos terminado nos daremos cuenta de que aun hay mucho espacio ocupado en el disco. Así que buscaremos si hay archivos o directorios ocultos por sus atributos o por ser de sistema. Y no tardaremos en dar con el infame directorio llamado `Users\All Users\` en el raíz si se trata de un disco que tenía instalado Window 7. Pero podemos llegar a encontrarnos con una situación similar en otros directorios aunque se trate de una instalación de otra versión de Windows. Así que recomiendo no abandonar la lectura aquí.
 
