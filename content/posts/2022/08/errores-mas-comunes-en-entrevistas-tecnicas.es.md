@@ -5,7 +5,7 @@ author: Leandro Fernandez
 type: post
 date: 2022-08-07
 slug: errores-mas-comunes-en-entrevistas-tecnicas
-cover: "/logo/java.png"
+cover: "/2022/08/errores.jpg"
 categories:
   - Programación
 tags:
