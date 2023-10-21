@@ -1,6 +1,6 @@
 ---
-title: Errores comunes en entrevistas
-description: Los errores más comunes en entrevistas técnicas
+title: Websocket
+description: Qué es el protocolo websocket
 author: Leandro Fernandez
 type: post
 date: 2023-08-17
