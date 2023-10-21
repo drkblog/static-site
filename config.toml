@@ -73,7 +73,7 @@ appID = ""
 pageID = ""
 
 [params.opengraph.twitter]
-page = "drkbugs" # Twitter page username
+page = "" # Twitter page username
 
 [params.seo]
 # Title Separator: - – — · • * ⋆ | ~ « » < >
@@ -87,7 +87,7 @@ github = "drkblog"
 #gitlab = "drkbugs"
 instagram = "drk.com.ar"
 linkedin = "drkbugs"
-twitter = "drkbugs"
+#twitter = "drkbugs"
 #telegram = "drkbugs"
 #google_scholar = "qc6CJjYAAAAJ"
 youtube = "UClPU76FC8TBftSAGFlay36g"
