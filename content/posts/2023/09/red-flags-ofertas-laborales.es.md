@@ -13,7 +13,7 @@ tags:
   - oferta
 ---
 
-> Las "red flags" o señales de alerta en una oferta laboral son indicadores que sugieren que la oferta o la empresa pueden no ser adecuadas. Aquí hay algunas red flags comunes a tener en cuenta:
+> Las señales de alerta en una oferta laboral son indicadores que sugieren que la oferta o la empresa pueden no ser adecuadas. Aquí hay algunas red flags comunes a tener en cuenta:
 
 🚩 Salario muy por debajo del mercado: Si la oferta ofrece un salario significativamente más bajo que el promedio del mercado para un puesto similar, podría ser una señal de que la empresa no valora adecuadamente a sus empleados.
 
