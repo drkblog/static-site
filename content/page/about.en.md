@@ -8,18 +8,23 @@ comments: false
 It is my self-appointed nickname to begin with.
 It is the name I use for most of my public social network accounts.
 And it's this website name too.
-We can say **drkbugs** is a blog about software engineering.
 
 About [the media]({{< relref path="/content/page/media.en.md" lang="en" >}}) in my channels.
 
-## About me
+## About Leandro Fernandez
 
-I've been programming since 1988 and I'm not bored yet.
-My name is **Leandro Fernandez**.
+_I've been programming since 1988 and I'm not bored yet._
+
+With over two decades of experience in the dynamic world of software development, I've consistently demonstrated a profound expertise in Java and a plethora of other technologies. My journey has taken me through various programming languages, platforms, and industries, shaping me into a versatile, adaptable, and innovative software engineer. My primary focus lies in crafting robust, efficient software solutions and contributing to the ever-evolving landscape of technology.
+
 I work for Roche.
 All opinions expressed here and in my social networking accounts are my own and do not necessarily represent the position of my employer.
 
-## Ancient history
+## About this site
+
+We can say **drkbugs** is a blog about software engineering.
+
+### Ancient history
 
 This web site started in 2002 and was named **DRK Software**.
 It was the home of a small group of applications (mostly Windows utilities).
