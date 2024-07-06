@@ -55,7 +55,7 @@ function createOption(answer, index) {
   div.className = OPTION_DIV_CLASS;
   const optionText = document.createElement('div');
   optionText.className = OPTION_TEXT_DIV_CLASS;
-  optionText = answer;
+  optionText.innerHTML = answer;
   const button = document.createElement('button');
   button.className = ANSWER_BUTTON_CLASS;
   button.textContent = '<<<';
