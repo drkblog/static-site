@@ -19,7 +19,26 @@ tags:
     <button id="next-button" style="display: none;">Next Question</button>
     <div id="result-container" class="result"></div>
 </div>
-
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+  }
+  .question {
+    margin-bottom: 20px;
+  }
+  .answers {
+    list-style-type: none;
+    padding: 0;
+  }
+  .answers li {
+    margin-bottom: 10px;
+  }
+  .result {
+    margin-top: 20px;
+    font-weight: bold;
+  }
+</style>
 <script>
     const questions = [
         {
