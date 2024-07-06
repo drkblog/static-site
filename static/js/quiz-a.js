@@ -58,10 +58,10 @@ function createOption(answer, index, answersContainer) {
   optionText.innerHTML = answer;
   const button = document.createElement('button');
   button.className = ANSWER_BUTTON_CLASS;
-  button.textContent = '<<<';
+  button.textContent = '🠊';
   button.onclick = () => checkAnswer(index);
-  div.appendChild(optionText);
   div.appendChild(button);
+  div.appendChild(optionText);
   li.appendChild(div);
   answersContainer.appendChild(li);
 }

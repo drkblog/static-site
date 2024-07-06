@@ -37,6 +37,12 @@ tags:
     margin-top: 20px;
     font-weight: bold;
   }
+  .option-text-div {
+    display: inline-block;
+  }
+  .answer-button {
+    display: inline-block;
+  }
   #next-button {
     font-size: .8em;
   }
