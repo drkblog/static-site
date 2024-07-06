@@ -1,5 +1,7 @@
 // Copyright Leandro Fernandez (drkbugs) 2024
 
+const ANSWER_BUTTON_CLASS = 'answer-button';
+
 async function fetchQuizQuestion() {
   const workerUrl = 'https://quiz-a.drkbugs.workers.dev/';
   
@@ -41,7 +43,7 @@ async function showQuestion() {
     question.options.forEach((answer, index) => {
         const li = document.createElement('li');
         const button = document.createElement('button');
-        button.className = 'answer-button';
+        button.className = ANSWER_BUTTON_CLASS;
         button.textContent = answer;
         button.onclick = () => checkAnswer(index);
         li.appendChild(button);
@@ -55,8 +57,8 @@ async function showQuestion() {
 function checkAnswer(selectedIndex) {
     const resultContainer = document.getElementById('result-container');
     const nextButton = document.getElementById('next-button');
-    const buttons = document.getElementsByClassName('my-class');
-    
+    const buttons = document.getElementsByClassName(ANSWER_BUTTON_CLASS);
+
     buttons.forEach(button => button.disabled = true);
     totalResponses++;
     if (selectedIndex === question.answer) {
