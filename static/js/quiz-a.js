@@ -67,10 +67,10 @@ function checkAnswer(selectedIndex) {
 
     totalResponses++;
     if (selectedIndex === question.answer) {
-        resultContainer.innerHTML = 'Correct!';
+        resultContainer.innerHTML = '¡Correcto!';
         correctResponses++;
     } else {
-        resultContainer.innerHTML = `Incorrect!<br />The correct answer was: ${question.options[question.answer]}`;
+        resultContainer.innerHTML = `¡Incorrecto!<br />La respuesta era: ${question.options[question.answer]}`;
     }
 
     nextButton.style.display = 'block';
@@ -87,7 +87,7 @@ document.getElementById('next-button').onclick = async () => {
 
 function showFinalResult() {
     const quizContainer = document.getElementById('quiz-container');
-    quizContainer.innerHTML = `<div class="result">Quiz completed! You got ${correctResponses} out of ${totalResponses} questions correct.</div>`;
+    quizContainer.innerHTML = `<div class="result">¡Cuestionario finalizado! Tuviste ${correctResponses} respuestas correctas sobre un total de ${totalResponses} preguntas.</div>`;
 }
 
 // Start the quiz

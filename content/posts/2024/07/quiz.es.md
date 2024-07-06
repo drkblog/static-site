@@ -17,7 +17,7 @@ tags:
     <div id="question-container" class="question"></div>
     <ul id="answers-container" class="answers"></ul>
     <div id="result-container" class="result"></div>
-    <button id="next-button" style="display: none;">Next Question</button>
+    <button id="next-button" style="display: none;">Siguiente...</button>
 </div>
 <style>
   .question {
