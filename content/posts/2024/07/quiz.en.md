@@ -12,7 +12,7 @@ tags:
   - Learning
   - learning
 ---
-
+{{< rawhtml >}}
 <div id="quiz-container">
     <div id="question-container" class="question"></div>
     <ul id="answers-container" class="answers"></ul>
@@ -96,3 +96,4 @@ tags:
     // Start the quiz
     showQuestion();
 </script>
+{{< /rawhtml >}}
