@@ -57,9 +57,12 @@ async function showQuestion() {
 function checkAnswer(selectedIndex) {
     const resultContainer = document.getElementById('result-container');
     const nextButton = document.getElementById('next-button');
-    const buttons = document.getElementsByClassName(ANSWER_BUTTON_CLASS);
 
-    buttons.forEach(button => button.disabled = true);
+    const buttons = document.getElementsByClassName(ANSWER_BUTTON_CLASS);
+    for(let button of buttons) {
+      button.disabled = true;
+    }
+    
     totalResponses++;
     if (selectedIndex === question.answer) {
         resultContainer.innerHTML = 'Correct!';
