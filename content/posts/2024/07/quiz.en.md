@@ -42,79 +42,103 @@ tags:
   }
 </style>
 <script>
-  const questions = [
-      {
-          question: "What is the capital of France?",
-          answers: ["Berlin", "Madrid", "Paris", "Rome", "Lisbon"],
-          correctAnswer: 2
-      },
-      {
-          question: "Which planet is known as the Red Planet?",
-          answers: ["Earth", "Mars", "Jupiter", "Saturn", "Venus"],
-          correctAnswer: 1
-      },
-      {
-          question: "What is the largest ocean on Earth?",
-          answers: ["Atlantic Ocean", "Indian Ocean", "Arctic Ocean", "Southern Ocean", "Pacific Ocean"],
-          correctAnswer: 4
+const questions = [
+    {
+        question: "What is the capital of France?",
+        answers: ["Berlin", "Madrid", "Paris", "Rome", "Lisbon"],
+        correctAnswer: 2
+    },
+    {
+        question: "Which planet is known as the Red Planet?",
+        answers: ["Earth", "Mars", "Jupiter", "Saturn", "Venus"],
+        correctAnswer: 1
+    },
+    {
+        question: "What is the largest ocean on Earth?",
+        answers: ["Atlantic Ocean", "Indian Ocean", "Arctic Ocean", "Southern Ocean", "Pacific Ocean"],
+        correctAnswer: 4
+    }
+];
+
+async function fetchQuizQuestion() {
+  const workerUrl = 'https://quiz-a.drkbugs.workers.dev/';
+  
+  try {
+    const response = await fetch(workerUrl);
+    
+    if (!response.ok) {
+      if (response.status === 404) {
+        throw new Error('Quiz question not found');
       }
-  ];
-
-  let currentQuestionIndex = 0;
-  let correctResponses = 0;
-
-  function showQuestion() {
-      const questionContainer = document.getElementById('question-container');
-      const answersContainer = document.getElementById('answers-container');
-      const nextButton = document.getElementById('next-button');
-      const resultContainer = document.getElementById('result-container');
-
-      questionContainer.textContent = questions[currentQuestionIndex].question;
-      answersContainer.innerHTML = '';
-
-      questions[currentQuestionIndex].answers.forEach((answer, index) => {
-          const li = document.createElement('li');
-          const button = document.createElement('button');
-          button.textContent = answer;
-          button.onclick = () => checkAnswer(index);
-          li.appendChild(button);
-          answersContainer.appendChild(li);
-      });
-
-      nextButton.style.display = 'none';
-      resultContainer.textContent = '';
+      throw new Error('Failed to fetch quiz question');
+    }
+    
+    const quizQuestion = await response.json();
+    
+    return quizQuestion;
+  } catch (error) {
+    console.error('Error fetching quiz question:', error);
+    throw error;
   }
+}
 
-  function checkAnswer(selectedIndex) {
-      const correctIndex = questions[currentQuestionIndex].correctAnswer;
-      const resultContainer = document.getElementById('result-container');
-      const nextButton = document.getElementById('next-button');
+let currentQuestionIndex = 0;
+let correctResponses = 0;
+let question;
 
-      if (selectedIndex === correctIndex) {
-          resultContainer.innerHTML = 'Correct!';
-          correctResponses++;
-      } else {
-          resultContainer.innerHTML = `Incorrect!<br />The correct answer was: ${questions[currentQuestionIndex].answers[correctIndex]}`;
-      }
+async function showQuestion() {
+    const questionContainer = document.getElementById('question-container');
+    const answersContainer = document.getElementById('answers-container');
+    const nextButton = document.getElementById('next-button');
+    const resultContainer = document.getElementById('result-container');
 
-      nextButton.style.display = 'block';
-  }
+    question = await fetchQuizQuestion();
 
-  document.getElementById('next-button').onclick = () => {
-      currentQuestionIndex++;
-      if (currentQuestionIndex < questions.length) {
-          showQuestion();
-      } else {
-          showFinalResult();
-      }
-  };
+    questionContainer.textContent = question.question;
+    answersContainer.innerHTML = '';
 
-  function showFinalResult() {
-      const quizContainer = document.getElementById('quiz-container');
-      quizContainer.innerHTML = `<div class="result">Quiz completed! You got ${correctResponses} out of ${questions.length} questions correct.</div>`;
-  }
+    question.options.forEach((answer, index) => {
+        const li = document.createElement('li');
+        const button = document.createElement('button');
+        button.textContent = answer;
+        button.onclick = () => checkAnswer(index);
+        li.appendChild(button);
+        answersContainer.appendChild(li);
+    });
 
-  // Start the quiz
-  showQuestion();
+    nextButton.style.display = 'none';
+    resultContainer.textContent = '';
+}
+
+function checkAnswer(selectedIndex) {
+    const resultContainer = document.getElementById('result-container');
+    const nextButton = document.getElementById('next-button');
+
+    if (selectedIndex === question.answer) {
+        resultContainer.innerHTML = 'Correct!';
+        correctResponses++;
+    } else {
+        resultContainer.innerHTML = `Incorrect!<br />The correct answer was: ${question.options[question.answer]}`;
+    }
+
+    nextButton.style.display = 'block';
+}
+
+document.getElementById('next-button').onclick = async () => {
+    currentQuestionIndex++;
+    if (currentQuestionIndex < 3) {
+        await showQuestion();
+    } else {
+        showFinalResult();
+    }
+};
+
+function showFinalResult() {
+    const quizContainer = document.getElementById('quiz-container');
+    quizContainer.innerHTML = `<div class="result">Quiz completed! You got ${correctResponses} out of ${questions.length} questions correct.</div>`;
+}
+
+// Start the quiz
+showQuestion();
 </script>
 {{< /rawhtml >}}
