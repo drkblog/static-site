@@ -23,6 +23,7 @@ async function fetchQuizQuestion() {
 }
 
 let currentQuestionIndex = 0;
+let totalResponses = 0;
 let correctResponses = 0;
 let question;
 
@@ -53,7 +54,8 @@ async function showQuestion() {
 function checkAnswer(selectedIndex) {
     const resultContainer = document.getElementById('result-container');
     const nextButton = document.getElementById('next-button');
-
+    
+    totalResponses++;
     if (selectedIndex === question.answer) {
         resultContainer.innerHTML = 'Correct!';
         correctResponses++;
@@ -75,7 +77,7 @@ document.getElementById('next-button').onclick = async () => {
 
 function showFinalResult() {
     const quizContainer = document.getElementById('quiz-container');
-    quizContainer.innerHTML = `<div class="result">Quiz completed! You got ${correctResponses} out of ${questions.length} questions correct.</div>`;
+    quizContainer.innerHTML = `<div class="result">Quiz completed! You got ${correctResponses} out of ${totalResponses} questions correct.</div>`;
 }
 
 // Start the quiz
