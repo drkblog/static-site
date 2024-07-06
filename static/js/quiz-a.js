@@ -43,13 +43,13 @@ async function showQuestion() {
     questionContainer.innerHTML = question.question;
     answersContainer.innerHTML = '';
 
-    question.options.forEach((answer, index) => createOption(answer, index));
+    question.options.forEach((answer, index) => createOption(answer, index, answersContainer));
 
     nextButton.style.display = 'none';
     resultContainer.textContent = '';
 }
 
-function createOption(answer, index) {
+function createOption(answer, index, answersContainer) {
   const li = document.createElement('li');
   const div = document.createElement('div');
   div.className = OPTION_DIV_CLASS;
