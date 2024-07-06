@@ -1,6 +1,8 @@
 // Copyright Leandro Fernandez (drkbugs) 2024
 
 const ANSWER_BUTTON_CLASS = 'answer-button';
+const OPTION_DIV_CLASS = 'option-div';
+const OPTION_TEXT_DIV_CLASS = 'option-text-div';
 const NEXT_BUTTON_ID = 'next-button';
 
 async function fetchQuizQuestion() {
@@ -41,20 +43,28 @@ async function showQuestion() {
     questionContainer.innerHTML = question.question;
     answersContainer.innerHTML = '';
 
-    question.options.forEach((answer, index) => {
-        const li = document.createElement('li');
-        const button = document.createElement('button');
-        button.className = ANSWER_BUTTON_CLASS;
-        button.textContent = answer;
-        button.onclick = () => checkAnswer(index);
-        li.appendChild(button);
-        answersContainer.appendChild(li);
-    });
+    question.options.forEach((answer, index) => createOption(answer, index));
 
     nextButton.style.display = 'none';
     resultContainer.textContent = '';
 }
 
+function createOption(answer, index) {
+  const li = document.createElement('li');
+  const div = document.createElement('div');
+  div.className = OPTION_DIV_CLASS;
+  const optionText = document.createElement('div');
+  optionText.className = OPTION_TEXT_DIV_CLASS;
+  optionText = answer;
+  const button = document.createElement('button');
+  button.className = ANSWER_BUTTON_CLASS;
+  button.textContent = '<<<';
+  button.onclick = () => checkAnswer(index);
+  div.appendChild(optionText);
+  div.appendChild(button);
+  li.appendChild(div);
+  answersContainer.appendChild(li);
+}
 
 function checkAnswer(selectedIndex) {
     const resultContainer = document.getElementById('result-container');
