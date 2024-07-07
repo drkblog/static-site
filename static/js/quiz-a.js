@@ -34,11 +34,14 @@ let correctResponses = 0;
 let question;
 
 async function showQuestion() {
+  const scoreContainer = document.getElementById('score-container');
   const questionContainer = document.getElementById('question-container');
   const answersContainer = document.getElementById('answers-container');
   const nextButton = document.getElementById(NEXT_BUTTON_ID);
   const resultContainer = document.getElementById('result-container');
 
+  scoreContainer.textContent = `${correctResponses} / ${totalResponses}`;
+  
   try {
     question = await fetchQuizQuestion();
 

@@ -14,12 +14,17 @@ tags:
 ---
 {{< rawhtml >}}
 <div id="quiz-container">
-    <div id="question-container" class="question"></div>
-    <ul id="answers-container" class="answers"></ul>
-    <div id="result-container" class="result"></div>
-    <button id="next-button" style="display: none;">Siguiente...</button>
+  <div id="score-container" class="score"></div>
+  <div id="question-container" class="question"></div>
+  <ul id="answers-container" class="answers"></ul>
+  <div id="result-container" class="result"></div>
+  <button id="next-button" style="display: none;">Siguiente...</button>
 </div>
 <style>
+  .score {
+    font-size: 1.4em;
+    color: #d04a2b;
+  }
   .question {
     font-size: 1.2em;
     margin-bottom: 20px;
