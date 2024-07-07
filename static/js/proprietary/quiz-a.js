@@ -35,7 +35,7 @@ let correctResponses = 0;
 let question;
 
 function setup() {
-  const state = getCookie(QUIZA_STATE_COOKIE);
+  const state = JSON.parse(getCookie(QUIZA_STATE_COOKIE));
   if (state != null) {
     totalResponses = state.total;
     correctResponses = state.correct;
@@ -43,7 +43,8 @@ function setup() {
 }
 
 function storeState() {
-  setCookie(QUIZA_STATE_COOKIE, { total: totalResponses, correct: correctResponses });
+  const state = { total: totalResponses, correct: correctResponses };
+  setCookie(QUIZA_STATE_COOKIE, JSON.stringify(state, null,2));
 }
 
 async function showQuestion() {
