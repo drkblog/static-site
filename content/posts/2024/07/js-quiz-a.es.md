@@ -54,5 +54,6 @@ tags:
     font-size: .8em;
   }
 </style>
-<script src="/js/quiz-a.js"></script>
+<script src="/js/highlight.min.js"></script>
+<script src="/js/proprietary/quiz-a.js"></script>
 {{< /rawhtml >}}

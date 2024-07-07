@@ -52,6 +52,8 @@ async function showQuestion() {
 
     nextButton.style.display = 'none';
     resultContainer.textContent = '';
+
+    hljs.highlightAll();
   } catch(error) {
     if (error instanceof End) {
       showFinalResult();
