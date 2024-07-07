@@ -39,9 +39,11 @@ tags:
   }
   .option-text-div {
     display: inline-block;
+    margin: 6px;
   }
   .answer-button {
     display: inline-block;
+    margin: 6px;
   }
   #next-button {
     font-size: .8em;
