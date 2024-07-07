@@ -4,6 +4,7 @@ const ANSWER_BUTTON_CLASS = 'answer-button';
 const OPTION_DIV_CLASS = 'option-div';
 const OPTION_TEXT_DIV_CLASS = 'option-text-div';
 const NEXT_BUTTON_ID = 'next-button';
+const QUIZA_STATE_COOKIE = 'quiza-state';
 
 class End {}
 
@@ -32,6 +33,18 @@ async function fetchQuizQuestion() {
 let totalResponses = 0;
 let correctResponses = 0;
 let question;
+
+function setup() {
+  const state = getCookie(QUIZA_STATE_COOKIE);
+  if (state != null) {
+    totalResponses = state.total;
+    correctResponses = state.correct;
+  }
+}
+
+function storeState() {
+  setCookie(QUIZA_STATE_COOKIE, { total: totalResponses, correct, correctResponses });
+}
 
 async function showQuestion() {
   const scoreContainer = document.getElementById('score-container');
@@ -98,6 +111,8 @@ function checkAnswer(selectedIndex) {
     resultContainer.innerHTML = `¡Incorrecto!<br />La respuesta era: ${question.options[question.answer]}`;
   }
 
+  storeState();
+
   nextButton.style.display = 'block';
 }
 
@@ -110,5 +125,24 @@ function showFinalResult() {
   quizContainer.innerHTML = `<div class="result">¡Cuestionario finalizado! Tuviste ${correctResponses} respuestas correctas sobre un total de ${totalResponses} preguntas.</div>`;
 }
 
+function getCookie(name) {
+  const nameEQ = name + "=";
+  const cookies = document.cookie.split(';');
+  for (let i = 0; i < cookies.length; i++) {
+    let c = cookies[i];
+    while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+    if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+  }
+  return null;
+}
+
+function setCookie(name, value, days) {
+  const date = new Date();
+  date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+  const expires = "expires=" + date.toUTCString();
+  document.cookie = `${name}=${value}; ${expires}; path=/`;
+}
+
 // Start the quiz
+setup();
 showQuestion();
