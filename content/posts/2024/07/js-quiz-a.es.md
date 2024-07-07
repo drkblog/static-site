@@ -1,16 +1,16 @@
 ---
-title: Quiz
-description: Quiz
+title: Javascript Quiz - A
+description: Preguntas para autoevaluar tus conocimientos sobre Javascript
 author: Leandro Fernandez
 type: post
 date: 2024-07-01
-slug: quiz
-# cover: "/2023/09/redflag.jpg"
+slug: js-quiz-a
 categories:
   - Learning
 tags:
   - Learning
   - learning
+  - javascript
 ---
 {{< rawhtml >}}
 <div id="quiz-container">

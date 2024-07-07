@@ -43,7 +43,7 @@ async function showQuestion() {
     question = await fetchQuizQuestion();
 
     questionContainer.innerHTML = question.question;
-    answersContainer.innerHTML = 'Selecciona una opción';
+    answersContainer.innerHTML = 'Selecciona una opción:';
 
     question.options.forEach((answer, index) => createOption(answer, index, answersContainer));
 
