@@ -5,6 +5,7 @@ const OPTION_DIV_CLASS = 'option-div';
 const OPTION_TEXT_DIV_CLASS = 'option-text-div';
 const NEXT_BUTTON_ID = 'next-button';
 const QUIZA_STATE_COOKIE = 'quiza-state';
+const PRESERVE_STATE_DAYS = 60;
 
 class End {}
 
@@ -44,7 +45,7 @@ function setup() {
 
 function storeState() {
   const state = { total: totalResponses, correct: correctResponses };
-  setCookie(QUIZA_STATE_COOKIE, JSON.stringify(state, null,2));
+  setCookie(QUIZA_STATE_COOKIE, JSON.stringify(state, null,2), PRESERVE_STATE_DAYS);
 }
 
 async function showQuestion() {
