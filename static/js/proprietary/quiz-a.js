@@ -43,7 +43,7 @@ function setup() {
 }
 
 function storeState() {
-  setCookie(QUIZA_STATE_COOKIE, { total: totalResponses, correct, correctResponses });
+  setCookie(QUIZA_STATE_COOKIE, { total: totalResponses, correct: correctResponses });
 }
 
 async function showQuestion() {
