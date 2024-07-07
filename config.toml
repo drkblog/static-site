@@ -35,7 +35,7 @@ title404 = "404 - Not found"
 
 [params.assets]
 favicon = "favicon.ico"
-customCSS = ["css/custom.css"]
+customCSS = ["css/custom.css", "css/hljs/vs.min.css"]
 customJS = ["js/custom.js"]
 gopher = "" # used in 404 template ( Generator: https://gopherize.me )
 
