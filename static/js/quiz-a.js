@@ -11,7 +11,7 @@ async function fetchQuizQuestion() {
   const workerUrl = 'https://quiz-a.drkbugs.workers.dev/';
   
   try {
-    const response = await fetch(workerUrl);
+    const response = await fetch(workerUrl, { credentials: 'include' });
     
     if (!response.ok) {
       if (response.status === 404) {
