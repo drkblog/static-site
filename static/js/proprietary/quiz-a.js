@@ -53,6 +53,7 @@ async function showQuestion() {
     nextButton.style.display = 'none';
     resultContainer.textContent = '';
 
+    hljs.configure({ cssSelector: 'code' });
     hljs.highlightAll();
   } catch(error) {
     if (error instanceof End) {
