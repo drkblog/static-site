@@ -45,7 +45,7 @@ function setup() {
 
 function storeState() {
   const state = { total: totalResponses, correct: correctResponses };
-  setCookie(QUIZA_STATE_COOKIE, JSON.stringify(state, null,2), PRESERVE_STATE_DAYS);
+  setCookie(QUIZA_STATE_COOKIE, JSON.stringify(state), PRESERVE_STATE_DAYS);
 }
 
 async function showQuestion() {
@@ -133,7 +133,7 @@ function getCookie(name) {
   for (let i = 0; i < cookies.length; i++) {
     let c = cookies[i];
     while (c.charAt(0) === ' ') c = c.substring(1, c.length);
-    if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+    if (c.indexOf(nameEQ) === 0) return decodeURIComponent(c.substring(nameEQ.length, c.length));
   }
   return null;
 }
@@ -142,7 +142,7 @@ function setCookie(name, value, days) {
   const date = new Date();
   date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
   const expires = "expires=" + date.toUTCString();
-  document.cookie = `${name}=${value}; ${expires}; path=/`;
+  document.cookie = `${name}=${encodeURIComponent(value)}; ${expires}; path=/`;
 }
 
 // Start the quiz
