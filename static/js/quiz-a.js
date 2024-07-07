@@ -5,6 +5,8 @@ const OPTION_DIV_CLASS = 'option-div';
 const OPTION_TEXT_DIV_CLASS = 'option-text-div';
 const NEXT_BUTTON_ID = 'next-button';
 
+class End {}
+
 async function fetchQuizQuestion() {
   const workerUrl = 'https://quiz-a.drkbugs.workers.dev/';
   
@@ -13,7 +15,7 @@ async function fetchQuizQuestion() {
     
     if (!response.ok) {
       if (response.status === 404) {
-        throw new Error('Quiz question not found');
+        throw new End();
       }
       throw new Error('Failed to fetch quiz question');
     }
@@ -27,26 +29,33 @@ async function fetchQuizQuestion() {
   }
 }
 
-let currentQuestionIndex = 0;
 let totalResponses = 0;
 let correctResponses = 0;
 let question;
 
 async function showQuestion() {
-    const questionContainer = document.getElementById('question-container');
-    const answersContainer = document.getElementById('answers-container');
-    const nextButton = document.getElementById(NEXT_BUTTON_ID);
-    const resultContainer = document.getElementById('result-container');
+  const questionContainer = document.getElementById('question-container');
+  const answersContainer = document.getElementById('answers-container');
+  const nextButton = document.getElementById(NEXT_BUTTON_ID);
+  const resultContainer = document.getElementById('result-container');
 
+  try {
     question = await fetchQuizQuestion();
 
     questionContainer.innerHTML = question.question;
-    answersContainer.innerHTML = '';
+    answersContainer.innerHTML = 'Selecciona una opción';
 
     question.options.forEach((answer, index) => createOption(answer, index, answersContainer));
 
     nextButton.style.display = 'none';
     resultContainer.textContent = '';
+  } catch(error) {
+    if (error instanceof End) {
+      showFinalResult();
+    } else {
+      resultContainer.textContent = `Error: ${error.message}`;
+    }
+  }
 }
 
 function createOption(answer, index, answersContainer) {
@@ -67,37 +76,32 @@ function createOption(answer, index, answersContainer) {
 }
 
 function checkAnswer(selectedIndex) {
-    const resultContainer = document.getElementById('result-container');
-    const nextButton = document.getElementById(NEXT_BUTTON_ID);
+  const resultContainer = document.getElementById('result-container');
+  const nextButton = document.getElementById(NEXT_BUTTON_ID);
 
-    const buttons = document.getElementsByClassName(ANSWER_BUTTON_CLASS);
-    for(let button of buttons) {
-      button.disabled = true;
-    }
+  const buttons = document.getElementsByClassName(ANSWER_BUTTON_CLASS);
+  for(let button of buttons) {
+    button.disabled = true;
+  }
 
-    totalResponses++;
-    if (selectedIndex === question.answer) {
-        resultContainer.innerHTML = '¡Correcto!';
-        correctResponses++;
-    } else {
-        resultContainer.innerHTML = `¡Incorrecto!<br />La respuesta era: ${question.options[question.answer]}`;
-    }
+  totalResponses++;
+  if (selectedIndex === question.answer) {
+    resultContainer.innerHTML = '¡Correcto!';
+    correctResponses++;
+  } else {
+    resultContainer.innerHTML = `¡Incorrecto!<br />La respuesta era: ${question.options[question.answer]}`;
+  }
 
-    nextButton.style.display = 'block';
+  nextButton.style.display = 'block';
 }
 
 document.getElementById('next-button').onclick = async () => {
-    currentQuestionIndex++;
-    if (currentQuestionIndex < 3) {
-        await showQuestion();
-    } else {
-        showFinalResult();
-    }
+  await showQuestion();
 };
 
 function showFinalResult() {
-    const quizContainer = document.getElementById('quiz-container');
-    quizContainer.innerHTML = `<div class="result">¡Cuestionario finalizado! Tuviste ${correctResponses} respuestas correctas sobre un total de ${totalResponses} preguntas.</div>`;
+  const quizContainer = document.getElementById('quiz-container');
+  quizContainer.innerHTML = `<div class="result">¡Cuestionario finalizado! Tuviste ${correctResponses} respuestas correctas sobre un total de ${totalResponses} preguntas.</div>`;
 }
 
 // Start the quiz
