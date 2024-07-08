@@ -42,7 +42,8 @@ tags:
     font-size: 1em;
     color: #d04a2b;
     padding: 0;
-    margin-left: 30px;
+    margin-left: 0;
+    margin-bottom: 10px;
     font-weight: bold;
   }
   .option-text-div {
@@ -55,7 +56,6 @@ tags:
     min-height: 40px;
     padding: 0;
     margin-left: 10px;
-
   }
   .result-icon {
     height: 40px;
@@ -67,6 +67,7 @@ tags:
   }
   #next-button {
     font-size: .8em;
+    margin: 0;
   }
 </style>
 <script src="/js/hljs/highlight.min.js"></script>

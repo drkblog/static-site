@@ -10,11 +10,15 @@ const PRESERVE_STATE_DAYS = 60;
 
 class End {}
 
+function getWorkerUrl() {
+  return (window.location.hostname === 'localhost' || 
+    window.location.hostname === '127.0.0.1' || 
+    window.location.hostname === '[::1]') ? 'http://127.0.0.1:8787' : 'https://quiz-a.drkbugs.workers.dev/';
+}
+
 async function fetchQuizQuestion() {
-  const workerUrl = 'https://quiz-a.drkbugs.workers.dev/';
-  
   try {
-    const response = await fetch(workerUrl, { credentials: 'include' });
+    const response = await fetch(getWorkerUrl(), { credentials: 'include' });
     
     if (!response.ok) {
       if (response.status === 404) {
@@ -119,7 +123,7 @@ function checkAnswer(selectedIndex) {
     resultContainer.innerHTML = '¡Correcto!';
     correctResponses++;
   } else {
-    resultContainer.innerHTML = `¡Incorrecto!<br>La respuesta era: ${question.options[question.answer]}`;
+    resultContainer.innerHTML = '¡Incorrecto!';
   }
 
   const resultId = getResultBoxId(question.answer);
