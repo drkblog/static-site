@@ -5,6 +5,7 @@ const OPTION_DIV_CLASS = 'option-div';
 const OPTION_TEXT_DIV_CLASS = 'option-text-div';
 const NEXT_BUTTON_ID = 'next-button';
 const QUIZA_STATE_COOKIE = 'quiza-state';
+const RESULT_BOX_CLASS = 'result-box';
 const PRESERVE_STATE_DAYS = 60;
 
 class End {}
@@ -90,10 +91,18 @@ function createOption(answer, index, answersContainer) {
   button.className = ANSWER_BUTTON_CLASS;
   button.textContent = '🠊';
   button.onclick = () => checkAnswer(index);
+  const resultBox = document.createElement('div');
+  resultBox.id = getResultBoxId(index);
+  resultBox.className = RESULT_BOX_CLASS;
   div.appendChild(button);
   div.appendChild(optionText);
+  div.appendChild(resultBox);
   li.appendChild(div);
   answersContainer.appendChild(li);
+}
+
+function getResultBoxId(index) {
+  return `quiz-result-box-${index}`;
 }
 
 function checkAnswer(selectedIndex) {
@@ -111,6 +120,12 @@ function checkAnswer(selectedIndex) {
     correctResponses++;
   } else {
     resultContainer.innerHTML = `¡Incorrecto!<br />La respuesta era: ${question.options[question.answer]}`;
+  }
+
+  const resultId = getResultBoxId(question.answer);
+  const results = document.getElementsByClassName(RESULT_BOX_CLASS);
+  for(let result of results) {
+    result.textContent = (result.id === resultId) ? '🗹' : '🗵';
   }
 
   storeState();

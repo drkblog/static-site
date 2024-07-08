@@ -18,7 +18,7 @@ tags:
   <div id="question-container" class="question"></div>
   <ul id="answers-container" class="answers"></ul>
   <div id="result-container" class="result"></div>
-  <button id="next-button" style="display: none;">Siguiente...</button>
+  <button id="next-button" style="display: none;">Siguiente ↩</button>
 </div>
 <style>
   .score {
@@ -26,20 +26,22 @@ tags:
     color: #d04a2b;
   }
   .question {
-    font-size: 1.2em;
+    font-size: 1.1em;
     margin-bottom: 20px;
   }
   .answers {
-    font-size: .8em;
+    font-size: .9em;
     list-style-type: none;
     padding: 0;
+    margin: 0;
   }
   .answers li {
     margin-bottom: 10px;
   }
   .result {
+    font-size: 1em;
     color: #d04a2b;
-    margin-top: 20px;
+    margin-left: 30px;
     font-weight: bold;
   }
   .option-text-div {
