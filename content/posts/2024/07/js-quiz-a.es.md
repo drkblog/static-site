@@ -48,6 +48,15 @@ tags:
     display: inline-block;
     margin: 6px;
   }
+  .result-box {
+    display: inline-block;
+    min-height: 40px;
+    padding: 0;
+  }
+  .result-icon {
+    height: 40px;
+    width: 40px;
+  }
   .answer-button {
     display: inline-block;
     margin: 6px;

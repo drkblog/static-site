@@ -119,13 +119,13 @@ function checkAnswer(selectedIndex) {
     resultContainer.innerHTML = '¡Correcto!';
     correctResponses++;
   } else {
-    resultContainer.innerHTML = `¡Incorrecto!<br />La respuesta era: ${question.options[question.answer]}`;
+    resultContainer.innerHTML = `¡Incorrecto!<br>La respuesta era: ${question.options[question.answer]}`;
   }
 
   const resultId = getResultBoxId(question.answer);
   const results = document.getElementsByClassName(RESULT_BOX_CLASS);
   for(let result of results) {
-    result.textContent = (result.id === resultId) ? '🗹' : '🗵';
+    result.innerHTML = (result.id === resultId) ? '<img src="/images/quiz-a/correct" class="result-icon">' : '<img src="/images/quiz-a/incorrect" class="result-icon">';
   }
 
   storeState();
