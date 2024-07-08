@@ -125,7 +125,7 @@ function checkAnswer(selectedIndex) {
   const resultId = getResultBoxId(question.answer);
   const results = document.getElementsByClassName(RESULT_BOX_CLASS);
   for(let result of results) {
-    result.innerHTML = (result.id === resultId) ? '<img src="/images/quiz-a/correct" class="result-icon">' : '<img src="/images/quiz-a/incorrect" class="result-icon">';
+    result.innerHTML = (result.id === resultId) ? '<img src="/images/quiz-a/correct.png" class="result-icon">' : '<img src="/images/quiz-a/incorrect.png" class="result-icon">';
   }
 
   storeState();

@@ -41,17 +41,21 @@ tags:
   .result {
     font-size: 1em;
     color: #d04a2b;
+    padding: 0;
     margin-left: 30px;
     font-weight: bold;
   }
   .option-text-div {
     display: inline-block;
-    margin: 6px;
+    padding: 0;
+    margin-left: 10px;
   }
   .result-box {
     display: inline-block;
     min-height: 40px;
     padding: 0;
+    margin-left: 10px;
+
   }
   .result-icon {
     height: 40px;
