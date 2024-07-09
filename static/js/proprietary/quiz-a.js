@@ -7,8 +7,6 @@ const NEXT_BUTTON_ID = 'next-button';
 const RESULT_BOX_CLASS = 'result-box';
 const PRESERVE_STATE_DAYS = 60;
 
-class End {}
-
 function getWorkerUrl() {
   return (window.location.hostname === 'localhost' || 
     window.location.hostname === '127.0.0.1' || 
@@ -20,9 +18,6 @@ async function fetchQuizQuestion() {
     const response = await fetch(getWorkerUrl(), { credentials: 'include' });
     
     if (!response.ok) {
-      if (response.status === 404) {
-        throw new End();
-      }
       throw new Error('Failed to fetch quiz question');
     }
     
@@ -141,7 +136,7 @@ document.getElementById('next-button').onclick = async () => {
 
 function showFinalResult() {
   const quizContainer = document.getElementById('quiz-container');
-  quizContainer.innerHTML = `<div class="result">¡Cuestionario finalizado! Tuviste ${state.correct} respuestas correctas sobre un total de ${state.total} preguntas.</div>`;
+  quizContainer.innerHTML = `<div class="result">¡Cuestionario finalizado!<br>Tuviste ${state.correct} respuestas correctas sobre un total de ${state.total} preguntas.</div>`;
 }
 
 // Start the quiz
