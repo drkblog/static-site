@@ -46,6 +46,10 @@ tags:
     margin-bottom: 10px;
     font-weight: bold;
   }
+  .option-div {
+    display: flex;
+    align-items: center;
+  }
   .option-text-div {
     display: inline-block;
     padding: 0;
@@ -58,6 +62,7 @@ tags:
     margin-left: 10px;
   }
   .result-icon {
+    margin: 0;
     height: 40px;
     width: 40px;
   }
