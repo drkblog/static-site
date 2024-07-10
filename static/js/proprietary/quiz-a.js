@@ -30,16 +30,17 @@ async function fetchQuizQuestion() {
   }
 }
 
-async function putResult(result) {
+async function putResult(answer) {
   try {
     const requestOptions = {
       method: 'PUT',
       credentials: 'include'
     };
-    const response = await fetch(getWorkerUrl() + '/' + result, requestOptions);
+    const response = await fetch(getWorkerUrl() + '/' + answer, requestOptions);
     if (!response.ok) {
       throw new Error('Failed to fetch quiz question');
     }
+    return await response.json();
   } catch (error) {
     console.error('Error fetching quiz question:', error);
     throw error;
@@ -64,10 +65,10 @@ async function showQuestion() {
     }
 
     scoreContainer.textContent = `${state.correct} / ${state.total}`;
-    questionContainer.innerHTML = state.question.question;
+    questionContainer.innerHTML = state.question;
     answersContainer.innerHTML = 'Selecciona una opción:';
 
-    state.question.options.forEach((answer, index) => createOption(answer, index, answersContainer));
+    state.options.forEach((answer, index) => createOption(answer, index, answersContainer));
 
     nextButton.style.display = 'none';
     resultContainer.textContent = '';
@@ -113,21 +114,19 @@ async function checkAnswer(selectedIndex) {
     button.disabled = true;
   }
 
-  const correct = selectedIndex === state.question.answer;
-  if (correct) {
+  const result = await putResult(selectedIndex);
+  if (result.isCorrect) {
     resultContainer.innerHTML = '¡Correcto!';
   } else {
     resultContainer.innerHTML = '¡Incorrecto!';
   }
 
-  const resultId = getResultBoxId(state.question.answer);
+  const resultId = getResultBoxId(result.correctIndex);
   const results = document.getElementsByClassName(RESULT_BOX_CLASS);
   for(let result of results) {
     result.innerHTML = (result.id === resultId) ? '<img src="/images/quiz-a/correct.png" class="result-icon">' : '<img src="/images/quiz-a/incorrect.png" class="result-icon">';
   }
   nextButton.style.display = 'block';
-
-  await putResult((correct) ? 'correct' : 'incorrect');
 }
 
 document.getElementById('next-button').onclick = async () => {
