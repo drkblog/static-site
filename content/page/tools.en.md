@@ -5,4 +5,4 @@ slug: "tools"
 comments: false
 ---
 
-- [PALERINOFU encription]({{< relref path="/content/page/tools/palerinofu.es.md" lang="es" >}})
+- [PALERINOFU encription]({{< relref path="tools/palerinofu" lang="es" >}})

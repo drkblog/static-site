@@ -11,7 +11,7 @@ tags:
   - java
 ---
 
-En la [nota anterior sobre expresiones regulares]({{< relref path="/content/posts/2021/09/regex-p3.es.md" lang="es" >}}) explicamos cómo definir grupos de captura en nuestra expresión regular para enfocarnos en una o más partes de nuestra **regex** y al mismo tiempo poder ignorar otras que estamos forzados a incluir para asegurarnos de encontrar lo que buscamos. Y con eso cubrimos las tres patas fundacionales de las expresiones regulares: coincidencia de caracteres (con literales y metasecuencias), cuantificadores y grupos de captura. Estas herramientas nos permitirán escribir una cantidad más que digna de regex. Pero en pos de hacer el aprendizaje accesible hemos dejado varios detalles de lado. Vamos a empezar a cubrir esas áreas a partir que ahora.
+En la [nota anterior sobre expresiones regulares]({{< relref path="/posts/2021/09/regex-p3.es.md" lang="es" >}}) explicamos cómo definir grupos de captura en nuestra expresión regular para enfocarnos en una o más partes de nuestra **regex** y al mismo tiempo poder ignorar otras que estamos forzados a incluir para asegurarnos de encontrar lo que buscamos. Y con eso cubrimos las tres patas fundacionales de las expresiones regulares: coincidencia de caracteres (con literales y metasecuencias), cuantificadores y grupos de captura. Estas herramientas nos permitirán escribir una cantidad más que digna de regex. Pero en pos de hacer el aprendizaje accesible hemos dejado varios detalles de lado. Vamos a empezar a cubrir esas áreas a partir que ahora.
 
 ---
 

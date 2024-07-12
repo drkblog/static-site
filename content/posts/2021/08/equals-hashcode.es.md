@@ -74,7 +74,7 @@ El **hash table** es una buena solución de compromiso entre esos dos extremos. 
 
 ### Función hash en Java
 
-En Java se decidió darle a las clases la responsabilidad de definir la función hash que más se adecúe a ellas. Por eso todas las clases de Java heredan de la clase Object una implementación del método `int hashCode()` que retorna un entero a partir de la posición de memoria donde se encuentra el objeto. Y esto se debe a que la implementación por defecto de `equals()` compara las posiciones de memoria para saber si es la misma instancia, y en ese caso retornar verdadero. Y en caso contrario, falso. Para entender los pormenores de las comparaciones en Java te recomiendo leer [el artículo sobre equals en Java]({{< relref path="/content/posts/2021/09/equals-java.es.md" lang="es" >}}):
+En Java se decidió darle a las clases la responsabilidad de definir la función hash que más se adecúe a ellas. Por eso todas las clases de Java heredan de la clase Object una implementación del método `int hashCode()` que retorna un entero a partir de la posición de memoria donde se encuentra el objeto. Y esto se debe a que la implementación por defecto de `equals()` compara las posiciones de memoria para saber si es la misma instancia, y en ese caso retornar verdadero. Y en caso contrario, falso. Para entender los pormenores de las comparaciones en Java te recomiendo leer [el artículo sobre equals en Java]({{< relref path="/posts/2021/09/equals-java.es.md" lang="es" >}}):
 
 {{< highlight java >}}
 public boolean equals(Object obj) {

@@ -11,7 +11,7 @@ tags:
   - java
 ---
 
-In the [previous post about regular expressions]({{< relref path="/content/posts/2021/09/regex-p2.en.md" lang="en" >}}) we explained how to express a variable number of characters at certain position in our **regex**. And how to write a regex that would allow us to capture words inside a context (specific characters before and after the word). But we've seen that context is considered part of the matching by the regex engine and we need to avoid that. Let's see how to solve that issue.
+In the [previous post about regular expressions]({{< relref path="/posts/2021/09/regex-p2.en.md" lang="en" >}}) we explained how to express a variable number of characters at certain position in our **regex**. And how to write a regex that would allow us to capture words inside a context (specific characters before and after the word). But we've seen that context is considered part of the matching by the regex engine and we need to avoid that. Let's see how to solve that issue.
 
 ---
 
@@ -23,7 +23,7 @@ While writing a **regex** we can specify part of it as a capture group. This won
 
 We start here because this is the most common use for them taking into account **regular expressions** usage with programming and tools supporting them. A good text editor will allow us to use regex to find and replace. In that case the capture groups are useful only when replacing. But when we use regex in programming we can benefit from capture groups both while searching and replacing.
 
-[In the first post]({{< relref path="/content/posts/2021/08/regex.en.md" lang="en" >}}) I said a regex is always enclosed within two slashes. But that is not true. To write a replacement regular expression we use three slashes. We start with a regex just like we know them and then we add the replacement and a final slash like `/regex/replacement/`. In WYSWYG text editors we usually have a field for the replacement in the UI so we don't use this form.
+[In the first post]({{< relref path="/posts/2021/08/regex.en.md" lang="en" >}}) I said a regex is always enclosed within two slashes. But that is not true. To write a replacement regular expression we use three slashes. We start with a regex just like we know them and then we add the replacement and a final slash like `/regex/replacement/`. In WYSWYG text editors we usually have a field for the replacement in the UI so we don't use this form.
 
 At the end of this series' second post we replaced (or actually we tried to replace) the variable names in this snippet with the **regex** in the previous paragraph. That would be the same as using this replacement regex `/[a-z>]\s\w+[\s;]/xyz/`:
 

@@ -9,7 +9,7 @@ Para empezar ***drkbugs*** es mi sobrenombre autoelegido.
 Es el nombre que uso en la mayoría de las cuentas de mis redes sociales públicas.
 Y también es mi sitio web.
 
-_About [the media]({{< relref path="/content/page/media.en.md" lang="en" >}}) in my channels_.
+_About [the media]({{< relref path="/page/media" lang="en" >}}) in my channels_.
 
 ## Sobre Leandro Fernandez
 

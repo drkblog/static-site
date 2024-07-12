@@ -11,7 +11,7 @@ tags:
   - java
 ---
 
-In the first [post about regular expressions]({{< relref path="/content/posts/2021/08/regex.en.md" lang="en" >}}) we've explained how it is possible to write a regex matching specific characters (or character group/type) at certain position. In a way that makes it very easy to write a **regex** that finds an `x` followed by a white space, followed by a `y`. But what if we need to find an `a` followed by four to six decimal digits, followed by a `b`. That is also possible and we are going to see how to do it now.
+In the first [post about regular expressions]({{< relref path="/posts/2021/08/regex.en.md" lang="en" >}}) we've explained how it is possible to write a regex matching specific characters (or character group/type) at certain position. In a way that makes it very easy to write a **regex** that finds an `x` followed by a white space, followed by a `y`. But what if we need to find an `a` followed by four to six decimal digits, followed by a `b`. That is also possible and we are going to see how to do it now.
 
 ---
 
@@ -50,7 +50,7 @@ This new structure (one or more literals enclosed inside brackets) matches any o
 
 ### More about brackets
 
-Even though we don't need this to keep evolving the regex for the example we are trying to solve, it is worth sharing some more brackets use cases. We've used them as a list of literals or [meta sequences]({{< relref path="/content/posts/2021/08/regex.en.md#some-commonly-used-meta-sequences" lang="en" >}}) but we can also put ranges inside them.
+Even though we don't need this to keep evolving the regex for the example we are trying to solve, it is worth sharing some more brackets use cases. We've used them as a list of literals or [meta sequences]({{< relref path="/posts/2021/08/regex.en.md#some-commonly-used-meta-sequences" lang="en" >}}) but we can also put ranges inside them.
 
 If we needed to capture an unknown date with English format `MM-DD-AAAA` where we use two digits for the month, two for the day, and four digits for the year. And also knowing the dates will be at least from year 2000, we could write `/[01]\d-[0-3]\d-[2-9]\d{3}/` where we are allowing a zero or one followed by any digit for the month, zero, one, two or three followed by any digit for the day and any digit from 2 to 9 followed by three digits for the year.
 

@@ -7,7 +7,7 @@ copyright = "drkbugs"
 
 theme = "minimo"
 
-googleAnalytics = "UA-29993798-1"
+googleAnalytics = "361368449"
 
 Paginate = 5
 preserveTaxonomyNames = true
@@ -139,8 +139,9 @@ hrefTargetBlank = true
 [languages]
   [languages.es]
     languageName = "Español"
-    description = "Ingeniería de software"
     weight = 1
+    [languages.es.params]
+      description = "Ingeniería de software"
     [languages.es.menu]
       [[languages.es.menu.main]]
         name = "Inicio"
@@ -173,8 +174,9 @@ hrefTargetBlank = true
 
   [languages.en]
     languageName = "English"
-    description = "Software engineering"
     weight = 2
+    [languages.en.params]
+      description = "Software engineering"
     [languages.en.menu]
       [[languages.en.menu.main]]
         name = "Home"

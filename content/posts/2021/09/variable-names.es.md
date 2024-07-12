@@ -21,7 +21,7 @@ Respetar esta simple guía nos permite escribir código mucho más limpio, claro
 
 > Si bien cada lenguaje tiene su propio estilo recomendado. Todos nos permiten de alguna manera escribir nombres descriptivos. En **Java** es _lower camel case_, pero también se puede utilizar _snake case_ como en **C** y otros lenguajes, lo que quedaría `precio_promedio`.
 
-Tomemos el siguiente segmento de código en **Java**. Para quienes conozcan el lenguaje aclaro que la anotación `@Value` es de [Lombok]( {{< relref path="/content/posts/2020/09/escribir-menos-codigo-y-mas-legible.es.md" lang="es" >}}) y nos provee constructores y getters. Para los que no conocen Java pero sí algún lenguaje con sintaxis similar será posible tener una idea de lo que se intenta hacer ya que el código no es muy complicado. Y aclararé luego las partes menos intuitivas. Lo importante es que nos tomemos unos minutos para leerlo y tratar de entender qué ocurre ahí:
+Tomemos el siguiente segmento de código en **Java**. Para quienes conozcan el lenguaje aclaro que la anotación `@Value` es de [Lombok]( {{< relref path="/posts/2020/09/escribir-menos-codigo-y-mas-legible.es.md" lang="es" >}}) y nos provee constructores y getters. Para los que no conocen Java pero sí algún lenguaje con sintaxis similar será posible tener una idea de lo que se intenta hacer ya que el código no es muy complicado. Y aclararé luego las partes menos intuitivas. Lo importante es que nos tomemos unos minutos para leerlo y tratar de entender qué ocurre ahí:
 
 {{< highlight java "linenos=table" >}}
     @Value

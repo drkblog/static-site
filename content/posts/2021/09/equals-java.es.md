@@ -39,7 +39,7 @@ Funciona con otros tipos como boolean en la línea 6 y entre tipos distintos per
 
 Además de los tipos nativos para expresar booleanos, números enteros y flotantes, Java permite la declaración de variables de referencia. Son referencias a objetos en la memoria Heap. Aunque el lenguaje no expone este detalle, estas referencias son punteros. Contienen la posición de memoria del objeto. Es decir que no dejan de ser un número entero. Y como tales pueden ser comparadas con el operador `==`.
 
-> Ver todos los [tipos de dato de Java]({{< relref path="/content/posts/2021/09/tipos-de-dato-de-java.es.md" >}})
+> Ver todos los [tipos de dato de Java]({{< relref path="/posts/2021/09/tipos-de-dato-de-java.es.md" >}})
 
 {{< highlight java "linenos=table" >}}
 String a = new String("a");
@@ -79,7 +79,7 @@ public static void main(String[] args) {
 }
 {{< /highlight >}}
 
-> Estoy utilizando Lombok para evitar escribir el constructor de la clase User. Aquí hay un [artículo para conocer más sobre Lombok]({{< relref path="/content/posts/2020/09/escribir-menos-codigo-y-mas-legible.es.md" lang="es" >}}).
+> Estoy utilizando Lombok para evitar escribir el constructor de la clase User. Aquí hay un [artículo para conocer más sobre Lombok]({{< relref path="/posts/2020/09/escribir-menos-codigo-y-mas-legible.es.md" lang="es" >}}).
 
 Nuevamente estamos creando dos instancias de una clase y luego comparando las referencias en la línea 11. Y esto retornará _falso_ porque son distintas. Apuntan a direcciones de memoria diferentes. Luego en la línea 12 utilizamos el método `equals()` para compararlas y también recibimos _falso_. Y eso se debe a que la implementación que Object nos provee de este método se limita a comparar las referencias. Este es el código del método:
 
@@ -126,7 +126,7 @@ Creo que la confusión se produce porque la implementación por defecto del `equ
 
 ## Reemplazo de hashCode()
 
-Cuando reemplazamos `equals()` estamos obligados a reemplazar `hashCode()` para mantener el contrato entre estos métodos: el segundo tiene que retornar el mismo valor para dos instancias que al ser comparadas entre ellas por el primero sean equivalentes. Recomiendo que leas el artículos sobre el [contrato equals-hashCode]({{< relref path="/content/posts/2023/04/importancia-del-contrato-equals-hashcode-java.es.md" lang="es" >}}) para entender por qué.
+Cuando reemplazamos `equals()` estamos obligados a reemplazar `hashCode()` para mantener el contrato entre estos métodos: el segundo tiene que retornar el mismo valor para dos instancias que al ser comparadas entre ellas por el primero sean equivalentes. Recomiendo que leas el artículos sobre el [contrato equals-hashCode]({{< relref path="/posts/2023/04/importancia-del-contrato-equals-hashcode-java.es.md" lang="es" >}}) para entender por qué.
 
 ---
 

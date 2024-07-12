@@ -9,7 +9,7 @@ It is my self-appointed nickname to begin with.
 It is the name I use for most of my public social network accounts.
 And it's this website name too.
 
-About [the media]({{< relref path="/content/page/media.en.md" lang="en" >}}) in my channels.
+About [the media]({{< relref path="/page/media" lang="en" >}}) in my channels.
 
 ## About Leandro Fernandez
 
