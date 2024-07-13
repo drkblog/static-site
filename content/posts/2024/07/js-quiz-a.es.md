@@ -74,6 +74,12 @@ tags:
     font-size: .8em;
     margin: 0;
   }
+  code {
+    font-size: .9em;
+  }
+  pre code {
+    font-size: .8em;
+  }
 </style>
 <script src="/js/hljs/highlight.min.js"></script>
 <script src="/js/proprietary/quiz-a.js"></script>
