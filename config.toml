@@ -7,8 +7,6 @@ copyright = "drkbugs"
 
 theme = "minimo"
 
-googleAnalytics = "361368449"
-
 Paginate = 5
 preserveTaxonomyNames = true
 
@@ -18,6 +16,10 @@ enableRobotsTXT = true # generate robots.txt
 pygmentsCodefences = true
 
 enableEmoji = true
+
+[services]
+  [services.googleAnalytics]
+    ID = 'G-W0C641Z4RE'
 
 [taxonomies]
 author = "authors"
