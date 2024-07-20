@@ -37,6 +37,7 @@ function setupWidgets(loggedIn) {
 
 function displaySessionInformation() {
   document.getElementById('session-username').textContent = window.drkbugsSession.displayName;
-  document.getElementById('session-username').alt = window.drkbugsSession.username;
+  document.getElementById('session-avatar').src = window.drkbugsSession.avatarUrl;
+  document.getElementById('session-avatar').alt = window.drkbugsSession.username;
 }
 
