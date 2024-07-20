@@ -11,6 +11,7 @@ function getCurrentSession() {
 }
 
 function signIn() {
+  window.location.href = `${DRK_COM_AR_SESSION_ENDPOINT}/login/google`;
 }
 
 function signOut() {
@@ -19,8 +20,23 @@ function signOut() {
 window.onload = async () => {
   try {
     window.drkbugsSession = await getCurrentSession();
-    console.log(window.drkbugsSession);
+    setupWidgets(window.drkbugsSession != null);
   } catch (error) {
+    setupWidgets(false);
     console.error('Unable to get session:', error);
   }
 };
+function setupWidgets(loggedIn) {
+  if (loggedIn) {
+    displaySessionInformation();
+    document.getElementById('session-section').style.display = 'block';
+  } else {
+    document.getElementById('login-section').style.display = 'block';
+  }
+}
+
+function displaySessionInformation() {
+  document.getElementById('session-username').textContent = window.drkbugsSession.displayName;
+  document.getElementById('session-username').alt = window.drkbugsSession.username;
+}
+

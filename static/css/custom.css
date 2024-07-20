@@ -60,13 +60,13 @@ h4 {
   cursor: pointer;
 }
 
-.widget-session .greetings {
+#session-widget #session-section {
   display: none;
 }
-.widget-session .login {
+#session-widget #login-section {
   display: none;
 }
-.widget-session #avatar {
+#session-widget #avatar {
   border-radius: 0.4em;
   max-width: 50%;
 }
