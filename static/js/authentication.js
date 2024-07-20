@@ -1,7 +1,7 @@
 const DRK_COM_AR_SESSION_ENDPOINT = 'https://drk-com-ar-session.drkbugs.workers.dev'; 
 
 function getCurrentSession() {
-  return fetch(DRK_COM_AR_SESSION_ENDPOINT + '/session')
+  return fetch(DRK_COM_AR_SESSION_ENDPOINT + '/session', { credentials: 'include' })
     .then(response => response.json())
     .then(session => session)
     .catch(error => {
