@@ -66,7 +66,11 @@ h4 {
 #session-widget #login-section {
   display: none;
 }
-#session-widget #avatar {
+#session-section > img, button, span {
+  display: block;
+  text-align: right;
+}
+#session-section #session-avatar {
   border-radius: 0.4em;
   max-width: 50%;
 }
