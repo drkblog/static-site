@@ -15,6 +15,7 @@ function signIn() {
 }
 
 function signOut() {
+  window.location.href = `${DRK_COM_AR_SESSION_ENDPOINT}/logout/google`;
 }
 
 window.onload = async () => {

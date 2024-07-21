@@ -68,11 +68,21 @@ h4 {
 }
 #session-section > img, button, span {
   display: block;
-  text-align: right;
+  margin-left: auto;
 }
 #session-section #session-avatar {
   border-radius: 0.4em;
   max-width: 50%;
+}
+#session-login-button::before {
+  content: "\2386";
+  font-size: 16px;
+  margin-right: 5px;
+}
+#session-logout-button::before {
+  content: "\274C";
+  font-size: 16px;
+  margin-right: 5px;
 }
 
 .rawhtml-content {
