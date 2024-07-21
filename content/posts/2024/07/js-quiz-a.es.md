@@ -5,6 +5,8 @@ author: Leandro Fernandez
 type: post
 date: 2024-07-01
 slug: js-quiz-a
+[_build]
+  list = 'never'
 images: [/images/quiz-a/preview.png]
 categories:
   - Learning
