@@ -2,12 +2,20 @@ const DRK_COM_AR_SESSION_ENDPOINT = 'https://drk-com-ar-session.drkbugs.workers.
 
 function getCurrentSession() {
   return fetch(DRK_COM_AR_SESSION_ENDPOINT + '/session', { credentials: 'include' })
-    .then(response => response.json())
+    .then(response => returnSessionIfOk(response))
     .then(session => session)
     .catch(error => {
       console.error('Unable to get session:', error);
       throw error;
     });
+}
+
+function returnSessionIfOk(response) {
+  if (!response.ok) {
+    console.error(`Unable to get session: ${response.status} ${response.statusText}`);
+    return null;
+  }
+  return response.json();
 }
 
 function signIn() {
