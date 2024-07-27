@@ -66,7 +66,7 @@ h4 {
 #session-widget #login-section {
   display: none;
 }
-#session-section > img, button, span {
+#session-section > img, #session-section > button, #session-section > span {
   display: block;
   margin-left: auto;
 }
