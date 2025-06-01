@@ -1,10 +1,10 @@
 const DRK_COM_AR_SESSION_ENDPOINT = 'https://drk-com-ar-session.drkbugs.workers.dev'; 
 
+
 async function getCurrentSession() {
   try {
     const response = await fetch(DRK_COM_AR_SESSION_ENDPOINT + '/session', { credentials: 'include' });
-    const session = returnSessionIfOk(response);
-    return session;
+    return returnSessionIfOk(response);
   } catch (error) {
     console.error('Unable to get session:', error);
     throw error;
