@@ -1,4 +1,5 @@
-const DRK_COM_AR_GRAMPS_ENDPOINT = 'https://gramps.drkbugs.workers.dev'; 
+// const DRK_COM_AR_GRAMPS_ENDPOINT = 'https://gramps.drkbugs.workers.dev'; 
+const DRK_COM_AR_GRAMPS_ENDPOINT = 'https://drk-com-ar-session.drkbugs.workers.dev'; 
 
 async function getGrampsSession() {
   try {
