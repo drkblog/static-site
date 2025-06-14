@@ -10,7 +10,7 @@ const PRESERVE_STATE_DAYS = 60;
 function getWorkerUrl() {
   return (window.location.hostname === 'localhost' || 
     window.location.hostname === '127.0.0.1' || 
-    window.location.hostname === '[::1]') ? 'http://127.0.0.1:8787' : 'https://quiz-a.drkbugs.workers.dev';
+    window.location.hostname === '[::1]') ? 'http://127.0.0.1:8787' : 'https://quiza.drk.com.ar';
 }
 
 async function fetchQuizQuestion() {
