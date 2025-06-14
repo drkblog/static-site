@@ -1,4 +1,4 @@
-const DRK_COM_AR_SESSION_ENDPOINT = 'https://drk-com-ar-session.drkbugs.workers.dev'; 
+const DRK_COM_AR_SESSION_ENDPOINT = 'https://service.drk.com.ar'; 
 
 
 async function getCurrentSession() {
