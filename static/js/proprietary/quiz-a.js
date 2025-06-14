@@ -1,4 +1,4 @@
-// Copyright Leandro Fernandez (drkbugs) 2024
+// Copyright Leandro Fernandez (drkbugs) 2024, 2025
 
 const ANSWER_BUTTON_CLASS = 'answer-button';
 const OPTION_DIV_CLASS = 'option-div';
