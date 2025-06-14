@@ -1,9 +1,9 @@
-const DRK_COM_AR_SESSION_ENDPOINT = 'https://service.drk.com.ar'; 
+const DRK_COM_AR_SERVICE_ENDPOINT = 'https://service.drk.com.ar'; 
 
 
 async function getCurrentSession() {
   try {
-    const response = await fetch(DRK_COM_AR_SESSION_ENDPOINT + '/session', { credentials: 'include' });
+    const response = await fetch(DRK_COM_AR_SERVICE_ENDPOINT + '/session', { credentials: 'include' });
     return returnSessionIfOk(response);
   } catch (error) {
     console.error('Unable to get session:', error);
@@ -20,11 +20,11 @@ function returnSessionIfOk(response) {
 }
 
 function signIn() {
-  window.location.href = `${DRK_COM_AR_SESSION_ENDPOINT}/login/google`;
+  window.location.href = `${DRK_COM_AR_SERVICE_ENDPOINT}/login/google`;
 }
 
 function signOut() {
-  window.location.href = `${DRK_COM_AR_SESSION_ENDPOINT}/logout/google`;
+  window.location.href = `${DRK_COM_AR_SERVICE_ENDPOINT}/logout/google`;
 }
 
 window.onload = async () => {
