@@ -29,7 +29,6 @@ function signOut() {
 window.onload = async () => {
   try {
     window.drkbugsSession = await getCurrentSession();
-    console.debug('User registered:', window.drkbugsSession.isRegistered);
     setupWidgets(window.drkbugsSession != null);
   } catch (error) {
     setupWidgets(false);
@@ -47,6 +46,7 @@ function setupWidgets(loggedIn) {
 }
 
 function displaySessionInformation() {
+  console.debug('User registered:', window.drkbugsSession.isRegistered);
   document.getElementById('session-username').textContent = window.drkbugsSession.displayName;
   document.getElementById('session-avatar').src = window.drkbugsSession.avatarUrl;
   document.getElementById('session-avatar').alt = window.drkbugsSession.username;
