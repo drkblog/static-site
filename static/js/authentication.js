@@ -1,6 +1,5 @@
 const DRK_COM_AR_SERVICE_ENDPOINT = 'https://service.drk.com.ar'; 
 
-
 async function getCurrentSession() {
   try {
     const response = await fetch(DRK_COM_AR_SERVICE_ENDPOINT + '/session', { credentials: 'include' });
@@ -30,6 +29,7 @@ function signOut() {
 window.onload = async () => {
   try {
     window.drkbugsSession = await getCurrentSession();
+    console.debug('User registered:', window.drkbugsSession.isRegistered);
     setupWidgets(window.drkbugsSession != null);
   } catch (error) {
     setupWidgets(false);
