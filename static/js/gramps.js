@@ -101,7 +101,7 @@ async function fetchSurnames() {
     showLoading();
     
     try {
-        const response = await fetch(DRK_COM_AR_GRAMPS_ENDPOINT + '/surnames', { credentials: 'include' });
+        const response = await fetch(DRK_COM_AR_GRAMPS_ENDPOINT + '/', { credentials: 'include' });
         
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
