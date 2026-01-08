@@ -33,7 +33,17 @@ No se procesarán vocales acentuadas.
     'e': 'l',
     'i': 'r',
     'o': 'n',
-    'u': 'f'
+    'u': 'f',
+    'Á': 'P',
+    'É': 'L',
+    'Í': 'R',
+    'Ó': 'N',
+    'Ú': 'F',
+    'á': 'p',
+    'é': 'l',
+    'í': 'r',
+    'ó': 'n',
+    'ú': 'f'
   }
   function doMap(character) {
     const result = mapper[character];
@@ -62,3 +72,5 @@ No se procesarán vocales acentuadas.
   input.onkeyup = handler;
 </script>
 {{< /rawhtml >}}
+
+> Si te interesa podés conocer la breve [historia de PALERINOFU]({{< relref path="/posts/2026/01/historia-de-palerinofu.es.md" lang="es" >}}).
