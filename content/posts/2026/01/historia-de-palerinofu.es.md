@@ -38,6 +38,6 @@ En mayo de 2025 me sorprendió recibir un mail desde Rumania con "palerinofu" en
 
 El 6 de enero de 2026 recibí otro correo (que casi pierdo en la carpeta de spam) sobre PALERINOFU. Esta vez desde Hungría. Nuevamente una persona se había topado con mi encriptador y quería saber cómo yo lo conocía. Esta vez el correo vino con un dato muy interesante. La referencia más antigua, que conozco al día de escribir este artículo, sobre este sistema de encriptación. En 1935, [József Grätzer](https://hu.wikipedia.org/wiki/Gr%C3%A4tzer_J%C3%B3zsef) publicó un libro llamado Sicc con una compilación juegos de ingenio, acertijos y sistemas de encriptación. En la página 76 describe el sistema, en una versión ajustada para el idioma húngaro, llamada PA-LE-RI-NO-FU-KÖ-TÉ-SÜ.
 
-![Sicc - József Grätzer - 1935](/static/2026/01/józsef-grätzer-palerinofu.png)
+![Sicc - József Grätzer - 1935](/2026/01/józsef-grätzer-palerinofu.png)
 
 Hasta que nuevas pruebas sean aportadas, consideraré que PALERINOFU es un sistema de encriptación inventado por József Grätzer en 1935. Desde luego, si tenés más información sobre este método te agradeceré que me contactes. O también para contarme cómo llegaste aquí o si conocías PALERINOFU antes.
