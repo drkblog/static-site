@@ -18,15 +18,13 @@ tags:
 
 PALERINOFU es un encriptador y desencriptador de mensajes muy simple, que consiste en intercambiar las vocales del español por una consonante. Y la consonantes correspondiente, por la vocal. Utilizando un mapa:
 
+```
 P ⇆ A
-
 L ⇆ E
-
 R ⇆ I
-
 N ⇆ O
-
 F ⇆ U
+```
 
 Aunque no es muy sofisticado, es suficiente para que un texto deje de ser legible en forma directa. Por ejemplo, la frase "**esta frase ya no es legible**" se convierte en "**lstp uipsl yp on ls elgrbel**" cuando la encriptamos con éste método. Y esta misma simplicidad explica que yo lo haya aprendido cuando tenía apenas siete años de edad. Que a su vez me llevó a escribir esta [implemetanción del encriptador en Javascript](/palerinofu).
 
