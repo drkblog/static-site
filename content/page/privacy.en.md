@@ -7,7 +7,7 @@ comments: false
 
 Last updated: February 20th, 2022
 
-drkbugs ("us", "we", or "our") operates https://drk.com.ar (the "Site"). This page informs you of our policies regarding the collection, use and disclosure of Personal Information we receive from users of the Site.
+drkbugs ("us", "we", or "our") operates https://drk.com.ar and https://drkbugs.com (the "Sites"). This page informs you of our policies regarding the collection, use and disclosure of Personal Information we receive from users of the Site.
 
 We will not use or share your information with anyone except as described in this Privacy Policy.
 
@@ -17,7 +17,7 @@ We will not use or share your information with anyone except as described in thi
 
 While using our Service, we may ask you to provide us with certain personally identifiable information that can be used to contact or identify you. Personally identifiable information may include, but is not limited to, your email address, name, phone number, postal address, other information ("Personal Information").
 
-We collect this information for the purpose of providing the Service, identifying and communicating with you, responding to your requests/inquiries, personalizing your experience on our website, and improving our services. We also collect the information for the purpose of our legitimate interests in maintaining and managing our website and ensuring its security.
+We collect this information for the purpose of providing the Service, identifying and communicating with you, responding to your requests/inquiries, personalizing your experience on our websites, and improving our services. We also collect the information for the purpose of our legitimate interests in maintaining and managing our websites and ensuring its security.
 
 ## Log Data
 
@@ -94,7 +94,7 @@ This Privacy Policy is effective as of February 20th, 2022 and will remain in ef
 
 We reserve the right to update or change our Privacy Policy at any time and you should check this Privacy Policy periodically. Your continued use of the Service after we post any modifications to the Privacy Policy on this page will constitute your acknowledgment of the modifications and your consent to abide and be bound by the modified Privacy Policy.
 
-If we make any material changes to this Privacy Policy, we will notify you either through the email address you have provided us, or by placing a prominent notice on our website.
+If we make any material changes to this Privacy Policy, we will notify you either through the email address you have provided us, or by placing a prominent notice on our websites.
 
 ## User data deletion
 
