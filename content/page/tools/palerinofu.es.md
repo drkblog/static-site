@@ -6,8 +6,7 @@ comments: false
 ---
 
 Escribí un mensaje para obtener el encriptado o simplemente el encriptado para obtener la versión sin encriptar.
-Se procesarán hasta 512 caracteres.
-No se procesarán vocales acentuadas.
+Se procesarán hasta 512 caracteres y no se procesarán vocales acentuadas.
 
 {{< rawhtml >}}
 <textarea id="input"></textarea>
