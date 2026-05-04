@@ -11,13 +11,13 @@ class CashflowApp {
   async init() {
     // Check authentication first
     try {
-      const response = await fetch(`${this.apiBase}/health`);
+      const response = await fetch(`${this.apiBase}/health`, { credentials: 'include' });
       if (!response.ok) {
         throw new Error('API not available');
       }
       
       // Try to access a protected endpoint to check authentication
-      const authResponse = await fetch(`${this.apiBase}/api/cashflow/summary`);
+      const authResponse = await fetch(`${this.apiBase}/api/cashflow/summary`, { credentials: 'include' });
       if (authResponse.status === 401) {
         // Not authenticated, redirect to root
         window.location.href = '/';
@@ -40,9 +40,9 @@ class CashflowApp {
     try {
       // Load data in parallel
       const [entriesResponse, summaryResponse, categoriesResponse] = await Promise.all([
-        fetch(`${this.apiBase}/api/cashflow`),
-        fetch(`${this.apiBase}/api/cashflow/summary`),
-        fetch(`${this.apiBase}/api/cashflow/categories`)
+        fetch(`${this.apiBase}/api/cashflow`, { credentials: 'include' }),
+        fetch(`${this.apiBase}/api/cashflow/summary`, { credentials: 'include' }),
+        fetch(`${this.apiBase}/api/cashflow/categories`, { credentials: 'include' })
       ]);
 
       const [entries, summary, categories] = await Promise.all([
@@ -258,13 +258,15 @@ class CashflowApp {
         response = await fetch(`${this.apiBase}/api/cashflow/${this.currentEditId}`, {
           method: 'PUT',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(data)
+          body: JSON.stringify(data),
+          credentials: 'include'
         });
       } else {
         response = await fetch(`${this.apiBase}/api/cashflow`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(data)
+          body: JSON.stringify(data),
+          credentials: 'include'
         });
       }
 
@@ -306,7 +308,8 @@ class CashflowApp {
   async confirmDelete() {
     try {
       const response = await fetch(`${this.apiBase}/api/cashflow/${this.currentDeleteId}`, {
-        method: 'DELETE'
+        method: 'DELETE',
+        credentials: 'include'
       });
 
       if (!response.ok) {
@@ -329,7 +332,7 @@ class CashflowApp {
     }
 
     try {
-      const response = await fetch(`${this.apiBase}/api/cashflow/categories?type=${type}`);
+      const response = await fetch(`${this.apiBase}/api/cashflow/categories?type=${type}`, { credentials: 'include' });
       const categories = await response.json();
       
       const categorySelect = document.getElementById('category');
@@ -371,8 +374,8 @@ class CashflowApp {
   async refreshData() {
     try {
       const [entriesResponse, summaryResponse] = await Promise.all([
-        fetch(`${this.apiBase}/api/cashflow`),
-        fetch(`${this.apiBase}/api/cashflow/summary`)
+        fetch(`${this.apiBase}/api/cashflow`, { credentials: 'include' }),
+        fetch(`${this.apiBase}/api/cashflow/summary`, { credentials: 'include' })
       ]);
 
       const [entries, summary] = await Promise.all([
