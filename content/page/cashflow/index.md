@@ -3,9 +3,11 @@ title: Cashflow Manager
 description: Manage your personal finances with our modern cashflow tracking tool
 slug: "cashflow"
 comments: false
+sitemapExclude: true
 layout: "single"
 ---
 
+{{< rawhtml >}}
 <link rel="stylesheet" href="./style.css">
 
 <div id="cashflow-app" class="cashflow-container">
@@ -144,3 +146,4 @@ layout: "single"
 
 
 <script src="./script.js"></script>
+{{< /rawhtml >}}
