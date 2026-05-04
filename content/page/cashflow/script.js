@@ -1,7 +1,7 @@
 // Cashflow App JavaScript
 class CashflowApp {
   constructor() {
-    this.apiBase = 'https://cashflow.drkbugs.workers.dev';
+    this.apiBase = 'https://cashflow.drk.com.ar';
     this.entries = [];
     this.categories = [];
     this.currentEditId = null;
