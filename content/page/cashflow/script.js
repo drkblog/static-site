@@ -99,8 +99,8 @@ class CashflowApp {
     
     this.categories.forEach(category => {
       const option = document.createElement('option');
-      option.value = category;
-      option.textContent = category;
+      option.value = category.name || category; // fallback for backward compatibility
+      option.textContent = category.name || category;
       categorySelect.appendChild(option);
     });
   }
@@ -366,10 +366,11 @@ class CashflowApp {
       const categorySelect = document.getElementById('category');
       categorySelect.innerHTML = '<option value="">Select Category</option>';
       
+      // Handle new API response format (objects with name property)
       categories.forEach(category => {
         const option = document.createElement('option');
-        option.value = category;
-        option.textContent = category;
+        option.value = category.name || category; // fallback for backward compatibility
+        option.textContent = category.name || category;
         categorySelect.appendChild(option);
       });
     } catch (error) {
