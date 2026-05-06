@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ .Title }}</title>
+    <meta name="description" content="{{ .Description }}">
+    {{- if .Site.Params.assets.customCSS }}
+        {{- range .Site.Params.assets.customCSS }}
+            <link rel="stylesheet" href="{{ . | relURL }}">
+        {{- end }}
+    {{- end }}
+    {{- if .Site.Params.assets.customJS }}
+        {{- range .Site.Params.assets.customJS }}
+            <script src="{{ . | relURL }}"></script>
+        {{- end }}
+    {{- end }}
+</head>
+<body>
+    {{ .Content }}
+</body>
+</html>

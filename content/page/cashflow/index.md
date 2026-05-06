@@ -4,7 +4,7 @@ description: Manage your personal finances with our modern cashflow tracking too
 slug: "cashflow"
 comments: false
 sitemapExclude: true
-layout: "single"
+layout: "single-cashflow"
 ---
 
 {{< rawhtml >}}
