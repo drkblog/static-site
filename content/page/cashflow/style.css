@@ -199,11 +199,19 @@
 .amount-income {
   color: #10b981;
   font-weight: 600;
+  text-align: right;
+  white-space: nowrap;
+  font-family: 'Courier New', monospace;
+  min-width: 120px;
 }
 
 .amount-expense {
   color: #ef4444;
   font-weight: 600;
+  text-align: right;
+  white-space: nowrap;
+  font-family: 'Courier New', monospace;
+  min-width: 120px;
 }
 
 .type-badge {
