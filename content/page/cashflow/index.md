@@ -46,6 +46,9 @@ layout: "single"
         <button id="add-entry-btn" class="btn btn-primary">
           <span class="icon">+</span> Add Entry
         </button>
+        <button id="manage-categories-btn" class="btn btn-secondary">
+          <span class="icon">📁</span> Manage Categories
+        </button>
         <div class="filter-controls">
           <select id="type-filter" class="filter-select">
             <option value="">All Types</option>
@@ -139,6 +142,54 @@ layout: "single"
       <div class="modal-actions">
         <button class="btn btn-secondary" id="cancel-delete">Cancel</button>
         <button class="btn btn-danger" id="confirm-delete">Delete Entry</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Categories Management Modal -->
+  <div id="categories-modal" class="modal" style="display: none;">
+    <div class="modal-content categories-modal">
+      <div class="modal-header">
+        <h2>Manage Categories</h2>
+        <button class="close-btn" id="close-categories-modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <!-- Add New Category Form -->
+        <div class="add-category-section">
+          <h3>Add New Category</h3>
+          <form id="add-category-form" class="category-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="new-category-name">Category Name *</label>
+                <input type="text" id="new-category-name" name="name" required>
+              </div>
+              <div class="form-group">
+                <label for="new-category-type">Type *</label>
+                <select id="new-category-type" name="type" required>
+                  <option value="">Select Type</option>
+                  <option value="income">Income</option>
+                  <option value="expense">Expense</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary">Add Category</button>
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <!-- Existing Categories List -->
+        <div class="categories-list-section">
+          <h3>Existing Categories</h3>
+          <div class="categories-tabs">
+            <button class="tab-btn active" data-type="all">All</button>
+            <button class="tab-btn" data-type="income">Income</button>
+            <button class="tab-btn" data-type="expense">Expense</button>
+          </div>
+          <div id="categories-list" class="categories-list">
+            <!-- Categories will be populated here -->
+          </div>
+        </div>
       </div>
     </div>
   </div>

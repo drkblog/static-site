@@ -208,6 +208,34 @@ class CashflowApp {
         this.hideDeleteModal();
       }
     });
+
+    // Categories management
+    document.getElementById('manage-categories-btn').addEventListener('click', () => {
+      this.showCategoriesModal();
+    });
+
+    document.getElementById('close-categories-modal').addEventListener('click', () => {
+      this.hideCategoriesModal();
+    });
+
+    document.getElementById('add-category-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      this.addCategory();
+    });
+
+    // Category tabs
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        this.switchCategoryTab(e.target.dataset.type);
+      });
+    });
+
+    // Close categories modal on outside click
+    document.getElementById('categories-modal').addEventListener('click', (e) => {
+      if (e.target.id === 'categories-modal') {
+        this.hideCategoriesModal();
+      }
+    });
   }
 
   showModal(entryId = null) {
@@ -388,6 +416,172 @@ class CashflowApp {
       this.renderEntries();
     } catch (error) {
       console.error('Error refreshing data:', error);
+    }
+  }
+
+  // Categories Management Methods
+  async showCategoriesModal() {
+    await this.loadCategories();
+    document.getElementById('categories-modal').style.display = 'flex';
+    this.renderCategoriesList('all');
+  }
+
+  hideCategoriesModal() {
+    document.getElementById('categories-modal').style.display = 'none';
+  }
+
+  async loadCategories() {
+    try {
+      const response = await fetch(`${this.apiBase}/api/cashflow/categories`, { credentials: 'include' });
+      if (response.ok) {
+        this.categories = await response.json();
+      }
+    } catch (error) {
+      console.error('Error loading categories:', error);
+    }
+  }
+
+  renderCategoriesList(filterType = 'all') {
+    const categoriesList = document.getElementById('categories-list');
+    let filteredCategories = this.categories;
+
+    if (filterType !== 'all') {
+      filteredCategories = this.categories.filter(cat => cat.type === filterType);
+    }
+
+    if (filteredCategories.length === 0) {
+      categoriesList.innerHTML = '<p class="no-categories">No categories found for this type.</p>';
+      return;
+    }
+
+    categoriesList.innerHTML = filteredCategories.map(category => `
+      <div class="category-item" data-id="${category.id}">
+        <div class="category-info">
+          <span class="category-name">${this.escapeHtml(category.name)}</span>
+          <span class="category-type type-badge ${category.type}">${category.type}</span>
+        </div>
+        <div class="category-actions">
+          <button class="btn btn-sm btn-warning" onclick="app.editCategory(${category.id})">Edit</button>
+          <button class="btn btn-sm btn-danger" onclick="app.deleteCategory(${category.id})">Delete</button>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  switchCategoryTab(type) {
+    // Update active tab
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.classList.remove('active');
+    });
+    document.querySelector(`[data-type="${type}"]`).classList.add('active');
+    
+    // Render filtered categories
+    this.renderCategoriesList(type);
+  }
+
+  async addCategory() {
+    const formData = new FormData(document.getElementById('add-category-form'));
+    const data = {
+      name: formData.get('name'),
+      type: formData.get('type')
+    };
+
+    if (!data.name || !data.type) {
+      alert('Please fill in all required fields.');
+      return;
+    }
+
+    try {
+      const response = await fetch(`${this.apiBase}/api/cashflow/categories`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+        credentials: 'include'
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to add category');
+      }
+
+      // Reset form
+      document.getElementById('add-category-form').reset();
+      
+      // Reload and render categories
+      await this.loadCategories();
+      this.renderCategoriesList(document.querySelector('.tab-btn.active').dataset.type);
+      
+      // Update main app categories
+      this.populateCategories();
+    } catch (error) {
+      console.error('Error adding category:', error);
+      alert('Failed to add category. Please try again.');
+    }
+  }
+
+  editCategory(categoryId) {
+    const category = this.categories.find(c => c.id === categoryId);
+    if (!category) return;
+
+    const newName = prompt('Edit category name:', category.name);
+    if (newName && newName.trim() && newName !== category.name) {
+      this.updateCategory(categoryId, { name: newName.trim() });
+    }
+  }
+
+  async updateCategory(categoryId, data) {
+    try {
+      const response = await fetch(`${this.apiBase}/api/cashflow/categories/${categoryId}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+        credentials: 'include'
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to update category');
+      }
+
+      // Reload and render categories
+      await this.loadCategories();
+      this.renderCategoriesList(document.querySelector('.tab-btn.active').dataset.type);
+      
+      // Update main app categories
+      this.populateCategories();
+    } catch (error) {
+      console.error('Error updating category:', error);
+      alert('Failed to update category. Please try again.');
+    }
+  }
+
+  deleteCategory(categoryId) {
+    const category = this.categories.find(c => c.id === categoryId);
+    if (!category) return;
+
+    if (confirm(`Are you sure you want to delete the category "${category.name}"? This action cannot be undone.`)) {
+      this.confirmDeleteCategory(categoryId);
+    }
+  }
+
+  async confirmDeleteCategory(categoryId) {
+    try {
+      const response = await fetch(`${this.apiBase}/api/cashflow/categories/${categoryId}`, {
+        method: 'DELETE',
+        credentials: 'include'
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to delete category');
+      }
+
+      // Reload and render categories
+      await this.loadCategories();
+      this.renderCategoriesList(document.querySelector('.tab-btn.active').dataset.type);
+      
+      // Update main app categories
+      this.populateCategories();
+    } catch (error) {
+      console.error('Error deleting category:', error);
+      alert('Failed to delete category. Please try again.');
     }
   }
 }
