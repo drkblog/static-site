@@ -49,15 +49,28 @@ layout: "single-cashflow"
         <button id="manage-categories-btn" class="btn btn-secondary">
           <span class="icon">📁</span> Manage Categories
         </button>
-        <div class="filter-controls">
+        <div class="time-mode-controls">
+          <label for="time-mode">Time Mode:</label>
+          <select id="time-mode" class="time-mode-select">
+            <option value="current_month" selected>Current Month</option>
+            <option value="all_time">All Time</option>
+            <option value="custom_range">Custom Range</option>
+          </select>
+        </div>
+        <div class="filter-controls" id="date-filters" style="display: none;">
           <select id="type-filter" class="filter-select">
             <option value="">All Types</option>
             <option value="income">Income</option>
             <option value="expense">Expense</option>
           </select>
-          <input type="date" id="start-date" class="filter-input">
-          <input type="date" id="end-date" class="filter-input">
+          <input type="date" id="start-date" class="filter-input" placeholder="Start Date">
+          <input type="date" id="end-date" class="filter-input" placeholder="End Date">
           <button id="apply-filters" class="btn btn-secondary">Apply Filters</button>
+        </div>
+        <div class="custom-range-controls" id="custom-range-controls" style="display: none;">
+          <input type="date" id="custom-start-date" class="filter-input" placeholder="Start Date">
+          <input type="date" id="custom-end-date" class="filter-input" placeholder="End Date">
+          <button id="apply-custom-range" class="btn btn-secondary">Apply Range</button>
         </div>
       </div>
     </section>
@@ -100,8 +113,8 @@ layout: "single-cashflow"
           <input type="number" id="amount" name="amount" step="0.01" min="0.01" required>
         </div>
         <div class="form-group">
-          <label for="description">Description *</label>
-          <input type="text" id="description" name="description" required>
+          <label for="description">Description</label>
+          <input type="text" id="description" name="description" placeholder="Optional description...">
         </div>
         <div class="form-group">
           <label for="type">Type *</label>

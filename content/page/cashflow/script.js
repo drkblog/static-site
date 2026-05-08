@@ -38,9 +38,34 @@ class CashflowApp {
 
   async loadApp() {
     try {
+      // Get current time mode
+      const timeMode = document.getElementById('time-mode').value || 'current_month';
+      
+      // Build API URL with time mode parameters
+      let apiUrl = `${this.apiBase}/api/cashflow`;
+      const params = new URLSearchParams();
+      
+      if (timeMode === 'current_month') {
+        // Default to current month - no params needed
+      } else if (timeMode === 'all_time') {
+        params.append('time_mode', 'all_time');
+      } else if (timeMode === 'custom_range') {
+        params.append('time_mode', 'custom_range');
+        const startDate = document.getElementById('custom-start-date').value;
+        const endDate = document.getElementById('custom-end-date').value;
+        if (startDate && endDate) {
+          params.append('start_date', startDate);
+          params.append('end_date', endDate);
+        }
+      }
+      
+      if (params.toString()) {
+        apiUrl += '?' + params.toString();
+      }
+      
       // Load data in parallel
       const [entriesResponse, summaryResponse, categoriesResponse] = await Promise.all([
-        fetch(`${this.apiBase}/api/cashflow`, { credentials: 'include' }),
+        fetch(apiUrl, { credentials: 'include' }),
         fetch(`${this.apiBase}/api/cashflow/summary`, { credentials: 'include' }),
         fetch(`${this.apiBase}/api/cashflow/categories`, { credentials: 'include' })
       ]);
@@ -146,6 +171,23 @@ class CashflowApp {
     });
   }
 
+  handleTimeModeChange() {
+    const timeMode = document.getElementById('time-mode').value;
+    const dateFilters = document.getElementById('date-filters');
+    const customRangeControls = document.getElementById('custom-range-controls');
+    
+    if (timeMode === 'custom_range') {
+      dateFilters.style.display = 'none';
+      customRangeControls.style.display = 'block';
+    } else {
+      dateFilters.style.display = 'block';
+      customRangeControls.style.display = 'none';
+    }
+    
+    // Reload data with new time mode
+    this.loadApp();
+  }
+
   escapeHtml(text) {
     const div = document.createElement('div');
     div.textContent = text;
@@ -153,6 +195,11 @@ class CashflowApp {
   }
 
   setupEventListeners() {
+    // Time mode change
+    document.getElementById('time-mode').addEventListener('change', () => {
+      this.handleTimeModeChange();
+    });
+
     // Add entry button
     document.getElementById('add-entry-btn').addEventListener('click', () => {
       this.showModal();
