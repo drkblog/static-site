@@ -50,9 +50,10 @@ layout: "single-cashflow"
           <span class="icon">📁</span> Manage Categories
         </button>
         <div class="time-mode-controls">
-          <label for="time-mode">Time Mode:</label>
+          <label for="time-mode">Period:</label>
           <select id="time-mode" class="time-mode-select">
             <option value="current_month" selected>Current Month</option>
+            <option value="previous_month">Previous Month</option>
             <option value="all_time">All Time</option>
             <option value="custom_range">Custom Range</option>
           </select>

@@ -47,6 +47,8 @@ class CashflowApp {
       
       if (timeMode === 'current_month') {
         // Default to current month - no params needed
+      } else if (timeMode === 'previous_month') {
+        params.append('time_mode', 'previous_month');
       } else if (timeMode === 'all_time') {
         params.append('time_mode', 'all_time');
       } else if (timeMode === 'custom_range') {
