@@ -29,14 +29,25 @@ class CashflowApp {
       }
       
       // Authenticated, initialize the app
-      await this.loadApp();
+      this.hideLoading();
+      this.setupEventListeners();
+      
+      // Initialize period selectors
+      this.populateYearSelector();
+      this.setCurrentMonth();
+      
+      // Set today's date as default
+      document.getElementById('date').valueAsDate = new Date();
+      
+      // Load initial data
+      await this.loadData();
     } catch (error) {
       console.error('Initialization error:', error);
       this.showError('Failed to initialize app. Please try again later.');
     }
   }
 
-  async loadApp() {
+  async loadData() {
     try {
       // Get current month and year
       const month = document.getElementById('month-select').value || String(new Date().getMonth() + 1);
@@ -64,15 +75,6 @@ class CashflowApp {
       this.updateSummary(summary);
       this.populateCategories();
       this.renderEntries();
-      this.hideLoading();
-      this.setupEventListeners();
-      
-      // Initialize period selectors
-      this.populateYearSelector();
-      this.setCurrentMonth();
-      
-      // Set today's date as default
-      document.getElementById('date').valueAsDate = new Date();
     } catch (error) {
       console.error('Error loading app data:', error);
       this.showError('Failed to load data. Please refresh the page.');
@@ -180,7 +182,7 @@ class CashflowApp {
 
   handlePeriodChange() {
     // Reload data with new month and year
-    this.loadApp();
+    this.loadData();
   }
 
   escapeHtml(text) {
@@ -448,22 +450,7 @@ class CashflowApp {
 
   async refreshData() {
     try {
-      const month = document.getElementById('month-select').value;
-      const year = document.getElementById('year-select').value;
-      
-      const [entriesResponse, summaryResponse] = await Promise.all([
-        fetch(`${this.apiBase}/api/cashflow?month=${month}&year=${year}`, { credentials: 'include' }),
-        fetch(`${this.apiBase}/api/cashflow/summary?month=${month}&year=${year}`, { credentials: 'include' })
-      ]);
-
-      const [entries, summary] = await Promise.all([
-        entriesResponse.json(),
-        summaryResponse.json()
-      ]);
-
-      this.entries = entries;
-      this.updateSummary(summary);
-      this.renderEntries();
+      await this.loadData();
     } catch (error) {
       console.error('Error refreshing data:', error);
     }
