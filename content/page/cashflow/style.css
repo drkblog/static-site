@@ -193,6 +193,10 @@
   text-align: right;
 }
 
+.entries-table td:nth-child(5) {
+  text-align: right;
+}
+
 .entries-table tbody tr:hover {
   background: #f9fafb;
 }
