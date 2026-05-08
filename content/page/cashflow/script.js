@@ -18,8 +18,8 @@ class CashflowApp {
       
       // Try to access a protected endpoint to check authentication
       const authResponse = await fetch(`${this.apiBase}/api/cashflow/summary`, { credentials: 'include' });
-      if (authResponse.status === 401) {
-        // Not authenticated, redirect to root
+      if (authResponse.status === 401 || authResponse.status === 403) {
+        // Not authenticated or forbidden, redirect to root
         window.location.href = '/';
         return;
       }
