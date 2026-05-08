@@ -38,37 +38,17 @@ class CashflowApp {
 
   async loadApp() {
     try {
-      // Get current time mode
-      const timeMode = document.getElementById('time-mode').value || 'current_month';
+      // Get current month and year
+      const month = document.getElementById('month-select').value || String(new Date().getMonth() + 1);
+      const year = document.getElementById('year-select').value || String(new Date().getFullYear());
       
-      // Build API URL with time mode parameters
-      let apiUrl = `${this.apiBase}/api/cashflow`;
-      const params = new URLSearchParams();
-      
-      if (timeMode === 'current_month') {
-        // Default to current month - no params needed
-      } else if (timeMode === 'previous_month') {
-        params.append('time_mode', 'previous_month');
-      } else if (timeMode === 'all_time') {
-        params.append('time_mode', 'all_time');
-      } else if (timeMode === 'custom_range') {
-        params.append('time_mode', 'custom_range');
-        const startDate = document.getElementById('custom-start-date').value;
-        const endDate = document.getElementById('custom-end-date').value;
-        if (startDate && endDate) {
-          params.append('start_date', startDate);
-          params.append('end_date', endDate);
-        }
-      }
-      
-      if (params.toString()) {
-        apiUrl += '?' + params.toString();
-      }
+      // Build API URL with month and year parameters
+      let apiUrl = `${this.apiBase}/api/cashflow?month=${month}&year=${year}`;
       
       // Load data in parallel
       const [entriesResponse, summaryResponse, categoriesResponse] = await Promise.all([
         fetch(apiUrl, { credentials: 'include' }),
-        fetch(`${this.apiBase}/api/cashflow/summary`, { credentials: 'include' }),
+        fetch(`${this.apiBase}/api/cashflow/summary?month=${month}&year=${year}`, { credentials: 'include' }),
         fetch(`${this.apiBase}/api/cashflow/categories`, { credentials: 'include' })
       ]);
 
@@ -86,6 +66,10 @@ class CashflowApp {
       this.renderEntries();
       this.hideLoading();
       this.setupEventListeners();
+      
+      // Initialize period selectors
+      this.populateYearSelector();
+      this.setCurrentMonth();
       
       // Set today's date as default
       document.getElementById('date').valueAsDate = new Date();
@@ -173,20 +157,29 @@ class CashflowApp {
     });
   }
 
-  handleTimeModeChange() {
-    const timeMode = document.getElementById('time-mode').value;
-    const dateFilters = document.getElementById('date-filters');
-    const customRangeControls = document.getElementById('custom-range-controls');
+  populateYearSelector() {
+    const yearSelect = document.getElementById('year-select');
+    const currentYear = new Date().getFullYear();
     
-    if (timeMode === 'custom_range') {
-      dateFilters.style.display = 'none';
-      customRangeControls.style.display = 'block';
-    } else {
-      dateFilters.style.display = 'block';
-      customRangeControls.style.display = 'none';
+    // Add years from current year - 3 to current year + 3
+    for (let year = currentYear - 3; year <= currentYear + 3; year++) {
+      const option = document.createElement('option');
+      option.value = String(year);
+      option.textContent = year;
+      if (year === currentYear) {
+        option.selected = true;
+      }
+      yearSelect.appendChild(option);
     }
-    
-    // Reload data with new time mode
+  }
+
+  setCurrentMonth() {
+    const currentMonth = new Date().getMonth() + 1; // JavaScript months are 0-indexed
+    document.getElementById('month-select').value = String(currentMonth);
+  }
+
+  handlePeriodChange() {
+    // Reload data with new month and year
     this.loadApp();
   }
 
@@ -197,9 +190,13 @@ class CashflowApp {
   }
 
   setupEventListeners() {
-    // Time mode change
-    document.getElementById('time-mode').addEventListener('change', () => {
-      this.handleTimeModeChange();
+    // Period change listeners
+    document.getElementById('month-select').addEventListener('change', () => {
+      this.handlePeriodChange();
+    });
+
+    document.getElementById('year-select').addEventListener('change', () => {
+      this.handlePeriodChange();
     });
 
     // Add entry button
@@ -451,9 +448,12 @@ class CashflowApp {
 
   async refreshData() {
     try {
+      const month = document.getElementById('month-select').value;
+      const year = document.getElementById('year-select').value;
+      
       const [entriesResponse, summaryResponse] = await Promise.all([
-        fetch(`${this.apiBase}/api/cashflow`, { credentials: 'include' }),
-        fetch(`${this.apiBase}/api/cashflow/summary`, { credentials: 'include' })
+        fetch(`${this.apiBase}/api/cashflow?month=${month}&year=${year}`, { credentials: 'include' }),
+        fetch(`${this.apiBase}/api/cashflow/summary?month=${month}&year=${year}`, { credentials: 'include' })
       ]);
 
       const [entries, summary] = await Promise.all([

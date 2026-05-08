@@ -134,11 +134,25 @@
 }
 
 /* Form Elements */
-.filter-select {
+.filter-select,
+.period-select {
   padding: 8px 12px;
   border: 1px solid #d1d5db;
   border-radius: 6px;
   background: white;
+}
+
+.period-controls {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.period-controls label {
+  font-weight: 500;
+  color: #374151;
+  white-space: nowrap;
 }
 
 .filter-input {

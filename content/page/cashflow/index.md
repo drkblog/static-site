@@ -49,29 +49,33 @@ layout: "single-cashflow"
         <button id="manage-categories-btn" class="btn btn-secondary">
           <span class="icon">📁</span> Manage Categories
         </button>
-        <div class="time-mode-controls">
-          <label for="time-mode">Period:</label>
-          <select id="time-mode" class="time-mode-select">
-            <option value="current_month" selected>Current Month</option>
-            <option value="previous_month">Previous Month</option>
-            <option value="all_time">All Time</option>
-            <option value="custom_range">Custom Range</option>
+        <div class="period-controls">
+          <label for="month-select">Period:</label>
+          <select id="month-select" class="period-select">
+            <option value="1">January</option>
+            <option value="2">February</option>
+            <option value="3">March</option>
+            <option value="4">April</option>
+            <option value="5">May</option>
+            <option value="6">June</option>
+            <option value="7">July</option>
+            <option value="8">August</option>
+            <option value="9">September</option>
+            <option value="10">October</option>
+            <option value="11">November</option>
+            <option value="12">December</option>
+          </select>
+          <select id="year-select" class="period-select">
+            <!-- Year options will be populated by JavaScript -->
           </select>
         </div>
-        <div class="filter-controls" id="date-filters" style="display: none;">
+        <div class="filter-controls">
           <select id="type-filter" class="filter-select">
             <option value="">All Types</option>
             <option value="income">Income</option>
             <option value="expense">Expense</option>
           </select>
-          <input type="date" id="start-date" class="filter-input" placeholder="Start Date">
-          <input type="date" id="end-date" class="filter-input" placeholder="End Date">
           <button id="apply-filters" class="btn btn-secondary">Apply Filters</button>
-        </div>
-        <div class="custom-range-controls" id="custom-range-controls" style="display: none;">
-          <input type="date" id="custom-start-date" class="filter-input" placeholder="Start Date">
-          <input type="date" id="custom-end-date" class="filter-input" placeholder="End Date">
-          <button id="apply-custom-range" class="btn btn-secondary">Apply Range</button>
         </div>
       </div>
     </section>
